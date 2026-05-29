@@ -228,11 +228,7 @@ function buildContactLinks(r) {
     `También podés ver todo nuestro catálogo en: https://respiraventas.github.io/vinylshop/`,
   ].filter(l => l !== undefined).join('\n');
 
-  // Subject sin tildes ni caracteres especiales — compatibilidad con todos los clientes de mail
-  function toAscii(s) {
-    const m={'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u','ñ':'n','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U','Ü':'U','Ñ':'N','¡':'','¿':''};return (s||'').replace(/[áéíóúüñÁÉÍÓÚÜÑ¡¿]/g, c => m[c]??c);
-  }
-  const mailSubject = `Consulta: ${toAscii(r.artista)} - ${toAscii(r.album || r.titulo)}`;
+  const mailSubject = `Consulta: ${r.artista} - ${r.album || r.titulo}`;
   const mailBody = [
     `Hola,`,
     ``,
@@ -249,7 +245,7 @@ function buildContactLinks(r) {
 
   return {
     waHref:   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`,
-    mailHref: `mailto:${MAIL_TO}?subject=${mailSubject.replace(/&/g, 'y')}&body=${encodeURIComponent(mailBody)}`,
+    mailHref: `mailto:${MAIL_TO}?subject=${mailSubject.replace(/&/g,'y')}&body=${mailBody.replace(/&/g,'y').replace(/\n/g,'%0A')}`,
   };
 }
 
