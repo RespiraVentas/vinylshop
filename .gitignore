@@ -1,0 +1,12 @@
+﻿# Excel y archivos de trabajo — no van al repo
+Archivos/
+*.xlsx
+*.xlsb
+*.xlsm
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
