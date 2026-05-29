@@ -239,6 +239,7 @@ function buildContactLinks(r) {
     linkML ? `Link en Mercado Libre: ${linkML}` : '',
     ``,
     `¿Está disponible con el 10% de descuento por compra directa?`,
+    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
     ``,
     `Gracias!`,
   ].filter(l => l !== undefined).join('\n');
