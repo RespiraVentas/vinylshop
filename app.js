@@ -228,7 +228,7 @@ function buildContactLinks(r) {
     `También podés ver todo nuestro catálogo en: https://respiraventas.github.io/vinylshop/`,
   ].filter(l => l !== undefined).join('\n');
 
-  const mailSubject = `Consulta: ${r.artista} - ${r.album || r.titulo}`;
+  const mailSubject = `Consulta: ${r.artista} — ${r.album || r.titulo}`;
   const mailBody = [
     `Hola,`,
     ``,
@@ -245,7 +245,7 @@ function buildContactLinks(r) {
 
   return {
     waHref:   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`,
-    mailHref: `mailto:${MAIL_TO}?subject=${mailSubject.replace(/&/g,'y')}&body=${mailBody.replace(/&/g,'y').replace(/\n/g,'%0A')}`,
+    mailHref: `mailto:${MAIL_TO}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`,
   };
 }
 
