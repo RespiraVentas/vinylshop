@@ -230,7 +230,7 @@ function buildContactLinks(r) {
 
   // Subject sin tildes ni caracteres especiales — compatibilidad con todos los clientes de mail
   function toAscii(s) {
-    return (s || '').normalize('NFD').replace(new RegExp('[\\\\u0300-\\\\u036f]', 'g'), '').replace(/[\xA1\xBF]/g, '');
+    const m={'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u','ñ':'n','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U','Ü':'U','Ñ':'N','¡':'','¿':''};return (s||'').replace(/[áéíóúüñÁÉÍÓÚÜÑ¡¿]/g, c => m[c]??c);
   }
   const mailSubject = `Consulta: ${toAscii(r.artista)} - ${toAscii(r.album || r.titulo)}`;
   const mailBody = [
