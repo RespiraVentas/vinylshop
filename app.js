@@ -249,7 +249,7 @@ function buildContactLinks(r) {
 
   return {
     waHref:   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`,
-    mailHref: `mailto:${MAIL_TO}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`,
+    mailHref: `mailto:${MAIL_TO}?subject=${mailSubject.replace(/&/g, 'y')}&body=${encodeURIComponent(mailBody)}`,
   };
 }
 
