@@ -213,7 +213,8 @@ function buildContactLinks(r) {
   const linkML     = r.url || '';
 
   const ahorro = precio && descuento ? precio - descuento : 0;
-  const ahorroStr = ahorro ? ` (¡Ahorrás $ ${ahorro.toLocaleString('es-AR')}!)` : '';
+  const ahorroStr     = ahorro ? ` (¡Ahorrás $ ${ahorro.toLocaleString('es-AR')}!)` : '';
+  const ahorroStrMail = ahorro ? ` (¡Ahorro $ ${ahorro.toLocaleString('es-AR')}!)`  : '';
 
   const waText = [
     `Hola! Me interesa este disco:`,
@@ -239,7 +240,7 @@ function buildContactLinks(r) {
     linkML ? `Link en Mercado Libre: ${linkML}` : '',
     ``,
     `¿Está disponible con el 10% de descuento por compra directa?`,
-    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
+    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStrMail}` : '',
     ``,
     `Gracias!`,
   ].filter(l => l !== undefined).join('\n');
