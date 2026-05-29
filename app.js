@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const PAGE_SIZE  = 60;
 const WA_NUMBER  = '5493416068888';
@@ -228,7 +228,11 @@ function buildContactLinks(r) {
     `También podés ver todo nuestro catálogo en: https://respiraventas.github.io/vinylshop/`,
   ].filter(l => l !== undefined).join('\n');
 
-  const mailSubject = `Consulta: ${r.artista} — ${r.album || r.titulo}`;
+  // Subject sin tildes ni caracteres especiales — compatibilidad con todos los clientes de mail
+  function toAscii(s) {
+    return (s || '').normalize('NFD').replace(new RegExp('[\\\\u0300-\\\\u036f]', 'g'), '').replace(/[\xA1\xBF]/g, '');
+  }
+  const mailSubject = `Consulta: ${toAscii(r.artista)} - ${toAscii(r.album || r.titulo)}`;
   const mailBody = [
     `Hola,`,
     ``,
