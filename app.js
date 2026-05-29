@@ -224,6 +224,8 @@ function buildContactLinks(r) {
     linkML ? `Link: ${linkML}` : '',
     ``,
     `¿Está disponible?`,
+    ``,
+    `También podés ver todo nuestro catálogo en: https://respiraventas.github.io/vinylshop/`,
   ].filter(l => l !== undefined).join('\n');
 
   const mailSubject = `Consulta: ${r.artista} — ${r.album || r.titulo}`;
