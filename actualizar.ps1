@@ -78,6 +78,10 @@ Write-OK "Fecha: $((Get-Item $xlFile).LastWriteTime.ToString('dd/MM/yyyy HH:mm')
 # ── Paso 2: abrir Excel y exportar JSON ───────────────────────────────────────
 Write-Step "Leyendo datos del Excel (puede tardar 1–2 minutos)…"
 
+# Cerrar cualquier instancia de Excel abierta para evitar conflictos COM
+Stop-Process -Name "EXCEL" -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 2
+
 $excel = New-Object -ComObject Excel.Application
 $excel.Visible       = $false
 $excel.DisplayAlerts = $false
