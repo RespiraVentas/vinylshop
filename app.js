@@ -34,7 +34,7 @@ const modalClose   = document.getElementById('modal-close');
 async function init() {
   try {
     loadingEl.style.display = 'flex';
-    const res = await fetch('data/records.json');
+    const res = await fetch('data/records.json?v=' + Date.now());
     if (!res.ok) throw new Error(res.statusText);
     const raw = await res.json();
     allRecords = raw.map(normalize);
