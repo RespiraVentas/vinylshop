@@ -286,6 +286,7 @@ function getRelated(r, count = 4) {
 
 // ── Modal ─────────────────────────────────────────────────────────────────────
 function openModal(r) {
+  document.querySelector('.modal').scrollTop = 0;
   const gallery = document.getElementById('modal-gallery');
   if (r.imagenes?.length) {
     gallery.innerHTML = r.imagenes

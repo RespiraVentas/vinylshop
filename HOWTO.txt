@@ -1,0 +1,97 @@
+﻿╔══════════════════════════════════════════════════════════════╗
+║         CÓMO ACTUALIZAR Y MANTENER EL SITIO                 ║
+║         Respira Ventas — Catálogo de Vinilos                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+Sitio web: https://respiraventas.github.io/vinylshop/
+Repositorio: https://github.com/RespiraVentas/vinylshop
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ACTUALIZAR EL CATÁLOGO (cuando cambian discos en ML)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Descargar el Excel actualizado desde Drapi (como siempre).
+   Guardarlo en cualquier carpeta de la PC.
+
+2. Hacer doble clic en:
+   C:\Users\Pablo\Documents\Claude_Trabajo\vinylshop\actualizar.bat
+
+3. Esperar ~2 minutos. El script hace todo solo:
+   - Lee el Excel más reciente
+   - Genera el JSON con los discos activos
+   - Sube los cambios a GitHub
+   - GitHub despliega el sitio automáticamente
+
+4. Verificar en: https://respiraventas.github.io/vinylshop/
+
+NOTA: El script busca automáticamente el archivo RV*.xlsx más
+reciente en toda la carpeta Claude_Trabajo (incluye subcarpetas).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CÓMO FUNCIONA EL BADGE "NUEVO"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Los discos publicados más recientemente aparecen con un chip
+verde "Nuevo" en la tarjeta (máximo 80 discos).
+- Aparece automáticamente al actualizar el catálogo.
+- Desaparece solo después de 30 días sin nuevas publicaciones.
+- No requiere ninguna acción manual.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MODIFICAR EL SITIO (textos, colores, funciones)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Los archivos del sitio están en:
+  C:\Users\Pablo\Documents\Claude_Trabajo\vinylshop\
+
+  index.html  → estructura de la página (header, footer, modal)
+  style.css   → colores, tipografía, diseño visual
+  app.js      → lógica: búsqueda, filtros, WhatsApp, mail
+
+Para modificar y subir los cambios:
+1. Editar el archivo en VS Code.
+2. Abrir PowerShell en la carpeta vinylshop.
+3. Ejecutar estos comandos uno por uno:
+     git add .
+     git commit -m "Descripción del cambio"
+     git push
+4. En ~1 minuto el sitio se actualiza.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PROBAR CAMBIOS ANTES DE SUBIR (modo local)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Abrir VS Code.
+2. Abrir la carpeta vinylshop (Archivo → Abrir carpeta).
+3. Clic derecho en index.html → "Open with Live Server".
+4. Se abre el sitio local en el navegador.
+5. Cualquier cambio guardado se ve al instante.
+IMPORTANTE: No funciona abriendo el .html directamente, 
+solo con Live Server.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DOMINIO PROPIO (respiraventas.com.ar)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cuando el dominio esté activo (24-48hs desde el registro),
+configurar en el panel de NIC.ar los siguientes registros DNS:
+
+  Tipo A     →  185.199.108.153
+  Tipo A     →  185.199.109.153
+  Tipo A     →  185.199.110.153
+  Tipo A     →  185.199.111.153
+  Tipo CNAME →  www → respiraventas.github.io
+
+Después en GitHub:
+  Settings → Pages → Custom domain → respiraventas.com.ar → Save
+
+El sitio quedará en: https://respiraventas.com.ar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONTACTO TÉCNICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+El sitio fue construido con Claude Code (Anthropic).
+Para modificaciones importantes, retomar la sesión de trabajo
+desde Claude Code con el historial del proyecto.
+
