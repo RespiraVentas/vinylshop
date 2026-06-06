@@ -226,7 +226,7 @@ function buildContactLinks(r) {
     ``,
     `¿Está disponible?`,
     ``,
-    `También podés ver todo nuestro catálogo en: https://respiraventas.github.io/vinylshop/`,
+    `También podés ver todo nuestro catálogo en: https://respiraventas.com.ar`,
   ].filter(l => l !== undefined).join('\n');
 
   const mailSubject = `Consulta: ${r.artista} — ${r.album || r.titulo}`;

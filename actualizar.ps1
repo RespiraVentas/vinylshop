@@ -29,15 +29,15 @@ $COL_FECHA      = 32
 $COL_IMG_START  = 36
 $COL_IMG_END    = 45
 $COL_VISITAS    = 46
-$COL_ARTISTA    = 50
-$COL_ART_ALB    = 51
-$COL_ALBUM      = 52
-$COL_COMPANIA   = 53
-$COL_ANIO       = 58
-$COL_CANCIONES  = 61
-$COL_ORIGEN     = 62
-$COL_GENERO     = 63
-$COL_DISCOS     = 64
+$COL_ARTISTA    = 48
+$COL_ART_ALB    = 49
+$COL_ALBUM      = 50
+$COL_COMPANIA   = 51
+$COL_ANIO       = 56
+$COL_CANCIONES  = 59
+$COL_ORIGEN     = 60
+$COL_GENERO     = 61
+$COL_DISCOS     = 62
 
 function Write-Step($msg) { Write-Host "`n  -> $msg" -ForegroundColor Cyan }
 function Write-OK($msg)   { Write-Host "    OK $msg" -ForegroundColor Green }
@@ -202,7 +202,7 @@ Write-Host "     CATALOGO ACTUALIZADO CON EXITO              " -ForegroundColor 
 Write-Host "  ================================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "  El sitio estara disponible en ~1 minuto." -ForegroundColor White
-Write-Host "  Verificar en: https://respiraventas.github.io/vinylshop/" -ForegroundColor Gray
+Write-Host "  Verificar en: https://respiraventas.com.ar" -ForegroundColor Gray
 Write-Host ""
 
 Read-Host "  Presiona Enter para cerrar"
