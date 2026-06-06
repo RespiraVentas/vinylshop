@@ -70,6 +70,14 @@ $xlName = Split-Path $xlFile -Leaf
 Write-OK "Excel encontrado: $xlName"
 Write-OK "Fecha: $((Get-Item $xlFile).LastWriteTime.ToString('dd/MM/yyyy HH:mm'))"
 
+Write-Host ""
+$confirmar = Read-Host "  Es este el archivo correcto? (S para continuar, cualquier otra tecla cancela)"
+if ($confirmar -notmatch '^[sS]$') {
+    Write-Host "`n  Cancelado. No se hizo ningun cambio." -ForegroundColor Yellow
+    Read-Host "`n  Presiona Enter para cerrar"
+    exit 0
+}
+
 # -- Paso 2: cerrar Excel y exportar JSON -------------------------------------
 Write-Step "Cerrando Excel si esta abierto..."
 Stop-Process -Name "EXCEL" -Force -ErrorAction SilentlyContinue
