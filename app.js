@@ -1,5 +1,5 @@
 ﻿'use strict';
-
+// v2
 const PAGE_SIZE  = 60;
 const WA_NUMBER  = '5493416068888';
 const MAIL_TO    = 'revistarespiraok@gmail.com';
