@@ -8,6 +8,8 @@ on:
       - "index.html"
       - "style.css"
       - "app.js"
+      - "*.html"
+      - "CNAME"
   workflow_dispatch:   # permite correrlo manualmente desde GitHub
 
 permissions:
