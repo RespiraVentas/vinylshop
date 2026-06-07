@@ -40,6 +40,13 @@ async function init() {
     allRecords = raw.map(normalize);
     computeNewSet();
     populateSelects();
+    // Leer parámetro de URL ?genero=Rock+Nacional
+    const urlParams = new URLSearchParams(window.location.search);
+    const generoParam = urlParams.get('genero');
+    if (generoParam) {
+      const match = [...filterGenre.options].find(o => o.value.toLowerCase() === generoParam.toLowerCase());
+      if (match) filterGenre.value = match.value;
+    }
     applyFilters();
   } catch (e) {
     loadingEl.style.display = 'none';
