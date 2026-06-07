@@ -88,6 +88,37 @@ Después en GitHub:
 El sitio quedará en: https://respiraventas.com.ar
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LANDING PAGES DE GÉNERO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cada género puede tener su propia landing page de marketing.
+
+WORKFLOW:
+1. Las landings se crean en Claude Code (esta sesión) o en
+   el otro Cowork (Ventas/).
+2. Las que se crean en el otro Cowork se guardan primero en:
+     C:\Users\Pablo\Documents\Claude_Trabajo\Ventas\
+   Se revisan ahí ANTES de pedirle a Claude Code que las suba.
+3. Claude Code las copia a la carpeta del proyecto y las sube.
+   NO se suben automáticamente — siempre hay revisión previa.
+
+LANDINGS ACTIVAS:
+  rock-nacional.html    → Rock Argentino (coleccionistas)
+  cumbia-cuarteto.html  → Cumbia y Cuarteto (festivo/barrial)
+
+CÓMO LLEGAR A CADA LANDING:
+  https://respiraventas.com.ar/rock-nacional.html
+  https://respiraventas.com.ar/cumbia-cuarteto.html
+
+ARTISTAS EN LANDING: usar SOLO artistas confirmados en el
+catálogo real. No agregar artistas sin verificar en records.json.
+
+DRAPI — CONFIGURACIÓN FIJA:
+  Siempre exportar con los mismos campos tildados (ver capturas).
+  Si ML agrega un campo nuevo y es necesario, avisar antes de
+  cambiar la configuración para actualizar el script también.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   CONTACTO TÉCNICO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
