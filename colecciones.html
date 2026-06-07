@@ -3,240 +3,395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Géneros destacados — Respira Ventas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+  <title>Géneros — Respira Ventas</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --red:    #d41515;
-      --text:   #111111;
-      --muted:  #888;
-      --border: #e5e5e5;
-      --bg:     #ffffff;
-      --surface:#f7f7f7;
-      --font:   'DM Sans', 'Segoe UI', system-ui, sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 14px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-    a { color: inherit; text-decoration: none; }
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
-    .header-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 14px 28px;
+
+    /* NAV */
+    nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .logo {
+    .nav-logo {
       display: flex;
       align-items: center;
-      gap: 11px;
-      flex-shrink: 0;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
     }
-    .logo-img {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
+    .logo-badge {
+      background: #d41515;
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .logo-name {
-      font-size: 18px; font-weight: 800;
-      letter-spacing: -.3px;
-    }
-    .logo-sub {
-      font-size: 10px; color: var(--muted);
-      letter-spacing: .5px; text-transform: uppercase;
-      font-weight: 500; display: block;
-    }
-    .header-back {
-      font-size: 13px; color: var(--muted);
-      font-weight: 500;
+    .logo-name { font-size: 15px; font-weight: 700; }
+    .logo-sub  { font-size: 10px; color: rgba(255,255,255,0.45); display: block; text-transform: uppercase; letter-spacing: .4px; }
+    .nav-back {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
       transition: color .15s;
     }
-    .header-back:hover { color: var(--red); }
+    .nav-back:hover { color: #fff; }
 
     /* HERO */
     .hero {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 52px 28px 40px;
-      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 56px 24px 48px;
     }
     .hero h1 {
-      font-size: 28px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 800;
-      letter-spacing: -.4px;
-      margin-bottom: 8px;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
     }
     .hero p {
       font-size: 14px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.45);
     }
 
     /* GRID */
-    .colecciones-grid {
-      max-width: 1280px;
+    .grid {
+      max-width: 780px;
       margin: 0 auto;
-      padding: 40px 28px 80px;
+      padding: 0 24px 80px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
     /* CARD */
-    .col-card {
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 24px 24px;
+    .card {
+      background: var(--c);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: border-color .2s, box-shadow .2s, transform .15s;
-      background: #fff;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 28px;
+      cursor: pointer;
       text-decoration: none;
-      color: inherit;
+      color: #fff;
+      transition: transform .2s, box-shadow .2s;
     }
-    .col-card:hover {
-      border-color: var(--card-color);
-      box-shadow: 0 4px 20px rgba(0,0,0,.06);
-      transform: translateY(-2px);
+    .card:not(.soon):hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(0,0,0,.5);
     }
-    .col-card-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .col-emoji {
-      font-size: 2rem;
-      width: 52px; height: 52px;
-      background: color-mix(in srgb, var(--card-color) 10%, #fff);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .col-card h2 {
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -.2px;
-      line-height: 1.3;
-    }
-    .col-card p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
+    .card.soon { cursor: default; }
+
+    /* Instrumento */
+    .card-instrument {
       flex: 1;
-    }
-    .col-card-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-      margin-top: 4px;
+      justify-content: center;
+      padding: 32px 32px 16px;
+      width: 100%;
     }
-    .col-btn {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--card-color);
-      display: flex; align-items: center; gap: 4px;
-      transition: gap .15s;
+    .card-instrument svg {
+      width: 100%;
+      max-width: 140px;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.25));
     }
-    .col-card:hover .col-btn { gap: 8px; }
-    .col-landing {
-      font-size: 11px;
-      color: #bbb;
-      font-weight: 500;
+
+    /* Nombre */
+    .card-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      text-align: center;
+      padding: 0 16px;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,.3);
     }
-    .col-landing a {
-      color: #bbb;
-      text-decoration: underline;
-      transition: color .15s;
+
+    /* Próximamente */
+    .card.soon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      border-radius: 20px;
     }
-    .col-landing a:hover { color: var(--muted); }
+    .pronto-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0,0,0,.5);
+      color: rgba(255,255,255,.8);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 20px 28px;
       text-align: center;
+      padding: 24px;
       font-size: 12px;
-      color: var(--muted);
+      color: rgba(255,255,255,.25);
+      border-top: 1px solid rgba(255,255,255,.06);
     }
+    footer a { color: rgba(255,255,255,.35); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,.6); }
 
-    @media (max-width: 600px) {
-      .hero { padding: 36px 20px 28px; }
-      .colecciones-grid { padding: 28px 16px 60px; }
-      .header-inner { padding: 14px 20px; }
+    @media (max-width: 480px) {
+      nav { padding: 14px 20px; }
+      .grid { gap: 12px; padding: 0 16px 60px; }
+      .card-name { font-size: 15px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="logo" href="/">
-      <img src="assets/logo-icon.jpg" alt="Respira" class="logo-img" />
-      <div>
-        <span class="logo-name">Respira Ventas</span>
-        <span class="logo-sub">Discos de Vinilo</span>
-      </div>
-    </a>
-    <a class="header-back" href="/">← Volver al catálogo</a>
-  </div>
-</header>
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="logo-badge">R!</div>
+    <div>
+      <span class="logo-name">Respira Ventas</span>
+      <span class="logo-sub">Discos de Vinilo</span>
+    </div>
+  </a>
+  <a class="nav-back" href="/">← Catálogo</a>
+</nav>
 
 <div class="hero">
-  <h1>Géneros destacados</h1>
-  <p>Explorá el catálogo por género. Más de 3.800 discos disponibles.</p>
+  <h1>Explorá por género</h1>
+  <p>Seleccioná un género y encontrá tu disco.</p>
 </div>
 
-<div class="colecciones-grid">
+<div class="grid">
 
-  <a class="col-card" href="/rock-nacional.html" style="--card-color:#d41515">
-    <div class="col-card-top">
-      <div class="col-emoji">🎸</div>
-      <h2>Rock Argentino</h2>
+  <!-- ROCK NACIONAL -->
+  <a class="card" href="/rock-nacional.html" style="--c:#b91c1c">
+    <div class="card-instrument">
+      <!-- Guitarra eléctrica -->
+      <svg viewBox="0 0 100 160" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Clavijero -->
+        <rect x="43" y="4" width="14" height="22" rx="3" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <circle cx="40" cy="10" r="3" fill="white" stroke="none"/>
+        <circle cx="40" cy="18" r="3" fill="white" stroke="none"/>
+        <circle cx="60" cy="10" r="3" fill="white" stroke="none"/>
+        <circle cx="60" cy="18" r="3" fill="white" stroke="none"/>
+        <!-- Mástil -->
+        <rect x="46" y="24" width="8" height="58" rx="2" fill="rgba(255,255,255,0.12)" stroke="white"/>
+        <!-- Trastes -->
+        <line x1="46" y1="35" x2="54" y2="35" stroke-width="1.5"/>
+        <line x1="46" y1="46" x2="54" y2="46" stroke-width="1.5"/>
+        <line x1="46" y1="57" x2="54" y2="57" stroke-width="1.5"/>
+        <line x1="46" y1="68" x2="54" y2="68" stroke-width="1.5"/>
+        <!-- Cuerpo offset (estilo Stratocaster) -->
+        <path d="M30 95 Q22 88 24 78 Q26 68 38 72 L46 80 L54 80 L62 72 Q74 68 76 78 Q78 88 70 95 Q76 105 72 118 Q68 130 55 132 L50 133 L45 132 Q32 130 28 118 Q24 105 30 95Z" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Cuerdas -->
+        <line x1="47" y1="20" x2="47" y2="80" stroke-width="1" stroke-opacity="0.7"/>
+        <line x1="50" y1="20" x2="50" y2="80" stroke-width="1" stroke-opacity="0.7"/>
+        <line x1="53" y1="20" x2="53" y2="80" stroke-width="1" stroke-opacity="0.7"/>
+        <!-- Pastillas -->
+        <rect x="40" y="95" width="20" height="6" rx="2" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+        <rect x="40" y="108" width="20" height="6" rx="2" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+        <!-- Puente -->
+        <rect x="42" y="120" width="16" height="4" rx="1" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+      </svg>
     </div>
-    <p>Soda Stereo, Enanitos Verdes, Baglietto, GIT y los clásicos del rock nacional. Para coleccionistas que saben lo que buscan.</p>
-    <div class="col-card-footer">
-      <span class="col-btn">Ver discos →</span>
-      <span class="col-landing"><a href="/rock-nacional.html" onclick="event.stopPropagation()">Ver landing</a></span>
-    </div>
+    <div class="card-name">Rock Nacional</div>
   </a>
 
-  <a class="col-card" href="/?genero=Cumbia+y+Cuarteto&orden=visits" style="--card-color:#d4a000">
-    <div class="col-card-top">
-      <div class="col-emoji">🎺</div>
-      <h2>Cumbia y Cuarteto</h2>
+  <!-- CUMBIA Y CUARTETO -->
+  <a class="card" href="/cumbia-cuarteto.html" style="--c:#b45309">
+    <div class="card-instrument">
+      <!-- Acordeón -->
+      <svg viewBox="0 0 120 140" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Caja izquierda -->
+        <rect x="4" y="30" width="24" height="80" rx="6" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Botones izquierda -->
+        <circle cx="16" cy="48" r="3.5" fill="white" stroke="none"/>
+        <circle cx="16" cy="60" r="3.5" fill="white" stroke="none"/>
+        <circle cx="16" cy="72" r="3.5" fill="white" stroke="none"/>
+        <circle cx="16" cy="84" r="3.5" fill="white" stroke="none"/>
+        <circle cx="16" cy="96" r="3.5" fill="white" stroke="none"/>
+        <!-- Fuelle (zigzag central) -->
+        <polyline points="28,35 36,42 44,35 52,42 60,35 68,42 76,35 84,42 92,35" stroke-width="2.5"/>
+        <polyline points="28,50 36,57 44,50 52,57 60,50 68,57 76,50 84,57 92,50" stroke-width="2.5"/>
+        <polyline points="28,65 36,72 44,65 52,72 60,65 68,72 76,65 84,72 92,65" stroke-width="2.5"/>
+        <polyline points="28,80 36,87 44,80 52,87 60,80 68,87 76,80 84,87 92,80" stroke-width="2.5"/>
+        <polyline points="28,95 36,102 44,95 52,102 60,95 68,102 76,95 84,102 92,95" stroke-width="2.5"/>
+        <!-- Caja derecha con teclado -->
+        <rect x="92" y="30" width="24" height="80" rx="6" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Teclas blancas -->
+        <rect x="96" y="42" width="7" height="20" rx="2" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="1.2"/>
+        <rect x="105" y="42" width="7" height="20" rx="2" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="1.2"/>
+        <!-- Tecla negra -->
+        <rect x="101" y="42" width="5" height="13" rx="1.5" fill="rgba(0,0,0,0.4)" stroke="white" stroke-width="1"/>
+        <!-- Teclas blancas abajo -->
+        <rect x="96" y="70" width="7" height="20" rx="2" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="1.2"/>
+        <rect x="105" y="70" width="7" height="20" rx="2" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="1.2"/>
+        <rect x="101" y="70" width="5" height="13" rx="1.5" fill="rgba(0,0,0,0.4)" stroke="white" stroke-width="1"/>
+      </svg>
     </div>
-    <p>Los Palmeras, Chebere, Cuarteto Imperial y más. Para el asado, el cumpleaños o simplemente para bailar.</p>
-    <div class="col-card-footer">
-      <span class="col-btn">Ver discos →</span>
-      <span class="col-landing"><a href="/cumbia-cuarteto.html" onclick="event.stopPropagation()">Ver landing</a></span>
-    </div>
+    <div class="card-name">Cumbia y Cuarteto</div>
   </a>
+
+  <!-- MELÓDICO — próximamente -->
+  <div class="card soon" style="--c:#6d28d9">
+    <div class="pronto-badge">Próximamente</div>
+    <div class="card-instrument">
+      <!-- Micrófono -->
+      <svg viewBox="0 0 80 160" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Cabeza del micrófono -->
+        <ellipse cx="40" cy="44" rx="22" ry="28" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Grilla del micrófono -->
+        <line x1="40" y1="16" x2="40" y2="72" stroke-width="1.2" stroke-opacity="0.5"/>
+        <line x1="18" y1="44" x2="62" y2="44" stroke-width="1.2" stroke-opacity="0.5"/>
+        <line x1="21" y1="30" x2="59" y2="30" stroke-width="1.2" stroke-opacity="0.5"/>
+        <line x1="21" y1="58" x2="59" y2="58" stroke-width="1.2" stroke-opacity="0.5"/>
+        <!-- Cuerpo/mango -->
+        <rect x="34" y="72" width="12" height="48" rx="6" fill="rgba(255,255,255,0.12)" stroke="white"/>
+        <!-- Anillos decorativos -->
+        <line x1="32" y1="85" x2="48" y2="85" stroke-width="2"/>
+        <line x1="32" y1="95" x2="48" y2="95" stroke-width="2"/>
+        <!-- Base -->
+        <ellipse cx="40" cy="140" rx="18" ry="6" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <line x1="40" y1="120" x2="40" y2="134" stroke-width="2.5"/>
+        <line x1="24" y1="134" x2="56" y2="134" stroke-width="2.5"/>
+      </svg>
+    </div>
+    <div class="card-name">Melódico</div>
+  </div>
+
+  <!-- FOLCLORE — próximamente -->
+  <div class="card soon" style="--c:#15803d">
+    <div class="pronto-badge">Próximamente</div>
+    <div class="card-instrument">
+      <!-- Guitarra acústica -->
+      <svg viewBox="0 0 100 180" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Clavijero -->
+        <rect x="42" y="4" width="16" height="24" rx="3" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <circle cx="38" cy="11" r="3" fill="white" stroke="none"/>
+        <circle cx="38" cy="20" r="3" fill="white" stroke="none"/>
+        <circle cx="62" cy="11" r="3" fill="white" stroke="none"/>
+        <circle cx="62" cy="20" r="3" fill="white" stroke="none"/>
+        <!-- Mástil -->
+        <rect x="46" y="26" width="8" height="60" rx="2" fill="rgba(255,255,255,0.12)" stroke="white"/>
+        <!-- Trastes -->
+        <line x1="46" y1="38" x2="54" y2="38" stroke-width="1.5"/>
+        <line x1="46" y1="50" x2="54" y2="50" stroke-width="1.5"/>
+        <line x1="46" y1="62" x2="54" y2="62" stroke-width="1.5"/>
+        <line x1="46" y1="74" x2="54" y2="74" stroke-width="1.5"/>
+        <!-- Cuerpo: figura de 8 (guitarra acústica) -->
+        <!-- Parte superior del cuerpo -->
+        <path d="M50 86 Q28 86 24 100 Q20 114 36 120 L50 122 L64 120 Q80 114 76 100 Q72 86 50 86Z" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Parte inferior del cuerpo (más grande) -->
+        <path d="M50 118 Q26 118 22 135 Q18 152 36 160 L50 162 L64 160 Q82 152 78 135 Q74 118 50 118Z" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Boca/sound hole -->
+        <circle cx="50" cy="128" r="10" stroke="white" stroke-width="2" fill="rgba(0,0,0,0.2)"/>
+        <circle cx="50" cy="128" r="7" stroke="white" stroke-width="1" stroke-opacity="0.4"/>
+        <!-- Cuerdas -->
+        <line x1="47" y1="24" x2="47" y2="86" stroke-width="1" stroke-opacity="0.6"/>
+        <line x1="50" y1="24" x2="50" y2="86" stroke-width="1" stroke-opacity="0.6"/>
+        <line x1="53" y1="24" x2="53" y2="86" stroke-width="1" stroke-opacity="0.6"/>
+        <!-- Puente -->
+        <rect x="40" y="150" width="20" height="5" rx="2" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="card-name">Folclore</div>
+  </div>
+
+  <!-- TANGO — próximamente -->
+  <div class="card soon" style="--c:#9f1239">
+    <div class="pronto-badge">Próximamente</div>
+    <div class="card-instrument">
+      <!-- Bandoneón simplificado -->
+      <svg viewBox="0 0 140 120" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Caja izquierda (hexagonal) -->
+        <polygon points="4,30 26,14 48,30 48,90 26,106 4,90" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Botones izquierda -->
+        <circle cx="26" cy="40" r="3.5" fill="white" stroke="none"/>
+        <circle cx="18" cy="54" r="3.5" fill="white" stroke="none"/>
+        <circle cx="34" cy="54" r="3.5" fill="white" stroke="none"/>
+        <circle cx="26" cy="68" r="3.5" fill="white" stroke="none"/>
+        <circle cx="18" cy="82" r="3.5" fill="white" stroke="none"/>
+        <circle cx="34" cy="82" r="3.5" fill="white" stroke="none"/>
+        <!-- Fuelle central -->
+        <line x1="48" y1="30" x2="92" y2="30" stroke-width="2"/>
+        <line x1="48" y1="90" x2="92" y2="90" stroke-width="2"/>
+        <line x1="56" y1="30" x2="56" y2="90" stroke-width="1.5" stroke-opacity="0.5"/>
+        <line x1="64" y1="30" x2="64" y2="90" stroke-width="1.5" stroke-opacity="0.5"/>
+        <line x1="72" y1="30" x2="72" y2="90" stroke-width="1.5" stroke-opacity="0.5"/>
+        <line x1="80" y1="30" x2="80" y2="90" stroke-width="1.5" stroke-opacity="0.5"/>
+        <!-- Pliegues del fuelle -->
+        <line x1="48" y1="45" x2="92" y2="45" stroke-width="1.2" stroke-opacity="0.4"/>
+        <line x1="48" y1="60" x2="92" y2="60" stroke-width="1.2" stroke-opacity="0.4"/>
+        <line x1="48" y1="75" x2="92" y2="75" stroke-width="1.2" stroke-opacity="0.4"/>
+        <!-- Caja derecha (hexagonal) -->
+        <polygon points="92,30 114,14 136,30 136,90 114,106 92,90" fill="rgba(255,255,255,0.15)" stroke="white"/>
+        <!-- Botones derecha -->
+        <circle cx="114" cy="40" r="3.5" fill="white" stroke="none"/>
+        <circle cx="106" cy="54" r="3.5" fill="white" stroke="none"/>
+        <circle cx="122" cy="54" r="3.5" fill="white" stroke="none"/>
+        <circle cx="114" cy="68" r="3.5" fill="white" stroke="none"/>
+        <circle cx="106" cy="82" r="3.5" fill="white" stroke="none"/>
+        <circle cx="122" cy="82" r="3.5" fill="white" stroke="none"/>
+      </svg>
+    </div>
+    <div class="card-name">Tango</div>
+  </div>
+
+  <!-- MPB — próximamente -->
+  <div class="card soon" style="--c:#0369a1">
+    <div class="pronto-badge">Próximamente</div>
+    <div class="card-instrument">
+      <!-- Saxofón -->
+      <svg viewBox="0 0 100 180" fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Boquilla y cuello -->
+        <path d="M62 8 Q70 10 72 18 Q74 26 68 30 L60 36" stroke-width="3"/>
+        <!-- Campana (bocina) -->
+        <path d="M20 155 Q8 160 6 170 Q10 178 22 176 Q38 172 48 158" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2.8"/>
+        <!-- Tubo principal curvo -->
+        <path d="M60 36 Q56 50 54 70 Q52 90 52 110 Q52 130 48 148 Q44 158 38 162" fill="none" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <path d="M60 36 Q56 50 54 70 Q52 90 52 110 Q52 130 48 148 Q44 158 38 162" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Llaves/keys -->
+        <circle cx="60" cy="55" r="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="58" cy="72" r="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="56" cy="89" r="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="54" cy="106" r="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+        <circle cx="52" cy="122" r="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="card-name">MPB</div>
+  </div>
 
 </div>
 
 <footer>
-  © Respira Ventas · Rosario, Argentina · <a href="/" style="color:inherit;text-decoration:underline">respiraventas.com.ar</a>
+  <a href="/">respiraventas.com.ar</a> · Rosario, Argentina
 </footer>
 
 </body>
