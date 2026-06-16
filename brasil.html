@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Música De Brasil en Vinilo — Respira Ventas</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amarelo:       #FFD000;
+    --amarelo-dark:  #c9a200;
+    --amarelo-glow:  rgba(255,208,0,0.18);
+    --azul:          #0094D9;
+    --azul-dark:     #0076ae;
+    --azul-glow:     rgba(0,148,217,0.18);
+    --bg:            #060c14;
+    --surface:       #0d1620;
+    --surface2:      #152030;
+    --border:        rgba(255,208,0,0.12);
+    --border-azul:   rgba(0,148,217,0.18);
+    --border-warm:   rgba(255,208,0,0.30);
+    --text:          #f0f5ff;
+    --text-muted:    rgba(240,245,255,0.62);
+    --text-faint:    rgba(240,245,255,0.35);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(6,12,20,0.97);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-badge {
+    background: var(--amarelo);
+    color: #000;
+    font-weight: 900;
+    font-size: 15px;
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-text { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.2; }
+  .logo-sub  { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+  .nav-cta {
+    background: var(--amarelo);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--amarelo-dark); }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 80px 32px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  /* ondas decorativas de fondo */
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 180px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0,148,217,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge-brasil {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,208,0,0.10);
+    border: 1px solid rgba(255,208,0,0.35);
+    color: var(--amarelo);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    animation: pulso 2s infinite;
+  }
+  @keyframes pulso {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.3; transform: scale(0.7); }
+  }
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(3rem, 9vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero h1 .l1 { display: block; color: var(--text); }
+  .hero h1 .l2 { display: block; font-style: italic; color: var(--amarelo); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 44px;
+    line-height: 1.8;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  /* BOTÓN AMARILLO = primario, WA verde = secundario */
+  .btn-amarelo {
+    background: var(--amarelo);
+    color: #000;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-amarelo:hover { background: var(--amarelo-dark); transform: translateY(-2px); }
+  .btn-wa {
+    background: #25D366;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: filter 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-wa:hover { filter: brightness(1.1); transform: translateY(-2px); }
+  .btn-azul {
+    background: transparent;
+    color: var(--azul);
+    border: 1px solid rgba(0,148,217,0.40);
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-azul:hover { background: rgba(0,148,217,0.08); transform: translateY(-2px); }
+  .hero-desc { font-size: 12px; color: var(--text-faint); }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-wrap: wrap;
+  }
+  .stat { padding: 22px 40px; text-align: center; border-right: 1px solid var(--border); flex: 1; min-width: 150px; }
+  .stat:last-child { border-right: none; }
+  .stat-value { font-family: 'Lora', Georgia, serif; font-size: 2.1rem; font-weight: 700; line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+  /* ─── ARTISTAS ─── */
+  .artistas-section { background: var(--surface); border-bottom: 1px solid var(--border); padding: 52px 32px; }
+  .artistas-inner { max-width: 960px; margin: 0 auto; }
+  .artistas-header { text-align: center; margin-bottom: 36px; }
+  .stag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; display: block; }
+  .artistas-header h2 { font-family: 'Lora', Georgia, serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; color: var(--text); }
+  .artistas-header h2 em { font-style: italic; color: var(--amarelo); }
+  .artistas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .artista-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .artista-card:hover { border-color: rgba(255,208,0,0.35); transform: translateY(-2px); }
+  .artista-card.am { border-color: rgba(255,208,0,0.35); background: rgba(255,208,0,0.06); }
+  .artista-card.az { border-color: rgba(0,148,217,0.32); background: rgba(0,148,217,0.06); }
+  .artista-nombre { font-weight: 600; font-size: 14px; color: var(--text-muted); }
+  .artista-card.am .artista-nombre { color: var(--amarelo); }
+  .artista-card.az .artista-nombre { color: var(--azul); }
+  .artistas-extra { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .artista-pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 14px; font-size: 12px; color: var(--text-muted); }
+
+  /* ─── VIAJE SECTION (reemplaza las 6 cards) ─── */
+  .viaje-section { max-width: 960px; margin: 0 auto; padding: 68px 32px; }
+  .viaje-section .section-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .viaje-section .section-title em { font-style: italic; color: var(--amarelo); }
+  .viaje-section .section-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 44px; max-width: 560px; line-height: 1.7; }
+
+  /* CARDS HORIZONTALES — diferente de todos los anteriores */
+  .viaje-cards { display: flex; flex-direction: column; gap: 16px; }
+  .viaje-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: border-color 0.25s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .viaje-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 18px 0 0 18px;
+  }
+  .viaje-card.am::after { background: var(--amarelo); }
+  .viaje-card.az::after { background: var(--azul); }
+  .viaje-card.mix::after { background: linear-gradient(180deg, var(--amarelo), var(--azul)); }
+  .viaje-card:hover { border-color: rgba(255,208,0,0.28); transform: translateY(-2px); }
+  .viaje-icon { font-size: 3rem; flex-shrink: 0; width: 64px; text-align: center; }
+  .viaje-content { flex: 1; }
+  .viaje-content h3 { font-family: 'Lora', Georgia, serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+  .viaje-card.am .viaje-content h3 { color: var(--amarelo); }
+  .viaje-card.az .viaje-content h3 { color: var(--azul); }
+  .viaje-card.mix .viaje-content h3 { color: var(--amarelo); }
+  .viaje-content p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .viaje-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .viaje-card.am .viaje-tag { background: rgba(255,208,0,0.12); color: var(--amarelo); border: 1px solid rgba(255,208,0,0.3); }
+  .viaje-card.az .viaje-tag { background: rgba(0,148,217,0.12); color: var(--azul); border: 1px solid rgba(0,148,217,0.3); }
+  .viaje-card.mix .viaje-tag { background: rgba(255,208,0,0.12); color: var(--amarelo); border: 1px solid rgba(255,208,0,0.3); }
+
+  /* ─── OLAS DIVISOR ─── */
+  .olas-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: var(--surface);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-azul);
+    border-bottom: 1px solid var(--border-azul);
+    text-align: center;
+  }
+  .olas-text {
+    font-size: 2rem;
+    letter-spacing: 1.2em;
+    color: var(--azul);
+    opacity: 0.35;
+    user-select: none;
+    animation: olas 4s ease-in-out infinite;
+  }
+  @keyframes olas {
+    0%, 100% { letter-spacing: 1.2em; opacity: 0.35; }
+    50% { letter-spacing: 1.5em; opacity: 0.2; }
+  }
+
+  /* ─── PACKS — layout asimétrico ─── */
+  .packs-section { background: var(--bg); padding: 68px 32px; border-top: 1px solid var(--border); }
+  .packs-inner { max-width: 960px; margin: 0 auto; }
+  .pack-hero {
+    background: var(--surface);
+    border: 1px solid rgba(255,208,0,0.25);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pack-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amarelo), var(--azul));
+  }
+  .pack-hero-badge {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: var(--amarelo);
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .pack-hero-content h3 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--amarelo);
+    margin-bottom: 8px;
+  }
+  .pack-hero-content .pack-sub { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); margin-bottom: 14px; }
+  .pack-hero-content p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .pack-artistas { font-size: 13px; color: var(--text-faint); font-style: italic; margin-bottom: 24px; }
+  .pack-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none; transition: opacity 0.2s;
+    color: var(--amarelo);
+  }
+  .pack-cta:hover { opacity: 0.75; }
+  .pack-hero-emoji { font-size: 5rem; }
+
+  .packs-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pack-mini {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pack-mini::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .pack-mini.az::before { background: var(--azul); }
+  .pack-mini.am::before { background: var(--amarelo); }
+  .pack-mini:hover { transform: translateY(-3px); }
+  .pack-mini.az:hover { border-color: rgba(0,148,217,0.35); }
+  .pack-mini.am:hover { border-color: rgba(255,208,0,0.35); }
+  .pack-mini-emoji { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+  .pack-mini h3 { font-family: 'Lora', Georgia, serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+  .pack-mini.az h3 { color: var(--azul); }
+  .pack-mini.am h3 { color: var(--amarelo); }
+  .pack-mini p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+  .pack-mini .pack-cta.az { color: var(--azul); }
+  .pack-mini .pack-cta.am { color: var(--amarelo); }
+
+  /* ─── POR QUÉ — formato diferente: iconos grandes, sin números ─── */
+  .porq-section { max-width: 960px; margin: 0 auto; padding: 68px 32px; }
+  .porq-grande-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; }
+  .porq-grande-card { padding: 32px 24px; border-right: 1px solid var(--border); text-align: center; }
+  .porq-grande-card:last-child { border-right: none; }
+  .porq-grande-card:nth-child(even) { background: var(--surface); }
+  .porq-icon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+  .porq-grande-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .porq-grande-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: rgba(255,208,0,0.05);
+    border: 1px solid rgba(255,208,0,0.20);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 20px;
+  }
+  .callout p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+  .callout p strong { color: var(--amarelo); font-weight: 600; }
+
+  /* ─── FRASE CENTRAL ─── */
+  .frase-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border-azul);
+    border-bottom: 1px solid var(--border-azul);
+    padding: 64px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* reflejo océano */
+  .frase-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 60%;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0,148,217,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .frase-inner { max-width: 640px; margin: 0 auto; position: relative; }
+  .frase-comilla { font-family: Georgia, serif; font-size: 6rem; color: var(--amarelo); opacity: 0.15; line-height: 0.5; display: block; margin-bottom: 10px; }
+  .frase-inner blockquote {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+  .frase-inner blockquote em { color: var(--amarelo); }
+  .frase-pt { font-size: 12px; color: var(--text-faint); margin-bottom: 16px; font-style: italic; }
+  .frase-caption { font-size: 12px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── URGENCIA ─── */
+  .urgencia-band {
+    background: rgba(0,148,217,0.07);
+    border-top: 1px solid rgba(0,148,217,0.18);
+    border-bottom: 1px solid rgba(0,148,217,0.18);
+    padding: 18px 32px;
+    text-align: center;
+  }
+  .urgencia-band p { font-size: 14px; color: var(--text-muted); }
+  .urgencia-band p strong { color: var(--azul); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(160deg, var(--surface) 0%, #070c18 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .cta-inner { max-width: 960px; margin: 0 auto; padding: 80px 32px; text-align: center; }
+  .cta-inner h2 { font-family: 'Lora', Georgia, serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+  .cta-inner h2 em { font-style: italic; color: var(--amarelo); }
+  .cta-inner p { font-size: 15px; color: var(--text-muted); margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-nota { font-size: 12px; color: var(--text-faint); margin-top: 18px; }
+  .cta-nota strong { color: #4ade80; }
+
+  /* ─── FOOTER ─── */
+  footer { padding: 28px 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-left { font-size: 13px; color: var(--text-faint); }
+  .footer-contact { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-contact a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-contact a:hover { color: var(--amarelo); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 52px 20px 48px; }
+    .viaje-section, .porq-section, .packs-section { padding: 52px 20px; }
+    .stat { padding: 18px 20px; min-width: 130px; }
+    .cta-inner { padding: 56px 20px; }
+    .frase-section, .urgencia-band { padding: 44px 20px; }
+    footer { padding: 20px; flex-direction: column; }
+    .artistas-section { padding: 44px 20px; }
+    .viaje-card { flex-direction: column; gap: 16px; padding: 24px 20px; }
+    .viaje-tag { display: none; }
+    .pack-hero { grid-template-columns: 1fr; }
+    .pack-hero-emoji { display: none; }
+    .packs-mini { grid-template-columns: 1fr; }
+    .porq-grande-grid { grid-template-columns: 1fr 1fr; }
+    .porq-grande-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .porq-grande-card:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://respiraventas.com.ar" target="_blank">
+    <div class="logo-badge">R</div>
+    <div>
+      <div class="logo-text">Respira Ventas</div>
+      <div class="logo-sub">Discos de Vinilo · Rosario</div>
+    </div>
+  </a>
+  <a class="nav-cta" href="https://respiraventas.com.ar?genero=MPB&orden=visits" target="_blank">Ver discos →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge-brasil">
+    <div class="badge-dot"></div>
+    Bossa Nova · MPB · Tropicalia · en vinilo
+  </div>
+  <h1>
+    <span class="l1">Elis, Gal, Chico, Jobim.</span>
+    <span class="l2">Brasil en tu tocadiscos.</span>
+  </h1>
+  <p class="hero-sub">
+    Los originales que nacieron al sol de Ipanema y llegaron a Rosario.
+    <strong>Bossa Nova, MPB y Tropicalia</strong> — para escuchar como se merece: en vinilo, con volumen, sin apuro.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-amarelo" href="https://respiraventas.com.ar?genero=MPB&orden=visits" target="_blank">
+      🎵 Ver discos De Brasil →
+    </a>
+    <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa la música De Brasil del catálogo." target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Consultar por WhatsApp
+    </a>
+  </div>
+  <p class="hero-desc">Por WhatsApp o mail = 10% menos que en Mercado Libre</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value" style="color:var(--amarelo)">3.800<span style="font-size:1.1rem">+</span></div>
+    <div class="stat-label">Discos en total</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--azul)">Original</div>
+    <div class="stat-label">Todos los discos son originales</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--amarelo)">Rápido</div>
+    <div class="stat-label">Te respondemos por WhatsApp</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--azul)">🌎</div>
+    <div class="stat-label">Envíos a todo el país</div>
+  </div>
+</div>
+
+<!-- ARTISTAS -->
+<div class="artistas-section">
+  <div class="artistas-inner">
+    <div class="artistas-header">
+      <span class="stag" style="color:var(--amarelo)">En nuestro catálogo</span>
+      <h2>Los grandes <em>De Brasil</em></h2>
+    </div>
+    <div class="artistas-grid">
+      <div class="artista-card am"><div class="artista-nombre">Elis Regina</div></div>
+      <div class="artista-card az"><div class="artista-nombre">Gal Costa</div></div>
+      <div class="artista-card am"><div class="artista-nombre">Toquinho & Vinícius</div></div>
+      <div class="artista-card az"><div class="artista-nombre">Chico Buarque</div></div>
+      <div class="artista-card am"><div class="artista-nombre">Raimundo Fagner</div></div>
+      <div class="artista-card az"><div class="artista-nombre">Antonio Carlos Jobim</div></div>
+      <div class="artista-card"><div class="artista-nombre">Caetano Veloso</div></div>
+      <div class="artista-card"><div class="artista-nombre">Sergio Mendes</div></div>
+    </div>
+    <div class="artistas-extra">
+      <span class="artista-pill">Gilberto Gil</span>
+      <span class="artista-pill">Baden Powell</span>
+      <span class="artista-pill">Maria Creuza</span>
+      <span class="artista-pill">Simone</span>
+      <span class="artista-pill">Egberto Gismonti</span>
+      <span class="artista-pill">María Bethânia</span>
+      <span class="artista-pill">Geraldo Vandré</span>
+      <span class="artista-pill">y más...</span>
+    </div>
+  </div>
+</div>
+
+<!-- VIAJE — cards horizontales, diferente de todo lo anterior -->
+<div class="viaje-section">
+  <span class="stag" style="color:var(--azul)">Para qué sirve un disco De Brasil</span>
+  <h2 class="section-title">Viajás <em>sin moverte de casa</em></h2>
+  <p class="section-sub">No hace falta estar en Ipanema. Con el vinilo puesto y el volumen bien, ya estás.</p>
+
+  <div class="viaje-cards">
+    <div class="viaje-card am">
+      <div class="viaje-icon">🏖️</div>
+      <div class="viaje-content">
+        <h3>Una tarde de playa — aunque estés en Rosario</h3>
+        <p>Gal Costa, copa de vino blanco, luz que entra por la ventana. El vinilo hace el resto. Hay discos que son un viaje.</p>
+      </div>
+      <span class="viaje-tag">Domingo</span>
+    </div>
+    <div class="viaje-card az">
+      <div class="viaje-icon">🌊</div>
+      <div class="viaje-content">
+        <h3>La noche larga con gente que escucha</h3>
+        <p>Alguien saca un Chico Buarque de 1978, lo pone en el tocadiscos y la conversación cambia. Eso que no tiene precio.</p>
+      </div>
+      <span class="viaje-tag">Noche</span>
+    </div>
+    <div class="viaje-card mix">
+      <div class="viaje-icon">🎷</div>
+      <div class="viaje-content">
+        <h3>Para los que ya viajaron — y quieren volver</h3>
+        <p>Toquinho en el aeropuerto de Guarulhos, Elis en un bar de Leblon. Un disco es la forma más barata de volver a Brasil.</p>
+      </div>
+      <span class="viaje-tag">Memoria</span>
+    </div>
+  </div>
+</div>
+
+<!-- OLAS DIVISOR -->
+<div class="olas-divider">
+  <span class="olas-text">〰 〰 〰 〰 〰 〰 〰</span>
+</div>
+
+<!-- URGENCIA -->
+<div class="urgencia-band">
+  <p>🌊 <strong>Originales de los 70s y 80s.</strong> Ediciones que no se reprimieron. Cuando se van, se van.</p>
+</div>
+
+<!-- PACKS — layout asimétrico: 1 hero grande + 2 mini -->
+<div class="packs-section">
+  <div class="packs-inner">
+    <span class="stag" style="color:var(--azul)">Una idea diferente</span>
+    <h2 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin-bottom:14px;line-height:1.15;">
+      Pedinos un pack <em style="color:var(--amarelo);font-style:italic">a medida</em>
+    </h2>
+    <p style="font-size:15px;color:var(--text-muted);margin-bottom:32px;max-width:560px;line-height:1.7;">
+      Armamos combinaciones especiales. Vos elegís el artista o el estilo, nosotros buscamos en el catálogo.
+    </p>
+
+    <!-- PACK HÉROE -->
+    <div class="pack-hero">
+      <span class="pack-hero-badge">⭐ El más pedido</span>
+      <div class="pack-hero-content">
+        <h3>Pack MPB Esencial</h3>
+        <div class="pack-sub">Las voces que marcaron una generación</div>
+        <p>Elis Regina, Gal Costa, Chico Buarque en un mismo pack. Las tres voces más grandes de la música brasileña, juntas en vinilo. Para los que entienden — o para regalar a alguien que va a entender.</p>
+        <div class="pack-artistas">Elis Regina · Gal Costa · Chico Buarque · Fagner · y más según disponibilidad</div>
+        <a class="pack-cta" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack MPB Esencial." target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp →
+        </a>
+      </div>
+      <div class="pack-hero-emoji">🎤</div>
+    </div>
+
+    <!-- 2 PACKS MINI -->
+    <div class="packs-mini">
+      <div class="pack-mini az">
+        <span class="pack-mini-emoji">🎷</span>
+        <h3>Pack Bossa Nova</h3>
+        <p>Jobim, Toquinho, Baden Powell, Vinícius. La elegancia tranquila que solo Brasil sabe hacer.</p>
+        <a class="pack-cta az" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack Bossa Nova." target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar →
+        </a>
+      </div>
+      <div class="pack-mini am">
+        <span class="pack-mini-emoji">🌴</span>
+        <h3>Pack Tropicalia</h3>
+        <p>Caetano, Gal, Gilberto Gil. El movimiento que cambió la música latinoamericana para siempre.</p>
+        <a class="pack-cta am" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack Tropicalia." target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POR QUÉ — formato diferente: sin números, grilla unificada con bordes -->
+<div class="porq-section">
+  <span class="stag" style="color:var(--amarelo)">Por qué Respira Ventas</span>
+  <h2 style="font-family:'Lora',Georgia,serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin-bottom:14px;line-height:1.15;">
+    Con el cuidado que <em style="color:var(--azul);font-style:italic">estos discos merecen</em>
+  </h2>
+  <p style="font-size:15px;color:var(--text-muted);margin-bottom:36px;max-width:560px;line-height:1.7;">
+    Un Elis Regina de 1974 no se puede tratar como cualquier cosa.
+  </p>
+  <div class="porq-grande-grid">
+    <div class="porq-grande-card">
+      <span class="porq-icon">🔍</span>
+      <h3>Descripción honesta</h3>
+      <p>Te decimos el estado real. Fotos antes de confirmar. Sin sorpresas.</p>
+    </div>
+    <div class="porq-grande-card">
+      <span class="porq-icon">💰</span>
+      <h3>10% menos que en Mercado Libre</h3>
+      <p>Por WhatsApp o mail, directo. Sin recargo ni letra chica.</p>
+    </div>
+    <div class="porq-grande-card">
+      <span class="porq-icon">📦</span>
+      <h3>Envío a todo el país</h3>
+      <p>Correo Argentino, bien embalado. Tratamos cada disco con cuidado.</p>
+    </div>
+    <div class="porq-grande-card">
+      <span class="porq-icon">💬</span>
+      <h3>Respondemos ese día</h3>
+      <p>Por WhatsApp te contestamos rápido. Preguntá sin compromiso.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <p>
+      <strong>Nuestros discos son usados — y eso les da historia.</strong>
+      No prometemos lo que no tenemos ni exageramos la condición.
+      Lo que sí prometemos es que <strong>suena bien</strong>. Para eso lo vendemos.
+    </p>
+  </div>
+</div>
+
+<!-- FRASE EN PORTUGUÉS -->
+<div class="frase-section">
+  <div class="frase-inner">
+    <span class="frase-comilla">"</span>
+    <blockquote>
+      A música brasileira é a mais bela do mundo.
+      <em>Y en vinilo, todavía más.</em>
+    </blockquote>
+    <p class="frase-pt">(La música brasileña es la más bella del mundo.)</p>
+    <p class="frase-caption">Respira Ventas · Discos de Vinilo · Rosario, Argentina</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>
+      Tu próximo disco<br>
+      <em>De Brasil te espera.</em>
+    </h2>
+    <p>
+      Entrá al catálogo, buscá lo que te gusta y escribinos.
+      Te confirmamos disponibilidad, mandamos fotos si querés,
+      y te hacemos el precio directo — sin pasar por Mercado Libre.
+    </p>
+    <div class="cta-buttons">
+      <a class="btn-amarelo" href="https://respiraventas.com.ar?genero=MPB&orden=visits" target="_blank">
+        🎵 Ver discos De Brasil →
+      </a>
+      <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa la música De Brasil del catálogo." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <a class="btn-azul" href="mailto:revistarespiraok@gmail.com?subject=Consulta música De Brasil">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        Consultar por mail
+      </a>
+    </div>
+    <p class="cta-nota">Por WhatsApp o mail = <strong>10% menos que en Mercado Libre</strong> · Envíos a todo el país</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© Respira Ventas · Rosario, Argentina</div>
+  <div class="footer-contact">
+    <a href="https://respiraventas.com.ar" target="_blank">respiraventas.com.ar</a>
+    <a href="https://wa.me/5493416068888" target="_blank">+54 9 341 606-8888</a>
+    <a href="mailto:revistarespiraok@gmail.com">revistarespiraok@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -231,14 +231,12 @@ function buildContactLinks(r) {
   const waText = [
     `Hola! Me interesa este disco:`,
     `*${r.artista} — ${r.album || r.titulo}*${r.anio ? ` (${r.anio})` : ''}`,
-    precio    ? `Precio en ML: $ ${precio.toLocaleString('es-AR')}` : '',
-    descuento ? `Con el 10% de descuento directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
+    precio    ? `Precio en Mercado Libre: $ ${precio.toLocaleString('es-AR')}` : '',
+    descuento ? `Si comprás directo (sin pasar por Mercado Libre): $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
     ``,
-    linkML ? `Link: ${linkML}` : '',
+    linkML ? `Link ML: ${linkML}` : '',
     ``,
     `¿Está disponible?`,
-    ``,
-    `También podés ver todo nuestro catálogo en: https://respiraventas.com.ar`,
   ].filter(l => l !== undefined).join('\n');
 
   const mailSubject = `Consulta: ${r.artista} — ${r.album || r.titulo}`;

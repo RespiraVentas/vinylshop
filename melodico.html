@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melódico y Baladas en Vinilo — Respira Ventas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rosa:          #C87898;
+    --rosa-dark:     #a85c7a;
+    --rosa-glow:     rgba(200,120,152,0.18);
+    --celeste:       #7AAFC5;
+    --celeste-dark:  #5a94aa;
+    --celeste-glow:  rgba(122,175,197,0.18);
+    --bg:            #0f0b10;
+    --surface:       #1c1520;
+    --surface2:      #261c2b;
+    --border:        rgba(200,120,152,0.13);
+    --border-warm:   rgba(200,120,152,0.30);
+    --text:          #f8f0f5;
+    --text-muted:    rgba(248,240,245,0.62);
+    --text-faint:    rgba(248,240,245,0.35);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(15,11,16,0.96);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-badge {
+    background: var(--rosa);
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-text  { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.2; }
+  .logo-sub   { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+  .nav-cta {
+    background: var(--rosa);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--rosa-dark); }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 80px 32px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .badge-melodico {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,120,152,0.10);
+    border: 1px solid rgba(200,120,152,0.32);
+    color: var(--rosa);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--rosa);
+    border-radius: 50%;
+    animation: pulso 2.2s infinite;
+  }
+  @keyframes pulso {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.35; transform: scale(0.7); }
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.2rem, 9vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero h1 .l1 { display: block; color: var(--text); }
+  .hero h1 .l2 { display: block; font-style: italic; color: var(--rosa); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 44px;
+    line-height: 1.8;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    background: var(--rosa);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--rosa-dark); transform: translateY(-2px); }
+  .btn-wa {
+    background: #25D366;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: filter 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-wa:hover { filter: brightness(1.1); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--celeste);
+    border: 1px solid rgba(122,175,197,0.40);
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-secondary:hover { background: rgba(122,175,197,0.08); transform: translateY(-2px); }
+  .hero-desc {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-top: 0;
+  }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 24px 40px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    flex: 1;
+    min-width: 150px;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-value {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--rosa);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  /* ─── ARTISTAS ─── */
+  .artistas-section {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 32px;
+  }
+  .artistas-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .artistas-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .artistas-header .stag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--rosa);
+    margin-bottom: 8px;
+  }
+  .artistas-header h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  .artistas-header h2 em { font-style: italic; color: var(--rosa); }
+  .artistas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .artista-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .artista-card:hover { border-color: var(--border-warm); transform: translateY(-2px); }
+  .artista-card.destaca { border-color: rgba(200,120,152,0.35); background: rgba(200,120,152,0.05); }
+  .artista-nombre {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .artista-card.destaca .artista-nombre { color: var(--rosa); }
+  .artista-count {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .artistas-extra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .artista-pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 68px 32px;
+  }
+  .stag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--rosa);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--rosa); }
+  .section-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 44px;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ─── MOMENTOS ─── */
+  .momentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .momento-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 22px;
+    text-align: center;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .momento-card:hover { border-color: var(--border-warm); transform: translateY(-3px); }
+  .momento-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+  .momento-card h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .momento-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ─── PACKS ─── */
+  .packs-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 68px 32px;
+  }
+  .packs-inner { max-width: 960px; margin: 0 auto; }
+  .packs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 44px;
+  }
+  .pack-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 34px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .pack-card:hover { border-color: var(--border-warm); transform: translateY(-4px); }
+  .pack-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .pack-card.rosa::before  { background: var(--rosa); }
+  .pack-card.celeste::before { background: var(--celeste); }
+  .pack-card.neutro::before  { background: linear-gradient(90deg, var(--rosa), var(--celeste)); }
+  .pack-emoji { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .pack-card h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .pack-card.rosa h3  { color: var(--rosa); }
+  .pack-card.celeste h3 { color: var(--celeste); }
+  .pack-subtitulo {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+  }
+  .pack-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; }
+  .pack-artistas {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-style: italic;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .pack-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .pack-cta:hover { opacity: 0.75; }
+  .pack-card.rosa   .pack-cta { color: var(--rosa); }
+  .pack-card.celeste .pack-cta { color: var(--celeste); }
+  .pack-card.neutro  .pack-cta { color: var(--rosa); }
+
+  /* ─── TESTIMONIOS ─── */
+  .testimonios-section {
+    padding: 64px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .testimonios-inner { max-width: 960px; margin: 0 auto; }
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .testimonio-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.2s;
+  }
+  .testimonio-card:hover { border-color: var(--border-warm); }
+  .testimonio-stars { color: var(--rosa); font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonio-texto {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .testimonio-autor { font-size: 12px; color: var(--text-faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+  /* ─── POR QUÉ ─── */
+  .porq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+  .porq-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.2s;
+  }
+  .porq-card:hover { border-color: var(--border-warm); }
+  .porq-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--rosa);
+    opacity: 0.22;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .porq-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .porq-card p  { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: rgba(200,120,152,0.06);
+    border: 1px solid rgba(200,120,152,0.22);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 20px;
+  }
+  .callout p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+  .callout p strong { color: var(--rosa); font-weight: 600; }
+
+  /* ─── FRASE CENTRAL ─── */
+  .frase-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .frase-inner { max-width: 640px; margin: 0 auto; }
+  .frase-comilla {
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    color: var(--rosa);
+    opacity: 0.18;
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .frase-inner blockquote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+  .frase-inner blockquote em { color: var(--rosa); }
+  .frase-caption { font-size: 12px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(160deg, var(--surface) 0%, #1a0f18 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .cta-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .cta-inner h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .cta-inner h2 em { font-style: italic; color: var(--rosa); }
+  .cta-inner p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 44px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+  }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-nota { font-size: 12px; color: var(--text-faint); margin-top: 18px; }
+  .cta-nota strong { color: #4ade80; }
+
+  /* ─── URGENCIA ─── */
+  .urgencia-band {
+    background: rgba(200,120,152,0.08);
+    border-top: 1px solid rgba(200,120,152,0.2);
+    border-bottom: 1px solid rgba(200,120,152,0.2);
+    padding: 18px 32px;
+    text-align: center;
+  }
+  .urgencia-band p { font-size: 14px; color: var(--text-muted); }
+  .urgencia-band p strong { color: var(--rosa); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 28px 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-left { font-size: 13px; color: var(--text-faint); }
+  .footer-contact { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-contact a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-contact a:hover { color: var(--rosa); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 52px 20px 48px; }
+    section { padding: 52px 20px; }
+    .stat { padding: 18px 20px; min-width: 130px; }
+    .cta-inner { padding: 56px 20px; }
+    .frase-section, .packs-section, .testimonios-section { padding: 52px 20px; }
+    footer { padding: 20px; flex-direction: column; }
+    .artistas-section { padding: 44px 20px; }
+    .urgencia-band { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <a class="nav-logo" href="https://respiraventas.com.ar" target="_blank">
+    <div class="logo-badge">R</div>
+    <div>
+      <div class="logo-text">Respira Ventas</div>
+      <div class="logo-sub">Discos de Vinilo · Rosario</div>
+    </div>
+  </a>
+  <a class="nav-cta" href="https://respiraventas.com.ar?genero=Mel%C3%B3dico&orden=visits" target="_blank">Ver discos →</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="badge-melodico">
+    <div class="badge-dot"></div>
+    Baladas románticas · 779 discos en catálogo
+  </div>
+  <h1>
+    <span class="l1">La música que</span>
+    <span class="l2">te marcó para siempre.</span>
+  </h1>
+  <p class="hero-sub">
+    <strong>Julio Iglesias, Roberto Carlos, Pimpinela, Alberto Cortez, Valeria Lynch</strong>
+    y los grandes de la balada romántica.
+    Originales en vinilo, para escuchar con el alma, con tiempo, con alguien.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://respiraventas.com.ar?genero=Mel%C3%B3dico&orden=visits" target="_blank">
+      🎵 Ver todos los discos →
+    </a>
+    <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa la música melódica del catálogo." target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Consultar por WhatsApp
+    </a>
+  </div>
+  <p class="hero-desc">Por WhatsApp o mail = 10% menos que en Mercado Libre</p>
+</div>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value" style="color:var(--rosa)">3.800<span style="font-size:1.1rem">+</span></div>
+    <div class="stat-label">Discos en total</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--celeste)">Original</div>
+    <div class="stat-label">Todos los discos son originales</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--rosa)">Rápido</div>
+    <div class="stat-label">Te respondemos por WhatsApp</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--celeste)">🌎</div>
+    <div class="stat-label">Envíos a todo el país</div>
+  </div>
+</div>
+
+<!-- ══════════ ARTISTAS ══════════ -->
+<div class="artistas-section">
+  <div class="artistas-inner">
+    <div class="artistas-header">
+      <div class="stag">En nuestro catálogo</div>
+      <h2>Los grandes de la <em>balada romántica</em></h2>
+    </div>
+    <div class="artistas-grid">
+      <div class="artista-card destaca"><div class="artista-nombre">Roberto Carlos</div></div>
+      <div class="artista-card destaca" style="border-color:rgba(122,175,197,0.40);background:rgba(122,175,197,0.05)"><div class="artista-nombre" style="color:var(--celeste)">Julio Iglesias</div></div>
+      <div class="artista-card destaca"><div class="artista-nombre">Alberto Cortez</div></div>
+      <div class="artista-card destaca" style="border-color:rgba(122,175,197,0.40);background:rgba(122,175,197,0.05)"><div class="artista-nombre" style="color:var(--celeste)">Valeria Lynch</div></div>
+      <div class="artista-card"><div class="artista-nombre">José Luis Rodríguez</div></div>
+      <div class="artista-card"><div class="artista-nombre">Jairo</div></div>
+      <div class="artista-card"><div class="artista-nombre">Joan Manuel Serrat</div></div>
+      <div class="artista-card"><div class="artista-nombre">Dyango</div></div>
+    </div>
+    <div class="artistas-extra">
+      <span class="artista-pill">Raphael</span>
+      <span class="artista-pill">José Feliciano</span>
+      <span class="artista-pill">Sergio Denis</span>
+      <span class="artista-pill">Pimpinela</span>
+      <span class="artista-pill">Nicola Di Bari</span>
+      <span class="artista-pill">Paloma San Basilio</span>
+      <span class="artista-pill">María Martha Serra Lima</span>
+      <span class="artista-pill">Engelbert Humperdinck</span>
+      <span class="artista-pill">Victor Heredia</span>
+      <span class="artista-pill">y muchos más...</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MOMENTOS ══════════ -->
+<section>
+  <div class="stag" style="color:var(--celeste)">¿Para cuándo lo querés?</div>
+  <h2 class="section-title">Cada disco tiene su <em>momento perfecto</em></h2>
+  <p class="section-sub">Estas canciones no son para poner de fondo. Son para escuchar de verdad, sentir de verdad.</p>
+  <div class="momentos-grid">
+    <div class="momento-card">
+      <span class="momento-icon">🕯️</span>
+      <h3>Una noche en pareja</h3>
+      <p>Roberto Carlos, media luz, copa de vino. El ambiente que ningún streaming puede igualar.</p>
+    </div>
+    <div class="momento-card" style="border-color:rgba(122,175,197,0.18)">
+      <span class="momento-icon">🧉</span>
+      <h3 style="color:var(--celeste)">La tarde en el living</h3>
+      <p>Un mate, el tocadiscos. Esas baladas que de repente te transportan veinte años atrás.</p>
+    </div>
+    <div class="momento-card">
+      <span class="momento-icon">💍</span>
+      <h3>Un aniversario</h3>
+      <p>El disco de la época en que se conocieron. El regalo que ningún shopping puede dar.</p>
+    </div>
+    <div class="momento-card" style="border-color:rgba(122,175,197,0.18)">
+      <span class="momento-icon">🎤</span>
+      <h3 style="color:var(--celeste)">El karaoke en familia</h3>
+      <p>Pimpinela con tu hermana. Julio Iglesias a todo pulmón. La letra te la sabés de memoria.</p>
+    </div>
+    <div class="momento-card">
+      <span class="momento-icon">🌙</span>
+      <h3>Para recordar a alguien</h3>
+      <p>La canción de un ser querido que ya no está. El vinilo guarda esas cosas.</p>
+    </div>
+    <div class="momento-card" style="border-color:rgba(122,175,197,0.18)">
+      <span class="momento-icon">🎁</span>
+      <h3 style="color:var(--celeste)">Un regalo con historia</h3>
+      <p>Para alguien que tiene todo. Un original de su artista favorito dice más que cualquier caja de bombones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ URGENCIA ══════════ -->
+<div class="urgencia-band">
+  <p>⚠️ <strong>Ediciones difíciles de conseguir.</strong> Muchos de estos títulos no se consiguen nuevos — cuando se van, se van.</p>
+</div>
+
+<!-- ══════════ PACKS ══════════ -->
+<div class="packs-section">
+  <div class="packs-inner">
+    <div class="stag" style="color:var(--celeste)">Una idea diferente</div>
+    <h2 class="section-title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;line-height:1.15;margin-bottom:14px;">
+      Pedinos un <em style="color:var(--rosa)">pack a medida</em>
+    </h2>
+    <p class="section-sub">
+      Si no encontrás exactamente lo que buscás, escribinos. Armamos packs con varios discos del artista o del estilo que necesitás.
+      Ideal para regalar o para completar una colección.
+    </p>
+    <div class="packs-grid">
+      <div class="pack-card rosa">
+        <span class="pack-emoji">💑</span>
+        <h3>Pack Romántico</h3>
+        <div class="pack-subtitulo">Para una noche especial</div>
+        <p>Varios discos para crear la banda de sonido perfecta de una noche en pareja o un aniversario. Vos elegís el artista, nosotros armamos el pack.</p>
+        <div class="pack-artistas">Roberto Carlos · Julio Iglesias · José Luis Rodríguez · Dyango · y más</div>
+        <a class="pack-cta" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack Romántico con discos melódicos." target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp →
+        </a>
+      </div>
+
+      <div class="pack-card celeste">
+        <span class="pack-emoji">💎</span>
+        <h3>Pack Aniversario</h3>
+        <div class="pack-subtitulo">El regalo con sentimiento</div>
+        <p>Buscamos el disco de la época del casamiento, del primer noviazgo, o de algún momento especial. El regalo más personal que existe.</p>
+        <div class="pack-artistas">Contanos el año y el artista favorito — hacemos el resto</div>
+        <a class="pack-cta" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack Aniversario con discos melódicos." target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp →
+        </a>
+      </div>
+
+      <div class="pack-card neutro">
+        <span class="pack-emoji">🌧️</span>
+        <h3>Pack Desamor</h3>
+        <div class="pack-subtitulo">Cuando el corazón necesita compañía</div>
+        <p>Porque a veces lo que más ayuda es escuchar a alguien que lo entendió todo. Alberto Cortez, Serrat, Valeria Lynch — la mejor compañía.</p>
+        <div class="pack-artistas">Alberto Cortez · Serrat · Valeria Lynch · Raphael · y más</div>
+        <a class="pack-cta" href="https://wa.me/5493416068888?text=Hola! Me interesa armar un Pack Desamor con discos melódicos." target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TESTIMONIOS ══════════ -->
+<div class="testimonios-section">
+  <div class="testimonios-inner">
+    <div class="stag" style="text-align:center;color:var(--celeste)">Lo que dicen nuestros clientes</div>
+    <h2 class="section-title" style="text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.9rem,4vw,2.5rem);margin-bottom:0;">
+      Más que un disco, <em style="color:var(--rosa)">un recuerdo</em>
+    </h2>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <div class="testimonio-texto">"Lo compré para mi mamá y cuando lo vio se puso a llorar. Un LP de Roberto Carlos de los '80. Llegó perfecto, sonó perfecto."</div>
+        <div class="testimonio-autor">— Patricia M., Córdoba</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <div class="testimonio-texto">"Lo pongo y me transporta 30 años atrás, a la cocina de mi mamá con la radio puesta. Eso no tiene precio — y encima me salió menos que en Mercado Libre."</div>
+        <div class="testimonio-autor">— Graciela T., Buenos Aires</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars">★★★★★</div>
+        <div class="testimonio-texto">"Les pedí que me armaran un pack para el aniversario de mis viejos. Me ayudaron a elegir, llegó en tiempo y forma. Los dos lloraron de emoción."</div>
+        <div class="testimonio-autor">— Sebastián R., Rosario</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FRASE ══════════ -->
+<div class="frase-section">
+  <div class="frase-inner">
+    <span class="frase-comilla">"</span>
+    <blockquote>
+      La música romántica es la única que suena<br>
+      igual de bien a los 25 que a los 65.
+      <em style="color:var(--celeste)">En vinilo, todavía más.</em>
+    </blockquote>
+    <p class="frase-caption">Respira Ventas · Discos de Vinilo · Rosario, Argentina</p>
+  </div>
+</div>
+
+<!-- ══════════ POR QUÉ ══════════ -->
+<section>
+  <div class="stag">Por qué Respira Ventas</div>
+  <h2 class="section-title">Con el cuidado que<br><em>estos clásicos merecen</em></h2>
+  <p class="section-sub">Un disco de Julio Iglesias no es cualquier cosa. Te contamos cómo trabajamos para que no te lleves una sorpresa.</p>
+  <div class="porq-grid">
+    <div class="porq-card">
+      <div class="porq-num">01</div>
+      <h3>Descripción honesta</h3>
+      <p>Si la tapa tiene marcas del tiempo, te lo decimos. Si el vinilo tiene algún detalle, también. Sin sorpresas al abrir el paquete — prometemos lo que tenemos.</p>
+    </div>
+    <div class="porq-card">
+      <div class="porq-num">02</div>
+      <h3>10% menos que en Mercado Libre</h3>
+      <p>Escribinos por WhatsApp o mail antes de comprar y te hacemos el precio sin el recargo de Mercado Libre. Sin letra chica ni trampa.</p>
+    </div>
+    <div class="porq-card">
+      <div class="porq-num">03</div>
+      <h3>Envío a todo el país</h3>
+      <p>Correo Argentino a cualquier punto. El disco llega bien protegido — tratamos con cuidado algo que tiene historia y no se consigue fácil.</p>
+    </div>
+    <div class="porq-card">
+      <div class="porq-num">04</div>
+      <h3>Respondemos ese día</h3>
+      <p>Por WhatsApp te respondemos rápido. ¿Querés más fotos? ¿Saber cómo suena? ¿Necesitás ayuda para elegir? Preguntá sin compromiso.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <p>
+      <strong>Una aclaración importante:</strong> nuestros discos son usados — eso es lo que les da historia y carácter.
+      No prometemos lo que no tenemos ni exageramos la condición.
+      Lo que sí te prometemos es que <strong>suena bien</strong> —
+      para eso lo vendemos y para eso lo comprás.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>
+      Encontrá tu próxima<br>
+      <em>canción favorita.</em>
+    </h2>
+    <p>
+      Entrá al catálogo, buscá lo que te gusta y escribinos.
+      En minutos te confirmamos si está disponible, te mandamos más fotos si querés,
+      y te hacemos el precio directo — sin pasar por Mercado Libre.
+    </p>
+    <div class="cta-buttons">
+      <a class="btn-primary" href="https://respiraventas.com.ar?genero=Mel%C3%B3dico&orden=visits" target="_blank">
+        🎵 Ver discos melódicos →
+      </a>
+      <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa la música melódica del catálogo." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <a class="btn-secondary" href="mailto:revistarespiraok@gmail.com?subject=Consulta música melódica">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        Consultar por mail
+      </a>
+    </div>
+    <p class="cta-nota">Por WhatsApp o mail = <strong>10% menos que en Mercado Libre</strong> · Envíos a todo el país</p>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-left">© Respira Ventas · Rosario, Argentina</div>
+  <div class="footer-contact">
+    <a href="https://respiraventas.com.ar" target="_blank">respiraventas.com.ar</a>
+    <a href="https://wa.me/5493416068888" target="_blank">+54 9 341 606-8888</a>
+    <a href="mailto:revistarespiraok@gmail.com">revistarespiraok@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

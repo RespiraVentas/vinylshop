@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folklore Argentino en Vinilo — Respira Ventas</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --terr:       #8B3218;   /* terracota ladrillo / adobe del norte */
+    --terr-dark:  #6a2210;
+    --terr-pale:  rgba(139,50,24,0.10);
+    --terr-glow:  rgba(139,50,24,0.20);
+    --arena:      #C4A060;   /* arena seca / paja */
+    --arena-pale: rgba(196,160,96,0.10);
+    --bg:         #0b0805;   /* negro cálido / noche del norte */
+    --surface:    #170f06;
+    --surface2:   #221807;
+    --border:     rgba(139,50,24,0.14);
+    --border-w:   rgba(139,50,24,0.28);
+    --text:       #F0E6D0;   /* crema / papel viejo */
+    --text-muted: rgba(240,230,208,0.62);
+    --text-faint: rgba(240,230,208,0.32);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+    background: rgba(11,8,5,0.97);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-badge {
+    background: var(--terr); color: #fff;
+    font-weight: 900; font-size: 15px;
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-text { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.2; }
+  .logo-sub  { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+  .nav-cta {
+    background: var(--terr); color: #fff;
+    border: none; border-radius: 8px;
+    padding: 10px 20px; font-size: 14px; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--terr-dark); }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 88px 32px 72px;
+    max-width: 960px; margin: 0 auto;
+    text-align: center; position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 260px;
+    background: radial-gradient(ellipse at 50% 0%,
+      rgba(139,50,24,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge-folk {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(139,50,24,0.09);
+    border: 1px solid rgba(139,50,24,0.30);
+    color: var(--arena);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 40px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px; background: var(--terr);
+    border-radius: 50%; animation: pulso 2.6s infinite;
+  }
+  @keyframes pulso {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.3; transform:scale(0.7); }
+  }
+  .hero h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2.8rem, 8vw, 5.8rem);
+    font-weight: 700; line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .hero h1 .l1 { display: block; color: var(--text); }
+  .hero h1 .l2 { display: block; font-style: italic; color: var(--arena); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--text-muted);
+    max-width: 580px; margin: 0 auto 48px; line-height: 1.8;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .hero-desc { font-size: 12px; color: var(--text-faint); }
+
+  /* ─── BOTONES ─── */
+  .btn-terr {
+    background: var(--terr); color: #fff;
+    padding: 16px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-terr:hover { background: var(--terr-dark); transform: translateY(-2px); }
+  .btn-wa {
+    background: #25D366; color: #fff;
+    padding: 16px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: filter 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-wa:hover { filter: brightness(1.1); transform: translateY(-2px); }
+  .btn-arena {
+    background: transparent; color: var(--arena);
+    border: 1px solid rgba(196,160,96,0.32);
+    padding: 16px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-arena:hover { background: rgba(196,160,96,0.07); transform: translateY(-2px); }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .stat { padding: 22px 40px; text-align: center; border-right: 1px solid var(--border); flex: 1; min-width: 150px; }
+  .stat:last-child { border-right: none; }
+  .stat-value { font-family: 'Libre Baskerville', Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+  /* ─── REGIONES: franjas alternadas ─── */
+  .regiones-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; display: block; margin-bottom: 10px; }
+  .section-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700; line-height: 1.15; margin-bottom: 14px;
+  }
+  .section-title em { font-style: italic; color: var(--arena); }
+  .section-sub { font-size: 15px; color: var(--text-muted); max-width: 540px; line-height: 1.7; }
+  .regiones-header { max-width: 960px; margin: 0 auto; padding: 56px 32px 36px; }
+
+  .franja {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    border-top: 1px solid var(--border);
+    min-height: 200px;
+  }
+
+  .franja-lateral {
+    padding: 36px 32px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .franja-lateral::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+  }
+  .franja.noroeste { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); }
+  .franja.voces    { background: linear-gradient(135deg, var(--surface2) 0%, var(--bg) 100%); }
+  .franja.litoral  { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); }
+
+  .franja.noroeste .franja-lateral::before { background: var(--terr); }
+  .franja.voces    .franja-lateral::before { background: var(--arena); }
+  .franja.litoral  .franja-lateral::before { background: var(--terr); opacity: 0.5; }
+
+  .franja-region {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; margin-bottom: 10px;
+  }
+  .franja.noroeste .franja-region { color: var(--terr); }
+  .franja.voces    .franja-region { color: var(--arena); }
+  .franja.litoral  .franja-region { color: var(--arena); }
+
+  .franja-lateral h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.3rem; font-weight: 700; line-height: 1.25; margin-bottom: 10px;
+    color: var(--text);
+  }
+  .franja-lateral p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+  /* grilla 2 columnas — equilibrada sin datos de provincia */
+  .franja-artistas {
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+    align-content: center;
+  }
+  .fa-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 600; color: var(--text);
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(139,50,24,0.07);
+  }
+  .fa-item:nth-last-child(-n+2) { border-bottom: none; }
+  .fa-item::before { content: ''; width: 18px; height: 1px; flex-shrink: 0; }
+  .franja.noroeste .fa-item::before { background: var(--terr); }
+  .franja.voces    .fa-item::before { background: var(--arena); }
+  .franja.litoral  .fa-item::before { background: var(--arena); }
+
+  /* ─── FOGÓN: momentos ─── */
+  .fogon-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 68px 32px;
+  }
+  .fogon-inner { max-width: 960px; margin: 0 auto; }
+  .fogon-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; }
+  .fogon-item {
+    padding: 36px 32px; border-right: 1px solid var(--border); position: relative;
+  }
+  .fogon-item:last-child { border-right: none; }
+  .fogon-item::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .fogon-item.f1::before { background: var(--terr); }
+  .fogon-item.f2::before { background: var(--arena); }
+  .fogon-item.f3::before { background: var(--terr); opacity: 0.6; }
+  .fogon-num {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 3rem; font-weight: 700; line-height: 1; margin-bottom: 16px;
+  }
+  .fogon-item.f1 .fogon-num { color: var(--terr); opacity: 0.55; }
+  .fogon-item.f2 .fogon-num { color: var(--arena); opacity: 0.55; }
+  .fogon-item.f3 .fogon-num { color: var(--terr); opacity: 0.40; }
+  .fogon-item h3 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;
+  }
+  .fogon-item.f1 h3 { color: var(--terr); }
+  .fogon-item.f2 h3 { color: var(--arena); }
+  .fogon-item.f3 h3 { color: rgba(139,50,24,0.75); }
+  .fogon-item p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ─── URGENCIA ─── */
+  .urgencia-band {
+    background: rgba(139,50,24,0.06);
+    border-top: 1px solid rgba(139,50,24,0.16);
+    border-bottom: 1px solid rgba(139,50,24,0.16);
+    padding: 17px 32px; text-align: center;
+  }
+  .urgencia-band p { font-size: 14px; color: var(--text-muted); }
+  .urgencia-band p strong { color: var(--arena); }
+
+  /* ─── POR QUÉ ─── */
+  .porq-section { max-width: 960px; margin: 0 auto; padding: 68px 32px; }
+  .porq-grid-unif {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-bottom: 20px;
+  }
+  .porq-card-unif {
+    padding: 32px 24px; border-right: 1px solid var(--border);
+    text-align: center; transition: background 0.2s;
+  }
+  .porq-card-unif:last-child { border-right: none; }
+  .porq-card-unif:nth-child(even) { background: var(--surface); }
+  .porq-card-unif:hover { background: var(--surface2); }
+  .porq-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+  .porq-card-unif h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .porq-card-unif p  { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .callout {
+    background: rgba(139,50,24,0.05);
+    border: 1px solid rgba(139,50,24,0.18);
+    border-radius: 16px; padding: 28px 32px;
+  }
+  .callout p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+  .callout p strong { color: var(--arena); font-weight: 600; }
+
+  /* ─── FRASE FINAL ─── */
+  .frase-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 72px 32px; text-align: center; position: relative; overflow: hidden;
+  }
+  .frase-section::before {
+    content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(139,50,24,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .frase-inner { max-width: 680px; margin: 0 auto; position: relative; }
+  .frase-comilla {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 7rem; color: var(--terr); opacity: 0.12;
+    line-height: 0.5; display: block; margin-bottom: 10px;
+  }
+  .frase-inner blockquote {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-style: italic; font-weight: 400;
+    color: var(--text); line-height: 1.7; margin-bottom: 18px;
+  }
+  .frase-inner blockquote em { color: var(--arena); font-style: normal; }
+  .frase-caption { font-size: 12px; color: var(--text-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(160deg, var(--surface) 0%, var(--bg) 100%);
+    border-top: 1px solid var(--border);
+  }
+  .cta-inner { max-width: 960px; margin: 0 auto; padding: 84px 32px; text-align: center; }
+  .cta-inner h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700; line-height: 1.1; margin-bottom: 20px;
+  }
+  .cta-inner h2 em { font-style: italic; color: var(--arena); }
+  .cta-inner p { font-size: 15px; color: var(--text-muted); margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-nota { font-size: 12px; color: var(--text-faint); margin-top: 18px; }
+  .cta-nota strong { color: #4ade80; }
+
+  /* ─── FOOTER ─── */
+  footer { padding: 28px 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-left { font-size: 13px; color: var(--text-faint); }
+  .footer-contact { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-contact a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-contact a:hover { color: var(--arena); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 760px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 56px 20px 52px; }
+    .regiones-header { padding: 44px 20px 28px; }
+    .franja { grid-template-columns: 1fr; }
+    .franja-lateral { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+    .franja-artistas { grid-template-columns: 1fr; padding: 28px 24px; }
+    .fogon-section { padding: 52px 20px; }
+    .fogon-items { grid-template-columns: 1fr; }
+    .fogon-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .fogon-item:last-child { border-bottom: none; }
+    .porq-section { padding: 52px 20px; }
+    .stat { padding: 18px 20px; min-width: 130px; }
+    .cta-inner { padding: 56px 20px; }
+    .frase-section { padding: 52px 20px; }
+    footer { padding: 20px; flex-direction: column; }
+    .porq-grid-unif { grid-template-columns: 1fr 1fr; }
+    .porq-card-unif { border-right: none; border-bottom: 1px solid var(--border); }
+    .porq-card-unif:nth-child(2n) { border-right: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://respiraventas.com.ar" target="_blank">
+    <div class="logo-badge">R</div>
+    <div>
+      <div class="logo-text">Respira Ventas</div>
+      <div class="logo-sub">Discos de Vinilo · Rosario</div>
+    </div>
+  </a>
+  <a class="nav-cta" href="https://respiraventas.com.ar?genero=Folclore&orden=visits" target="_blank">Ver discos →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge-folk">
+    <div class="badge-dot"></div>
+    Zambas · Chacareras · Vidalas · clásicos 60/70 · en vinilo
+  </div>
+  <h1>
+    <span class="l1">El Folklore argentino</span>
+    <span class="l2">con raíz y con alma.</span>
+  </h1>
+  <p class="hero-sub">
+    <strong>Mercedes Sosa, Ariel Ramírez, Atahualpa Yupanqui, Los Fronterizos, Los Cantores del Alba, Los Chalchaleros.</strong>
+    Las voces del interior en vinilo original. Clásicos de los 60/70 que todavía
+    huelen a fogón, a tierra mojada y a patria chica.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-terr" href="https://respiraventas.com.ar?genero=Folclore&orden=visits" target="_blank">
+      Ver todos los discos →
+    </a>
+    <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa el Folklore del catálogo." target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Consultar por WhatsApp
+    </a>
+    <a class="btn-arena" href="mailto:revistarespiraok@gmail.com?subject=Consulta Folklore en vinilo">
+      ✉️ Escribir por mail
+    </a>
+  </div>
+  <p class="hero-desc">Por WhatsApp o mail = 10% menos que en Mercado Libre</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value" style="color:var(--terr)">300</div>
+    <div class="stat-label">Discos de Folklore</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--arena)">60/70</div>
+    <div class="stat-label">Clásicos de época</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--terr)">Original</div>
+    <div class="stat-label">Todos son originales</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" style="color:var(--arena)">🌎</div>
+    <div class="stat-label">Envíos a todo el país</div>
+  </div>
+</div>
+
+<!-- REGIONES: FRANJAS ALTERNADAS -->
+<div class="regiones-section">
+  <div class="regiones-header">
+    <span class="stag" style="color:var(--terr)">Por dónde viene el sonido</span>
+    <h2 class="section-title">Argentina es grande.<br><em>Su Folklore también.</em></h2>
+    <p class="section-sub">El noroeste, las grandes voces nacionales, el litoral. Cada región tiene su ritmo y sus artistas. Todos en un solo catálogo.</p>
+  </div>
+
+  <!-- FRANJA 1: NOROESTE -->
+  <div class="franja noroeste">
+    <div class="franja-lateral">
+      <span class="franja-region">Santiago · Salta · Tucumán · Jujuy</span>
+      <h3>El Noroeste.<br>La madre del Folklore.</h3>
+      <p>La chacarera, la zamba y la vidala nacieron acá. La tierra seca, la Quebrada, el bombo legüero.</p>
+    </div>
+    <div class="franja-artistas">
+      <div class="fa-item">Los Cantores del Alba</div>
+      <div class="fa-item">Atahualpa Yupanqui</div>
+      <div class="fa-item">Los Fronterizos</div>
+      <div class="fa-item">Los Chalchaleros</div>
+      <div class="fa-item">Eduardo Falú</div>
+      <div class="fa-item">Los Cantores de Quilla Huasi</div>
+      <div class="fa-item">Monchito Merlo</div>
+    </div>
+  </div>
+
+  <!-- FRANJA 2: GRANDES VOCES -->
+  <div class="franja voces">
+    <div class="franja-lateral">
+      <span class="franja-region">La voz de la Argentina entera</span>
+      <h3>Las grandes voces del Folklore.</h3>
+      <p>Artistas que venían del interior y llenaron estadios. El canto que llegó a todo el mundo.</p>
+    </div>
+    <div class="franja-artistas">
+      <div class="fa-item">Mercedes Sosa</div>
+      <div class="fa-item">Ariel Ramírez</div>
+      <div class="fa-item">Horacio Guarany</div>
+      <div class="fa-item">César Isella</div>
+      <div class="fa-item">Facundo Cabral</div>
+      <div class="fa-item">Víctor Heredia</div>
+    </div>
+  </div>
+
+  <!-- FRANJA 3: LITORAL -->
+  <div class="franja litoral">
+    <div class="franja-lateral">
+      <span class="franja-region">Entre Ríos · Corrientes · Litoral</span>
+      <h3>El Litoral y la canción de agua.</h3>
+      <p>El chamamé, la milonga orillera, el Paraná. Un folklore húmedo, melancólico, ribereño.</p>
+    </div>
+    <div class="franja-artistas">
+      <div class="fa-item">Ramona Galarza</div>
+      <div class="fa-item">Teresa Parodi</div>
+      <div class="fa-item">Hugo Díaz</div>
+      <div class="fa-item">Cuarteto Zupay</div>
+      <div class="fa-item">Aldo Monges</div>
+      <div class="fa-item">Los Tucu Tucu</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOGÓN -->
+<div class="fogon-section">
+  <div class="fogon-inner">
+    <span class="stag" style="color:var(--terr)">En qué momentos</span>
+    <h2 class="section-title">El Folklore no necesita<br><em>excusa para sonar.</em></h2>
+    <p class="section-sub" style="margin-bottom:0">Hay momentos que solo el Folklore llena. Siempre los hubo.</p>
+    <div class="fogon-items">
+      <div class="fogon-item f1">
+        <div class="fogon-num">01</div>
+        <h3>El asado del domingo</h3>
+        <p>Ariel Ramírez de fondo, el fuego todavía prendido, alguien que empieza a cantar. El Folklore que convierte cualquier patio en una peña.</p>
+      </div>
+      <div class="fogon-item f2">
+        <div class="fogon-num">02</div>
+        <h3>La nostalgia del interior</h3>
+        <p>Los Chalchaleros en Buenos Aires o Rosario. El disco que acerca la provincia aunque no puedas viajar. El Norte que entra por los parlantes.</p>
+      </div>
+      <div class="fogon-item f3">
+        <div class="fogon-num">03</div>
+        <h3>El regalo con alma argentina</h3>
+        <p>Un Yupanqui original para alguien que nació en Santiago. Una Mercedes Sosa en vinilo. Eso no se compra en una tienda común.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- URGENCIA -->
+<div class="urgencia-band">
+  <p><strong>Clásicos de los 60/70, prensados en la época.</strong> Cada disco que se vende es uno menos. No hay reimpresión posible.</p>
+</div>
+
+<!-- POR QUÉ -->
+<div class="porq-section">
+  <span class="stag" style="color:var(--terr)">Por qué Respira Ventas</span>
+  <h2 class="section-title" style="margin-bottom:14px">Lo que hace falta para<br><em>vender folklore en serio.</em></h2>
+  <p class="section-sub" style="margin-bottom:40px">Un disco de Yupanqui de los 60 no es cualquier cosa. Así lo tratamos.</p>
+  <div class="porq-grid-unif">
+    <div class="porq-card-unif">
+      <span class="porq-icon">🔍</span>
+      <h3>Descripción honesta</h3>
+      <p>Estado real del vinilo y la tapa. Fotos antes de confirmar. Sin sorpresas al abrir el paquete.</p>
+    </div>
+    <div class="porq-card-unif">
+      <span class="porq-icon">💰</span>
+      <h3>10% menos que en Mercado Libre</h3>
+      <p>Por WhatsApp o mail, precio directo. Sin el recargo de la plataforma ni letra chica.</p>
+    </div>
+    <div class="porq-card-unif">
+      <span class="porq-icon">📦</span>
+      <h3>Envío a todo el país</h3>
+      <p>Correo Argentino, bien embalado. Llegamos al norte, al sur y al litoral.</p>
+    </div>
+    <div class="porq-card-unif">
+      <span class="porq-icon">💬</span>
+      <h3>Respondemos ese día</h3>
+      <p>Por WhatsApp rápido. ¿Querés fotos? ¿Más info? Preguntá sin compromiso.</p>
+    </div>
+  </div>
+  <div class="callout">
+    <p>
+      <strong>Nuestros discos son usados — y eso los hace auténticos.</strong>
+      No prometemos lo que no tenemos ni exageramos la condición.
+      Lo que sí prometemos: <strong>suena bien</strong>.
+    </p>
+  </div>
+</div>
+
+<!-- FRASE FINAL -->
+<div class="frase-section">
+  <div class="frase-inner">
+    <span class="frase-comilla">"</span>
+    <blockquote>
+      Yo tengo tantos hermanos<br>
+      que no los puedo contar,<br>
+      <em>en el valle, la montaña,<br>
+      en la pampa y en el mar.</em>
+    </blockquote>
+    <p class="frase-caption">Atahualpa Yupanqui · Respira Ventas · Discos de Vinilo · Rosario</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>
+      El Folklore que buscás<br>
+      <em>está en el catálogo.</em>
+    </h2>
+    <p>
+      Entrá, buscá tu artista, tu región, tu recuerdo — y escribinos.
+      Te confirmamos el disco, te mandamos fotos y te hacemos el precio directo.
+    </p>
+    <div class="cta-buttons">
+      <a class="btn-terr" href="https://respiraventas.com.ar?genero=Folclore&orden=visits" target="_blank">
+        Ver discos de Folklore →
+      </a>
+      <a class="btn-wa" href="https://wa.me/5493416068888?text=Hola! Me interesa el Folklore del catálogo." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <a class="btn-arena" href="mailto:revistarespiraok@gmail.com?subject=Consulta Folklore en vinilo">
+        ✉️ Escribir por mail
+      </a>
+    </div>
+    <p class="cta-nota">Por WhatsApp o mail = <strong>10% menos que en Mercado Libre</strong> · Envíos a todo el país</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© Respira Ventas · Rosario, Argentina</div>
+  <div class="footer-contact">
+    <a href="https://respiraventas.com.ar" target="_blank">respiraventas.com.ar</a>
+    <a href="https://wa.me/5493416068888" target="_blank">+54 9 341 606-8888</a>
+    <a href="mailto:revistarespiraok@gmail.com">revistarespiraok@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
