@@ -252,17 +252,17 @@ a { color: inherit; text-decoration: none; }
 .col-banner-btn:hover { opacity: .85; }
 .col-banner-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 7px;
   flex-shrink: 0;
-  width: 330px;
+  width: 340px;
 }
 .col-banner-chip {
   background: var(--cc);
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 11px 10px;
+  padding: 12px 14px;
   border-radius: 8px;
   transition: opacity .15s, transform .15s;
   letter-spacing: -.01em;
