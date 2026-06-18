@@ -236,8 +236,8 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json 2>&1 | Out-Null
-    git commit -m $mensaje 2>&1 | Out-Null
+    git add data/records.json | Out-Null
+    git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {
         Write-OK "Commit creado: $mensaje"
@@ -245,9 +245,9 @@ try {
         Write-Host "    (Sin cambios desde la ultima actualizacion)" -ForegroundColor Yellow
     }
 
-    git push 2>&1 | Out-Null
+    git push origin main
     if ($LASTEXITCODE -ne 0) {
-        git push --set-upstream origin main 2>&1 | Out-Null
+        git push --set-upstream origin main
     }
 
     if ($LASTEXITCODE -eq 0) {
