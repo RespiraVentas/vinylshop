@@ -34,7 +34,9 @@ const modalClose   = document.getElementById('modal-close');
 async function init() {
   try {
     loadingEl.style.display = 'flex';
-    const res = await fetch('data/records.json?v=' + Date.now());
+    // 'no-cache' revalida con el servidor (ETag): si el catálogo no cambió,
+    // responde 304 y el navegador usa su copia local en vez de bajar todo de nuevo.
+    const res = await fetch('data/records.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(res.statusText);
     const raw = await res.json();
     allRecords = raw.map(normalize);
@@ -225,14 +227,13 @@ function buildContactLinks(r) {
   const linkML     = r.url || '';
 
   const ahorro = precio && descuento ? precio - descuento : 0;
-  const ahorroStr     = ahorro ? ` (¡Ahorrás $ ${ahorro.toLocaleString('es-AR')}!)` : '';
-  const ahorroStrMail = ahorro ? ` (¡Ahorro $ ${ahorro.toLocaleString('es-AR')}!)`  : '';
+  const ahorroStr = ahorro ? ` (¡Ahorro $ ${ahorro.toLocaleString('es-AR')}!)` : '';
 
   const waText = [
     `Hola! Me interesa este disco:`,
     `*${r.artista} — ${r.album || r.titulo}*${r.anio ? ` (${r.anio})` : ''}`,
     precio    ? `Precio en Mercado Libre: $ ${precio.toLocaleString('es-AR')}` : '',
-    descuento ? `Si comprás directo (sin pasar por Mercado Libre): $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
+    descuento ? `Precio comprando directo (10% off): $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
     ``,
     linkML ? `Link ML: ${linkML}` : '',
     ``,
@@ -250,7 +251,7 @@ function buildContactLinks(r) {
     linkML ? `Link en Mercado Libre: ${linkML}` : '',
     ``,
     `¿Está disponible con el 10% de descuento por compra directa?`,
-    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStrMail}` : '',
+    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
     ``,
     `Gracias!`,
   ].filter(l => l !== undefined).join('\n');
