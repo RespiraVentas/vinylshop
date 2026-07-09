@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /HOWTO.txt
+Disallow: /SETUP.md
+Disallow: /actualizar.ps1
+Disallow: /actualizar.bat
+
+Sitemap: https://respiraventas.com.ar/sitemap.xml
