@@ -163,7 +163,9 @@ try {
         $imgs = @()
         for ($c = $C_IMG1; $c -le $C_IMG10; $c++) {
             $v = $ws.Cells.Item($r, $c).Value2
-            if ($v) { $imgs += "$v" }
+            # Drapi exporta las imagenes con http:// -> se fuerza https para
+            # evitar advertencias de contenido mixto en el sitio
+            if ($v) { $imgs += "$v" -replace '^http://', 'https://' }
         }
 
         $mlId = "$($ws.Cells.Item($r, $C_ID).Value2)"
