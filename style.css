@@ -723,18 +723,34 @@ a { color: inherit; text-decoration: none; }
   align-items: baseline;
   gap: 14px;
   margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 .modal-price {
   font-family: var(--font-body);
   font-size: 26px;
   font-weight: 700;
   color: var(--text);
+  white-space: nowrap;
 }
 .modal-price-direct {
   font-size: 14px;
   color: var(--wa-dark);
   font-weight: 600;
 }
+.modal-share {
+  margin-left: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: color .15s, border-color .15s;
+}
+.modal-share:hover { color: var(--text); border-color: var(--text); }
 
 /* CTA compra directa */
 .modal-cta-direct {

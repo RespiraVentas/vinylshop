@@ -55,6 +55,13 @@ async function init() {
       if (matchSort) filterSort.value = matchSort.value;
     }
     applyFilters();
+    // Deep-link a un disco: ?id=1104560840 (o MLA1104560840) abre su modal
+    const idParam = urlParams.get('id');
+    if (idParam) {
+      const idNum = idParam.replace(/\D/g, '');
+      const rec = allRecords.find(r => r.mlid === idNum);
+      if (rec) openModal(rec);
+    }
   } catch (e) {
     loadingEl.style.display = 'none';
     grid.innerHTML = `<p style="padding:60px;color:#c00;grid-column:1/-1">
@@ -78,7 +85,11 @@ function normalize(r) {
     if (partes.length >= 2) artista = partes[0].trim();
   }
 
-  return { ...r, artista, disco, tapa };
+  // Id numérico de la publicación de ML (para el deep-link ?id=...)
+  const m = (r.url || '').match(/MLA-?(\d+)/);
+  const mlid = m ? m[1] : '';
+
+  return { ...r, artista, disco, tapa, mlid };
 }
 
 function populateSelects() {
@@ -296,7 +307,20 @@ function getRelated(r, count = 4) {
 }
 
 // ── Modal ─────────────────────────────────────────────────────────────────────
+let currentRecord = null;
+
+// Refleja el disco abierto en la URL (?id=...) sin agregar entradas al historial
+function setIdParam(mlid) {
+  const u = new URL(window.location);
+  if (mlid) u.searchParams.set('id', mlid);
+  else      u.searchParams.delete('id');
+  history.replaceState(null, '', u);
+}
+
 function openModal(r) {
+  currentRecord = r;
+  setIdParam(r.mlid);
+  shareBtn.style.display = r.mlid ? '' : 'none';
   document.querySelector('.modal').scrollTop = 0;
   const gallery = document.getElementById('modal-gallery');
   if (r.imagenes?.length) {
@@ -400,7 +424,28 @@ function openModal(r) {
 function closeModal() {
   overlay.classList.remove('open');
   document.body.style.overflow = '';
+  currentRecord = null;
+  setIdParam(null);
 }
+
+// ── Compartir disco ───────────────────────────────────────────────────────────
+const shareBtn = document.getElementById('modal-share');
+const SHARE_LABEL = shareBtn.innerHTML;
+
+shareBtn.addEventListener('click', async () => {
+  if (!currentRecord?.mlid) return;
+  const url   = `${window.location.origin}/?id=${currentRecord.mlid}`;
+  const title = `${currentRecord.artista} — ${currentRecord.album || currentRecord.titulo}`;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); } catch { /* usuario canceló */ }
+  } else {
+    try {
+      await navigator.clipboard.writeText(url);
+      shareBtn.textContent = '✓ Link copiado';
+      setTimeout(() => { shareBtn.innerHTML = SHARE_LABEL; }, 1600);
+    } catch { window.prompt('Copiá el link:', url); }
+  }
+});
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function esc(s) {
