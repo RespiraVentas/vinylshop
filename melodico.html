@@ -611,7 +611,7 @@
 <div class="hero">
   <div class="badge-melodico">
     <div class="badge-dot"></div>
-    Baladas románticas · 779 discos en catálogo
+    Baladas románticas · <span id="melo-count">771</span> discos en catálogo
   </div>
   <h1>
     <span class="l1">La música que</span>
@@ -896,6 +896,19 @@
     <a href="mailto:revistarespiraok@gmail.com">revistarespiraok@gmail.com</a>
   </div>
 </footer>
+
+<script>
+  // Mantiene el conteo de "discos en catálogo" al día sin tocar el HTML:
+  // lee el mismo records.json que usa el catálogo y cuenta los de género Melódico.
+  fetch('/data/records.json', { cache: 'no-cache' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var n = data.filter(function (r) { return r.genero === 'Melódico'; }).length;
+      var el = document.getElementById('melo-count');
+      if (n && el) el.textContent = n.toLocaleString('es-AR');
+    })
+    .catch(function () { /* si falla, queda el numero estatico como fallback */ });
+</script>
 
 </body>
 </html>
