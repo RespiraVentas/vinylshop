@@ -283,7 +283,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  24,
+        "visitas":  25,
         "fecha":  "2021-09-22T14:29:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1104545959",
         "imagenes":  [
@@ -787,7 +787,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2021-09-24T01:20:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1104957398",
         "imagenes":  [
@@ -913,7 +913,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2021-09-24T01:20:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1104983379",
         "imagenes":  [
@@ -997,7 +997,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  12,
+        "visitas":  13,
         "fecha":  "2021-10-04T23:52:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1106641172",
         "imagenes":  [
@@ -1069,7 +1069,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  47990,
-        "visitas":  14,
+        "visitas":  12,
         "fecha":  "2022-02-14T22:59:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1123592867",
         "imagenes":  [
@@ -1107,7 +1107,7 @@
     {
         "titulo":  "Compilado Internacional Rolling Stones Varios Lp Sin Girar",
         "artista":  "Varios Artistas",
-        "album":  "Compilado Internacional Rolling Stones y Varios",
+        "album":  "Internacional Rolling Stones y Varios",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "10",
@@ -1115,7 +1115,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  32,
+        "visitas":  33,
         "fecha":  "2022-04-25T21:34:30",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1133847950",
         "imagenes":  [
@@ -1136,7 +1136,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  41,
+        "visitas":  38,
         "fecha":  "2022-04-25T21:35:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1133906574",
         "imagenes":  [
@@ -1284,7 +1284,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  79990,
-        "visitas":  31,
+        "visitas":  30,
         "fecha":  "2022-05-08T21:29:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1136329451",
         "imagenes":  [
@@ -1310,7 +1310,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "2",
         "precio":  79990,
-        "visitas":  20,
+        "visitas":  19,
         "fecha":  "2022-05-08T21:30:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1136329462",
         "imagenes":  [
@@ -1409,7 +1409,7 @@
     },
     {
         "titulo":  "Pappo\u0027s Blues - Volumen 6 Vi Vinilo Lp Época",
-        "artista":  "Pappo\u0027s Blues",
+        "artista":  "Pappo\\\u0027s Blues",
         "album":  "Volumen VI",
         "compania":  "Columbia",
         "anio":  "1975",
@@ -1418,7 +1418,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  119990,
-        "visitas":  21,
+        "visitas":  23,
         "fecha":  "2022-09-07T21:02:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1164452812",
         "imagenes":  [
@@ -1493,7 +1493,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2022-09-29T20:23:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1180922436",
         "imagenes":  [
@@ -1570,7 +1570,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2022-10-18T18:43:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1200709033",
         "imagenes":  [
@@ -1595,7 +1595,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2022-10-18T18:43:49",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1200102381",
         "imagenes":  [
@@ -1736,6 +1736,27 @@
         "desc":  "Compilado Internacional Sin Girar - Sin uso, de disquería cerrada."
     },
     {
+        "titulo":  "Compilado Vibraciones ´82 Vinilo Lp Sin Girar",
+        "artista":  "Varios Artistas",
+        "album":  "Vibraciones 82",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  45000,
+        "visitas":  23,
+        "fecha":  "2022-11-10T21:55:58",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1234656903",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_604390-MLA110604690181_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_870603-MLA109643578658_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_735028-MLA110476962785_042026-F.jpg"
+                     ],
+        "desc":  "Compilado Internacional Sin Girar - Sin uso, de disquería cerrada."
+    },
+    {
         "titulo":  "Compilado For Disc Jockey Vol 1 Vinilo Lp Sin Girar",
         "artista":  "Varios Artistas",
         "album":  "For Disc Jockey Vol 1",
@@ -1756,27 +1777,6 @@
                          "https://http2.mlstatic.com/D_760654-MLA52374861374_112022-F.jpg",
                          "https://http2.mlstatic.com/D_723291-MLA111293193183_052026-F.jpg",
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
-                     ],
-        "desc":  "Compilado Internacional Sin Girar - Sin uso, de disquería cerrada."
-    },
-    {
-        "titulo":  "Compilado Vibraciones ´82 Vinilo Lp Sin Girar",
-        "artista":  "Varios Artistas",
-        "album":  "Vibraciones ´82",
-        "compania":  "Columbia",
-        "anio":  "1980",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Rock",
-        "discos":  "1",
-        "precio":  45000,
-        "visitas":  20,
-        "fecha":  "2022-11-10T21:55:58",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1234656903",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_604390-MLA110604690181_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_870603-MLA109643578658_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_735028-MLA110476962785_042026-F.jpg"
                      ],
         "desc":  "Compilado Internacional Sin Girar - Sin uso, de disquería cerrada."
     },
@@ -1812,7 +1812,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  6,
+        "visitas":  4,
         "fecha":  "2022-11-11T22:57:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1236944843",
         "imagenes":  [
@@ -2066,7 +2066,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  16,
+        "visitas":  17,
         "fecha":  "2022-11-11T23:34:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1236117568",
         "imagenes":  [
@@ -2087,7 +2087,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  21,
+        "visitas":  20,
         "fecha":  "2022-11-11T23:34:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1236279428",
         "imagenes":  [
@@ -2192,7 +2192,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2022-11-13T13:52:11",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1239136521",
         "imagenes":  [
@@ -2255,7 +2255,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2022-11-13T13:52:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1237776010",
         "imagenes":  [
@@ -2339,7 +2339,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  14,
+        "visitas":  12,
         "fecha":  "2022-11-13T18:51:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1238892274",
         "imagenes":  [
@@ -2403,7 +2403,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  0,
+        "visitas":  1,
         "fecha":  "2022-11-13T18:51:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1239579418",
         "imagenes":  [
@@ -2446,7 +2446,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  43,
+        "visitas":  42,
         "fecha":  "2022-11-13T18:51:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1239611717",
         "imagenes":  [
@@ -2522,7 +2522,7 @@
     {
         "titulo":  "Compilado Star Trackin´ 76 Vinilo Lp Sin Girar",
         "artista":  "Varios Artistas",
-        "album":  "Star Trackin´ 76",
+        "album":  "Star Trackin 76",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "10",
@@ -2530,7 +2530,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2022-11-13T18:51:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1239138748",
         "imagenes":  [
@@ -2635,7 +2635,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  9,
+        "visitas":  10,
         "fecha":  "2022-11-13T18:52:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1239391258",
         "imagenes":  [
@@ -2828,7 +2828,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  15,
+        "visitas":  16,
         "fecha":  "2022-11-30T13:50:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1265858102",
         "imagenes":  [
@@ -3641,7 +3641,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2022-11-30T13:53:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1265845142",
         "imagenes":  [
@@ -3899,7 +3899,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2023-01-17T13:00:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1313962635",
         "imagenes":  [
@@ -4838,7 +4838,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  3,
+        "visitas":  2,
         "fecha":  "2023-01-17T13:01:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1313949594",
         "imagenes":  [
@@ -4859,7 +4859,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2023-01-17T13:01:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1313969075",
         "imagenes":  [
@@ -5183,7 +5183,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  32,
+        "visitas":  33,
         "fecha":  "2023-01-22T17:44:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1317808120",
         "imagenes":  [
@@ -5204,7 +5204,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  20,
+        "visitas":  22,
         "fecha":  "2023-01-22T17:44:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1317776099",
         "imagenes":  [
@@ -5236,27 +5236,6 @@
         "desc":  "Vinilo Sin Girar o NM - De disquería cerrada."
     },
     {
-        "titulo":  "Ariel Ramirez - Valses Criollos Vinilo Lp Sin Girar",
-        "artista":  "Ariel Ramirez - Valses Criollos Vinilo LP",
-        "album":  "Valses Criollos",
-        "compania":  "Columbia",
-        "anio":  "1980",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Folclore",
-        "discos":  "1",
-        "precio":  45000,
-        "visitas":  5,
-        "fecha":  "2023-01-22T17:44:07",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1317730793",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_992619-MLA53421798177_012023-F.jpg",
-                         "https://http2.mlstatic.com/D_813055-MLA115549317139_082026-F.jpg",
-                         "https://http2.mlstatic.com/D_735028-MLA110476962785_042026-F.jpg"
-                     ],
-        "desc":  "Vinilo Sin Girar o NM - De disquería cerrada."
-    },
-    {
         "titulo":  "Conjunto Ivoti - Vamos A Ver Cómo Se Revuelca El Toro Vinilo",
         "artista":  "CONJUNTO IVOTI",
         "album":  "Vamos a Ver Cómo Se Revuelca el Toro",
@@ -5273,6 +5252,27 @@
         "imagenes":  [
                          "https://http2.mlstatic.com/D_877812-MLA110604602653_042026-F.jpg",
                          "https://http2.mlstatic.com/D_669532-MLA111292548381_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_735028-MLA110476962785_042026-F.jpg"
+                     ],
+        "desc":  "Vinilo Sin Girar o NM - De disquería cerrada."
+    },
+    {
+        "titulo":  "Ariel Ramirez - Valses Criollos Vinilo Lp Sin Girar",
+        "artista":  "Ariel Ramirez - Valses Criollos Vinilo LP",
+        "album":  "Valses Criollos",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Folclore",
+        "discos":  "1",
+        "precio":  45000,
+        "visitas":  3,
+        "fecha":  "2023-01-22T17:44:07",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1317730793",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_992619-MLA53421798177_012023-F.jpg",
+                         "https://http2.mlstatic.com/D_813055-MLA115549317139_082026-F.jpg",
                          "https://http2.mlstatic.com/D_735028-MLA110476962785_042026-F.jpg"
                      ],
         "desc":  "Vinilo Sin Girar o NM - De disquería cerrada."
@@ -5456,7 +5456,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  28,
+        "visitas":  27,
         "fecha":  "2023-01-22T17:44:23",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1317801767",
         "imagenes":  [
@@ -5561,7 +5561,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  10,
+        "visitas":  9,
         "fecha":  "2023-01-22T17:44:33",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1317788800",
         "imagenes":  [
@@ -5985,7 +5985,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  4,
+        "visitas":  3,
         "fecha":  "2023-01-26T15:42:49",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1322186267",
         "imagenes":  [
@@ -6658,7 +6658,7 @@
         "genero":  "Humor",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  4,
+        "visitas":  3,
         "fecha":  "2023-01-26T15:44:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1321870697",
         "imagenes":  [
@@ -7017,7 +7017,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  25,
+        "visitas":  24,
         "fecha":  "2023-01-28T00:37:30",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1324357319",
         "imagenes":  [
@@ -7332,7 +7332,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2023-01-28T00:38:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1324363775",
         "imagenes":  [
@@ -7353,7 +7353,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2023-01-28T00:38:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1324363774",
         "imagenes":  [
@@ -7367,7 +7367,7 @@
     {
         "titulo":  "Boby Goma - Boby Goma Vinilo Lp Sin Girar",
         "artista":  "Boby - Goma",
-        "album":  "Boby - Goma Vinilo Lp Sin Girar",
+        "album":  "Boby - Goma",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "10",
@@ -7460,7 +7460,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  22,
+        "visitas":  25,
         "fecha":  "2023-02-02T14:58:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1332780970",
         "imagenes":  [
@@ -8488,7 +8488,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2023-02-02T18:31:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1332803940",
         "imagenes":  [
@@ -8682,7 +8682,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2023-02-02T18:31:41",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1332790985",
         "imagenes":  [
@@ -8808,7 +8808,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  8,
+        "visitas":  7,
         "fecha":  "2023-02-02T18:31:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1332784535",
         "imagenes":  [
@@ -9188,7 +9188,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2023-02-02T18:32:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1333027883",
         "imagenes":  [
@@ -9377,7 +9377,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  5,
         "fecha":  "2023-02-02T18:32:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1332778025",
         "imagenes":  [
@@ -9539,7 +9539,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  16,
+        "visitas":  14,
         "fecha":  "2023-02-08T18:11:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1339943427",
         "imagenes":  [
@@ -9890,7 +9890,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  33000,
-        "visitas":  35,
+        "visitas":  34,
         "fecha":  "2023-03-16T16:38:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1362699653",
         "imagenes":  [
@@ -9934,7 +9934,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  32,
+        "visitas":  31,
         "fecha":  "2023-03-16T16:38:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1362774329",
         "imagenes":  [
@@ -10527,7 +10527,7 @@
     {
         "titulo":  "Compilado Festival De Éxitos ´77 Vinilo Lp",
         "artista":  "Varios Artistas - Compilado",
-        "album":  "Festival de Éxitos ´77",
+        "album":  "Festival de Éxitos  77",
         "compania":  "CBS",
         "anio":  "1980",
         "canciones":  "10",
@@ -10639,7 +10639,7 @@
     {
         "titulo":  "Bochinche Pop Vol. 2 Vinilo Lp",
         "artista":  "Varios Artistas - Compilado",
-        "album":  "Bochinche Pop Vol. 2 Vinilo LP",
+        "album":  "Bochinche Pop Vol. 2",
         "compania":  "CBS",
         "anio":  "1980",
         "canciones":  "10",
@@ -10867,7 +10867,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  12,
+        "visitas":  10,
         "fecha":  "2023-03-20T17:57:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1363142867",
         "imagenes":  [
@@ -11126,7 +11126,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  26,
+        "visitas":  27,
         "fecha":  "2023-03-20T17:58:06",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1376065744",
         "imagenes":  [
@@ -11222,7 +11222,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  23,
+        "visitas":  24,
         "fecha":  "2023-04-01T21:08:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1385321658",
         "imagenes":  [
@@ -11599,7 +11599,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  69990,
-        "visitas":  24,
+        "visitas":  25,
         "fecha":  "2023-05-25T13:03:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1423628028",
         "imagenes":  [
@@ -11627,7 +11627,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  51,
+        "visitas":  48,
         "fecha":  "2023-05-25T13:03:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1423692766",
         "imagenes":  [
@@ -11825,7 +11825,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  8,
+        "visitas":  7,
         "fecha":  "2023-05-31T19:47:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1371606967",
         "imagenes":  [
@@ -11923,7 +11923,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  33000,
-        "visitas":  64,
+        "visitas":  62,
         "fecha":  "2023-05-31T19:48:29",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1427133786",
         "imagenes":  [
@@ -11950,7 +11950,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  20,
+        "visitas":  18,
         "fecha":  "2023-05-31T19:48:37",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1371669337",
         "imagenes":  [
@@ -11978,7 +11978,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  55000,
-        "visitas":  57,
+        "visitas":  54,
         "fecha":  "2023-05-31T19:48:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1371593739",
         "imagenes":  [
@@ -12327,7 +12327,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  4,
         "fecha":  "2023-06-28T23:02:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1439522138",
         "imagenes":  [
@@ -12439,7 +12439,7 @@
         "genero":  "World Music",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2023-06-28T23:03:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1375067885",
         "imagenes":  [
@@ -12586,6 +12586,29 @@
         "desc":  "Raimundo Fagner - Fagner (Brasil)\nDisco: NM\nTapa: NM\nInsert Cartón: NM \n\nRaimundo Fagner - Fagner (Brasil)\nSello: Discos CBS - 138.250\nFormato: Vinilo, LP, Album\nPaís: Brazil\nPublicado: 1982\nGénero: Latin Estilo: MPB"
     },
     {
+        "titulo":  "Raices Incas - Testigo De Siglos Vinilo Lp Sin Girar Promo",
+        "artista":  "Raices Incas",
+        "album":  "Testigo De Siglos",
+        "compania":  "RCA",
+        "anio":  "1984",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "World Music",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  0,
+        "fecha":  "2023-06-28T23:03:15",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1375041763",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_954534-MLA109643876996_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_659487-MLA70204376577_062023-F.jpg",
+                         "https://http2.mlstatic.com/D_793370-MLA110526036483_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_673957-MLA70182718584_062023-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Raices Incas - Testigo De Siglos (Promo)\nDisco: NM\nTapa: NM\n\nRaices Incas - Testigo De Siglos\nSello: RCA RECORDS - TLP-50209\nFormato: Vinilo, LP, Album, Stereo\nPaís: Argentina\nPublicado: 1984\nGénero: Folk, World, \u0026 Country"
+    },
+    {
         "titulo":  "Los Laikas - Tukuy Runaspaj Vinilo Lp",
         "artista":  "Los Laikas",
         "album":  "Tukuy Runaspaj",
@@ -12606,29 +12629,6 @@
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
                      ],
         "desc":  "Los Laikas - Tukuy Runaspaj\nDisco: Ex\nTapa: Ex\n\nLos Laikas - Tukuy Runaspaj\nSello: Tonodisc - TON-1166\nFormato: Vinilo, LP, Stereo\nPaís: Argentina\nPublicado: 1984\nGénero: Latin, Folk, World, \u0026 Country Estilo: Folk, Folk Rock"
-    },
-    {
-        "titulo":  "Raices Incas - Testigo De Siglos Vinilo Lp Sin Girar Promo",
-        "artista":  "Raices Incas",
-        "album":  "Testigo De Siglos",
-        "compania":  "RCA",
-        "anio":  "1984",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "World Music",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  1,
-        "fecha":  "2023-06-28T23:03:15",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1375041763",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_954534-MLA109643876996_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_659487-MLA70204376577_062023-F.jpg",
-                         "https://http2.mlstatic.com/D_793370-MLA110526036483_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_673957-MLA70182718584_062023-F.jpg",
-                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
-                     ],
-        "desc":  "Raices Incas - Testigo De Siglos (Promo)\nDisco: NM\nTapa: NM\n\nRaices Incas - Testigo De Siglos\nSello: RCA RECORDS - TLP-50209\nFormato: Vinilo, LP, Album, Stereo\nPaís: Argentina\nPublicado: 1984\nGénero: Folk, World, \u0026 Country"
     },
     {
         "titulo":  "Los Laikas - 2 -  Vinilo Lp Promo",
@@ -13957,7 +13957,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  9,
+        "visitas":  7,
         "fecha":  "2023-07-06T20:21:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1444880678",
         "imagenes":  [
@@ -14337,7 +14337,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  3,
         "fecha":  "2023-07-11T16:11:25",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1376723871",
         "imagenes":  [
@@ -14737,7 +14737,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2023-08-03T13:52:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1465379854",
         "imagenes":  [
@@ -15236,7 +15236,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  12,
+        "visitas":  13,
         "fecha":  "2023-08-11T18:18:24",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1382738219",
         "imagenes":  [
@@ -15839,7 +15839,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2023-08-11T18:19:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1382711721",
         "imagenes":  [
@@ -15949,7 +15949,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2023-08-31T21:34:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1490881200",
         "imagenes":  [
@@ -16113,7 +16113,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2023-09-05T22:44:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1497135400",
         "imagenes":  [
@@ -16137,7 +16137,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  11,
+        "visitas":  10,
         "fecha":  "2023-09-05T22:44:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1497200598",
         "imagenes":  [
@@ -16184,7 +16184,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  18,
+        "visitas":  16,
         "fecha":  "2023-09-05T22:44:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1497200600",
         "imagenes":  [
@@ -16581,7 +16581,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  129990,
-        "visitas":  46,
+        "visitas":  47,
         "fecha":  "2023-09-20T22:47:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1389153511",
         "imagenes":  [
@@ -17125,7 +17125,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2023-10-24T21:02:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1393392275",
         "imagenes":  [
@@ -17205,7 +17205,7 @@
     {
         "titulo":  "The Band - The Last Waltz Vinilo Triple Lp",
         "artista":  "The Band - The Last Waltz Vinilo Triple LP",
-        "album":  "The Last Waltz Vinilo Triple",
+        "album":  "The Last Waltz",
         "compania":  "Warner Bros. Records",
         "anio":  "1978",
         "canciones":  "30",
@@ -17213,13 +17213,13 @@
         "genero":  "Rock",
         "discos":  "3",
         "precio":  79990,
-        "visitas":  30,
+        "visitas":  31,
         "fecha":  "2023-10-24T21:03:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1393384505",
         "imagenes":  [
                          "https://http2.mlstatic.com/D_731252-MLA72412064264_102023-F.jpg",
                          "https://http2.mlstatic.com/D_932110-MLA72480344797_102023-F.jpg",
-                         "https://http2.mlstatic.com/D_719638-MLA114214736000_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_719235-MLA114345474152_082026-F.jpg",
                          "https://http2.mlstatic.com/D_701007-MLA72412064278_102023-F.jpg",
                          "https://http2.mlstatic.com/D_629968-MLA72412064286_102023-F.jpg",
                          "https://http2.mlstatic.com/D_934448-MLA110525981087_042026-F.jpg",
@@ -17241,7 +17241,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2023-11-10T18:06:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1395332199",
         "imagenes":  [
@@ -17295,7 +17295,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  35,
+        "visitas":  36,
         "fecha":  "2023-11-10T18:12:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1395369055",
         "imagenes":  [
@@ -17475,7 +17475,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  13,
+        "visitas":  15,
         "fecha":  "2023-11-10T18:12:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1395306659",
         "imagenes":  [
@@ -17648,7 +17648,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  58,
+        "visitas":  59,
         "fecha":  "2023-11-16T21:03:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1396022545",
         "imagenes":  [
@@ -17728,7 +17728,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  18,
+        "visitas":  17,
         "fecha":  "2023-11-16T21:04:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1396035011",
         "imagenes":  [
@@ -17834,7 +17834,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  19,
+        "visitas":  18,
         "fecha":  "2023-11-16T21:04:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1396022553",
         "imagenes":  [
@@ -18982,7 +18982,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  4,
         "fecha":  "2023-12-01T21:26:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586285024",
         "imagenes":  [
@@ -19069,7 +19069,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2023-12-01T21:26:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586210422",
         "imagenes":  [
@@ -19311,7 +19311,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  4,
         "fecha":  "2023-12-01T21:26:24",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586223598",
         "imagenes":  [
@@ -20628,7 +20628,7 @@
     {
         "titulo":  "José Feliciano - Escenas De Amor Lp Vinilo",
         "artista":  "José Feliciano",
-        "album":  "Escenas De Amor",
+        "album":  "Escenas de Amor",
         "compania":  "Columbia",
         "anio":  "1985",
         "canciones":  "10",
@@ -20791,7 +20791,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  15,
+        "visitas":  14,
         "fecha":  "2023-12-01T21:28:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586133078",
         "imagenes":  [
@@ -20971,7 +20971,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2023-12-01T21:28:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586133086",
         "imagenes":  [
@@ -21084,7 +21084,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  2,
         "fecha":  "2023-12-01T21:28:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1586197708",
         "imagenes":  [
@@ -22134,7 +22134,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  1,
+        "visitas":  0,
         "fecha":  "2023-12-05T18:06:08",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398138759",
         "imagenes":  [
@@ -22323,7 +22323,7 @@
         "genero":  "Electrónica",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  10,
+        "visitas":  15,
         "fecha":  "2023-12-05T18:06:20",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398164205",
         "imagenes":  [
@@ -22428,7 +22428,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  22,
+        "visitas":  19,
         "fecha":  "2023-12-05T18:06:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398177183",
         "imagenes":  [
@@ -22461,28 +22461,6 @@
         "desc":  "Gaby, Fofo y Miliki\nEstado: VG\n\nTabla Goldmine de Calificación de Vinilos usados, en la última foto."
     },
     {
-        "titulo":  "Gaby, Fofo Y Miliki Hola Don Pepito Hola Don José Vinilo",
-        "artista":  "Gaby, Fofo y Miliki con Fofito",
-        "album":  "Gaby, Fofo y Miliki Hola Don Pepito Hola Don José Vinilo",
-        "compania":  "CBS",
-        "anio":  "1985",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Infantil",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  7,
-        "fecha":  "2023-12-11T16:40:22",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1398673195",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_751769-MLA73285626366_122023-F.jpg",
-                         "https://http2.mlstatic.com/D_888825-MLA73285242454_122023-F.jpg",
-                         "https://http2.mlstatic.com/D_748738-MLA73285242466_122023-F.jpg",
-                         "https://http2.mlstatic.com/D_897231-MLA110604838361_042026-F.jpg"
-                     ],
-        "desc":  "Gaby, Fofo y Miliki Hola Don Pepito Hola Don José\nEstado: VG+\n\nTabla Goldmine de Calificación de Vinilos usados, en la última foto."
-    },
-    {
         "titulo":  "Trio Gonzalito De Telecomicos Vol. 2 Vinilo Lp",
         "artista":  "Trio Gonzalito",
         "album":  "Trio Gonzalito de Telecomicos Vol. 2",
@@ -22503,6 +22481,28 @@
                          "https://http2.mlstatic.com/D_897231-MLA110604838361_042026-F.jpg"
                      ],
         "desc":  "Trio Gonzalito de Telecomicos Vol. 2\nEstado: VG+\n\nTabla Goldmine de Calificación de Vinilos usados, en la última foto."
+    },
+    {
+        "titulo":  "Gaby, Fofo Y Miliki Hola Don Pepito Hola Don José Vinilo",
+        "artista":  "Gaby, Fofo y Miliki con Fofito",
+        "album":  "Gaby, Fofo y Miliki Hola Don Pepito Hola Don José",
+        "compania":  "CBS",
+        "anio":  "1985",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Infantil",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  7,
+        "fecha":  "2023-12-11T16:40:22",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1398673195",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_751769-MLA73285626366_122023-F.jpg",
+                         "https://http2.mlstatic.com/D_888825-MLA73285242454_122023-F.jpg",
+                         "https://http2.mlstatic.com/D_748738-MLA73285242466_122023-F.jpg",
+                         "https://http2.mlstatic.com/D_897231-MLA110604838361_042026-F.jpg"
+                     ],
+        "desc":  "Gaby, Fofo y Miliki Hola Don Pepito Hola Don José\nEstado: VG+\n\nTabla Goldmine de Calificación de Vinilos usados, en la última foto."
     },
     {
         "titulo":  "Gaby, Fofo Y Miliki Con Fofito Todos Los Niños Del Mundo Lp",
@@ -22602,7 +22602,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  43,
+        "visitas":  44,
         "fecha":  "2023-12-11T16:40:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398634085",
         "imagenes":  [
@@ -22647,7 +22647,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  63,
+        "visitas":  62,
         "fecha":  "2023-12-11T16:40:41",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398738175",
         "imagenes":  [
@@ -22671,7 +22671,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  11,
+        "visitas":  12,
         "fecha":  "2023-12-11T16:40:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1398686029",
         "imagenes":  [
@@ -22943,7 +22943,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  55000,
-        "visitas":  152,
+        "visitas":  158,
         "fecha":  "2023-12-12T19:15:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1596619884",
         "imagenes":  [
@@ -23034,7 +23034,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  1,
         "fecha":  "2023-12-12T19:15:40",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1596684182",
         "imagenes":  [
@@ -23167,7 +23167,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  13,
+        "visitas":  12,
         "fecha":  "2023-12-14T19:40:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1599833810",
         "imagenes":  [
@@ -23450,7 +23450,7 @@
     {
         "titulo":  "Compilado Super Disco 80´s Vol. Iii Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Super Disco 80´s Vol. III",
+        "album":  "Super Disco 80 s Vol. III",
         "compania":  "RCA",
         "anio":  "1979",
         "canciones":  "10",
@@ -23458,12 +23458,12 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  150,
+        "visitas":  149,
         "fecha":  "2023-12-14T19:41:06",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1599512958",
         "imagenes":  [
                          "https://http2.mlstatic.com/D_975783-MLA110526684983_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_883954-MLA113265406116_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_877754-MLA115687244583_082026-F.jpg",
                          "https://http2.mlstatic.com/D_607924-MLA73438322061_122023-F.jpg",
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
                      ],
@@ -23604,7 +23604,7 @@
     {
         "titulo":  "Compilado Fantásticos ´86 Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Fantásticos ´86",
+        "album":  "Fantásticos  86",
         "compania":  "RCA",
         "anio":  "1986",
         "canciones":  "10",
@@ -24147,7 +24147,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  46,
+        "visitas":  48,
         "fecha":  "2023-12-16T15:27:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1601873188",
         "imagenes":  [
@@ -24262,7 +24262,7 @@
     {
         "titulo":  "Focus - Ship Of Memories Vinilo Lp",
         "artista":  "Focus - Ship Of Memories",
-        "album":  "Ship Of Memories",
+        "album":  "SHIP OF MEMORIES",
         "compania":  "EMI",
         "anio":  "1976",
         "canciones":  "9",
@@ -24343,7 +24343,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  71,
+        "visitas":  69,
         "fecha":  "2023-12-21T17:08:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1606924096",
         "imagenes":  [
@@ -24369,7 +24369,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  24,
+        "visitas":  22,
         "fecha":  "2023-12-21T17:08:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1607076926",
         "imagenes":  [
@@ -24525,7 +24525,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  4,
         "fecha":  "2024-01-20T22:11:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403477941",
         "imagenes":  [
@@ -24747,7 +24747,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  18,
+        "visitas":  20,
         "fecha":  "2024-01-20T22:11:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403426141",
         "imagenes":  [
@@ -25197,7 +25197,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  22,
+        "visitas":  21,
         "fecha":  "2024-01-20T22:12:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400589",
         "imagenes":  [
@@ -25375,7 +25375,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  3,
+        "visitas":  2,
         "fecha":  "2024-01-20T22:12:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403451789",
         "imagenes":  [
@@ -25617,7 +25617,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2024-01-20T22:13:05",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403514605",
         "imagenes":  [
@@ -25698,7 +25698,7 @@
     {
         "titulo":  "Martha Y Tony Con La Brigada - Éxitos Nacionales Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Martha y Tony con la Brigada - Éxitos Nacionales",
+        "album":  "Martha y Tony con la Brigada",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "12",
@@ -25839,7 +25839,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2024-01-20T22:13:20",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400597",
         "imagenes":  [
@@ -26041,7 +26041,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  42,
+        "visitas":  43,
         "fecha":  "2024-01-20T22:13:40",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403426165",
         "imagenes":  [
@@ -26087,7 +26087,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  33,
+        "visitas":  35,
         "fecha":  "2024-01-20T22:13:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403439137",
         "imagenes":  [
@@ -26101,7 +26101,7 @@
     {
         "titulo":  "Compilado All Stars Varios Artistas Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Compilado All Stars Varios Artistas Vinilo LP",
+        "album":  "All Stars",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "12",
@@ -26109,7 +26109,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  35,
+        "visitas":  34,
         "fecha":  "2024-01-20T22:13:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403490855",
         "imagenes":  [
@@ -26366,9 +26366,9 @@
         "desc":  "Estado: VG/VG+"
     },
     {
-        "titulo":  "Compilado Superdisco 80´s Vol. 3 Varios Artistas Vinilo Lp",
+        "titulo":  "Compilado Disco Show Varios Artistas Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Superdisco 80´s Vol. 3",
+        "album":  "Disco Show",
         "compania":  "Columbia",
         "anio":  "1980",
         "canciones":  "12",
@@ -26376,7 +26376,29 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  46,
+        "visitas":  15,
+        "fecha":  "2024-01-20T22:14:18",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400611",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_947357-MLA74130695955_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_985597-MLA110604792451_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_821184-MLA74130695595_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Estado: VG+"
+    },
+    {
+        "titulo":  "Compilado Superdisco 80´s Vol. 3 Varios Artistas Vinilo Lp",
+        "artista":  "Varios Artistas",
+        "album":  "Superdisco 80 s Vol. 3",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  45,
         "fecha":  "2024-01-20T22:14:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403426173",
         "imagenes":  [
@@ -26388,28 +26410,6 @@
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
                      ],
         "desc":  "Estado: VG/VG+"
-    },
-    {
-        "titulo":  "Compilado Disco Show Varios Artistas Vinilo Lp",
-        "artista":  "Varios Artistas",
-        "album":  "Disco Show",
-        "compania":  "Columbia",
-        "anio":  "1980",
-        "canciones":  "12",
-        "origen":  "Argentina",
-        "genero":  "Rock",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  14,
-        "fecha":  "2024-01-20T22:14:18",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400611",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_947357-MLA74130695955_012024-F.jpg",
-                         "https://http2.mlstatic.com/D_985597-MLA110604792451_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_821184-MLA74130695595_012024-F.jpg",
-                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
-                     ],
-        "desc":  "Estado: VG+"
     },
     {
         "titulo":  "Compilado Music Magic Varios Artistas Vinilo Lp",
@@ -26534,7 +26534,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  29,
+        "visitas":  30,
         "fecha":  "2024-01-20T22:14:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403413383",
         "imagenes":  [
@@ -26646,7 +26646,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  32,
+        "visitas":  31,
         "fecha":  "2024-01-20T22:14:52",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403490871",
         "imagenes":  [
@@ -26846,7 +26846,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2024-01-20T22:15:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403464977",
         "imagenes":  [
@@ -26981,7 +26981,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  15,
+        "visitas":  16,
         "fecha":  "2024-01-20T22:15:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403426187",
         "imagenes":  [
@@ -27333,7 +27333,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  26,
+        "visitas":  25,
         "fecha":  "2024-01-20T22:15:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403490889",
         "imagenes":  [
@@ -27355,7 +27355,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  11,
+        "visitas":  12,
         "fecha":  "2024-01-20T22:15:49",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403439167",
         "imagenes":  [
@@ -27510,7 +27510,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  36,
+        "visitas":  38,
         "fecha":  "2024-01-20T22:15:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403464993",
         "imagenes":  [
@@ -27888,7 +27888,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2024-01-20T22:16:27",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403514651",
         "imagenes":  [
@@ -27932,7 +27932,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  8,
+        "visitas":  7,
         "fecha":  "2024-01-20T22:16:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403514655",
         "imagenes":  [
@@ -28020,7 +28020,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  40,
+        "visitas":  42,
         "fecha":  "2024-01-20T22:16:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403451843",
         "imagenes":  [
@@ -28044,7 +28044,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  21,
+        "visitas":  20,
         "fecha":  "2024-01-20T22:16:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403439177",
         "imagenes":  [
@@ -28092,7 +28092,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2024-01-20T22:16:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400631",
         "imagenes":  [
@@ -28225,7 +28225,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  53,
+        "visitas":  50,
         "fecha":  "2024-01-20T22:16:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403400635",
         "imagenes":  [
@@ -28295,7 +28295,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  9,
         "fecha":  "2024-01-20T22:17:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403451847",
         "imagenes":  [
@@ -28430,7 +28430,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2024-01-20T22:17:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403439191",
         "imagenes":  [
@@ -28740,7 +28740,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  178,
+        "visitas":  179,
         "fecha":  "2024-01-20T22:17:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1403514669",
         "imagenes":  [
@@ -28828,7 +28828,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  39,
+        "visitas":  40,
         "fecha":  "2024-01-22T18:09:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1640314810",
         "imagenes":  [
@@ -28873,7 +28873,7 @@
         "genero":  "Electrónica",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  24,
+        "visitas":  23,
         "fecha":  "2024-01-24T11:05:08",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1642446130",
         "imagenes":  [
@@ -28989,7 +28989,7 @@
         "genero":  "Electrónica",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  41,
+        "visitas":  42,
         "fecha":  "2024-01-24T11:05:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1404162227",
         "imagenes":  [
@@ -29152,7 +29152,7 @@
         "genero":  "Electrónica",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  11,
+        "visitas":  9,
         "fecha":  "2024-01-24T11:05:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1642420698",
         "imagenes":  [
@@ -29397,7 +29397,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  11,
+        "visitas":  10,
         "fecha":  "2024-02-29T22:12:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687605864",
         "imagenes":  [
@@ -29476,7 +29476,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  69990,
-        "visitas":  47,
+        "visitas":  46,
         "fecha":  "2024-02-29T22:12:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687527898",
         "imagenes":  [
@@ -29502,7 +29502,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  79990,
-        "visitas":  76,
+        "visitas":  75,
         "fecha":  "2024-02-29T22:12:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687501840",
         "imagenes":  [
@@ -29528,7 +29528,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  19,
+        "visitas":  20,
         "fecha":  "2024-02-29T22:12:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687605868",
         "imagenes":  [
@@ -29677,7 +29677,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2024-02-29T22:13:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687722518",
         "imagenes":  [
@@ -29746,7 +29746,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  25,
+        "visitas":  26,
         "fecha":  "2024-02-29T22:13:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687514824",
         "imagenes":  [
@@ -29838,6 +29838,28 @@
         "desc":  "Violeta Rivas - Juan Ramón – Nacidos Para Cantar\nDisco: VG/VG+\nTapa: VG/VG+\n\nVioleta Rivas - Juan Ramón – Nacidos Para Cantar\nLabel: RCA Victor – AVL-3597\nFormat: \nVinyl, LP, Album\nCountry: Argentina\nReleased: 1965\nGenre: Jazz, Latin, Pop\nStyle: Ballad, Easy Listening, Chanson"
     },
     {
+        "titulo":  "Juan D´arienzo - Viejo Smoking - Canta Armando Laborde Lp",
+        "artista":  "Juan D\u0027Arienzo",
+        "album":  "Viejo Smoking",
+        "compania":  "Camden",
+        "anio":  "1973",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Tango",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  3,
+        "fecha":  "2024-04-01T17:33:28",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1418812961",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_708953-MLA75376009084_042024-F.jpg",
+                         "https://http2.mlstatic.com/D_994876-MLA109643919192_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_725291-MLA112727426970_062026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Juan D´arienzo - Viejo Smoking - Canta Armando Laborde\nDisco: VG+\nTapa: VG+"
+    },
+    {
         "titulo":  "Smith Y Sus Pelirrojos - Alguien Llamado Smith Vinilo Lp",
         "artista":  "Smith Y Sus Pelirrojos",
         "album":  "Alguien Llamado Smith…",
@@ -29880,28 +29902,6 @@
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
                      ],
         "desc":  "Stazo - Trípodi presentan Los 7 Del Tango – Afectuosamente\nDisco: VG+/Ex\nTapa: Ex\n\nStazo - Trípodi presentan Los 7 Del Tango – Afectuosamente\nSello: SUDISCO – SD 15010\nFormato: \nVinilo, LP\nPaís: Argentina\nPublicado: 1969\nGénero: Folk, World, \u0026 Country"
-    },
-    {
-        "titulo":  "Juan D´arienzo - Viejo Smoking - Canta Armando Laborde Lp",
-        "artista":  "Juan D\\\u0027Arienzo",
-        "album":  "Viejo Smoking",
-        "compania":  "Camden",
-        "anio":  "1973",
-        "canciones":  "12",
-        "origen":  "Argentina",
-        "genero":  "Tango",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  3,
-        "fecha":  "2024-04-01T17:33:28",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1418812961",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_708953-MLA75376009084_042024-F.jpg",
-                         "https://http2.mlstatic.com/D_994876-MLA109643919192_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_725291-MLA112727426970_062026-F.jpg",
-                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
-                     ],
-        "desc":  "Juan D´arienzo - Viejo Smoking - Canta Armando Laborde\nDisco: VG+\nTapa: VG+"
     },
     {
         "titulo":  "Louis Armstrong - Un Rey Llamado Satchmo Vinilo Lp",
@@ -30225,7 +30225,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2024-04-30T18:35:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1757301192",
         "imagenes":  [
@@ -30250,7 +30250,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "2",
         "precio":  120000,
-        "visitas":  23,
+        "visitas":  22,
         "fecha":  "2024-04-30T21:12:06",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1757266922",
         "imagenes":  [
@@ -30350,7 +30350,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  16,
+        "visitas":  15,
         "fecha":  "2024-05-02T20:02:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1759519304",
         "imagenes":  [
@@ -30450,7 +30450,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  15,
+        "visitas":  16,
         "fecha":  "2024-05-02T20:02:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1759467526",
         "imagenes":  [
@@ -30720,7 +30720,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  7,
+        "visitas":  6,
         "fecha":  "2024-05-05T20:39:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1762484008",
         "imagenes":  [
@@ -30743,7 +30743,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  19,
+        "visitas":  20,
         "fecha":  "2024-05-05T20:39:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1762574164",
         "imagenes":  [
@@ -30837,7 +30837,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  0,
         "fecha":  "2024-05-07T16:33:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1425243215",
         "imagenes":  [
@@ -31057,14 +31057,14 @@
         "titulo":  "Deep Purple - In Rock - Lp Vinilo",
         "artista":  "DEEP PURPLE",
         "album":  "In Rock",
-        "compania":  "harvest",
+        "compania":  "Cosecha",
         "anio":  "1971",
         "canciones":  "7",
         "origen":  "Argentina",
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  9,
+        "visitas":  8,
         "fecha":  "2024-05-10T23:03:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1769100516",
         "imagenes":  [
@@ -31251,7 +31251,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  49,
+        "visitas":  50,
         "fecha":  "2024-06-05T20:59:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1799695170",
         "imagenes":  [
@@ -31398,7 +31398,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2024-06-05T21:00:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1799695176",
         "imagenes":  [
@@ -31601,7 +31601,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  63,
+        "visitas":  61,
         "fecha":  "2024-06-09T20:47:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1804453748",
         "imagenes":  [
@@ -32189,7 +32189,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  20,
+        "visitas":  19,
         "fecha":  "2024-06-10T22:01:40",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1806422678",
         "imagenes":  [
@@ -32718,7 +32718,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2024-06-19T18:14:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1433768821",
         "imagenes":  [
@@ -32808,7 +32808,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  24,
+        "visitas":  22,
         "fecha":  "2024-06-19T18:14:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1433820045",
         "imagenes":  [
@@ -33018,7 +33018,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  8,
         "fecha":  "2024-06-20T21:27:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1817702298",
         "imagenes":  [
@@ -33281,7 +33281,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  19,
+        "visitas":  18,
         "fecha":  "2024-06-20T21:27:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1817767388",
         "imagenes":  [
@@ -33303,7 +33303,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  3,
+        "visitas":  1,
         "fecha":  "2024-06-20T21:27:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1817947140",
         "imagenes":  [
@@ -33442,7 +33442,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  27,
+        "visitas":  30,
         "fecha":  "2024-06-22T17:18:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1820191020",
         "imagenes":  [
@@ -33577,7 +33577,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  56,
+        "visitas":  60,
         "fecha":  "2024-06-22T17:19:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1434211809",
         "imagenes":  [
@@ -33599,7 +33599,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  20,
+        "visitas":  19,
         "fecha":  "2024-06-22T17:20:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1434160265",
         "imagenes":  [
@@ -33711,7 +33711,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  69,
+        "visitas":  68,
         "fecha":  "2024-06-26T00:33:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824455012",
         "imagenes":  [
@@ -33777,7 +33777,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  13,
+        "visitas":  12,
         "fecha":  "2024-06-26T00:33:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824507014",
         "imagenes":  [
@@ -33799,7 +33799,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  35,
+        "visitas":  36,
         "fecha":  "2024-06-26T00:33:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824533040",
         "imagenes":  [
@@ -33823,7 +33823,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  32,
+        "visitas":  33,
         "fecha":  "2024-06-26T00:33:52",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824519972",
         "imagenes":  [
@@ -33891,7 +33891,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  15,
+        "visitas":  13,
         "fecha":  "2024-06-26T00:33:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824571984",
         "imagenes":  [
@@ -33983,7 +33983,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  88,
+        "visitas":  86,
         "fecha":  "2024-06-26T00:34:11",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1824507018",
         "imagenes":  [
@@ -34206,7 +34206,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2024-07-01T23:47:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1830763388",
         "imagenes":  [
@@ -34250,7 +34250,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  24,
+        "visitas":  23,
         "fecha":  "2024-07-01T23:47:24",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1830750286",
         "imagenes":  [
@@ -34628,7 +34628,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  55,
+        "visitas":  53,
         "fecha":  "2024-07-01T23:47:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1830737598",
         "imagenes":  [
@@ -34738,7 +34738,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2024-07-12T20:08:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1843998612",
         "imagenes":  [
@@ -34811,7 +34811,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  7,
+        "visitas":  6,
         "fecha":  "2024-07-12T20:08:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1843934114",
         "imagenes":  [
@@ -35058,7 +35058,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  32,
+        "visitas":  31,
         "fecha":  "2024-07-12T20:09:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1843998618",
         "imagenes":  [
@@ -35401,7 +35401,7 @@
         "genero":  "Clásica",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  7,
+        "visitas":  6,
         "fecha":  "2024-07-17T18:40:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1438195497",
         "imagenes":  [
@@ -35757,7 +35757,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  29,
+        "visitas":  27,
         "fecha":  "2024-07-27T20:51:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1862220010",
         "imagenes":  [
@@ -35770,7 +35770,7 @@
     },
     {
         "titulo":  "America - Vos Jugás - Vinilo Lp",
-        "artista":  "America",
+        "artista":  "AMERICA",
         "album":  "Vos Jugás",
         "compania":  "EMI",
         "anio":  "1982",
@@ -35792,8 +35792,8 @@
     },
     {
         "titulo":  "Compilado - The Disco Mix - Vinilo Lp",
-        "artista":  "Compilado - The Disco Mix",
-        "album":  "Compilado - The Disco Mix",
+        "artista":  "Varios Artistas",
+        "album":  "The Disco Mix",
         "compania":  "Polystar",
         "anio":  "1981",
         "canciones":  "9",
@@ -35801,7 +35801,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  27,
+        "visitas":  26,
         "fecha":  "2024-07-27T20:51:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1862232948",
         "imagenes":  [
@@ -35884,8 +35884,8 @@
     },
     {
         "titulo":  "Compilado - Vibraciones Trasnoche 86 - Vinilo Lp",
-        "artista":  "Compilado - Vibraciones Trasnoche 86",
-        "album":  "Compilado - Vibraciones Trasnoche 86",
+        "artista":  "Varios Artistas",
+        "album":  "Vibraciones Trasnoche 86",
         "compania":  "EMI",
         "anio":  "1985",
         "canciones":  "12",
@@ -35950,9 +35950,32 @@
         "desc":  "Maxi - Claudja Barry - Boogie Woogie Dancin\u0027 Shoes (USA)\nDisco: VG+\nTapa Genérica: VG+\n\nClaudja Barry – Boogie Woogie Dancin\u0027 Shoes / Love Of The Hurtin\u0027 Kind\nLabel: Chrysalis – CDS 2316\nFormat: \nVinyl, 12\", 33 RPM\nCountry: US\nReleased: 1979\nGenre: Funk / Soul\nStyle: Disco"
     },
     {
+        "titulo":  "Compilado - Club Privé Ii - Vinilo Lp Promo",
+        "artista":  "Varios Artistas",
+        "album":  "Club Privé II",
+        "compania":  "WEA",
+        "anio":  "1986",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  10,
+        "fecha":  "2024-07-27T20:51:32",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1862323692",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_914793-MLA77796543052_072024-F.jpg",
+                         "https://http2.mlstatic.com/D_884574-MLA77796718482_072024-F.jpg",
+                         "https://http2.mlstatic.com/D_985015-MLA78017535473_072024-F.jpg",
+                         "https://http2.mlstatic.com/D_666997-MLA110526169365_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Compilado - Club Privé II (Promo)\nDisco: Ex\nTapa: Ex\n\nVarious – Club Privé II\nLabel: WEA – 80071\nFormat: \nVinyl, LP, Compilation\nCountry: Argentina\nReleased: 1986\nGenre: Rock, Funk / Soul, Pop\nStyle: Ballad, AOR, Soft Rock, Soul, Blues Rock"
+    },
+    {
         "titulo":  "Compilado - Disco Top Hits - Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Compilado - Disco Top Hits",
+        "album":  "Disco Top Hits",
         "compania":  "Polystar",
         "anio":  "1984",
         "canciones":  "11",
@@ -35970,29 +35993,6 @@
                          "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
                      ],
         "desc":  "Compilado - Disco Top Hits\nDisco: Ex\nTapa: Ex\n\nVarious – Disco Top Hits\nLabel: Polystar (3) – 27158\nFormat: \nVinyl, LP, Compilation\nCountry: Argentina\nReleased: 1984\nGenre: Funk / Soul, Pop"
-    },
-    {
-        "titulo":  "Compilado - Club Privé Ii - Vinilo Lp Promo",
-        "artista":  "Varios Artistas",
-        "album":  "Compilado - Club Privé II (Promo)",
-        "compania":  "WEA",
-        "anio":  "1986",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Rock",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  11,
-        "fecha":  "2024-07-27T20:51:32",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1862323692",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_914793-MLA77796543052_072024-F.jpg",
-                         "https://http2.mlstatic.com/D_884574-MLA77796718482_072024-F.jpg",
-                         "https://http2.mlstatic.com/D_985015-MLA78017535473_072024-F.jpg",
-                         "https://http2.mlstatic.com/D_666997-MLA110526169365_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
-                     ],
-        "desc":  "Compilado - Club Privé II (Promo)\nDisco: Ex\nTapa: Ex\n\nVarious – Club Privé II\nLabel: WEA – 80071\nFormat: \nVinyl, LP, Compilation\nCountry: Argentina\nReleased: 1986\nGenre: Rock, Funk / Soul, Pop\nStyle: Ballad, AOR, Soft Rock, Soul, Blues Rock"
     },
     {
         "titulo":  "Maxi Los Niños Decapitados Calles De La Ciudad Rain Man Prom",
@@ -36020,7 +36020,7 @@
     {
         "titulo":  "Compilado - Stock Privado - Vinilo Lp",
         "artista":  "Varios Artistas",
-        "album":  "Compilado - Stock Privado",
+        "album":  "Stock Privado",
         "compania":  "Private Stock Records",
         "anio":  "1978",
         "canciones":  "11",
@@ -36042,7 +36042,7 @@
     {
         "titulo":  "Compilado The Moody Blues Bananarama Scorpions Vinilo Promo",
         "artista":  "Varios Artistas",
-        "album":  "Compilado The Moody Blues Bananarama Scorpions Promo",
+        "album":  "The Moody Blues Bananarama Scorpions",
         "compania":  "London Records",
         "anio":  "1987",
         "canciones":  "10",
@@ -36488,7 +36488,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  48,
+        "visitas":  49,
         "fecha":  "2024-07-27T20:52:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1862362468",
         "imagenes":  [
@@ -36549,8 +36549,8 @@
     },
     {
         "titulo":  "Compilado - Knokout Tecno - Vinilo Lp",
-        "artista":  "Compilado - Knokout Tecno",
-        "album":  "Compilado - Knokout Tecno",
+        "artista":  "Varios Artistas",
+        "album":  "Knokout Tecno",
         "compania":  "Casablanca",
         "anio":  "1984",
         "canciones":  "11",
@@ -36661,7 +36661,7 @@
     },
     {
         "titulo":  "Maxi Simple Minds - All The Things She Said Vinilo Lp Promo",
-        "artista":  "Simple Minds",
+        "artista":  "SIMPLE MINDS",
         "album":  "All The Things She Said",
         "compania":  "Virgin",
         "anio":  "1986",
@@ -36706,7 +36706,7 @@
     {
         "titulo":  "Maxi Ken Heaven - The Calling - Vinilo Lp Usa",
         "artista":  "Ken Heaven",
-        "album":  "The Calling",
+        "album":  "THE CALLING",
         "compania":  "Airwave Records",
         "anio":  "1986",
         "canciones":  "3",
@@ -36843,7 +36843,7 @@
     {
         "titulo":  "Compilado Los Mas Grandes Exitos Del Rock\u0027n\u0027roll Castellano",
         "artista":  "Varios Artistas",
-        "album":  "Los Mas Grandes Exitos Del Rock\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u0027N\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u0027Roll En Castellano",
+        "album":  "Los Mas Grandes Exitos Del Rock N Roll En Castellano",
         "compania":  "Epic",
         "anio":  "1977",
         "canciones":  "12",
@@ -36851,7 +36851,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  3,
+        "visitas":  4,
         "fecha":  "2024-08-21T15:44:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1444912727",
         "imagenes":  [
@@ -37286,7 +37286,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  31,
+        "visitas":  32,
         "fecha":  "2024-08-21T15:45:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1444888081",
         "imagenes":  [
@@ -38080,7 +38080,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  3,
+        "visitas":  2,
         "fecha":  "2024-08-31T21:22:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1898801544",
         "imagenes":  [
@@ -38145,8 +38145,8 @@
         "origen":  "Argentina",
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
-        "precio":  39990,
-        "visitas":  56,
+        "precio":  45000,
+        "visitas":  58,
         "fecha":  "2024-08-31T21:22:53",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1898801548",
         "imagenes":  [
@@ -38580,7 +38580,7 @@
         "genero":  "World Music",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  9,
+        "visitas":  8,
         "fecha":  "2024-08-31T21:23:29",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1898801560",
         "imagenes":  [
@@ -38789,7 +38789,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  39,
+        "visitas":  38,
         "fecha":  "2024-09-19T21:02:20",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913838808",
         "imagenes":  [
@@ -38861,7 +38861,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  62,
+        "visitas":  60,
         "fecha":  "2024-09-19T21:02:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913874236",
         "imagenes":  [
@@ -38933,7 +38933,7 @@
         "genero":  "Easy Listening",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2024-09-19T21:02:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913838816",
         "imagenes":  [
@@ -39029,7 +39029,7 @@
         "genero":  "Easy Listening",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2024-09-19T21:02:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913825618",
         "imagenes":  [
@@ -39146,7 +39146,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2024-09-19T21:02:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913925390",
         "imagenes":  [
@@ -39216,7 +39216,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  9,
         "fecha":  "2024-09-19T21:03:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913848828",
         "imagenes":  [
@@ -39505,7 +39505,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  21,
+        "visitas":  22,
         "fecha":  "2024-09-19T21:03:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913861502",
         "imagenes":  [
@@ -39784,7 +39784,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  3,
         "fecha":  "2024-09-19T21:03:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913812836",
         "imagenes":  [
@@ -40058,7 +40058,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  3,
+        "visitas":  4,
         "fecha":  "2024-09-19T21:04:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1913900066",
         "imagenes":  [
@@ -40187,7 +40187,7 @@
     },
     {
         "titulo":  "Juan D\u0027arienzo Y Su Orquesta Típica - Tigre Viejo Vinilo Lp",
-        "artista":  "Juan DArienzo y su Orquesta Típica",
+        "artista":  "Juan D\u0027Arienzo y su Orquesta Típica",
         "album":  "Tigre Viejo",
         "compania":  "RCA Victor",
         "anio":  "1969",
@@ -40240,7 +40240,7 @@
         "genero":  "Jazz",
         "discos":  "1",
         "precio":  51000,
-        "visitas":  11,
+        "visitas":  10,
         "fecha":  "2024-10-01T22:56:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1924983004",
         "imagenes":  [
@@ -40810,7 +40810,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  0,
+        "visitas":  2,
         "fecha":  "2024-10-17T15:38:14",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1455703543",
         "imagenes":  [
@@ -41218,7 +41218,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  9,
+        "visitas":  7,
         "fecha":  "2024-10-17T15:39:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1937395076",
         "imagenes":  [
@@ -41267,7 +41267,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  12,
+        "visitas":  10,
         "fecha":  "2024-10-17T15:39:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1937395078",
         "imagenes":  [
@@ -41335,7 +41335,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  41,
+        "visitas":  39,
         "fecha":  "2024-10-17T15:39:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1937331494",
         "imagenes":  [
@@ -41406,7 +41406,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  144990,
-        "visitas":  42,
+        "visitas":  40,
         "fecha":  "2024-11-11T18:06:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1460005849",
         "imagenes":  [
@@ -41456,7 +41456,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  30,
+        "visitas":  29,
         "fecha":  "2024-12-10T18:35:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1464755841",
         "imagenes":  [
@@ -41807,7 +41807,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  0,
         "fecha":  "2025-01-02T16:17:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1989072644",
         "imagenes":  [
@@ -42181,7 +42181,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  7,
+        "visitas":  5,
         "fecha":  "2025-01-02T16:17:52",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1989047146",
         "imagenes":  [
@@ -42225,7 +42225,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  1,
+        "visitas":  0,
         "fecha":  "2025-01-02T16:17:52",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1469897047",
         "imagenes":  [
@@ -42697,7 +42697,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  2,
         "fecha":  "2025-01-16T17:15:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1997167980",
         "imagenes":  [
@@ -42718,7 +42718,7 @@
         "genero":  "World Music",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  3,
+        "visitas":  2,
         "fecha":  "2025-01-16T17:16:00",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1471925391",
         "imagenes":  [
@@ -43454,7 +43454,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  6,
+        "visitas":  4,
         "fecha":  "2025-01-16T17:17:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1471903549",
         "imagenes":  [
@@ -44555,7 +44555,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  115,
+        "visitas":  114,
         "fecha":  "2025-01-27T16:40:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1473663445",
         "imagenes":  [
@@ -44579,7 +44579,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  120,
+        "visitas":  119,
         "fecha":  "2025-01-27T16:40:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1473572993",
         "imagenes":  [
@@ -44603,7 +44603,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  69990,
-        "visitas":  43,
+        "visitas":  42,
         "fecha":  "2025-01-27T16:40:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1473573005",
         "imagenes":  [
@@ -44699,7 +44699,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  72,
+        "visitas":  71,
         "fecha":  "2025-01-28T00:17:05",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2004089550",
         "imagenes":  [
@@ -44810,8 +44810,8 @@
     },
     {
         "titulo":  "Peter Gabriel - En Vivo - Plays Live - Vinilo Doble",
-        "artista":  "Peter Gabriel - En Vivo (Doble)",
-        "album":  "Peter Gabriel - En Vivo (Doble)",
+        "artista":  "Peter Gabriel",
+        "album":  "Plays Live",
         "compania":  "Charisma",
         "anio":  "1983",
         "canciones":  "16",
@@ -44819,7 +44819,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  55000,
-        "visitas":  15,
+        "visitas":  17,
         "fecha":  "2025-02-05T13:49:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1474949357",
         "imagenes":  [
@@ -44828,8 +44828,8 @@
                          "https://http2.mlstatic.com/D_712304-MLA82270852065_022025-F.jpg",
                          "https://http2.mlstatic.com/D_737808-MLA82270614655_022025-F.jpg",
                          "https://http2.mlstatic.com/D_646977-MLA82270852087_022025-F.jpg",
-                         "https://http2.mlstatic.com/D_950297-MLA109717044528_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_672916-MLA109716985806_042026-F.jpg"
+                         "https://http2.mlstatic.com/D_687169-MLA115687917989_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_917604-MLA114345444426_082026-F.jpg"
                      ],
         "desc":  "Peter Gabriel - En Vivo (Doble)\nDiscos: Ex y Ex\nTapa: VG+\n\nPeter Gabriel – En Vivo\nSello:\nCharisma – 812446/47 - 1\nFormato:\n2 x Vinilo, LP, Album\nPaís:\nArgentina\nPublicado:\n1983\nGénero:\nRock\nEstilo:\nPop Rock\n\n¡Claro, aquí va! \n\n*Plays Live* es más que un disco en vivo; es una puesta en escena sonora donde Peter Gabriel transforma cada canción en un ritual. Con una producción meticulosa que equilibra crudeza y pulcritud, el álbum, presentado en un vinilo doble, captura su magnetismo escénico y la intensidad emocional de su música. \"San Jacinto\" es hipnótica, con su crescendo dramático que hiela la sangre. \n\nLa banda es una máquina de precisión y emoción, con Tony Levin en el bajo Chapman aportando profundidad y textura. La ejecución de \"Solsbury Hill\" brilla con una energía renovada, mientras \"Biko\" cierra como un himno de resistencia que trasciende lo musical. Cada track es una reinterpretación que expande la paleta sonora del estudio, aprovechando el espacio del vinilo doble para respirar y resonar. \n\nMás que un registro de gira, *Plays Live* es una inmersión en la teatralidad de Gabriel, donde la voz y los arreglos alcanzan una expresividad máxima. No es solo una colección de versiones en vivo, sino una reimaginación de su catálogo en un contexto vibrante y dinámico, y el formato doble permite una experiencia envolvente, casi cinematográfica. \n\nTenerlo en vinilo doble es disfrutar de la calidez y la profundidad del sonido analógico. Además, es un viaje en primera fila a los míticos conciertos de Gabriel, sin salir de casa."
     },
@@ -45142,7 +45142,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  48,
+        "visitas":  49,
         "fecha":  "2025-02-21T00:44:25",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2019285008",
         "imagenes":  [
@@ -45437,7 +45437,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  4,
         "fecha":  "2025-02-21T00:45:08",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2019232988",
         "imagenes":  [
@@ -45542,7 +45542,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  23,
+        "visitas":  21,
         "fecha":  "2025-02-21T00:45:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2019167994",
         "imagenes":  [
@@ -45891,7 +45891,7 @@
     },
     {
         "titulo":  "Todd Rundgren\u0027s Utopia - Another Live - Vinilo Epoca Lp Usa",
-        "artista":  "Todd Rundgrens Utopia",
+        "artista":  "Todd Rundgren\u0027s Utopia",
         "album":  "Another Live",
         "compania":  "Bearsville",
         "anio":  "1975",
@@ -45923,7 +45923,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  87000,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2025-02-21T00:46:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2019298032",
         "imagenes":  [
@@ -46168,7 +46168,7 @@
         "genero":  "MPB",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2025-02-28T13:35:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2022490730",
         "imagenes":  [
@@ -46874,7 +46874,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  12,
+        "visitas":  11,
         "fecha":  "2025-02-28T13:36:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2022620874",
         "imagenes":  [
@@ -47003,7 +47003,7 @@
     },
     {
         "titulo":  "Alice Cooper - Billion Dollar Babies - Lp Vinilo",
-        "artista":  "Alice Cooper",
+        "artista":  "ALICE COOPER",
         "album":  "Billion Dollar Babies",
         "compania":  "Warner Bros. Records",
         "anio":  "1974",
@@ -47012,7 +47012,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  37,
+        "visitas":  38,
         "fecha":  "2025-03-10T17:13:14",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1481555375",
         "imagenes":  [
@@ -47038,7 +47038,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  25000,
-        "visitas":  174,
+        "visitas":  173,
         "fecha":  "2025-03-10T17:13:14",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2028079822",
         "imagenes":  [
@@ -47118,29 +47118,8 @@
         "desc":  "David Lebon - Desnuque\nDisco: VG+/Ex\nTapa: Ex \nInsert: Ex\n\nDavid Lebon – Desnuque - Homenaje Al Rock And Roll\nLabel:\nMordisco – SLIN-3519, Mordisco – SLIN 3519\nFormat:\nVinyl, LP, Album\nCountry:\nArgentina\nReleased:\n1984\nGenre:\nRock\nStyle:\nBlues Rock, Rock \u0026 Roll, Hard Rock"
     },
     {
-        "titulo":  "Frank Sinatra - El Original Volumen Iii - Vinilo Lp",
-        "artista":  "Frank Sinatra",
-        "album":  "El original Volumen III",
-        "compania":  "Record Parnaso",
-        "anio":  "1975",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Jazz",
-        "discos":  "1",
-        "precio":  39990,
-        "visitas":  2,
-        "fecha":  "2025-03-10T17:13:29",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1481568065",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_653010-MLA110526730883_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_987198-MLA109644681694_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_859033-MLA109717218986_042026-F.jpg"
-                     ],
-        "desc":  "Frank Sinatra - El original Volumen III\nDisco: VG+/Ex\nTapa: VG+/Ex\n\nFrank Sinatra – El original Volumen III\nLabel:\nRecord Parnaso S.A. – PNE 10048\nFormat:\nVinyl, LP, Compilation\nCountry:\nArgentina\nReleased:\n1975\nGenre:\nJazz"
-    },
-    {
         "titulo":  "David Lebon - Si De Algo Sirve - Vinilo Lp",
-        "artista":  "David Lebon",
+        "artista":  "David Lebón",
         "album":  "Si De Algo Sirve",
         "compania":  "CBS",
         "anio":  "1985",
@@ -47162,6 +47141,27 @@
                          "https://http2.mlstatic.com/D_859033-MLA109717218986_042026-F.jpg"
                      ],
         "desc":  "David Lebon - Si De Algo Sirve\nDisco: VG+\nTapa: VG+\nInsert: VG+\n\nDavid Lebon – Si De Algo Sirve\nLabel:\nDiscos CBS – 20.665\nFormat:\nVinyl, LP, Album\nCountry:\nArgentina\nReleased:\n1985\nGenre:\nRock\nStyle:\nPop Rock, Classic Rock"
+    },
+    {
+        "titulo":  "Frank Sinatra - El Original Volumen Iii - Vinilo Lp",
+        "artista":  "FRANK SINATRA",
+        "album":  "El original Volumen III",
+        "compania":  "Record Parnaso",
+        "anio":  "1975",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Jazz",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  2,
+        "fecha":  "2025-03-10T17:13:29",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1481568065",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_653010-MLA110526730883_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_987198-MLA109644681694_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_859033-MLA109717218986_042026-F.jpg"
+                     ],
+        "desc":  "Frank Sinatra - El original Volumen III\nDisco: VG+/Ex\nTapa: VG+/Ex\n\nFrank Sinatra – El original Volumen III\nLabel:\nRecord Parnaso S.A. – PNE 10048\nFormat:\nVinyl, LP, Compilation\nCountry:\nArgentina\nReleased:\n1975\nGenre:\nJazz"
     },
     {
         "titulo":  "Barbra Streisand, Kris Kristofferson - Nace Una Estrella Lp",
@@ -47191,7 +47191,7 @@
     },
     {
         "titulo":  "David Lebon - Siempre Estaré - Lp Vinilo",
-        "artista":  "David Lebon",
+        "artista":  "David Lebón",
         "album":  "Siempre Estaré",
         "compania":  "RPM",
         "anio":  "1983",
@@ -47225,7 +47225,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  9,
+        "visitas":  8,
         "fecha":  "2025-03-10T17:13:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2027812302",
         "imagenes":  [
@@ -47242,7 +47242,7 @@
     {
         "titulo":  "Joan Baez, David Harris - Sigue Adelante - Vinilo Lp",
         "artista":  "Joan Baez, David Harris",
-        "album":  "Sigue Adelante",
+        "album":  "Sigue adelante",
         "compania":  "Vanguardia",
         "anio":  "1972",
         "canciones":  "13",
@@ -47271,7 +47271,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  59,
+        "visitas":  61,
         "fecha":  "2025-03-10T17:13:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2028003734",
         "imagenes":  [
@@ -47294,7 +47294,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  34,
+        "visitas":  35,
         "fecha":  "2025-03-10T17:13:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2028079832",
         "imagenes":  [
@@ -47317,7 +47317,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  69990,
-        "visitas":  22,
+        "visitas":  21,
         "fecha":  "2025-03-10T17:13:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1481568069",
         "imagenes":  [
@@ -47479,7 +47479,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  114,
+        "visitas":  116,
         "fecha":  "2025-03-17T17:54:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2032216814",
         "imagenes":  [
@@ -47812,7 +47812,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  31,
+        "visitas":  32,
         "fecha":  "2025-03-20T20:42:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2034461928",
         "imagenes":  [
@@ -48202,7 +48202,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  72,
+        "visitas":  73,
         "fecha":  "2025-04-01T23:14:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2041813044",
         "imagenes":  [
@@ -48296,7 +48296,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  27,
+        "visitas":  26,
         "fecha":  "2025-04-02T18:34:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2042729508",
         "imagenes":  [
@@ -48387,7 +48387,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  144990,
-        "visitas":  93,
+        "visitas":  92,
         "fecha":  "2025-04-07T21:54:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1487718589",
         "imagenes":  [
@@ -48410,7 +48410,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  12,
+        "visitas":  13,
         "fecha":  "2025-04-07T21:54:17",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1487718591",
         "imagenes":  [
@@ -48624,7 +48624,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  83,
+        "visitas":  81,
         "fecha":  "2025-04-07T21:54:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1487667009",
         "imagenes":  [
@@ -48695,7 +48695,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2025-04-07T21:55:01",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1487718597",
         "imagenes":  [
@@ -48912,7 +48912,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  101,
+        "visitas":  100,
         "fecha":  "2025-04-07T21:55:46",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2046436780",
         "imagenes":  [
@@ -49180,7 +49180,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  69990,
-        "visitas":  72,
+        "visitas":  74,
         "fecha":  "2025-04-17T01:16:55",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2055462882",
         "imagenes":  [
@@ -49296,7 +49296,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  29,
+        "visitas":  27,
         "fecha":  "2025-04-17T20:36:52",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2056917188",
         "imagenes":  [
@@ -49598,7 +49598,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  145000,
-        "visitas":  91,
+        "visitas":  86,
         "fecha":  "2025-04-24T22:08:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1491882855",
         "imagenes":  [
@@ -49623,7 +49623,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  21,
+        "visitas":  22,
         "fecha":  "2025-04-24T22:08:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1491766751",
         "imagenes":  [
@@ -49817,7 +49817,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  28,
+        "visitas":  31,
         "fecha":  "2025-04-24T22:08:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1491740675",
         "imagenes":  [
@@ -49955,7 +49955,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  15,
+        "visitas":  13,
         "fecha":  "2025-04-26T21:16:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1492349323",
         "imagenes":  [
@@ -50001,7 +50001,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  19,
+        "visitas":  17,
         "fecha":  "2025-04-26T21:16:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1492258743",
         "imagenes":  [
@@ -50053,7 +50053,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  7,
+        "visitas":  6,
         "fecha":  "2025-04-26T21:16:25",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1492258747",
         "imagenes":  [
@@ -50173,7 +50173,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  31,
+        "visitas":  30,
         "fecha":  "2025-04-26T21:16:37",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1492408967",
         "imagenes":  [
@@ -50316,7 +50316,7 @@
         "genero":  "Folclore",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  36,
+        "visitas":  37,
         "fecha":  "2025-04-30T00:01:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1493327947",
         "imagenes":  [
@@ -50926,7 +50926,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  6,
+        "visitas":  5,
         "fecha":  "2025-04-30T18:33:12",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2069765004",
         "imagenes":  [
@@ -51043,7 +51043,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  11,
+        "visitas":  10,
         "fecha":  "2025-04-30T18:33:23",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2069739118",
         "imagenes":  [
@@ -51120,7 +51120,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  33,
+        "visitas":  32,
         "fecha":  "2025-04-30T18:33:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2070011304",
         "imagenes":  [
@@ -51189,7 +51189,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  75000,
-        "visitas":  22,
+        "visitas":  23,
         "fecha":  "2025-05-05T20:49:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1495063789",
         "imagenes":  [
@@ -51304,7 +51304,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  70000,
-        "visitas":  67,
+        "visitas":  68,
         "fecha":  "2025-05-24T19:23:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1500071069",
         "imagenes":  [
@@ -51467,7 +51467,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  50000,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2025-05-25T00:40:33",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1500221469",
         "imagenes":  [
@@ -51490,7 +51490,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  60000,
-        "visitas":  47,
+        "visitas":  44,
         "fecha":  "2025-05-25T00:40:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2092372120",
         "imagenes":  [
@@ -51628,7 +51628,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  36,
+        "visitas":  37,
         "fecha":  "2025-05-25T00:40:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1500147633",
         "imagenes":  [
@@ -51725,7 +51725,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  21,
+        "visitas":  22,
         "fecha":  "2025-05-25T00:41:01",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1500234481",
         "imagenes":  [
@@ -52026,7 +52026,7 @@
         "genero":  "Infantil",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  14,
+        "visitas":  13,
         "fecha":  "2025-05-28T01:56:20",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2094413670",
         "imagenes":  [
@@ -52355,7 +52355,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  65,
+        "visitas":  66,
         "fecha":  "2025-05-28T01:57:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2094450844",
         "imagenes":  [
@@ -52720,7 +52720,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  60000,
-        "visitas":  25,
+        "visitas":  24,
         "fecha":  "2025-06-14T23:58:55",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1505139133",
         "imagenes":  [
@@ -52816,7 +52816,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  66,
+        "visitas":  67,
         "fecha":  "2025-06-19T21:49:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1506164277",
         "imagenes":  [
@@ -52862,7 +52862,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  8,
         "fecha":  "2025-06-19T21:49:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2129310806",
         "imagenes":  [
@@ -53092,7 +53092,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-06-21T00:33:33",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1506240047",
         "imagenes":  [
@@ -54869,7 +54869,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2025-07-10T21:22:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1509423767",
         "imagenes":  [
@@ -54892,7 +54892,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  22,
+        "visitas":  23,
         "fecha":  "2025-07-10T21:23:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2171244196",
         "imagenes":  [
@@ -54984,7 +54984,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  42,
+        "visitas":  41,
         "fecha":  "2025-07-10T21:23:05",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2171244198",
         "imagenes":  [
@@ -55064,29 +55064,6 @@
                          "https://http2.mlstatic.com/D_654431-MLA87652847559_072025-F.jpg"
                      ],
         "desc":  "Maria Creuza – Te Dije Adios = Eu Disse Adeus\nDisco: VG+\nTapa: VG+\n\nMaria Creuza – Te Dije Adios = Eu Disse Adeus\nSello:\nRCA Victor – AVS-4206\nFormato:\nVinilo, LP, Album, Stereo\nPaís:\nArgentina\nPublicado:\n1973\nGénero:\nLatin\nEstilo:\nBossanova, MPB"
-    },
-    {
-        "titulo":  "John Denver - Los Grandes Exitos De - Vinilo Lp",
-        "artista":  "John Denver",
-        "album":  "John Denvers Greatest Hits",
-        "compania":  "RCA",
-        "anio":  "1987",
-        "canciones":  "11",
-        "origen":  "Argentina",
-        "genero":  "Rock",
-        "discos":  "1",
-        "precio":  49990,
-        "visitas":  2,
-        "fecha":  "2025-07-10T21:23:19",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1509385317",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_806830-MLA87652818577_072025-F.jpg",
-                         "https://http2.mlstatic.com/D_802676-MLA109717228388_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_895085-MLA110528125595_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_743371-MLA87652956387_072025-F.jpg",
-                         "https://http2.mlstatic.com/D_654431-MLA87652847559_072025-F.jpg"
-                     ],
-        "desc":  "John Denver - John Denver\u0027s Greatest Hits\nDisco: VG+/Ex\nTapa: Ex\n\nJohn Denver – John Denver\u0027s Greatest Hits\nSello:\nRCA – TLP-80023\nFormato:\nVinilo, LP, Compilation\nPaís:\nArgentina\nPublicado:\n1987\nGénero:\nRock\nEstilo:\nCountry Rock"
     },
     {
         "titulo":  "Destination - From Beginning To End - Vinilo Lp",
@@ -55179,6 +55156,29 @@
                          "https://http2.mlstatic.com/D_654431-MLA87652847559_072025-F.jpg"
                      ],
         "desc":  "Quincy Jones - Locura Tierna\nDisco: VG+\nTapa: VG+ \n\nQuincy Jones – Locura Tierna\nSello:\nA\u0026M Records – 8264\nFormato:\nVinilo, LP, Album, Stereo\nPaís:\nArgentina\nPublicado:\n1975\nGénero:\nJazz, Funk / Soul\nEstilo:\nJazz-Funk, Soul, Funk"
+    },
+    {
+        "titulo":  "John Denver - Los Grandes Exitos De - Vinilo Lp",
+        "artista":  "John Denver",
+        "album":  "John Denver\u0027s Greatest Hits",
+        "compania":  "RCA",
+        "anio":  "1987",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  49990,
+        "visitas":  2,
+        "fecha":  "2025-07-10T21:23:19",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1509385317",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_806830-MLA87652818577_072025-F.jpg",
+                         "https://http2.mlstatic.com/D_802676-MLA109717228388_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_895085-MLA110528125595_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_743371-MLA87652956387_072025-F.jpg",
+                         "https://http2.mlstatic.com/D_654431-MLA87652847559_072025-F.jpg"
+                     ],
+        "desc":  "John Denver - John Denver\u0027s Greatest Hits\nDisco: VG+/Ex\nTapa: Ex\n\nJohn Denver – John Denver\u0027s Greatest Hits\nSello:\nRCA – TLP-80023\nFormato:\nVinilo, LP, Compilation\nPaís:\nArgentina\nPublicado:\n1987\nGénero:\nRock\nEstilo:\nCountry Rock"
     },
     {
         "titulo":  "Isaac Hayes \u0026 Dionne Warwick - Un Hombre Y Una Mujer - Doble",
@@ -55355,7 +55355,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  7,
         "fecha":  "2025-09-14T01:15:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2351465934",
         "imagenes":  [
@@ -55521,7 +55521,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  27,
+        "visitas":  28,
         "fecha":  "2025-09-14T01:16:01",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2351388290",
         "imagenes":  [
@@ -55585,7 +55585,7 @@
     },
     {
         "titulo":  "Caetano Gal Gil Bethania - Doces Bárbaros - Lp Doble Brasil",
-        "artista":  "Caetano Gal Gil Bethania",
+        "artista":  "Caetano, Gal, Gil \u0026 Bethânia",
         "album":  "Doce Bárbaros",
         "compania":  "Philips",
         "anio":  "1976",
@@ -56232,7 +56232,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  21,
+        "visitas":  22,
         "fecha":  "2025-09-14T01:17:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2351439922",
         "imagenes":  [
@@ -56328,7 +56328,7 @@
         "genero":  "Rock",
         "discos":  "2",
         "precio":  65000,
-        "visitas":  86,
+        "visitas":  87,
         "fecha":  "2025-09-14T01:17:53",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2351401308",
         "imagenes":  [
@@ -56356,7 +56356,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  54,
+        "visitas":  53,
         "fecha":  "2025-09-20T21:39:49",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1539418419",
         "imagenes":  [
@@ -56404,7 +56404,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  16,
+        "visitas":  17,
         "fecha":  "2025-10-04T00:43:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2417776726",
         "imagenes":  [
@@ -56711,7 +56711,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  20,
+        "visitas":  21,
         "fecha":  "2025-10-04T00:44:27",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2417737808",
         "imagenes":  [
@@ -56943,7 +56943,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2025-10-04T00:45:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2417711922",
         "imagenes":  [
@@ -57106,7 +57106,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-10-04T00:46:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2417841424",
         "imagenes":  [
@@ -57363,7 +57363,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  75000,
-        "visitas":  16,
+        "visitas":  17,
         "fecha":  "2025-10-04T00:47:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2417737824",
         "imagenes":  [
@@ -57997,7 +57997,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  55,
+        "visitas":  56,
         "fecha":  "2025-10-16T01:27:25",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2453092028",
         "imagenes":  [
@@ -58024,7 +58024,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  0,
+        "visitas":  1,
         "fecha":  "2025-10-16T01:27:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2453066226",
         "imagenes":  [
@@ -58663,7 +58663,7 @@
         "genero":  "Melódico",
         "discos":  "1",
         "precio":  39990,
-        "visitas":  6,
+        "visitas":  7,
         "fecha":  "2025-10-22T21:49:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1564694391",
         "imagenes":  [
@@ -58996,7 +58996,7 @@
         "genero":  "Tango",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2025-10-22T21:51:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2478813926",
         "imagenes":  [
@@ -59527,7 +59527,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-10-30T00:55:11",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2515113224",
         "imagenes":  [
@@ -59665,7 +59665,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2025-11-04T00:03:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2533023758",
         "imagenes":  [
@@ -59757,7 +59757,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2025-11-04T00:04:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2532919942",
         "imagenes":  [
@@ -59780,7 +59780,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  50000,
-        "visitas":  9,
+        "visitas":  10,
         "fecha":  "2025-11-04T00:04:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2532868510",
         "imagenes":  [
@@ -60102,7 +60102,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  28,
+        "visitas":  29,
         "fecha":  "2025-11-04T00:05:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2532933212",
         "imagenes":  [
@@ -60148,7 +60148,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  59990,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2025-11-04T00:05:25",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2532919974",
         "imagenes":  [
@@ -60286,7 +60286,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  15,
+        "visitas":  16,
         "fecha":  "2025-11-04T00:05:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2533023800",
         "imagenes":  [
@@ -60355,7 +60355,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-11-04T23:26:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1574718615",
         "imagenes":  [
@@ -60470,7 +60470,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  25,
+        "visitas":  26,
         "fecha":  "2025-11-04T23:26:38",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2538830078",
         "imagenes":  [
@@ -60494,7 +60494,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  60000,
-        "visitas":  11,
+        "visitas":  12,
         "fecha":  "2025-11-04T23:26:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1574706125",
         "imagenes":  [
@@ -60540,7 +60540,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  65000,
-        "visitas":  48,
+        "visitas":  49,
         "fecha":  "2025-11-04T23:26:55",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1574770577",
         "imagenes":  [
@@ -60574,29 +60574,6 @@
                          "https://http2.mlstatic.com/D_883503-MLA96803307354_112025-F.jpg"
                      ],
         "desc":  "Santamarina - Extraordinario\nDisco:\nTapa:"
-    },
-    {
-        "titulo":  "Carlitos Rolan - Carlitos Rolan 83 - Lp Vinilo",
-        "artista":  "Carlitos Rolan",
-        "album":  "Carlitos Rolan 83",
-        "compania":  "RCA Victor",
-        "anio":  "1983",
-        "canciones":  "10",
-        "origen":  "Argentina",
-        "genero":  "Cumbia y Cuarteto",
-        "discos":  "1",
-        "precio":  49990,
-        "visitas":  19,
-        "fecha":  "2025-11-07T21:10:39",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-2552784254",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_627208-MLA109645021880_042026-F.jpg",
-                         "https://http2.mlstatic.com/D_725590-MLA97585517281_112025-F.jpg",
-                         "https://http2.mlstatic.com/D_675752-MLA113266394950_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_954415-MLA97585333097_112025-F.jpg",
-                         "https://http2.mlstatic.com/D_973622-MLA97585333169_112025-F.jpg"
-                     ],
-        "desc":  "Carlitos Rolan - Carlitos Rolan 83\nDisco: Ex\nTapa: VG+/Ex"
     },
     {
         "titulo":  "Carlitos Rolan - Carlitos Rolan - Vinilo Lp",
@@ -60656,7 +60633,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  49990,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2025-11-07T21:10:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552836020",
         "imagenes":  [
@@ -60771,7 +60748,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  42,
+        "visitas":  43,
         "fecha":  "2025-11-07T21:11:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552602658",
         "imagenes":  [
@@ -60817,7 +60794,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  55000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2025-11-07T21:11:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552680324",
         "imagenes":  [
@@ -61001,7 +60978,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  60000,
-        "visitas":  61,
+        "visitas":  62,
         "fecha":  "2025-11-07T21:12:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552667436",
         "imagenes":  [
@@ -61093,7 +61070,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  70000,
-        "visitas":  84,
+        "visitas":  86,
         "fecha":  "2025-11-07T21:12:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552551850",
         "imagenes":  [
@@ -61116,7 +61093,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "1",
         "precio":  70000,
-        "visitas":  65,
+        "visitas":  68,
         "fecha":  "2025-11-07T21:12:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2552384690",
         "imagenes":  [
@@ -62041,7 +62018,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-11-13T21:08:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2569212018",
         "imagenes":  [
@@ -64075,7 +64052,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  39990,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2025-11-15T01:10:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1583611741",
         "imagenes":  [
@@ -64581,7 +64558,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2025-11-15T01:11:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1583662881",
         "imagenes":  [
@@ -65087,7 +65064,7 @@
         "genero":  "World Music",
         "discos":  "",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2025-11-16T01:05:54",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1584243759",
         "imagenes":  [
@@ -65611,7 +65588,7 @@
     {
         "titulo":  "Los Fronterizos - A Hollywood - Doble Lp Lp",
         "artista":  "Los Fronterizos",
-        "album":  "A Hollywood - Doble LP",
+        "album":  "A Hollywood",
         "compania":  "Mirar en la Etiqueta del Disco",
         "anio":  "1980",
         "canciones":  "10",
@@ -65925,7 +65902,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  49990,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2025-11-18T00:13:30",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2579159996",
         "imagenes":  [
@@ -66205,8 +66182,8 @@
     },
     {
         "titulo":  "Sibelius - Eugene Ormandy - Vinilo Europa",
-        "artista":  "SIBELIUS",
-        "album":  "Sibelius - Eugene Ormandy",
+        "artista":  "Eugene Ormandy",
+        "album":  "Sibelius",
         "compania":  "CBS",
         "anio":  "1971",
         "canciones":  "8",
@@ -66700,7 +66677,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  49990,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2025-11-20T20:16:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2587912022",
         "imagenes":  [
@@ -67210,7 +67187,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  45000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2025-11-20T20:17:36",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2587704480",
         "imagenes":  [
@@ -67318,8 +67295,8 @@
     },
     {
         "titulo":  "Zoltán Kodály - Carlos Lopez Puccio - Vinilo",
-        "artista":  "Zoltán Kodály",
-        "album":  "Zoltán Kodály - Carlos Lopez Puccio",
+        "artista":  "Carlos Lopez Puccio",
+        "album":  "Zoltán Kodály",
         "compania":  "Mirar en la Etiqueta del Disco",
         "anio":  "1985",
         "canciones":  "8",
@@ -67768,7 +67745,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  33000,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2025-11-25T17:38:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1592953301",
         "imagenes":  [
@@ -68871,7 +68848,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  45000,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2025-11-28T12:10:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1595853563",
         "imagenes":  [
@@ -68917,7 +68894,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  49990,
-        "visitas":  21,
+        "visitas":  22,
         "fecha":  "2025-11-28T12:11:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2611517292",
         "imagenes":  [
@@ -69856,7 +69833,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  295000,
-        "visitas":  57,
+        "visitas":  59,
         "fecha":  "2025-12-05T13:27:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638088166",
         "imagenes":  [
@@ -69962,7 +69939,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  295000,
-        "visitas":  47,
+        "visitas":  48,
         "fecha":  "2025-12-05T13:28:41",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1601966353",
         "imagenes":  [
@@ -70125,7 +70102,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  79990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-12-05T13:29:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638139764",
         "imagenes":  [
@@ -70179,7 +70156,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  159990,
-        "visitas":  49,
+        "visitas":  50,
         "fecha":  "2025-12-05T13:29:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1602118967",
         "imagenes":  [
@@ -70206,7 +70183,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  109000,
-        "visitas":  29,
+        "visitas":  30,
         "fecha":  "2025-12-05T13:30:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638178656",
         "imagenes":  [
@@ -70341,7 +70318,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  139990,
-        "visitas":  85,
+        "visitas":  87,
         "fecha":  "2025-12-05T13:30:42",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1602118997",
         "imagenes":  [
@@ -70368,7 +70345,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  139990,
-        "visitas":  66,
+        "visitas":  67,
         "fecha":  "2025-12-05T13:30:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638178686",
         "imagenes":  [
@@ -70394,7 +70371,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  139990,
-        "visitas":  153,
+        "visitas":  154,
         "fecha":  "2025-12-05T13:31:06",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638127000",
         "imagenes":  [
@@ -70421,7 +70398,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  139990,
-        "visitas":  40,
+        "visitas":  41,
         "fecha":  "2025-12-05T13:31:06",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2638152736",
         "imagenes":  [
@@ -71224,7 +71201,7 @@
         "genero":  "Tango",
         "discos":  "",
         "precio":  45000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2025-12-13T13:39:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2671109020",
         "imagenes":  [
@@ -71572,7 +71549,7 @@
         "genero":  "Tango",
         "discos":  "",
         "precio":  45000,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2025-12-13T13:40:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1607999497",
         "imagenes":  [
@@ -72057,7 +72034,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  55000,
-        "visitas":  55,
+        "visitas":  59,
         "fecha":  "2025-12-20T15:41:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1614685023",
         "imagenes":  [
@@ -72219,7 +72196,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  49990,
-        "visitas":  18,
+        "visitas":  19,
         "fecha":  "2025-12-20T15:41:53",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2700323602",
         "imagenes":  [
@@ -72357,7 +72334,7 @@
         "genero":  "Jazz",
         "discos":  "",
         "precio":  55000,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-12-20T15:42:05",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1614848117",
         "imagenes":  [
@@ -72660,7 +72637,7 @@
         "genero":  "World Music",
         "discos":  "",
         "precio":  65000,
-        "visitas":  13,
+        "visitas":  14,
         "fecha":  "2025-12-20T15:42:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2700323632",
         "imagenes":  [
@@ -72846,7 +72823,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "",
         "precio":  33000,
-        "visitas":  17,
+        "visitas":  19,
         "fecha":  "2025-12-29T22:57:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2724938128",
         "imagenes":  [
@@ -73102,7 +73079,7 @@
         "genero":  "Folclore",
         "discos":  "",
         "precio":  49990,
-        "visitas":  10,
+        "visitas":  11,
         "fecha":  "2025-12-29T22:58:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2724353252",
         "imagenes":  [
@@ -73495,7 +73472,7 @@
         "genero":  "Folclore",
         "discos":  "",
         "precio":  45000,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2025-12-29T22:59:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2724782178",
         "imagenes":  [
@@ -73681,7 +73658,7 @@
         "genero":  "Folclore",
         "discos":  "",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2025-12-29T23:01:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2724795194",
         "imagenes":  [
@@ -73798,7 +73775,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  55000,
-        "visitas":  80,
+        "visitas":  81,
         "fecha":  "2025-12-30T18:36:34",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2727625254",
         "imagenes":  [
@@ -73848,7 +73825,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  45000,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2025-12-30T18:36:53",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2728773656",
         "imagenes":  [
@@ -73942,7 +73919,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  65000,
-        "visitas":  56,
+        "visitas":  57,
         "fecha":  "2025-12-30T18:37:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2728942482",
         "imagenes":  [
@@ -73969,7 +73946,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  65000,
-        "visitas":  39,
+        "visitas":  41,
         "fecha":  "2025-12-30T18:37:23",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2728903438",
         "imagenes":  [
@@ -73997,7 +73974,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  59990,
-        "visitas":  31,
+        "visitas":  32,
         "fecha":  "2025-12-30T18:37:27",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2728877552",
         "imagenes":  [
@@ -74020,7 +73997,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  59990,
-        "visitas":  35,
+        "visitas":  36,
         "fecha":  "2025-12-30T18:37:29",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2729007274",
         "imagenes":  [
@@ -74046,7 +74023,7 @@
         "genero":  "Tango",
         "discos":  "",
         "precio":  349990,
-        "visitas":  25,
+        "visitas":  26,
         "fecha":  "2026-01-07T17:46:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2759758294",
         "imagenes":  [
@@ -74192,7 +74169,7 @@
         "genero":  "Folclore",
         "discos":  "",
         "precio":  45000,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2026-01-08T13:33:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2765524394",
         "imagenes":  [
@@ -74849,7 +74826,7 @@
         "genero":  "Folclore",
         "discos":  "",
         "precio":  45000,
-        "visitas":  0,
+        "visitas":  1,
         "fecha":  "2026-01-11T01:59:35",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2772239184",
         "imagenes":  [
@@ -75692,7 +75669,7 @@
         "genero":  "Easy Listening",
         "discos":  "",
         "precio":  45000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-01-11T02:01:47",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2772381964",
         "imagenes":  [
@@ -75715,7 +75692,7 @@
         "genero":  "World Music",
         "discos":  "",
         "precio":  59990,
-        "visitas":  27,
+        "visitas":  28,
         "fecha":  "2026-01-11T02:01:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2772381966",
         "imagenes":  [
@@ -75789,7 +75766,7 @@
         "genero":  "Rock",
         "discos":  "1",
         "precio":  45000,
-        "visitas":  52,
+        "visitas":  51,
         "fecha":  "2026-01-25T14:07:24",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2808046458",
         "imagenes":  [
@@ -76001,7 +75978,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2026-02-03T18:58:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2831996358",
         "imagenes":  [
@@ -76120,7 +76097,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  39990,
-        "visitas":  18,
+        "visitas":  22,
         "fecha":  "2026-02-03T18:59:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2831944538",
         "imagenes":  [
@@ -76359,7 +76336,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  9,
+        "visitas":  10,
         "fecha":  "2026-02-13T18:41:14",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2861720014",
         "imagenes":  [
@@ -76479,7 +76456,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  45000,
-        "visitas":  71,
+        "visitas":  72,
         "fecha":  "2026-02-13T18:41:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2861720016",
         "imagenes":  [
@@ -76551,7 +76528,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  39990,
-        "visitas":  10,
+        "visitas":  13,
         "fecha":  "2026-02-13T18:41:31",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2862186226",
         "imagenes":  [
@@ -77628,7 +77605,7 @@
         "genero":  "Tango",
         "discos":  "",
         "precio":  49990,
-        "visitas":  24,
+        "visitas":  25,
         "fecha":  "2026-02-14T21:31:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2863292236",
         "imagenes":  [
@@ -78051,7 +78028,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-02-14T21:32:45",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2863136938",
         "imagenes":  [
@@ -78169,7 +78146,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  59990,
-        "visitas":  56,
+        "visitas":  58,
         "fecha":  "2026-02-14T21:32:58",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2863110770",
         "imagenes":  [
@@ -78546,7 +78523,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  18,
+        "visitas":  19,
         "fecha":  "2026-03-02T23:37:22",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2966398796",
         "imagenes":  [
@@ -78833,7 +78810,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  39990,
-        "visitas":  14,
+        "visitas":  15,
         "fecha":  "2026-03-02T23:38:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2966502674",
         "imagenes":  [
@@ -79332,7 +79309,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  39990,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2026-03-03T00:26:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687188301",
         "imagenes":  [
@@ -79447,7 +79424,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  55000,
-        "visitas":  7,
+        "visitas":  10,
         "fecha":  "2026-03-03T00:26:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1687175425",
         "imagenes":  [
@@ -79611,7 +79588,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  95,
+        "visitas":  97,
         "fecha":  "2026-03-13T12:53:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1701451691",
         "imagenes":  [
@@ -79657,7 +79634,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  65,
+        "visitas":  66,
         "fecha":  "2026-03-13T12:53:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3043239624",
         "imagenes":  [
@@ -79704,7 +79681,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  28,
+        "visitas":  29,
         "fecha":  "2026-03-13T12:53:15",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1701425887",
         "imagenes":  [
@@ -79727,7 +79704,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  55000,
-        "visitas":  16,
+        "visitas":  19,
         "fecha":  "2026-03-13T12:53:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3043239636",
         "imagenes":  [
@@ -79774,7 +79751,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  49990,
-        "visitas":  10,
+        "visitas":  12,
         "fecha":  "2026-03-13T12:53:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1701438687",
         "imagenes":  [
@@ -79798,7 +79775,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  45000,
-        "visitas":  22,
+        "visitas":  23,
         "fecha":  "2026-03-13T12:53:39",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3043239690",
         "imagenes":  [
@@ -79824,7 +79801,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  49990,
-        "visitas":  3,
+        "visitas":  4,
         "fecha":  "2026-03-13T12:53:41",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3043265302",
         "imagenes":  [
@@ -80087,7 +80064,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  55000,
-        "visitas":  17,
+        "visitas":  18,
         "fecha":  "2026-03-28T01:15:00",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3113074610",
         "imagenes":  [
@@ -80295,7 +80272,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2026-03-28T01:15:04",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1724409385",
         "imagenes":  [
@@ -80480,7 +80457,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  39990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2026-03-28T01:15:07",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1724364855",
         "imagenes":  [
@@ -80550,7 +80527,7 @@
         "genero":  "World Music",
         "discos":  "",
         "precio":  39990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-03-28T01:15:08",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3113074628",
         "imagenes":  [
@@ -80573,7 +80550,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  65000,
-        "visitas":  11,
+        "visitas":  12,
         "fecha":  "2026-03-28T01:15:09",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3113368158",
         "imagenes":  [
@@ -81002,7 +80979,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  55000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-04-08T21:16:27",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1739615763",
         "imagenes":  [
@@ -81339,7 +81316,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  49990,
-        "visitas":  11,
+        "visitas":  13,
         "fecha":  "2026-04-08T21:17:28",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3165119444",
         "imagenes":  [
@@ -81482,7 +81459,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  39990,
-        "visitas":  7,
+        "visitas":  8,
         "fecha":  "2026-04-08T21:18:11",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3165119636",
         "imagenes":  [
@@ -82340,7 +82317,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  55000,
-        "visitas":  9,
+        "visitas":  10,
         "fecha":  "2026-04-10T13:50:19",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1742542381",
         "imagenes":  [
@@ -82460,7 +82437,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  55000,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2026-04-10T18:27:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1742708717",
         "imagenes":  [
@@ -82979,7 +82956,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "",
         "precio":  39990,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-04-16T20:16:03",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3202116678",
         "imagenes":  [
@@ -83125,7 +83102,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  45000,
-        "visitas":  51,
+        "visitas":  53,
         "fecha":  "2026-04-16T20:16:48",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3202116728",
         "imagenes":  [
@@ -83293,7 +83270,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  55000,
-        "visitas":  50,
+        "visitas":  53,
         "fecha":  "2026-04-16T20:17:02",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3202116760",
         "imagenes":  [
@@ -83523,7 +83500,7 @@
     {
         "titulo":  "Maxi Perception - Guilty - Vinilo Lp Uk",
         "artista":  "Perception",
-        "album":  "Guilty",
+        "album":  "GUILTY",
         "compania":  "Talkin\\\\\\\u0027 Loud",
         "anio":  "1993",
         "canciones":  "4",
@@ -83867,7 +83844,7 @@
         "genero":  "Cumbia y Cuarteto",
         "discos":  "",
         "precio":  55000,
-        "visitas":  16,
+        "visitas":  19,
         "fecha":  "2026-04-21T20:58:56",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3219943116",
         "imagenes":  [
@@ -84104,7 +84081,7 @@
         "genero":  "Clásica",
         "discos":  "",
         "precio":  55000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-04-21T20:59:16",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1758863271",
         "imagenes":  [
@@ -84222,7 +84199,7 @@
         "genero":  "Infantil",
         "discos":  "",
         "precio":  45000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2026-04-23T00:04:26",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1760606479",
         "imagenes":  [
@@ -84415,7 +84392,7 @@
         "genero":  "Infantil",
         "discos":  "",
         "precio":  45000,
-        "visitas":  0,
+        "visitas":  1,
         "fecha":  "2026-04-23T00:04:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1760606499",
         "imagenes":  [
@@ -84600,6 +84577,30 @@
         "desc":  "Atilio Stampone - Araiz Tango Stampone-Araiz Y El Ballet Grand Theatre De Ginebra\nDiscos: NM y NM \nTapa Gatefold: Ex \n\nAtilio Stampone – Araiz Tango Stampone-Araiz Y El Ballet Grand Theatre De Ginebra\nLabel: Music Hall – 13.066\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1976\nGenre: Latin\nStyle: Tango"
     },
     {
+        "titulo":  "Banda Sonora - Chega Mais Trilha Sonora Internacional Brasil",
+        "artista":  "Varios Artistas",
+        "album":  "Chega Mais (Trilha Sonora Internacional)",
+        "compania":  "Som Livre",
+        "anio":  "1980",
+        "canciones":  "14",
+        "origen":  "Brasil",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  45000,
+        "visitas":  1,
+        "fecha":  "2026-05-06T15:44:03",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1777286793",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_812130-MLA111286718681_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_769460-MLA114507626471_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_980969-MLA111287131867_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_619437-MLA114441462500_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_700372-MLA110353530768_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_987018-MLA110353620566_052026-F.jpg"
+                     ],
+        "desc":  "Various - Chega Mais (Trilha Sonora Internacional)\nDisco: Ex\nTapa: Ex\n\nVarious – Chega Mais (Trilha Sonora Internacional)\nLabel: Som Livre – 404.7145\nFormat: Vinyl, LP, Compilation\nCountry: Brazil\nReleased: 1980\nGenre: Electronic, Latin, Funk / Soul, Pop, Stage \u0026 Screen\nStyle: Soundtrack, Ballad, Disco"
+    },
+    {
         "titulo":  "Raúl Parentella - La Vida En Un Segundo - Vinilo Impecable!",
         "artista":  "Raúl Parentella",
         "album":  "La Vida En Un Segundo",
@@ -84718,30 +84719,6 @@
                          "https://http2.mlstatic.com/D_682793-MLA110353620564_052026-F.jpg"
                      ],
         "desc":  "Marcelo Alejandro - Contigo...\nDisco: NM\nTapa: NM\n\nMarcelo Alejandro – Contigo...\nLabel: Music Hall – 14.815-1\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1987\nGenre: Latin\nStyle:"
-    },
-    {
-        "titulo":  "Banda Sonora - Chega Mais Trilha Sonora Internacional Brasil",
-        "artista":  "Varios Artistas",
-        "album":  "Chega Mais (Trilha Sonora Internacional)",
-        "compania":  "Som Livre",
-        "anio":  "1980",
-        "canciones":  "14",
-        "origen":  "Brasil",
-        "genero":  "Electrónica",
-        "discos":  "",
-        "precio":  45000,
-        "visitas":  1,
-        "fecha":  "2026-05-06T15:44:03",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-1777286793",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_812130-MLA111286718681_052026-F.jpg",
-                         "https://http2.mlstatic.com/D_769460-MLA114507626471_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_980969-MLA111287131867_052026-F.jpg",
-                         "https://http2.mlstatic.com/D_608321-MLA114507596633_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_700372-MLA110353530768_052026-F.jpg",
-                         "https://http2.mlstatic.com/D_987018-MLA110353620566_052026-F.jpg"
-                     ],
-        "desc":  "Various - Chega Mais (Trilha Sonora Internacional)\nDisco: Ex\nTapa: Ex\n\nVarious – Chega Mais (Trilha Sonora Internacional)\nLabel: Som Livre – 404.7145\nFormat: Vinyl, LP, Compilation\nCountry: Brazil\nReleased: 1980\nGenre: Electronic, Latin, Funk / Soul, Pop, Stage \u0026 Screen\nStyle: Soundtrack, Ballad, Disco"
     },
     {
         "titulo":  "Milva - La Rossa - Vinilo Lp Promo Impecable!",
@@ -85032,6 +85009,30 @@
         "desc":  "Vladimir Cosma - Cuando Pinta El Amor (Banda Original De Sonido De La Miniserie De TV)\nDisco: NM\nTapa: NM\n\nVladimir Cosma – Cuando Pinta El Amor (Banda Original De Sonido De La Miniserie De TV)\nLabel: Music Hall – CAR 14.798-1\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1986\nGenre: Pop, Stage \u0026 Screen\nStyle: Soundtrack, Score"
     },
     {
+        "titulo":  "Fred Bongusto - Mejilla A Mejilla - Vinilo Lp Impecable!",
+        "artista":  "Fred Bongusto",
+        "album":  "Mejilla A Mejilla = Guancia A Guancia",
+        "compania":  "MICROFON",
+        "anio":  "1987",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "Melódico",
+        "discos":  "",
+        "precio":  45000,
+        "visitas":  1,
+        "fecha":  "2026-05-06T15:44:41",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3278765650",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_886818-MLA115790706651_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_696750-MLA110353531072_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_609804-MLA115790653163_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_866826-MLA113266132054_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_676901-MLA113266132086_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_628392-MLA114441633386_082026-F.jpg"
+                     ],
+        "desc":  "Fred Bongusto - Mejilla A Mejilla = Guancia A Guancia\nDisco: NM\nTapa: NM\n\nFred Bongusto – Mejilla A Mejilla = Guancia A Guancia\nLabel: Microfon – SE-60388\nFormat: Vinyl, LP, Album, Stereo\nCountry: Argentina\nReleased: 1987\nGenre: Latin, Pop"
+    },
+    {
         "titulo":  "Silvio Soldán - Soldán Esquina Tango - Lp Promo Impecable!",
         "artista":  "Silvio Soldán",
         "album":  "Soldán Esquina Tango",
@@ -85058,30 +85059,6 @@
         "desc":  "Silvio Soldán - Soldán Esquina Tango\nDisco: NM\nTapa Gatefold: NM\n\nSilvio Soldán – Soldán Esquina Tango\nLabel: CBS – 119772\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1974\nGenre: Latin\nStyle: Tango"
     },
     {
-        "titulo":  "Fred Bongusto - Mejilla A Mejilla - Vinilo Lp Impecable!",
-        "artista":  "Fred Bongusto",
-        "album":  "Mejilla A Mejilla = Guancia A Guancia",
-        "compania":  "MICROFON",
-        "anio":  "1987",
-        "canciones":  "11",
-        "origen":  "Argentina",
-        "genero":  "Melódico",
-        "discos":  "",
-        "precio":  45000,
-        "visitas":  1,
-        "fecha":  "2026-05-06T15:44:41",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-3278765650",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_619800-MLA114507536823_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_696750-MLA110353531072_052026-F.jpg",
-                         "https://http2.mlstatic.com/D_799472-MLA113265666910_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_866826-MLA113266132054_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_676901-MLA113266132086_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_617427-MLA113265657836_072026-F.jpg"
-                     ],
-        "desc":  "Fred Bongusto - Mejilla A Mejilla = Guancia A Guancia\nDisco: NM\nTapa: NM\n\nFred Bongusto – Mejilla A Mejilla = Guancia A Guancia\nLabel: Microfon – SE-60388\nFormat: Vinyl, LP, Album, Stereo\nCountry: Argentina\nReleased: 1987\nGenre: Latin, Pop"
-    },
-    {
         "titulo":  "Pandora - Solo Él Y Yo - Vinilo Lp Impecable!",
         "artista":  "Pandora",
         "album":  "Solo Él y Yo",
@@ -85092,7 +85069,7 @@
         "genero":  "Melódico",
         "discos":  "",
         "precio":  49990,
-        "visitas":  5,
+        "visitas":  6,
         "fecha":  "2026-05-06T15:44:57",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-1777286977",
         "imagenes":  [
@@ -85770,7 +85747,7 @@
         "genero":  "Banda de Sonido",
         "discos":  "",
         "precio":  45000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-05-15T23:02:10",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3328858618",
         "imagenes":  [
@@ -87359,7 +87336,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  49990,
-        "visitas":  4,
+        "visitas":  5,
         "fecha":  "2026-07-29T01:08:29",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688198946",
         "imagenes":  [
@@ -87435,7 +87412,7 @@
         "genero":  "MPB",
         "discos":  "",
         "precio":  35000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-07-29T01:08:33",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688198952",
         "imagenes":  [
@@ -87504,7 +87481,7 @@
         "genero":  "Electrónica",
         "discos":  "",
         "precio":  59990,
-        "visitas":  2,
+        "visitas":  4,
         "fecha":  "2026-07-29T01:08:43",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688198968",
         "imagenes":  [
@@ -87527,7 +87504,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "1",
         "precio":  99990,
-        "visitas":  18,
+        "visitas":  24,
         "fecha":  "2026-07-29T01:08:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688211932",
         "imagenes":  [
@@ -87690,10 +87667,10 @@
         "anio":  "1990",
         "canciones":  "11",
         "origen":  "Argentina",
-        "genero":  "Rock Argentino",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  95000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-07-29T01:08:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688211954",
         "imagenes":  [
@@ -88025,7 +88002,7 @@
         "genero":  "Electrónica",
         "discos":  "",
         "precio":  55000,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-07-29T01:09:29",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199030",
         "imagenes":  [
@@ -88094,7 +88071,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  55000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-07-29T01:09:32",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688211988",
         "imagenes":  [
@@ -88189,7 +88166,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  59990,
-        "visitas":  2,
+        "visitas":  3,
         "fecha":  "2026-07-29T01:09:44",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688211994",
         "imagenes":  [
@@ -88206,14 +88183,14 @@
         "titulo":  "Pink Floyd - El Lado Oscuro De La Luna - Vinilo Lp",
         "artista":  "Pink Floyd",
         "album":  "El Lado Oscuro De La Luna",
-        "compania":  "harvest",
+        "compania":  "Cosecha",
         "anio":  "1973",
         "canciones":  "11",
         "origen":  "Argentina",
         "genero":  "Rock",
         "discos":  "",
         "precio":  45000,
-        "visitas":  5,
+        "visitas":  7,
         "fecha":  "2026-07-29T01:09:50",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688224968",
         "imagenes":  [
@@ -88238,7 +88215,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  55000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-07-29T01:09:51",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199058",
         "imagenes":  [
@@ -88278,29 +88255,6 @@
                          "https://http2.mlstatic.com/D_829215-MLA115269276803_072026-F.jpg"
                      ],
         "desc":  "Paul McCartney - Tug Of War / Momento Culminante\nDisco: VG+/Ex\nTapa: VG+\nInsert: Ex\n\nPaul McCartney – Tug Of War / Momento Culminante\nLabel: Parlophone – PCTC 259\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1982\nGenre: Rock, Reggae, Funk / Soul, Pop\nStyle: Classic Rock, Pop Rock, Funk, Reggae-Pop"
-    },
-    {
-        "titulo":  "Quincy Jones - The Dude - Vinilo Lp Promo",
-        "artista":  "Quincy Jones",
-        "album":  "The Dude",
-        "compania":  "A\u0026M Records",
-        "anio":  "1981",
-        "canciones":  "9",
-        "origen":  "Argentina",
-        "genero":  "Jazz",
-        "discos":  "",
-        "precio":  55000,
-        "visitas":  2,
-        "fecha":  "2026-07-29T01:09:52",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-3688224970",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_960372-MLA114267705550_082026-F.jpg",
-                         "https://http2.mlstatic.com/D_642881-MLA113956100960_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_921622-MLA114267269348_082026-F.jpg",
-                         "https://http2.mlstatic.com/D_647044-MLA114267588840_082026-F.jpg",
-                         "https://http2.mlstatic.com/D_614704-MLA115551119499_082026-F.jpg"
-                     ],
-        "desc":  "Quincy Jones - The Dude\nDisco: VG+/Ex\nTapa: VG+\n\nQuincy Jones – The Dude\nLabel: A\u0026M Records – 20.178\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1981\nGenre: Funk / Soul\nStyle: Disco"
     },
     {
         "titulo":  "Placido Domingo - Tango - Vinilo Lp",
@@ -88360,7 +88314,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  69990,
-        "visitas":  7,
+        "visitas":  12,
         "fecha":  "2026-07-29T01:09:59",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199070",
         "imagenes":  [
@@ -88456,7 +88410,7 @@
         "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  250000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2026-07-29T01:10:13",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688212026",
         "imagenes":  [
@@ -88483,7 +88437,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  90000,
-        "visitas":  8,
+        "visitas":  9,
         "fecha":  "2026-07-29T01:10:14",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199084",
         "imagenes":  [
@@ -88510,7 +88464,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  55000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-07-29T01:10:18",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199098",
         "imagenes":  [
@@ -88563,7 +88517,7 @@
         "genero":  "Rock",
         "discos":  "",
         "precio":  45000,
-        "visitas":  1,
+        "visitas":  2,
         "fecha":  "2026-07-29T01:10:21",
         "url":  "https://articulo.mercadolibre.com.ar/MLA-3688199104",
         "imagenes":  [
