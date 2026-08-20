@@ -223,6 +223,12 @@ $json = $records | ConvertTo-Json -Depth 3
 $jsonSizeKB = [math]::Round((Get-Item $JSON_OUT).Length / 1KB, 0)
 Write-OK "JSON guardado: data/records.json ($jsonSizeKB KB)"
 
+Write-Step "Generando paginas de vista previa por disco..."
+. (Join-Path $SITE_FOLDER "generar-paginas-disco.ps1")
+$discOut = Join-Path $SITE_FOLDER "d"
+$syncResult = Sync-DiscPages -Records $records -OutDir $discOut
+Write-OK "Paginas en /d: $($syncResult.Generadas) generadas, $($syncResult.Borradas) dadas de baja"
+
 # -- Paso 3: commit y push ----------------------------------------------------
 Write-Step "Subiendo cambios a GitHub..."
 
@@ -238,7 +244,7 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json | Out-Null
+    git add data/records.json d | Out-Null
     git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {

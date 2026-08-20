@@ -434,7 +434,9 @@ const SHARE_LABEL = shareBtn.innerHTML;
 
 shareBtn.addEventListener('click', async () => {
   if (!currentRecord?.mlid) return;
-  const url   = `${window.location.origin}/?id=${currentRecord.mlid}`;
+  // Apunta a la paginita de vista previa (/d/...), no directo a /?id=...,
+  // porque WhatsApp/redes leen los og:tags del HTML crudo sin ejecutar JS.
+  const url   = `${window.location.origin}/d/${currentRecord.mlid}.html`;
   const title = `${currentRecord.artista} — ${currentRecord.album || currentRecord.titulo}`;
   if (navigator.share) {
     try { await navigator.share({ title, url }); } catch { /* usuario canceló */ }
