@@ -60,7 +60,6 @@ function Sync-DiscPages {
 $imgTag
 <meta property="og:url" content="https://respiraventas.com.ar/d/$mlid.html">
 <meta property="og:type" content="product">
-<meta http-equiv="refresh" content="0; url=/?id=$mlid">
 <script>location.replace('/?id=$mlid');</script>
 </head>
 <body>
