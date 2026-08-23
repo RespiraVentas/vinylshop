@@ -3,13 +3,10 @@ name: Deploy vinyl catalog
 on:
   push:
     branches: [main]
-    paths:
-      - "data/records.json"
-      - "index.html"
-      - "style.css"
-      - "app.js"
-      - "*.html"
-      - "CNAME"
+    # Sin filtro de rutas a proposito: cualquier cambio en main republica el
+    # sitio. Antes habia una lista de archivos y las carpetas nuevas (disco/,
+    # ficha.css, los sitemaps) no matcheaban, asi que el deploy no se disparaba
+    # y los cambios quedaban subidos a GitHub pero nunca publicados.
   workflow_dispatch:   # permite correrlo manualmente desde GitHub
 
 permissions:
