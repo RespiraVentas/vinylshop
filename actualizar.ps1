@@ -229,6 +229,14 @@ if (Test-Path $JSON_OUT) {
     }
 }
 
+# Guarda en cada disco el nombre de archivo de su ficha, para que el catalogo
+# pueda enlazarla directamente (asi el clic derecho / abrir en pestana nueva
+# funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
+. (Join-Path $SITE_FOLDER "generar-fichas.ps1")
+foreach ($rec in $records) {
+    $rec.ficha = Get-FichaNombre $rec
+}
+
 $json = $records | ConvertTo-Json -Depth 3
 [System.IO.File]::WriteAllText($JSON_OUT, $json, [System.Text.Encoding]::UTF8)
 

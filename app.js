@@ -200,13 +200,19 @@ function createCard(r) {
   // Links de WhatsApp y mail con mensaje preescrito incluyendo link ML
   const { waHref, mailHref } = buildContactLinks(r);
 
+  // La ficha del disco es un link real: permite abrir en pestaña nueva y le
+  // da a Google un camino hacia las fichas. El clic normal sigue abriendo el
+  // modal de siempre (ver más abajo).
+  // Sin href si el disco no tiene ficha: un <a> sin href no navega a ningún lado
+  const fichaHref = r.ficha ? ` href="/disco/${esc(r.ficha)}"` : '';
+
   card.innerHTML = `
-    <div class="card-img-wrap">
+    <a class="card-img-wrap"${fichaHref}>
       ${imgHTML}
-    </div>
+    </a>
     <div class="card-body">
-      <div class="card-artist">${esc(r.artista || '—')}</div>
-      <div class="card-album">${esc(r.album || r.titulo || '')}</div>
+      <a class="card-artist"${fichaHref}>${esc(r.artista || '—')}</a>
+      <a class="card-album"${fichaHref}>${esc(r.album || r.titulo || '')}</a>
       <div class="card-row">
         <span class="card-price">${price}</span>
         <span class="card-year">${esc(r.anio || '')}</span>
@@ -223,10 +229,16 @@ function createCard(r) {
       </div>
     </div>`;
 
-  // Clic en imagen o texto → abre modal
-  card.querySelector('.card-img-wrap').addEventListener('click', () => openModal(r));
-  card.querySelector('.card-artist').addEventListener('click',   () => openModal(r));
-  card.querySelector('.card-album').addEventListener('click',    () => openModal(r));
+  // Clic normal → abre el modal de siempre.
+  // Ctrl/Cmd+clic, clic del medio o "abrir en pestaña nueva" → deja que el
+  // navegador siga el link a la ficha, como con cualquier enlace.
+  const abrirModal = e => {
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    openModal(r);
+  };
+  card.querySelectorAll('.card-img-wrap, .card-artist, .card-album')
+      .forEach(el => el.addEventListener('click', abrirModal));
 
   return card;
 }
