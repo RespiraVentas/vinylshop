@@ -229,6 +229,27 @@ if (Test-Path $JSON_OUT) {
     }
 }
 
+# --- Mantiene al dia el "Mas de N discos" que Google muestra como subtitulo ---
+# Se redondea para abajo a la centena, asi el numero nunca miente (si hay 3929
+# dice "mas de 3.900") y solo cambia el archivo cuando se cruza una centena.
+$indexPath = Join-Path $SITE_FOLDER "index.html"
+if (Test-Path $indexPath) {
+    $redondeado = [math]::Floor($records.Count / 100) * 100
+    $textoNuevo = "Más de " + ('{0:N0}' -f $redondeado -replace ',', '.') + " discos"
+    $indexHtml  = [System.IO.File]::ReadAllText($indexPath, [System.Text.Encoding]::UTF8)
+    $patron     = 'Más de [\d\.]+ discos'
+    $coincidencias = ([regex]::Matches($indexHtml, $patron)).Count
+    if ($coincidencias -gt 0) {
+        $indexNuevo = [regex]::Replace($indexHtml, $patron, $textoNuevo)
+        if ($indexNuevo -ne $indexHtml) {
+            [System.IO.File]::WriteAllText($indexPath, $indexNuevo, [System.Text.Encoding]::UTF8)
+            Write-OK "Subtitulo de Google actualizado: `"$textoNuevo`""
+        }
+    } else {
+        Write-Host "    (No se encontro el texto del subtitulo en index.html; se deja como esta)" -ForegroundColor Yellow
+    }
+}
+
 # Guarda en cada disco el nombre de archivo de su ficha, para que el catalogo
 # pueda enlazarla directamente (asi el clic derecho / abrir en pestana nueva
 # funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
@@ -279,7 +300,7 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json data/vendidos.json d disco sitemap.xml sitemap-paginas.xml sitemap-discos.xml | Out-Null
+    git add data/records.json data/vendidos.json d disco index.html sitemap.xml sitemap-paginas.xml sitemap-discos.xml | Out-Null
     git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {
