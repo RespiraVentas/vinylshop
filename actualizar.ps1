@@ -217,6 +217,18 @@ try {
 Write-OK "Discos activos: $($records.Count)  (omitidos: $skipped)"
 
 New-Item -ItemType Directory -Force (Split-Path $JSON_OUT) | Out-Null
+
+# Catalogo de la corrida anterior, ANTES de pisarlo. Lo que estaba aca y ya no
+# esta en $records son los discos que se vendieron: con eso se marcan sus fichas.
+$recordsPrevios = $null
+if (Test-Path $JSON_OUT) {
+    try {
+        $recordsPrevios = Get-Content $JSON_OUT -Raw -Encoding UTF8 | ConvertFrom-Json
+    } catch {
+        Write-Host "    (No se pudo leer el catalogo anterior; no se marcaran bajas esta vez)" -ForegroundColor Yellow
+    }
+}
+
 $json = $records | ConvertTo-Json -Depth 3
 [System.IO.File]::WriteAllText($JSON_OUT, $json, [System.Text.Encoding]::UTF8)
 
@@ -228,6 +240,21 @@ Write-Step "Generando paginas de vista previa por disco..."
 $discOut = Join-Path $SITE_FOLDER "d"
 $syncResult = Sync-DiscPages -Records $records -OutDir $discOut
 Write-OK "Paginas en /d: $($syncResult.Generadas) generadas, $($syncResult.Borradas) dadas de baja"
+
+# Fichas indexables por disco (/disco/*.html) + sitemaps.
+# Va dentro de try/catch a proposito: si esto fallara, el catalogo se publica
+# igual. Nunca debe impedir que se actualice el sitio.
+Write-Step "Generando fichas de disco y sitemaps (puede tardar ~1 minuto)..."
+try {
+    . (Join-Path $SITE_FOLDER "generar-fichas.ps1")
+    $fichas = Sync-Fichas -Records $records -SiteFolder $SITE_FOLDER -PreviousRecords $recordsPrevios
+    Write-OK "Fichas: $($fichas.Activas) a la venta, $($fichas.Vendidas) vendidas ($($fichas.NuevasBajas) nuevas)"
+    Write-OK "Sitemaps actualizados"
+} catch {
+    Write-Host "`n  AVISO: no se pudieron generar las fichas de disco." -ForegroundColor Yellow
+    Write-Host "  $($_.Exception.Message)" -ForegroundColor Yellow
+    Write-Host "  El catalogo se publica igual. Avisale a Claude para que lo revise." -ForegroundColor Yellow
+}
 
 # -- Paso 3: commit y push ----------------------------------------------------
 Write-Step "Subiendo cambios a GitHub..."
@@ -244,7 +271,7 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json d | Out-Null
+    git add data/records.json data/vendidos.json d disco sitemap.xml sitemap-paginas.xml sitemap-discos.xml | Out-Null
     git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {

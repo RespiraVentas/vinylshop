@@ -1,0 +1,283 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Estilos de las fichas de disco (/disco/*.html)
+   Archivo propio, independiente de style.css (que es el del catálogo).
+   ───────────────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:       #d41515;
+  --wa:        #25d366;
+  --wa-dark:   #1da851;
+  --ml:        #ffe600;
+  --ml-dark:   #f0d800;
+  --text:      #111111;
+  --muted:     #888;
+  --border:    #e5e5e5;
+  --bg:        #ffffff;
+  --surface:   #f7f7f7;
+  --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.f-header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.f-header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.f-logo { display: flex; align-items: center; gap: 10px; }
+.f-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.f-logo-name { font-size: 16px; font-weight: 800; letter-spacing: -.3px; }
+.f-logo-sub { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; display: block; }
+.f-header-cta {
+  background: var(--red); color: #fff;
+  font-size: 13px; font-weight: 700;
+  padding: 8px 16px; border-radius: 6px;
+  white-space: nowrap;
+}
+.f-header-cta:hover { opacity: .88; }
+
+/* ── Migas de pan ───────────────────────────────────────────────────────── */
+.f-breadcrumb {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 24px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.f-breadcrumb a:hover { color: var(--red); }
+.f-breadcrumb span { margin: 0 6px; opacity: .5; }
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.f-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+}
+.f-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* ── Galería ────────────────────────────────────────────────────────────── */
+.f-gallery-main {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.f-gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.f-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.f-thumbs img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  display: block;
+}
+
+/* ── Info ───────────────────────────────────────────────────────────────── */
+.f-artist {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.f-artist a:hover { text-decoration: underline; }
+h1.f-title {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.f-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.f-tags a, .f-tags span {
+  font-size: 11.5px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 3px 11px;
+  font-weight: 500;
+}
+.f-tags a:hover { color: var(--red); border-color: var(--red); }
+
+.f-price-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+.f-price { font-size: 28px; font-weight: 700; white-space: nowrap; }
+.f-price-direct { font-size: 14px; color: var(--wa-dark); font-weight: 600; }
+
+/* ── CTA ────────────────────────────────────────────────────────────────── */
+.f-cta {
+  background: #f3fdf7;
+  border: 1.5px solid #b6e8cc;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.f-cta-label { font-size: 13.5px; color: #1a5c38; margin-bottom: 14px; }
+.f-cta-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.f-btn-wa, .f-btn-mail {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: 6px;
+  font-size: 13.5px; font-weight: 700;
+  flex: 1; min-width: 150px;
+}
+.f-btn-wa { background: var(--wa); color: #fff; }
+.f-btn-wa:hover { background: var(--wa-dark); }
+.f-btn-mail { background: #fff; color: var(--red); border: 1.5px solid var(--red); }
+.f-btn-mail:hover { background: #fff5f5; }
+.f-btn-wa svg, .f-btn-mail svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+.f-sep {
+  text-align: center; position: relative;
+  margin: 16px 0; color: #bbb;
+  font-size: 11px; letter-spacing: .5px; text-transform: uppercase;
+}
+.f-sep::before, .f-sep::after {
+  content: ''; position: absolute; top: 50%;
+  width: calc(50% - 46px); height: 1px; background: var(--border);
+}
+.f-sep::before { left: 0; }
+.f-sep::after  { right: 0; }
+
+.f-btn-ml {
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px 20px; background: var(--ml); color: #333;
+  border-radius: 6px; font-size: 13.5px; font-weight: 700;
+}
+.f-btn-ml:hover { background: var(--ml-dark); }
+
+/* ── Estado vendido ─────────────────────────────────────────────────────── */
+.f-sold-banner {
+  background: #fbf3f3;
+  border: 1.5px solid #e8c4c4;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.f-sold-title {
+  font-size: 15px; font-weight: 800; color: #a32020;
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.f-sold-text { font-size: 13.5px; color: #7a4444; margin-bottom: 14px; }
+.f-sold-badge {
+  display: inline-block;
+  background: #a32020; color: #fff;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px;
+  vertical-align: middle; margin-left: 10px;
+}
+.f-price-sold { text-decoration: line-through; opacity: .45; }
+
+/* ── Condición ──────────────────────────────────────────────────────────── */
+.f-section { margin-top: 40px; }
+.f-section-title {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.f-condition { display: flex; flex-wrap: wrap; gap: 10px; }
+.f-cond-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 14px;
+}
+.f-cond-label {
+  display: block; font-size: 10px; font-weight: 600;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+.f-cond-value { font-size: 15px; font-weight: 800; }
+
+.f-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ── Relacionados ───────────────────────────────────────────────────────── */
+.f-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+.f-rel-card { display: block; }
+.f-rel-card img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  border: 1px solid var(--border); border-radius: 6px; display: block;
+  transition: transform .2s;
+}
+.f-rel-card:hover img { transform: translateY(-3px); }
+.f-rel-artist {
+  font-size: 12px; font-weight: 700; margin-top: 8px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.f-rel-album {
+  font-size: 11.5px; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.f-rel-price { font-size: 12px; font-weight: 700; margin-top: 3px; }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.f-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  margin-top: 56px;
+}
+.f-footer-inner {
+  max-width: 980px; margin: 0 auto;
+  padding: 28px 24px;
+  display: flex; flex-wrap: wrap; gap: 16px;
+  justify-content: space-between; align-items: center;
+  font-size: 12.5px; color: var(--muted);
+}
+.f-footer-inner a:hover { color: var(--text); }
+.f-footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .f-top { grid-template-columns: 1fr; gap: 24px; }
+  h1.f-title { font-size: 22px; }
+  .f-price { font-size: 24px; }
+  .f-main { padding: 16px 16px 40px; }
+  .f-header-inner { padding: 10px 16px; }
+  .f-breadcrumb { padding: 12px 16px 0; }
+  .f-footer-inner { padding: 22px 16px; }
+}
