@@ -432,6 +432,52 @@ $relacionadosHtml
 "@
 }
 
+# ── Paginas de compartir (/d/<id>.html) ──────────────────────────────────────
+#
+#  Son las direcciones que se compartieron por WhatsApp desde antes de que
+#  existieran las fichas. NUNCA se borran: si el disco se vendio, el que hace
+#  clic tiene que ver "Vendido", no un error 404. Ahora rebotan a la ficha.
+#
+function Build-SharePageHtml {
+    param($rec, [string]$id, [string]$fichaArchivo, [bool]$vendido)
+
+    $artista = if ($rec.artista) { $rec.artista } else { 'Artista desconocido' }
+    $album   = if ($rec.album)   { $rec.album }   else { $rec.titulo }
+    $destino = "/disco/$fichaArchivo"
+
+    $titulo = "$artista — $album"
+    $desc = if ($vendido) {
+        "Vendido — consultanos si entra otra copia. Respira Ventas, discos de vinilo en Rosario."
+    } else {
+        $p = if ($rec.precio) { ' ' + (Format-Pesos $rec.precio) } else { '' }
+        "Respira Ventas — Discos de vinilo, Rosario.$p"
+    }
+
+    $img = if ($rec.imagenes -and $rec.imagenes.Count -gt 0) {
+        "<meta property=`"og:image`" content=`"$(Escape-Html $rec.imagenes[0])`">"
+    } else { '' }
+
+    return @"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>$(Escape-Html $titulo) — Respira Ventas</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="$(Escape-Html $titulo)">
+<meta property="og:description" content="$(Escape-Html $desc)">
+$img
+<meta property="og:url" content="$SITE_URL/d/$id.html">
+<meta property="og:type" content="product">
+<script>location.replace('$destino');</script>
+</head>
+<body>
+<p><a href="$destino">Ver disco en Respira Ventas &rarr;</a></p>
+</body>
+</html>
+"@
+}
+
 # ── Proceso principal ────────────────────────────────────────────────────────
 
 function Sync-Fichas {
@@ -445,8 +491,10 @@ function Sync-Fichas {
     )
 
     $outDir      = Join-Path $SiteFolder "disco"
+    $shareDir    = Join-Path $SiteFolder "d"
     $vendidosOut = Join-Path $SiteFolder "data\vendidos.json"
-    New-Item -ItemType Directory -Force $outDir | Out-Null
+    New-Item -ItemType Directory -Force $outDir   | Out-Null
+    New-Item -ItemType Directory -Force $shareDir | Out-Null
 
     # --- Vendidos ya conocidos de corridas anteriores ---
     $vendidos = @{}
@@ -548,6 +596,8 @@ function Sync-Fichas {
         $relHtml = Build-RelacionadosHtml $rel $rutas
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $false -relacionadosHtml $relHtml
         [System.IO.File]::WriteAllText((Join-Path $outDir $archivo), $html, [System.Text.Encoding]::UTF8)
+        $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $false
+        [System.IO.File]::WriteAllText((Join-Path $shareDir "$id.html"), $share, [System.Text.Encoding]::UTF8)
         $escritas++
     }
 
@@ -560,6 +610,10 @@ function Sync-Fichas {
         $relHtml = Build-RelacionadosHtml $rel $rutas
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $true -relacionadosHtml $relHtml
         [System.IO.File]::WriteAllText((Join-Path $outDir $archivo), $html, [System.Text.Encoding]::UTF8)
+        # La pagina de compartir del vendido se reescribe (no se borra): quien
+        # tenga el link viejo de WhatsApp va a ver "Vendido", no un error.
+        $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $true
+        [System.IO.File]::WriteAllText((Join-Path $shareDir "$id.html"), $share, [System.Text.Encoding]::UTF8)
         $escritas++
     }
 

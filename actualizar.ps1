@@ -264,11 +264,11 @@ $json = $records | ConvertTo-Json -Depth 3
 $jsonSizeKB = [math]::Round((Get-Item $JSON_OUT).Length / 1KB, 0)
 Write-OK "JSON guardado: data/records.json ($jsonSizeKB KB)"
 
-Write-Step "Generando paginas de vista previa por disco..."
-. (Join-Path $SITE_FOLDER "generar-paginas-disco.ps1")
-$discOut = Join-Path $SITE_FOLDER "d"
-$syncResult = Sync-DiscPages -Records $records -OutDir $discOut
-Write-OK "Paginas en /d: $($syncResult.Generadas) generadas, $($syncResult.Borradas) dadas de baja"
+# Las paginas de compartir (/d/*.html) ya NO se generan aca: las escribe
+# generar-fichas.ps1 junto con las fichas. El generador viejo las borraba
+# cuando el disco se vendia, y eso dejaba en error 404 los links que ya se
+# habian mandado por WhatsApp. Ahora nunca se borran: rebotan a la ficha,
+# que muestra "Vendido".
 
 # Fichas indexables por disco (/disco/*.html) + sitemaps.
 # Va dentro de try/catch a proposito: si esto fallara, el catalogo se publica
