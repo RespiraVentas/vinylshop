@@ -370,6 +370,15 @@ function openModal(r) {
   document.getElementById('modal-btn-mail').href = mailHref;
   document.getElementById('modal-btn-ml').href   = r.url || '#';
 
+  // Link a la ficha completa (donde están los costos de envío al día)
+  const btnFicha = document.getElementById('modal-btn-ficha');
+  if (r.ficha) {
+    btnFicha.href = `/disco/${esc(r.ficha)}`;
+    btnFicha.style.display = '';
+  } else {
+    btnFicha.style.display = 'none';
+  }
+
   // Condición Goldmine — extraer líneas tipo "Disco: VG+", "Tapa: NM", etc.
   const conditionEl = document.getElementById('modal-condition');
   const descEl      = document.getElementById('modal-desc');
