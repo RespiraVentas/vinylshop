@@ -28,8 +28,8 @@ $MAIL_TO   = "revistarespiraok@gmail.com"
 # Datos reales confirmados por Pablo el 23/08/2026. Si alguna vez cambian,
 # se tocan aca y se regeneran las fichas: van al texto visible Y a los datos
 # estructurados que lee Google, siempre iguales entre si.
-$ENVIO_MIN_ARS   = 9500    # costo minimo dentro de Argentina
-$ENVIO_MAX_ARS   = 15000   # costo maximo (destinos lejanos / expreso)
+# El COSTO del envio no se publica: en Argentina aumenta casi todos los meses
+# y un precio desactualizado le miente al comprador. Se cotiza por WhatsApp.
 $DESPACHO_MIN_D  = 0       # despacha el mismo dia...
 $DESPACHO_MAX_D  = 1       # ...o al dia siguiente
 $TRANSITO_MIN_D  = 2       # 2 dias a CABA
@@ -121,8 +121,8 @@ $MAIL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 #
 function Build-EnviosTexto {
     return @"
-      <p><strong>Envíos a todo el país.</strong> El envío lo paga el comprador: entre $(Format-Pesos $ENVIO_MIN_ARS) y $(Format-Pesos $ENVIO_MAX_ARS) según el destino y si es expreso. Despachamos el mismo día o el siguiente, y llega en $TRANSITO_MIN_D a $TRANSITO_MAX_D días hábiles.</p>
-      <p><strong>Envíos al exterior por DHL</strong>, a todo el mundo donde ellos lleguen. Escribinos por WhatsApp y te pasamos el costo a tu país.</p>
+      <p><strong>Envíos a todo el país.</strong> El envío lo paga el comprador y el costo depende del destino: escribinos por WhatsApp y te lo pasamos al momento. Despachamos el mismo día o el siguiente, y llega en $TRANSITO_MIN_D a $TRANSITO_MAX_D días hábiles.</p>
+      <p><strong>Envíos al exterior por DHL</strong>, a todo el mundo donde ellos lleguen. Consultanos el costo a tu país.</p>
       <p><strong>Garantía.</strong> Describimos el estado de cada disco con la escala Goldmine. Si el disco no coincide con lo descripto, tenés $GARANTIA_DIAS días para avisarnos y lo resolvemos con devolución del dinero o descuento.</p>
 "@
 }
@@ -361,17 +361,13 @@ $mlHtml
             'itemCondition' = 'https://schema.org/UsedCondition'
             'availability'  = $disponibilidad
             'seller'        = [ordered]@{ '@type' = 'Organization'; 'name' = 'Respira Ventas' }
-            # Envio: solo se declaran los datos de Argentina, que son los que
-            # conocemos con precision. Los envios al exterior (DHL) se explican
-            # en el texto visible: no se inventan tarifas que no tenemos.
+            # Envio: se declaran destino y plazos, que son estables. NO se
+            # declara el costo a proposito: en Argentina el envio aumenta casi
+            # todos los meses y un precio viejo publicado es peor que ninguno
+            # (es una promesa incumplida al comprador). Google solo lo sugiere,
+            # no lo exige: el aviso por el costo faltante es no critico.
             'shippingDetails' = [ordered]@{
                 '@type'       = 'OfferShippingDetails'
-                'shippingRate' = [ordered]@{
-                    '@type'    = 'MonetaryAmount'
-                    'minValue' = $ENVIO_MIN_ARS
-                    'maxValue' = $ENVIO_MAX_ARS
-                    'currency' = 'ARS'
-                }
                 'shippingDestination' = [ordered]@{
                     '@type'          = 'DefinedRegion'
                     'addressCountry' = 'AR'
