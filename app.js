@@ -3,6 +3,11 @@
 const PAGE_SIZE  = 60;
 const WA_NUMBER  = '5493416068888';
 const MAIL_TO    = 'revistarespiraok@gmail.com';
+// El catálogo del Excel trae el precio de la publicación de ML. El sitio
+// muestra su propio precio: ese valor por este factor, redondeado a un número
+// terminado en 990. Un solo número acá cambia el precio en todo el sitio.
+// OJO: tiene que coincidir con FACTOR_PRECIO de generar-fichas.ps1.
+const FACTOR_PRECIO = 0.88;
 
 let allRecords = [];
 let filtered   = [];
@@ -191,6 +196,15 @@ function safe(fn) {
   try { fn(); } catch (e) { console.warn('Detalle del modal omitido:', e.message); }
 }
 
+// Precio que muestra el sitio. Es el único precio: no se compara con ningún
+// otro canal ni se presenta como descuento sobre nada.
+// Se redondea al número terminado en 990 más cercano (35.191 → 34.990).
+function precioSitio(r) {
+  if (!r.precio) return 0;
+  const k = Math.round((r.precio * FACTOR_PRECIO - 990) / 1000);
+  return Math.max(0, k) * 1000 + 990;
+}
+
 // ── Card ──────────────────────────────────────────────────────────────────────
 function createCard(r) {
   const card = document.createElement('article');
@@ -202,7 +216,7 @@ function createCard(r) {
     ? `${badgeHTML}<div class="card-img-inner" style="background-image:url('${esc(imgSrc)}')"></div>`
     : `${badgeHTML}<div class="card-img-inner card-placeholder">${PLACEHOLDER}</div>`;
 
-  const price = r.precio ? `$ ${r.precio.toLocaleString('es-AR')}` : '';
+  const price = precioSitio(r) ? `$ ${precioSitio(r).toLocaleString('es-AR')}` : '';
 
   // Links de WhatsApp y mail con mensaje preescrito incluyendo link ML
   const { waHref, mailHref } = buildContactLinks(r);
@@ -227,7 +241,7 @@ function createCard(r) {
       <div class="card-buttons">
         <a class="btn-card-direct" href="${waHref}" target="_blank" rel="noopener"
            onclick="event.stopPropagation()">
-          ${WA_ICON} Contactar (10% dto.)
+          ${WA_ICON} Consultar por WhatsApp
         </a>
         <a class="btn-card-ml" href="${esc(r.url || '#')}" target="_blank" rel="noopener"
            onclick="event.stopPropagation()">
@@ -252,20 +266,15 @@ function createCard(r) {
 
 // ── Links de contacto ─────────────────────────────────────────────────────────
 function buildContactLinks(r) {
-  const precio     = r.precio || 0;
-  const descuento  = precio ? Math.round(precio * 0.9) : 0;
-  const linkML     = r.url || '';
-
-  const ahorro = precio && descuento ? precio - descuento : 0;
-  const ahorroStr = ahorro ? ` (¡Ahorro $ ${ahorro.toLocaleString('es-AR')}!)` : '';
+  const precio  = precioSitio(r);
+  const linkFicha = r.ficha ? `${window.location.origin}/disco/${r.ficha}` : '';
 
   const waText = [
     `Hola! Me interesa este disco:`,
     `*${r.artista} — ${r.album || r.titulo}*${r.anio ? ` (${r.anio})` : ''}`,
-    precio    ? `Precio en Mercado Libre: $ ${precio.toLocaleString('es-AR')}` : '',
-    descuento ? `Precio comprando directo (10% off): $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
+    precio ? `Precio: $ ${precio.toLocaleString('es-AR')}` : '',
     ``,
-    linkML ? `Link ML: ${linkML}` : '',
+    linkFicha ? linkFicha : '',
     ``,
     `¿Está disponible?`,
   ].filter(l => l !== undefined).join('\n');
@@ -276,12 +285,11 @@ function buildContactLinks(r) {
     ``,
     `Me interesa el siguiente disco:`,
     `${r.artista} — ${r.album || r.titulo}${r.anio ? ` (${r.anio})` : ''}`,
-    precio ? `Precio en ML: $ ${precio.toLocaleString('es-AR')}` : '',
+    precio ? `Precio: $ ${precio.toLocaleString('es-AR')}` : '',
     ``,
-    linkML ? `Link en Mercado Libre: ${linkML}` : '',
+    linkFicha ? linkFicha : '',
     ``,
-    `¿Está disponible con el 10% de descuento por compra directa?`,
-    descuento ? `Precio directo: $ ${descuento.toLocaleString('es-AR')}${ahorroStr}` : '',
+    `¿Está disponible?`,
     ``,
     `Gracias!`,
   ].filter(l => l !== undefined).join('\n');
@@ -365,12 +373,10 @@ function openModal(r) {
   document.getElementById('modal-tags').innerHTML =
     tags.map(t => `<span>${esc(String(t))}</span>`).join('');
 
-  const precio    = r.precio || 0;
-  const descuento = precio ? Math.round(precio * 0.9) : 0;
+  const precio = precioSitio(r);
   document.getElementById('modal-price').textContent =
     precio ? `$ ${precio.toLocaleString('es-AR')}` : '';
-  document.getElementById('modal-price-direct').textContent =
-    descuento ? `→ $ ${descuento.toLocaleString('es-AR')} comprando directo` : '';
+  document.getElementById('modal-price-direct').textContent = '';
 
   const { waHref, mailHref } = buildContactLinks(r);
   document.getElementById('modal-btn-wa').href   = waHref;
@@ -418,7 +424,7 @@ function openModal(r) {
           const src = x.imagenes?.[0];
           const imgStyle = src ? `style="background-image:url('${esc(src)}')"` : '';
           const imgClass = src ? 'related-card-img' : 'related-card-img card-placeholder';
-          const price = x.precio ? `$ ${x.precio.toLocaleString('es-AR')}` : '';
+          const price = precioSitio(x) ? `$ ${precioSitio(x).toLocaleString('es-AR')}` : '';
           return `<div class="related-card" data-rel="${i}">
             <div class="${imgClass}" ${imgStyle}>${src ? '' : PLACEHOLDER}</div>
             <div class="related-card-info">

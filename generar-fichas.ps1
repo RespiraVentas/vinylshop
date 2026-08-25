@@ -30,6 +30,12 @@ $MAIL_TO   = "revistarespiraok@gmail.com"
 # estructurados que lee Google, siempre iguales entre si.
 # El COSTO del envio no se publica: en Argentina aumenta casi todos los meses
 # y un precio desactualizado le miente al comprador. Se cotiza por WhatsApp.
+#
+# El Excel trae el precio de la publicacion de ML. El sitio muestra su propio
+# precio: ese valor por este factor, redondeado a un numero terminado en 990.
+# Tiene que coincidir con FACTOR_PRECIO de app.js, o el catalogo y las fichas
+# mostrarian precios distintos.
+$FACTOR_PRECIO   = 0.88
 $DESPACHO_MIN_D  = 0       # despacha el mismo dia...
 $DESPACHO_MAX_D  = 1       # ...o al dia siguiente
 $TRANSITO_MIN_D  = 2       # 2 dias a CABA
@@ -57,6 +63,37 @@ function ConvertTo-Slug([string]$s) {
 function Escape-Html([string]$s) {
     if (-not $s) { return '' }
     return $s -replace '&','&amp;' -replace '<','&lt;' -replace '>','&gt;' -replace '"','&quot;'
+}
+
+# Precio del sitio: precio de ML por el factor, redondeado al numero terminado
+# en 990 mas cercano (35.191 -> 34.990). Usa Floor(x + 0.5) y no Round() a
+# proposito: Round() en .NET redondea "al par" y no coincidiria con el
+# Math.round() de app.js, y el catalogo mostraria otro precio que la ficha.
+function Get-PrecioSitio([double]$precioML) {
+    if ($precioML -le 0) { return 0 }
+    $k = [math]::Floor((($precioML * $FACTOR_PRECIO) - 990.0) / 1000.0 + 0.5)
+    if ($k -lt 0) { $k = 0 }
+    return [int](($k * 1000.0) + 990.0)
+}
+
+# Escribe un archivo reintentando si esta momentaneamente tomado. Al generar
+# miles de fichas seguidas, el antivirus de Windows a veces tiene un archivo
+# abierto justo cuando se lo quiere escribir. Sin esto, esa ficha quedaria con
+# el contenido viejo y nadie se enteraria.
+function Write-ArchivoSeguro([string]$ruta, [string]$contenido) {
+    $intentos = 12
+    for ($i = 1; $i -le $intentos; $i++) {
+        try {
+            [System.IO.File]::WriteAllText($ruta, $contenido, [System.Text.Encoding]::UTF8)
+            return $true
+        } catch {
+            if ($i -eq $intentos) {
+                Write-Warning "No se pudo escribir $ruta tras $intentos intentos: $($_.Exception.Message)"
+                return $false
+            }
+            Start-Sleep -Milliseconds ([math]::Min(150 * $i, 1500))
+        }
+    }
 }
 
 function Format-Pesos($n) {
@@ -121,6 +158,7 @@ $MAIL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 #
 function Build-EnviosTexto {
     return @"
+      <p><strong>Cómo comprar:</strong> Escribinos por WhatsApp o mail y decinos qué disco te interesa. Nos aclarás si preferís el envío a domicilio o a una sucursal de Correo Argentino, y te pasamos el costo exacto a tu ciudad. Te damos los datos para transferir y el disco sale el mismo día o el siguiente.</p>
       <p><strong>Envíos a todo el país:</strong> El envío lo paga el comprador y el costo depende del destino: escribinos por WhatsApp y te lo pasamos al momento. Despachamos el mismo día o el siguiente, y llega en $TRANSITO_MIN_D a $TRANSITO_MAX_D días hábiles.</p>
       <p><strong>Envíos al exterior por DHL:</strong> A todo el mundo donde ellos lleguen. Consultanos el costo a tu país.</p>
       <p><strong>Garantía:</strong> Describimos el estado de cada disco con la escala Goldmine. Si el disco no coincide con lo descripto, tenés $GARANTIA_DIAS días para avisarnos y lo resolvemos con devolución del dinero o descuento.</p>
@@ -166,7 +204,7 @@ function Build-RelacionadosHtml($relacionados, $rutas) {
         $alt   = Escape-Html "$($x.artista) - $($x.album)"
         $art   = Escape-Html $x.artista
         $alb   = Escape-Html $x.album
-        $prec  = Format-Pesos $x.precio
+        $prec  = Format-Pesos (Get-PrecioSitio ([double]$x.precio))
         @"
       <a class="f-rel-card" href="$href">
         <img src="$img" alt="$alt" loading="lazy">
@@ -198,9 +236,8 @@ function Build-FichaHtml {
     $genero  = "$($rec.genero)".Trim()
     $origen  = "$($rec.origen)".Trim()
     $sello   = "$($rec.compania)".Trim()
-    $precio  = [int]$rec.precio
-    $directo = if ($precio) { [math]::Round($precio * 0.9) } else { 0 }
-    $ahorro  = $precio - $directo
+    # Precio del sitio: unico precio, sin comparar con ningun otro canal.
+    $precio  = Get-PrecioSitio ([double]$rec.precio)
 
     $partes = Split-Descripcion "$($rec.desc)"
     $condicion = $partes.Condicion
@@ -220,7 +257,7 @@ function Build-FichaHtml {
     if ($condResumen) { $metaPartes += "estado $condResumen" }
     $metaDesc = "$artista — $album. " + ($metaPartes -join ', ') + ". "
     $metaDesc += if ($vendido) { "Vendido — consultanos si entra otra copia." }
-                 else { "Comprando directo por WhatsApp pagás 10% menos que en Mercado Libre." }
+                 else { "Envíos a todo el país y al exterior. Consultanos por WhatsApp." }
     if ($metaDesc.Length -gt 300) { $metaDesc = $metaDesc.Substring(0, 297) + '...' }
 
     # --- Galeria ---
@@ -272,7 +309,7 @@ $($items -join "`n")
     if (-not $vendido) {
         $envioHtml = @"
   <section class="f-section">
-    <h2 class="f-section-title">Envíos y garantía</h2>
+    <h2 class="f-section-title">Cómo comprar</h2>
     <div class="f-envios">
 $(Build-EnviosTexto)    </div>
   </section>
@@ -309,31 +346,27 @@ $(Build-EnviosTexto)    </div>
         $disponibilidad = 'https://schema.org/SoldOut'
     } else {
         $waTexto = "Hola! Me interesa este disco:`n*$artista — $album*$(if ($anio) { " ($anio)" })"
-        if ($precio)  { $waTexto += "`nPrecio en Mercado Libre: $(Format-Pesos $precio)" }
-        if ($directo) { $waTexto += "`nPrecio comprando directo (10% off): $(Format-Pesos $directo) (¡Ahorro $(Format-Pesos $ahorro)!)" }
-        $waTexto += "`n`nLink: $SITE_URL/disco/$archivo`n`n¿Está disponible?"
+        if ($precio) { $waTexto += "`nPrecio: $(Format-Pesos $precio)" }
+        $waTexto += "`n`n$SITE_URL/disco/$archivo`n`n¿Está disponible?"
         $waHref  = "https://wa.me/$WA_NUMBER`?text=$([Uri]::EscapeDataString($waTexto))"
 
         $mailAsunto = "Consulta: $artista — $album"
         $mailCuerpo = "Hola,`n`nMe interesa este disco:`n$artista — $album$(if ($anio) { " ($anio)" })`n"
-        if ($precio) { $mailCuerpo += "Precio en Mercado Libre: $(Format-Pesos $precio)`n" }
-        $mailCuerpo += "`n$SITE_URL/disco/$archivo`n`n¿Está disponible con el 10% de descuento por compra directa?`n`nGracias!"
+        if ($precio) { $mailCuerpo += "Precio: $(Format-Pesos $precio)`n" }
+        $mailCuerpo += "`n$SITE_URL/disco/$archivo`n`n¿Está disponible?`n`nGracias!"
         $mailHref = "mailto:$MAIL_TO`?subject=$([Uri]::EscapeDataString($mailAsunto))&body=$([Uri]::EscapeDataString($mailCuerpo))"
 
-        $precioHtml = if ($precio) {
-            "<span class=`"f-price`">$(Format-Pesos $precio)</span><span class=`"f-price-direct`">-> $(Format-Pesos $directo) comprando directo</span>"
-        } else { '' }
+        $precioHtml = if ($precio) { "<span class=`"f-price`">$(Format-Pesos $precio)</span>" } else { '' }
 
         $mlHtml = if ($rec.url) {
             @"
-      <div class="f-sep"><span>o si preferís</span></div>
       <a class="f-btn-ml" href="$(Escape-Html $rec.url)" target="_blank" rel="noopener">Ver en Mercado Libre</a>
 "@
         } else { '' }
 
         $bloqueCompra = @"
       <div class="f-cta">
-        <p class="f-cta-label">Comprá directo y pagás <strong>10% menos</strong> que en Mercado Libre</p>
+        <p class="f-cta-label">Consultanos por este disco</p>
         <div class="f-cta-buttons">
           <a class="f-btn-wa" href="$waHref" target="_blank" rel="noopener">$WA_SVG Consultar por WhatsApp</a>
           <a class="f-btn-mail" href="$mailHref">$MAIL_SVG Consultar por mail</a>
@@ -349,7 +382,7 @@ $mlHtml
         '@context'      = 'https://schema.org'
         '@type'         = 'Product'
         'name'          = "$artista — $album"
-        'sku'           = "MLA$id"
+        'sku'           = "RV$id"
         'category'      = $genero
         'description'   = $(if ($textoDesc) { if ($textoDesc.Length -gt 500) { $textoDesc.Substring(0,500) } else { $textoDesc } } else { $metaDesc })
         'itemCondition' = 'https://schema.org/UsedCondition'
@@ -523,7 +556,7 @@ function Build-SharePageHtml {
     $desc = if ($vendido) {
         "Vendido — consultanos si entra otra copia. Respira Ventas, discos de vinilo en Rosario."
     } else {
-        $p = if ($rec.precio) { ' ' + (Format-Pesos $rec.precio) } else { '' }
+        $p = if ($rec.precio) { ' ' + (Format-Pesos (Get-PrecioSitio ([double]$rec.precio))) } else { '' }
         "Respira Ventas — Discos de vinilo, Rosario.$p"
     }
 
@@ -669,9 +702,9 @@ function Sync-Fichas {
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $false -relacionadosHtml $relHtml
-        [System.IO.File]::WriteAllText((Join-Path $outDir $archivo), $html, [System.Text.Encoding]::UTF8)
+        [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $false
-        [System.IO.File]::WriteAllText((Join-Path $shareDir "$id.html"), $share, [System.Text.Encoding]::UTF8)
+        [void](Write-ArchivoSeguro (Join-Path $shareDir "$id.html") $share)
         $escritas++
     }
 
@@ -683,11 +716,11 @@ function Sync-Fichas {
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $true -relacionadosHtml $relHtml
-        [System.IO.File]::WriteAllText((Join-Path $outDir $archivo), $html, [System.Text.Encoding]::UTF8)
+        [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         # La pagina de compartir del vendido se reescribe (no se borra): quien
         # tenga el link viejo de WhatsApp va a ver "Vendido", no un error.
         $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $true
-        [System.IO.File]::WriteAllText((Join-Path $shareDir "$id.html"), $share, [System.Text.Encoding]::UTF8)
+        [void](Write-ArchivoSeguro (Join-Path $shareDir "$id.html") $share)
         $escritas++
     }
 
