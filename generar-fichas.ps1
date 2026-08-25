@@ -122,7 +122,7 @@ $MAIL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 function Build-EnviosTexto {
     return @"
       <p><strong>Envíos a todo el país:</strong> El envío lo paga el comprador y el costo depende del destino: escribinos por WhatsApp y te lo pasamos al momento. Despachamos el mismo día o el siguiente, y llega en $TRANSITO_MIN_D a $TRANSITO_MAX_D días hábiles.</p>
-      <p><strong>Envíos al exterior por DHL</strong>, a todo el mundo donde ellos lleguen. Consultanos el costo a tu país.</p>
+      <p><strong>Envíos al exterior por DHL:</strong> A todo el mundo donde ellos lleguen. Consultanos el costo a tu país.</p>
       <p><strong>Garantía:</strong> Describimos el estado de cada disco con la escala Goldmine. Si el disco no coincide con lo descripto, tenés $GARANTIA_DIAS días para avisarnos y lo resolvemos con devolución del dinero o descuento.</p>
 "@
 }
