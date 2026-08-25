@@ -24,6 +24,18 @@ $SITE_URL  = "https://respiraventas.com.ar"
 $WA_NUMBER = "5493416068888"
 $MAIL_TO   = "revistarespiraok@gmail.com"
 
+# --- Condiciones de envio y garantia -----------------------------------------
+# Datos reales confirmados por Pablo el 23/08/2026. Si alguna vez cambian,
+# se tocan aca y se regeneran las fichas: van al texto visible Y a los datos
+# estructurados que lee Google, siempre iguales entre si.
+$ENVIO_MIN_ARS   = 9500    # costo minimo dentro de Argentina
+$ENVIO_MAX_ARS   = 15000   # costo maximo (destinos lejanos / expreso)
+$DESPACHO_MIN_D  = 0       # despacha el mismo dia...
+$DESPACHO_MAX_D  = 1       # ...o al dia siguiente
+$TRANSITO_MIN_D  = 2       # 2 dias a CABA
+$TRANSITO_MAX_D  = 6       # hasta 6 al resto del pais
+$GARANTIA_DIAS   = 10      # plazo para avisar si el disco no coincide
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 function ConvertTo-Slug([string]$s) {
@@ -240,6 +252,21 @@ $($items -join "`n")
 "@
     }
 
+    # --- Envios y garantia (solo tiene sentido en discos a la venta) ---
+    $envioHtml = ''
+    if (-not $vendido) {
+        $envioHtml = @"
+  <section class="f-section">
+    <h2 class="f-section-title">Envíos y garantía</h2>
+    <div class="f-envios">
+      <p><strong>Envíos a todo el país.</strong> El envío lo paga el comprador: entre $(Format-Pesos $ENVIO_MIN_ARS) y $(Format-Pesos $ENVIO_MAX_ARS) según el destino y si es expreso. Despachamos el mismo día o el siguiente, y llega en $TRANSITO_MIN_D a $TRANSITO_MAX_D días hábiles.</p>
+      <p><strong>Envíos al exterior por DHL</strong>, a todo el mundo donde ellos lleguen. Escribinos por WhatsApp y te pasamos el costo a tu país.</p>
+      <p><strong>Garantía.</strong> Describimos el estado de cada disco con la escala Goldmine. Si el disco no coincide con lo descripto, tenés $GARANTIA_DIAS días para avisarnos y lo resolvemos con devolución del dinero o descuento.</p>
+    </div>
+  </section>
+"@
+    }
+
     $descHtml = ''
     if ($textoDesc) {
         $descHtml = @"
@@ -322,6 +349,44 @@ $mlHtml
             'itemCondition' = 'https://schema.org/UsedCondition'
             'availability'  = $disponibilidad
             'seller'        = [ordered]@{ '@type' = 'Organization'; 'name' = 'Respira Ventas' }
+            # Envio: solo se declaran los datos de Argentina, que son los que
+            # conocemos con precision. Los envios al exterior (DHL) se explican
+            # en el texto visible: no se inventan tarifas que no tenemos.
+            'shippingDetails' = [ordered]@{
+                '@type'       = 'OfferShippingDetails'
+                'shippingRate' = [ordered]@{
+                    '@type'    = 'MonetaryAmount'
+                    'minValue' = $ENVIO_MIN_ARS
+                    'maxValue' = $ENVIO_MAX_ARS
+                    'currency' = 'ARS'
+                }
+                'shippingDestination' = [ordered]@{
+                    '@type'          = 'DefinedRegion'
+                    'addressCountry' = 'AR'
+                }
+                'deliveryTime' = [ordered]@{
+                    '@type'        = 'ShippingDeliveryTime'
+                    'handlingTime' = [ordered]@{
+                        '@type' = 'QuantitativeValue'; 'minValue' = $DESPACHO_MIN_D
+                        'maxValue' = $DESPACHO_MAX_D; 'unitCode' = 'DAY'
+                    }
+                    'transitTime'  = [ordered]@{
+                        '@type' = 'QuantitativeValue'; 'minValue' = $TRANSITO_MIN_D
+                        'maxValue' = $TRANSITO_MAX_D; 'unitCode' = 'DAY'
+                    }
+                }
+            }
+            # Garantia: pone por escrito lo que ya se hacia de hecho — si el
+            # disco no coincide con el estado descripto, se devuelve el dinero
+            # o se hace un descuento, sin costo para el comprador.
+            'hasMerchantReturnPolicy' = [ordered]@{
+                '@type'                = 'MerchantReturnPolicy'
+                'applicableCountry'    = 'AR'
+                'returnPolicyCategory' = 'https://schema.org/MerchantReturnFiniteReturnWindow'
+                'merchantReturnDays'   = $GARANTIA_DIAS
+                'returnMethod'         = 'https://schema.org/ReturnByMail'
+                'returnFees'           = 'https://schema.org/FreeReturn'
+            }
         }
     }
     if ($imgs.Count -gt 0) { $ld['image'] = @($imgs) }
@@ -412,6 +477,7 @@ $bloqueCompra
 
 $condHtml
 $descHtml
+$envioHtml
 $relacionadosHtml
 </main>
 
