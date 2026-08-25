@@ -184,6 +184,13 @@ function computeNewSet() {
 
 function isNew(r) { return newSet.has(r); }
 
+// Red de seguridad: si un elemento del modal cambia o desaparece en una
+// actualización, que no se caiga toda la ventana por eso. Un detalle que
+// falta es preferible a que el disco no abra.
+function safe(fn) {
+  try { fn(); } catch (e) { console.warn('Detalle del modal omitido:', e.message); }
+}
+
 // ── Card ──────────────────────────────────────────────────────────────────────
 function createCard(r) {
   const card = document.createElement('article');
@@ -331,9 +338,9 @@ function setIdParam(mlid) {
 
 function openModal(r) {
   currentRecord = r;
-  setIdParam(r.mlid);
-  shareBtn.style.display = r.mlid ? '' : 'none';
-  document.querySelector('.modal').scrollTop = 0;
+  safe(() => setIdParam(r.mlid));
+  safe(() => { shareBtn.style.display = r.mlid ? '' : 'none'; });
+  safe(() => { document.querySelector('.modal').scrollTop = 0; });
   const gallery = document.getElementById('modal-gallery');
   if (r.imagenes?.length) {
     gallery.innerHTML = r.imagenes
