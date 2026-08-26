@@ -696,6 +696,16 @@ a { color: inherit; text-decoration: none; }
   color: var(--red);
   margin-bottom: 8px;
 }
+/* Cuando el artista tiene página propia, el nombre es un link: se subraya
+   para que se note que se puede hacer clic. Sin esto se ve igual que el
+   texto que no lleva a ningún lado. */
+.modal-artist a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(212, 21, 21, .45);
+}
+.modal-artist a:hover { text-decoration-color: var(--red); }
 .modal-title {
   font-family: var(--font-body);
   font-size: 26px;

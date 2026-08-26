@@ -254,8 +254,16 @@ if (Test-Path $indexPath) {
 # pueda enlazarla directamente (asi el clic derecho / abrir en pestana nueva
 # funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
 . (Join-Path $SITE_FOLDER "generar-fichas.ps1")
+. (Join-Path $SITE_FOLDER "generar-hubs.ps1")
+$mapaArt = Get-ArtistasConPagina -Records $records -SiteFolder $SITE_FOLDER
 foreach ($rec in $records) {
     $rec.ficha = Get-FichaNombre $rec
+    # Direccion de la pagina del artista, si tiene. La usa la ventana del
+    # catalogo para enlazarla.
+    $rec.artistaUrl = Get-ArtistaUrl $rec $mapaArt
+    # Colecciones por tipo de edicion (compilados, maxis...), para el filtro
+    # del catalogo. Se calculan una sola vez aca, no en el navegador.
+    $rec.tipos = @(Get-TiposDe $rec)
 }
 
 $json = $records | ConvertTo-Json -Depth 3
@@ -278,6 +286,13 @@ try {
     . (Join-Path $SITE_FOLDER "generar-fichas.ps1")
     $fichas = Sync-Fichas -Records $records -SiteFolder $SITE_FOLDER -PreviousRecords $recordsPrevios
     Write-OK "Fichas: $($fichas.Activas) a la venta, $($fichas.Vendidas) vendidas ($($fichas.NuevasBajas) nuevas)"
+
+    # Paginas de artista y de decada
+    . (Join-Path $SITE_FOLDER "generar-hubs.ps1")
+    $hubs = Sync-Hubs -Records $records -SiteFolder $SITE_FOLDER
+    Write-OK "Paginas de artista: $($hubs.Artistas) ($($hubs.ArtistasNuevas) nuevas)  |  de decada: $($hubs.Decadas)"
+    if ($hubs.Colecciones) { Write-OK "Colecciones: $($hubs.Colecciones)" }
+    Build-SitemapHubs -SiteFolder $SITE_FOLDER -Urls (@($hubs.UrlsArtista) + @($hubs.UrlsDecada) + @($hubs.UrlsColeccion))
     Write-OK "Sitemaps actualizados"
 } catch {
     Write-Host "`n  AVISO: no se pudieron generar las fichas de disco." -ForegroundColor Yellow
@@ -300,7 +315,7 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json data/vendidos.json d disco index.html sitemap.xml sitemap-paginas.xml sitemap-discos.xml | Out-Null
+    git add data/records.json data/vendidos.json d disco artista decada index.html compilados.html maxis.html sitemap.xml sitemap-paginas.xml sitemap-discos.xml sitemap-hubs.xml | Out-Null
     git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {

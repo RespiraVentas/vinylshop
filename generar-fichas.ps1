@@ -228,7 +228,7 @@ $($cards -join "`n")
 # ── Render de una ficha ──────────────────────────────────────────────────────
 
 function Build-FichaHtml {
-    param($rec, [string]$id, [string]$archivo, [bool]$vendido, $relacionadosHtml)
+    param($rec, [string]$id, [string]$archivo, [bool]$vendido, $relacionadosHtml, $artistaUrl = '')
 
     $artista = if ($rec.artista) { $rec.artista } else { 'Artista desconocido' }
     $album   = if ($rec.album)   { $rec.album }   else { $rec.titulo }
@@ -450,6 +450,13 @@ $mlHtml
     }
     $migasJson = ($migas | ConvertTo-Json -Depth 6 -Compress).Replace('</', '<\/')
 
+    # El nombre del artista es un link a su pagina cuando esa pagina existe.
+    # Sin esto, las paginas de artista quedan huerfanas: nadie llega desde el
+    # sitio y Google las ve como islas sueltas.
+    $artistaHtml = if ($artistaUrl) {
+        "<a href=`"$artistaUrl`">$(Escape-Html $artista)</a>"
+    } else { Escape-Html $artista }
+
     $robots = if ($vendido) { '<meta name="robots" content="noindex, follow">' } else { '<meta name="robots" content="index, follow">' }
     $ogImg  = if ($imgs.Count -gt 0) { "<meta property=`"og:image`" content=`"$(Escape-Html $imgs[0])`">" } else { '' }
     $vendidoBadge = if ($vendido) { '<span class="f-sold-badge">Vendido</span>' } else { '' }
@@ -478,7 +485,7 @@ $ogImg
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ficha.css?v=1">
+<link rel="stylesheet" href="/ficha.css?v=3">
 <script type="application/ld+json">$ldJson</script>
 <script type="application/ld+json">$migasJson</script>
 </head>
@@ -508,7 +515,7 @@ $galeriaMain
 $thumbs
     </div>
     <div>
-      <p class="f-artist">$(Escape-Html $artista)</p>
+      <p class="f-artist">$artistaHtml</p>
       <h1 class="f-title">$(Escape-Html $album)$vendidoBadge</h1>
       <div class="f-tags">$($tags -join '')</div>
       <div class="f-price-row">$precioHtml</div>
@@ -694,6 +701,13 @@ function Sync-Fichas {
         if (-not $rutas.ContainsKey($vid)) { $rutas[$vid] = Get-FichaNombre $vendidos[$vid] }
     }
 
+    # Artistas que tienen pagina propia, para enlazarlos desde cada ficha.
+    # Si generar-hubs.ps1 no esta cargado, simplemente no se enlaza nada.
+    $mapaArtistas = $null
+    if (Get-Command Get-ArtistasConPagina -ErrorAction SilentlyContinue) {
+        $mapaArtistas = Get-ArtistasConPagina -Records $Records -SiteFolder $SiteFolder
+    }
+
     # --- Generar fichas activas ---
     $escritas = 0
     foreach ($id in $activos.Keys) {
@@ -701,7 +715,8 @@ function Sync-Fichas {
         $archivo = $rutas[$id]
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
-        $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $false -relacionadosHtml $relHtml
+        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas } else { '' }
+        $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $false -relacionadosHtml $relHtml -artistaUrl $aUrl
         [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $false
         [void](Write-ArchivoSeguro (Join-Path $shareDir "$id.html") $share)
@@ -715,7 +730,8 @@ function Sync-Fichas {
         if (-not $archivo) { continue }
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
-        $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $true -relacionadosHtml $relHtml
+        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas } else { '' }
+        $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $true -relacionadosHtml $relHtml -artistaUrl $aUrl
         [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         # La pagina de compartir del vendido se reescribe (no se borra): quien
         # tenga el link viejo de WhatsApp va a ver "Vendido", no un error.

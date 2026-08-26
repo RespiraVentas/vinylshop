@@ -162,6 +162,56 @@
       color: rgba(255,255,255,.25);
       border-top: 1px solid rgba(255,255,255,.06);
     }
+    /* Explorá por década */
+    .decadas {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+    .decadas-titulo {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,.9);
+    }
+    /* Cinco décadas en una sola fila pareja */
+    .decadas-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .decada-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      transition: background .15s, transform .15s, border-color .15s;
+    }
+    .decada-chip:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+      transform: translateY(-2px);
+    }
+    .decada-num { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+    .decada-txt { font-size: 12px; color: rgba(255,255,255,.45); }
+    @media (max-width: 720px) {
+      .decadas-grid { grid-template-columns: repeat(3, 1fr); }
+      /* con 5 chips en 3 columnas, los dos últimos ocupan la fila entera */
+      .decada-chip:nth-child(4) { grid-column: span 2; }
+    }
+    @media (max-width: 480px) {
+      .decadas { padding: 0 16px 56px; }
+      .decadas-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .decada-chip:nth-child(4) { grid-column: auto; }
+      .decada-chip:nth-child(5) { grid-column: span 2; }
+      .decada-num { font-size: 19px; }
+    }
+
     footer a { color: rgba(255,255,255,.35); text-decoration: none; }
     footer a:hover { color: rgba(255,255,255,.6); }
 
@@ -387,6 +437,24 @@
   </a>
 
 </div>
+
+<!-- POR DÉCADA -->
+<section class="decadas">
+  <h2 class="decadas-titulo">Explorá por década</h2>
+  <div class="decadas-grid">
+    <a class="decada-chip" href="/decada/1950.html"><span class="decada-num">50s</span><span class="decada-txt">Los cincuenta</span></a>
+    <a class="decada-chip" href="/decada/1960.html"><span class="decada-num">60s</span><span class="decada-txt">Los sesenta</span></a>
+    <a class="decada-chip" href="/decada/1970.html"><span class="decada-num">70s</span><span class="decada-txt">Los setenta</span></a>
+    <a class="decada-chip" href="/decada/1980.html"><span class="decada-num">80s</span><span class="decada-txt">Los ochenta</span></a>
+    <a class="decada-chip" href="/decada/1990.html"><span class="decada-num">90s</span><span class="decada-txt">Los noventa</span></a>
+  </div>
+
+  <h2 class="decadas-titulo" style="margin-top:36px">Por tipo de edición</h2>
+  <div class="decadas-grid" style="grid-template-columns:repeat(2,1fr)">
+    <a class="decada-chip" href="/compilados.html"><span class="decada-num">Compilados</span><span class="decada-txt">Varios artistas en un disco</span></a>
+    <a class="decada-chip" href="/maxis.html"><span class="decada-num">Maxi singles</span><span class="decada-txt">Ediciones extendidas y remixes</span></a>
+  </div>
+</section>
 
 <footer>
   <a href="/">respiraventas.com.ar</a> · Rosario, Argentina

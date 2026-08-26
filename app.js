@@ -26,6 +26,7 @@ const searchInput  = document.getElementById('search');
 const filterGenre  = document.getElementById('filter-genre');
 const filterOrigin = document.getElementById('filter-origin');
 const filterDecade = document.getElementById('filter-decade');
+const filterTipo   = document.getElementById('filter-tipo');
 const filterSort   = document.getElementById('filter-sort');
 const btnReset     = document.getElementById('btn-reset');
 const btnLoadMore  = document.getElementById('load-more');
@@ -58,6 +59,21 @@ async function init() {
     if (ordenParam) {
       const matchSort = [...filterSort.options].find(o => o.value === ordenParam);
       if (matchSort) filterSort.value = matchSort.value;
+    }
+    // ?decada=1970 — lo usan las páginas de década para abrir el catálogo filtrado
+    const decadaParam = urlParams.get('decada');
+    if (decadaParam) {
+      const matchDec = [...filterDecade.options].find(o => o.value === decadaParam);
+      if (matchDec) filterDecade.value = matchDec.value;
+    }
+    // ?q=compilado — búsqueda desde otra página
+    const qParam = urlParams.get('q');
+    if (qParam) searchInput.value = qParam;
+    // ?tipo=Compilados — lo usan las páginas de compilados y maxis
+    const tipoParam = urlParams.get('tipo');
+    if (tipoParam) {
+      const matchTipo = [...filterTipo.options].find(o => o.value.toLowerCase() === tipoParam.toLowerCase());
+      if (matchTipo) filterTipo.value = matchTipo.value;
     }
     applyFilters();
     // Deep-link a un disco: ?id=1104560840 (o MLA1104560840) abre su modal
@@ -102,6 +118,9 @@ function populateSelects() {
     .forEach(g => filterGenre.add(new Option(g, g)));
   [...new Set(allRecords.map(r => r.origen).filter(Boolean))].sort()
     .forEach(o => filterOrigin.add(new Option(o, o)));
+  // Tipos de edición: se arman solos con lo que traiga el catálogo
+  [...new Set(allRecords.flatMap(r => r.tipos || []))].sort()
+    .forEach(t => filterTipo.add(new Option(t, t)));
 }
 
 // ── Filtros ───────────────────────────────────────────────────────────────────
@@ -110,6 +129,7 @@ function applyFilters() {
   const genre  = filterGenre.value;
   const origin = filterOrigin.value;
   const decade = filterDecade.value ? parseInt(filterDecade.value, 10) : null;
+  const tipo   = filterTipo.value;
 
   const sort = filterSort.value;
 
@@ -117,6 +137,7 @@ function applyFilters() {
     if (q && !`${r.titulo} ${r.artista} ${r.album}`.toLowerCase().includes(q)) return false;
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
+    if (tipo && !(r.tipos || []).includes(tipo)) return false;
     if (decade !== null) {
       const y = parseInt(r.anio, 10);
       if (isNaN(y) || y < decade || y >= decade + 10) return false;
@@ -358,7 +379,13 @@ function openModal(r) {
     gallery.innerHTML = `<div class="modal-gallery-placeholder">${PLACEHOLDER}</div>`;
   }
 
-  document.getElementById('modal-artist').textContent = r.artista || '';
+  // El nombre del artista lleva a su página cuando existe
+  const artEl = document.getElementById('modal-artist');
+  if (r.artistaUrl) {
+    artEl.innerHTML = `<a href="${esc(r.artistaUrl)}">${esc(r.artista || '')}</a>`;
+  } else {
+    artEl.textContent = r.artista || '';
+  }
   document.getElementById('modal-title').textContent  = r.titulo  || '';
 
   const tags = [
@@ -491,9 +518,10 @@ searchInput.addEventListener('input', () => {
 filterGenre.addEventListener('change',  applyFilters);
 filterOrigin.addEventListener('change', applyFilters);
 filterDecade.addEventListener('change', applyFilters);
+filterTipo.addEventListener('change',   applyFilters);
 filterSort.addEventListener('change',   applyFilters);
 btnReset.addEventListener('click', () => {
-  searchInput.value = filterGenre.value = filterOrigin.value = filterDecade.value = '';
+  searchInput.value = filterGenre.value = filterOrigin.value = filterDecade.value = filterTipo.value = '';
   filterSort.value = 'new';
   applyFilters();
 });

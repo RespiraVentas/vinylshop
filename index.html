@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260825" />
+  <link rel="stylesheet" href="style.css?v=20260825d" />
 </head>
 <body>
 
@@ -81,6 +81,12 @@
         </select>
       </div>
       <div class="filter-group">
+        <!-- Tipos de edición (compilados, maxis…). Las opciones las arma
+             app.js con lo que venga en el catálogo, así sumar uno nuevo no
+             obliga a tocar este archivo. -->
+        <select id="filter-tipo"><option value="">Todos los tipos</option></select>
+      </div>
+      <div class="filter-group">
         <select id="filter-sort">
           <option value="new">Más recientes</option>
           <option value="visits">Más visitados</option>
@@ -98,8 +104,8 @@
     <div class="col-banner-inner">
       <div class="col-banner-left">
         <span class="col-banner-label">Colecciones curadas</span>
-        <h2 class="col-banner-title">Explorá por género</h2>
-        <p class="col-banner-sub">6 colecciones armadas a mano. Entrá y encontrá tu próximo disco.</p>
+        <h2 class="col-banner-title">Explorá el catálogo</h2>
+        <p class="col-banner-sub">Por género, por década o por tipo de edición. Entrá y encontrá tu próximo disco.</p>
         <a href="/colecciones.html" class="col-banner-btn">Ver todas las colecciones →</a>
       </div>
       <div class="col-banner-grid">
@@ -109,6 +115,8 @@
         <a href="/brasil.html"           class="col-banner-chip" style="--cc:#FFD000;color:#222">Brasil</a>
         <a href="/tango.html"            class="col-banner-chip" style="--cc:#6BA3CE">Tango</a>
         <a href="/folklore.html"         class="col-banner-chip" style="--cc:#8B3218">Folklore</a>
+        <a href="/compilados.html"       class="col-banner-chip" style="--cc:#5B6B7A">Compilados</a>
+        <a href="/maxis.html"            class="col-banner-chip" style="--cc:#7A5B8A">Maxi singles</a>
       </div>
     </div>
   </section>
@@ -224,6 +232,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=20260825"></script>
+  <script src="app.js?v=20260825d"></script>
 </body>
 </html>
