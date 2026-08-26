@@ -255,12 +255,15 @@ if (Test-Path $indexPath) {
 # funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
 . (Join-Path $SITE_FOLDER "generar-fichas.ps1")
 . (Join-Path $SITE_FOLDER "generar-hubs.ps1")
-$mapaArt = Get-ArtistasConPagina -Records $records -SiteFolder $SITE_FOLDER
+[void](Set-MapaCanonico $records)
+$mapaArt   = Get-ArtistasConPagina -Records $records -SiteFolder $SITE_FOLDER
+$conteoArt = Get-ConteoPorArtista $records
 foreach ($rec in $records) {
     $rec.ficha = Get-FichaNombre $rec
-    # Direccion de la pagina del artista, si tiene. La usa la ventana del
-    # catalogo para enlazarla.
-    $rec.artistaUrl = Get-ArtistaUrl $rec $mapaArt
+    # A donde lleva el nombre del artista: su pagina, el catalogo filtrado, o
+    # nada si tiene un solo disco.
+    $rec.artistaUrl  = Get-ArtistaUrl $rec $mapaArt $conteoArt
+    $rec.artistaSlug = Get-ArtistaSlug $rec
     # Colecciones por tipo de edicion (compilados, maxis...), para el filtro
     # del catalogo. Se calculan una sola vez aca, no en el navegador.
     $rec.tipos = @(Get-TiposDe $rec)

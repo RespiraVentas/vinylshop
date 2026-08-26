@@ -12,6 +12,9 @@ const FACTOR_PRECIO = 0.88;
 let allRecords = [];
 let filtered   = [];
 let displayed  = 0;
+// Filtro por artista, activado desde la dirección (?artista=...). No tiene
+// desplegable propio: se muestra como un cartel arriba de la grilla.
+let artistaFiltro = '';
 
 const PLACEHOLDER = `<svg viewBox="0 0 64 64" fill="none">
   <circle cx="32" cy="32" r="28" stroke="#ddd" stroke-width="2"/>
@@ -75,6 +78,10 @@ async function init() {
       const matchTipo = [...filterTipo.options].find(o => o.value.toLowerCase() === tipoParam.toLowerCase());
       if (matchTipo) filterTipo.value = matchTipo.value;
     }
+    // ?artista=varios-artistas — al hacer clic en el nombre del artista
+    // cuando no tiene página propia. No usa ningún desplegable: filtra y
+    // avisa arriba de la grilla con un cartelito para poder salir.
+    artistaFiltro = urlParams.get('artista') || '';
     applyFilters();
     // Deep-link a un disco: ?id=1104560840 (o MLA1104560840) abre su modal
     const idParam = urlParams.get('id');
@@ -138,6 +145,7 @@ function applyFilters() {
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
     if (tipo && !(r.tipos || []).includes(tipo)) return false;
+    if (artistaFiltro && r.artistaSlug !== artistaFiltro) return false;
     if (decade !== null) {
       const y = parseInt(r.anio, 10);
       if (isNaN(y) || y < decade || y >= decade + 10) return false;
@@ -160,7 +168,32 @@ function applyFilters() {
   grid.innerHTML = '';
   emptyEl.style.display = 'none';
   countEl.textContent = `${filtered.length.toLocaleString('es-AR')} discos`;
+  pintarAvisoArtista();
   renderBatch();
+}
+
+// Cuando se entra por ?artista=..., avisa qué se está viendo y da la salida.
+// Sin esto el visitante ve un catálogo recortado sin saber por qué.
+function pintarAvisoArtista() {
+  const previo = document.getElementById('aviso-artista');
+  if (previo) previo.remove();
+  if (!artistaFiltro) return;
+
+  const nombre = filtered.length ? filtered[0].artista : artistaFiltro.replace(/-/g, ' ');
+  const div = document.createElement('div');
+  div.id = 'aviso-artista';
+  div.className = 'aviso-artista';
+  div.innerHTML = `<span>Mostrando <strong>${esc(nombre)}</strong></span>
+    <button type="button" id="quitar-artista">Ver todo el catálogo ✕</button>`;
+  grid.parentNode.insertBefore(div, grid);
+
+  document.getElementById('quitar-artista').addEventListener('click', () => {
+    artistaFiltro = '';
+    const u = new URL(window.location);
+    u.searchParams.delete('artista');
+    history.replaceState(null, '', u);
+    applyFilters();
+  });
 }
 
 function renderBatch() {
@@ -522,6 +555,10 @@ filterTipo.addEventListener('change',   applyFilters);
 filterSort.addEventListener('change',   applyFilters);
 btnReset.addEventListener('click', () => {
   searchInput.value = filterGenre.value = filterOrigin.value = filterDecade.value = filterTipo.value = '';
+  artistaFiltro = '';
+  const u = new URL(window.location);
+  u.searchParams.delete('artista');
+  history.replaceState(null, '', u);
   filterSort.value = 'new';
   applyFilters();
 });

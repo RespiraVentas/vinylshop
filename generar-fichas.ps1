@@ -485,7 +485,7 @@ $ogImg
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ficha.css?v=3">
+<link rel="stylesheet" href="/ficha.css?v=4">
 <script type="application/ld+json">$ldJson</script>
 <script type="application/ld+json">$migasJson</script>
 </head>
@@ -704,8 +704,11 @@ function Sync-Fichas {
     # Artistas que tienen pagina propia, para enlazarlos desde cada ficha.
     # Si generar-hubs.ps1 no esta cargado, simplemente no se enlaza nada.
     $mapaArtistas = $null
+    $conteoArt    = $null
     if (Get-Command Get-ArtistasConPagina -ErrorAction SilentlyContinue) {
+        [void](Set-MapaCanonico $Records)
         $mapaArtistas = Get-ArtistasConPagina -Records $Records -SiteFolder $SiteFolder
+        $conteoArt    = Get-ConteoPorArtista $Records
     }
 
     # --- Generar fichas activas ---
@@ -715,7 +718,7 @@ function Sync-Fichas {
         $archivo = $rutas[$id]
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
-        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas } else { '' }
+        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas $conteoArt } else { '' }
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $false -relacionadosHtml $relHtml -artistaUrl $aUrl
         [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         $share = Build-SharePageHtml -rec $r -id $id -fichaArchivo $archivo -vendido $false
@@ -730,7 +733,7 @@ function Sync-Fichas {
         if (-not $archivo) { continue }
         $rel = Get-Relacionados $r $porArtista $porGenero $rutas
         $relHtml = Build-RelacionadosHtml $rel $rutas
-        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas } else { '' }
+        $aUrl = if ($mapaArtistas) { Get-ArtistaUrl $r $mapaArtistas $conteoArt } else { '' }
         $html = Build-FichaHtml -rec $r -id $id -archivo $archivo -vendido $true -relacionadosHtml $relHtml -artistaUrl $aUrl
         [void](Write-ArchivoSeguro (Join-Path $outDir $archivo) $html)
         # La pagina de compartir del vendido se reescribe (no se borra): quien

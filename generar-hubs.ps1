@@ -180,7 +180,7 @@ function Build-HubHtml {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ficha.css?v=3">
+<link rel="stylesheet" href="/ficha.css?v=4">
 $ldTag
 </head>
 <body>
@@ -237,6 +237,9 @@ function Sync-Hubs {
         [Parameter(Mandatory)] [string] $SiteFolder
     )
 
+    # Agrupar colaboraciones bajo el artista principal antes de nada
+    [void](Set-MapaCanonico $Records)
+
     $dirArt = Join-Path $SiteFolder "artista"
     $dirDec = Join-Path $SiteFolder "decada"
     New-Item -ItemType Directory -Force $dirArt | Out-Null
@@ -260,9 +263,8 @@ function Sync-Hubs {
             # pagina, que es lo correcto porque son el mismo artista. Agrupar
             # por nombre los dejaba peleando por el mismo archivo y uno pisaba
             # al otro.
-            $slugArt = ConvertTo-Slug $r.artista.Trim()
-            if ($slugArt) {
-                if ($slugArt.Length -gt 70) { $slugArt = ($slugArt.Substring(0, 70) -replace '-+$', '') }
+            $slugArt = Get-ArtistaSlug $r
+            if ($slugArt -and $slugArt -ne 'varios-artistas') {
                 if (-not $porArt.ContainsKey($slugArt)) { $porArt[$slugArt] = New-Object System.Collections.Generic.List[object] }
                 $porArt[$slugArt].Add($r)
             }
@@ -286,10 +288,12 @@ function Sync-Hubs {
     foreach ($ka in $porArt.Keys) {
         $discos = @($porArt[$ka] | Sort-Object { [long](Get-DiscoId $_) })
         $slug   = $ka
-        # Si el nombre viene escrito de varias formas, gana la mas usada
-        # (normalmente la que tiene los acentos bien puestos).
+        # Si el nombre viene escrito de varias formas, gana la mas usada; a
+        # igual cantidad, la mas corta. Asi una colaboracion agrupada muestra
+        # "Wynton Marsalis" y no "Wynton Marsalis & Eastman Wind Ensemble...".
         $nombre = ($discos | ForEach-Object { $_.artista.Trim() } | Group-Object |
-                   Sort-Object Count -Descending | Select-Object -First 1).Name
+                   Sort-Object @{Expression='Count';Descending=$true}, @{Expression={$_.Name.Length};Descending=$false} |
+                   Select-Object -First 1).Name
 
         # Se crea si llega al minimo, o si la pagina ya existia (no se borra nunca)
         if ($discos.Count -lt $MIN_DISCOS_ARTISTA -and -not $yaExisten.ContainsKey($slug)) { continue }
@@ -435,9 +439,8 @@ function Get-ArtistasConPagina {
     foreach ($r in $Records) {
         $ka = Get-ArtistaClave $r
         if (-not (Test-ArtistaValido $ka)) { continue }
-        $slug = ConvertTo-Slug $r.artista.Trim()
-        if (-not $slug) { continue }
-        if ($slug.Length -gt 70) { $slug = ($slug.Substring(0, 70) -replace '-+$', '') }
+        $slug = Get-ArtistaSlug $r
+        if (-not $slug -or $slug -eq 'varios-artistas') { continue }
         if (-not $porArt.ContainsKey($slug)) { $porArt[$slug] = New-Object System.Collections.Generic.List[object] }
         $porArt[$slug].Add($r)
     }
@@ -458,12 +461,94 @@ function Get-ArtistasConPagina {
     return $mapa
 }
 
-# Dado un disco, devuelve la direccion de la pagina de su artista, o vacio.
-function Get-ArtistaUrl($rec, $mapaArtistas) {
-    if (-not $mapaArtistas -or -not $rec.artista) { return '' }
-    $slug = ConvertTo-Slug $rec.artista.Trim()
-    if (-not $slug) { return '' }
+# Clave con la que se agrupa un disco por artista en el catalogo.
+# Todas las variantes de "Varios" ("Varios Artistas", "Varios intérpretes",
+# "Various", "Varios - Fiesta De Cuartetos"...) caen en la misma clave, que es
+# lo correcto: no son artistas distintos, es la ausencia de artista.
+$SEP_COLAB = '\s+(?:&|/|\+|y|con|feat\.?|featuring)\s+'
+
+# Mapa de nombres compuestos -> artista principal. Se calcula UNA vez sobre
+# todo el catalogo con Set-MapaCanonico.
+$script:MAPA_CANONICO = $null
+
+function Get-ArtistaSlugBase($rec) {
+    if (-not $rec.artista) { return '' }
+    $n = $rec.artista.Trim()
+    if ($n -match '(?i)^(varios|various)\b') { return 'varios-artistas' }
+    $slug = ConvertTo-Slug $n
     if ($slug.Length -gt 70) { $slug = ($slug.Substring(0, 70) -replace '-+$', '') }
-    if ($mapaArtistas.ContainsKey($slug)) { return "/artista/$slug.html" }
+    return $slug
+}
+
+# Agrupa las colaboraciones bajo el artista principal:
+#   "Wynton Marsalis & Eastman Wind Ensemble"  ->  "Wynton Marsalis"
+#   "Juan D'Arienzo y su Orquesta Típica"      ->  "Juan D'Arienzo"
+#
+# La regla es conservadora a proposito: SOLO agrupa si el primer nombre ya
+# existe por su cuenta en el catalogo, con un disco propio. Sin esa condicion,
+# partir por "y" o "&" fusionaria artistas distintos (por ejemplo "Juan Carlos
+# Baglietto" no debe caer en un supuesto "Juan Carlos"). Verificado sobre el
+# catalogo del 25/08/2026: 53 discos agrupados, cero fusiones incorrectas.
+function Set-MapaCanonico($Records) {
+    $solos = @{}
+    foreach ($r in $Records) {
+        $n = "$($r.artista)".Trim()
+        if (-not $n -or ($n -match $SEP_COLAB)) { continue }
+        $s = Get-ArtistaSlugBase $r
+        if ($s -and $s -ne 'varios-artistas') { $solos[$s] = $true }
+    }
+
+    $mapa = @{}
+    foreach ($r in $Records) {
+        $n = "$($r.artista)".Trim()
+        if (-not $n) { continue }
+        $sc = Get-ArtistaSlugBase $r
+        if (-not $sc -or $mapa.ContainsKey($sc)) { continue }
+        if ($sc -ne 'varios-artistas' -and $n -match $SEP_COLAB) {
+            $primero = ([regex]::Split($n, $SEP_COLAB))[0].Trim()
+            $sp = ConvertTo-Slug $primero
+            if ($sp -and $solos.ContainsKey($sp)) { $mapa[$sc] = $sp; continue }
+        }
+        $mapa[$sc] = $sc
+    }
+    $script:MAPA_CANONICO = $mapa
+    return $mapa
+}
+
+function Get-ArtistaSlug($rec) {
+    $s = Get-ArtistaSlugBase $rec
+    if (-not $s) { return '' }
+    if ($script:MAPA_CANONICO -and $script:MAPA_CANONICO.ContainsKey($s)) {
+        return $script:MAPA_CANONICO[$s]
+    }
+    return $s
+}
+
+# A donde lleva el nombre del artista cuando se hace clic:
+#   - tiene pagina propia            -> /artista/<slug>.html
+#   - es "Varios Artistas"           -> el catalogo filtrado (565 discos)
+#   - tiene 2 discos y no da pagina  -> el catalogo filtrado (sus 2)
+#   - tiene 1 solo disco             -> sin enlace: llevaria al mismo disco
+function Get-ArtistaUrl($rec, $mapaArtistas, $conteoPorSlug = $null) {
+    $slug = Get-ArtistaSlug $rec
+    if (-not $slug) { return '' }
+
+    if ($mapaArtistas -and $mapaArtistas.ContainsKey($slug)) { return "/artista/$slug.html" }
+    if ($slug -eq 'varios-artistas') { return "/?artista=varios-artistas" }
+    if ($conteoPorSlug -and $conteoPorSlug.ContainsKey($slug) -and $conteoPorSlug[$slug] -ge 2) {
+        return "/?artista=$slug"
+    }
     return ''
+}
+
+# Cuantos discos hay por cada clave de artista. Sirve para decidir cuales
+# valen un enlace al catalogo y cuales no.
+function Get-ConteoPorArtista($Records) {
+    $c = @{}
+    foreach ($r in $Records) {
+        $s = Get-ArtistaSlug $r
+        if (-not $s) { continue }
+        if ($c.ContainsKey($s)) { $c[$s]++ } else { $c[$s] = 1 }
+    }
+    return $c
 }
