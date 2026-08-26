@@ -830,13 +830,28 @@ function Build-Sitemaps {
     [void]$sbD.AppendLine('</urlset>')
     [System.IO.File]::WriteAllText((Join-Path $SiteFolder "sitemap-discos.xml"), $sbD.ToString(), [System.Text.Encoding]::UTF8)
 
-    $hoy = Get-Date -Format 'yyyy-MM-dd'
-    $indice = @"
-<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>$SITE_URL/sitemap-paginas.xml</loc><lastmod>$hoy</lastmod></sitemap>
-  <sitemap><loc>$SITE_URL/sitemap-discos.xml</loc><lastmod>$hoy</lastmod></sitemap>
-</sitemapindex>
-"@
-    [System.IO.File]::WriteAllText((Join-Path $SiteFolder "sitemap.xml"), $indice, [System.Text.Encoding]::UTF8)
+    Build-SitemapIndice -SiteFolder $SiteFolder
+}
+
+# Escribe el indice de sitemaps incluyendo el de artistas/decadas si existe.
+# Antes esta funcion vivia dentro de Build-Sitemaps y solo listaba dos: correr
+# Sync-Fichas sin correr Sync-Hubs despues borraba del indice el sitemap de
+# artistas sin que nadie se enterara. Ahora mira que archivos hay, asi que no
+# importa en que orden se corran los generadores.
+function Build-SitemapIndice {
+    param([string]$SiteFolder)
+
+    $hoy    = Get-Date -Format 'yyyy-MM-dd'
+    $partes = @('sitemap-paginas.xml', 'sitemap-discos.xml', 'sitemap-hubs.xml')
+
+    $sb = New-Object Text.StringBuilder
+    [void]$sb.AppendLine('<?xml version="1.0" encoding="UTF-8"?>')
+    [void]$sb.AppendLine('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    foreach ($p in $partes) {
+        if (Test-Path (Join-Path $SiteFolder $p)) {
+            [void]$sb.AppendLine("  <sitemap><loc>$SITE_URL/$p</loc><lastmod>$hoy</lastmod></sitemap>")
+        }
+    }
+    [void]$sb.AppendLine('</sitemapindex>')
+    [void](Write-ArchivoSeguro (Join-Path $SiteFolder "sitemap.xml") $sb.ToString())
 }

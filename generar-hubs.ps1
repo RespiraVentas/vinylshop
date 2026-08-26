@@ -417,16 +417,8 @@ function Build-SitemapHubs {
     [void]$sb.AppendLine('</urlset>')
     [void](Write-ArchivoSeguro (Join-Path $SiteFolder "sitemap-hubs.xml") $sb.ToString())
 
-    $hoy = Get-Date -Format 'yyyy-MM-dd'
-    $indice = @"
-<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>$SITE_URL/sitemap-paginas.xml</loc><lastmod>$hoy</lastmod></sitemap>
-  <sitemap><loc>$SITE_URL/sitemap-discos.xml</loc><lastmod>$hoy</lastmod></sitemap>
-  <sitemap><loc>$SITE_URL/sitemap-hubs.xml</loc><lastmod>$hoy</lastmod></sitemap>
-</sitemapindex>
-"@
-    [void](Write-ArchivoSeguro (Join-Path $SiteFolder "sitemap.xml") $indice)
+    # El indice lo arma una sola funcion, que mira que sitemaps existen
+    Build-SitemapIndice -SiteFolder $SiteFolder
 }
 # Devuelve un mapa  slug -> nombre  de los artistas que TIENEN pagina propia.
 # Lo usan tanto Sync-Hubs (para generarlas) como Sync-Fichas y actualizar.ps1
