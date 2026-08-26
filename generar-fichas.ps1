@@ -759,7 +759,9 @@ function Sync-Fichas {
     }
 
     # --- Guardar registro de vendidos ---
-    $listaVendidos = @($vendidos.Values)
+    # Orden fijo por id: sin esto, el archivo sale con las claves en otro orden
+    # en cada corrida y aparece como "cambiado" aunque no cambio nada.
+    $listaVendidos = @($vendidos.Values | Sort-Object { [long]$_.id })
     $jsonVendidos = if ($listaVendidos.Count -eq 0) { '[]' } else { $listaVendidos | ConvertTo-Json -Depth 4 }
     [System.IO.File]::WriteAllText($vendidosOut, $jsonVendidos, [System.Text.Encoding]::UTF8)
 

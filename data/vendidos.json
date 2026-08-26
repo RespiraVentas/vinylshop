@@ -1,5 +1,30 @@
 ﻿[
     {
+        "titulo":  "Pat Metheny Group The Falcon And The Snowman Bowie Aznar Lp",
+        "artista":  "Pat Metheny Group",
+        "album":  "The Falcon And The Snowman",
+        "compania":  "EMI",
+        "anio":  "1985",
+        "canciones":  "9",
+        "origen":  "Argentina",
+        "genero":  "Jazz",
+        "discos":  "1",
+        "precio":  49990,
+        "visitas":  22,
+        "fecha":  "2025-02-21T00:45:46",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2019128980",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_691665-MLA114506753535_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_859185-MLA114507537927_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_784503-MLA82622201089_022025-F.jpg",
+                         "https://http2.mlstatic.com/D_649656-MLA82622230457_022025-F.jpg",
+                         "https://http2.mlstatic.com/D_764707-MLA113264978462_072026-F.jpg"
+                     ],
+        "desc":  "Pat Metheny Group - The Falcon And The Snowman\nDisco: Ex\nTapa: Ex\n\nPat Metheny Group – The Falcon And The Snowman (Original Motion Picture Soundtrack)\nLabel:\nEMI America – 8289\nFormat:\nVinyl, LP, Album\nCountry:\nArgentina\nReleased:\n1985\nGenre:\nElectronic, Jazz, Stage \u0026 Screen\nStyle:\nSoundtrack, Fusion, Downtempo, Contemporary Jazz",
+        "id":  "2019128980",
+        "vendidoDesde":  "2026-08-22"
+    },
+    {
         "titulo":  "Compilado - Música Total Tears For Fears Elton Lp Impecable!",
         "artista":  "Varios Artistas",
         "album":  "Música Total",
@@ -23,31 +48,6 @@
                      ],
         "desc":  "Compilado - Música Total\nDisco: NM\nTapa: NM\n\nCompilado – Música Total\nLabel: Polystar – 816206-1\nFormat: Vinyl, LP, Compilation\nCountry: Argentina\nReleased: 1985\nGenre: Electronic, Pop\nStyle: New Wave, Synth-pop",
         "id":  "3810145732",
-        "vendidoDesde":  "2026-08-22"
-    },
-    {
-        "titulo":  "Pat Metheny Group The Falcon And The Snowman Bowie Aznar Lp",
-        "artista":  "Pat Metheny Group",
-        "album":  "The Falcon And The Snowman",
-        "compania":  "EMI",
-        "anio":  "1985",
-        "canciones":  "9",
-        "origen":  "Argentina",
-        "genero":  "Jazz",
-        "discos":  "1",
-        "precio":  49990,
-        "visitas":  22,
-        "fecha":  "2025-02-21T00:45:46",
-        "url":  "https://articulo.mercadolibre.com.ar/MLA-2019128980",
-        "imagenes":  [
-                         "https://http2.mlstatic.com/D_691665-MLA114506753535_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_859185-MLA114507537927_072026-F.jpg",
-                         "https://http2.mlstatic.com/D_784503-MLA82622201089_022025-F.jpg",
-                         "https://http2.mlstatic.com/D_649656-MLA82622230457_022025-F.jpg",
-                         "https://http2.mlstatic.com/D_764707-MLA113264978462_072026-F.jpg"
-                     ],
-        "desc":  "Pat Metheny Group - The Falcon And The Snowman\nDisco: Ex\nTapa: Ex\n\nPat Metheny Group – The Falcon And The Snowman (Original Motion Picture Soundtrack)\nLabel:\nEMI America – 8289\nFormat:\nVinyl, LP, Album\nCountry:\nArgentina\nReleased:\n1985\nGenre:\nElectronic, Jazz, Stage \u0026 Screen\nStyle:\nSoundtrack, Fusion, Downtempo, Contemporary Jazz",
-        "id":  "2019128980",
         "vendidoDesde":  "2026-08-22"
     }
 ]
