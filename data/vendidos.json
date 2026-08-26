@@ -59,6 +59,37 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Pastor De Los Santos - Trampa Y Fuego - Vinilo Lp Impecable!",
+        "artista":  "Pastor De Los Santos",
+        "album":  "Trampa Y Fuego",
+        "compania":  "WEA",
+        "anio":  "1990",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "1",
+        "precio":  65000,
+        "visitas":  8,
+        "fecha":  "2025-11-04T23:26:32",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1574821801",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_963961-MLA109644874996_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_867264-MLA96803118496_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_995809-MLA109645995374_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_995205-MLA109717114620_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_619977-MLA97258790171_112025-F.jpg"
+                     ],
+        "desc":  "Pastor De Los Santos - Trampa Y Fuego\nDisco: NM\nTapa: NM",
+        "ficha":  "1574821801-pastor-de-los-santos-trampa-y-fuego.html",
+        "artistaUrl":  "/artista/pastor-de-los-santos.html",
+        "artistaSlug":  "pastor-de-los-santos",
+        "tipos":  [
+
+                  ],
+        "id":  "1574821801",
+        "vendidoDesde":  "2026-08-26"
+    },
+    {
         "titulo":  "Grover Washington Jr. - Paradise - Vinilo Lp Usa",
         "artista":  "Grover Washington, Jr.",
         "album":  "PARADISE",
@@ -117,6 +148,37 @@
         "vendidoDesde":  "2026-08-22"
     },
     {
+        "titulo":  "Pastor De Los Santos - En Tu Barca De Amor - Lp Impecable!",
+        "artista":  "Pastor De Los Santos",
+        "album":  "En Tu Barca De Amor",
+        "compania":  "WEA",
+        "anio":  "1989",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "1",
+        "precio":  65000,
+        "visitas":  14,
+        "fecha":  "2025-11-07T21:13:05",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2552680338",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_783227-MLA109645877878_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_946146-MLA97585598161_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_883735-MLA97585540095_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_915542-MLA110528162351_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_904425-MLA97126445688_112025-F.jpg"
+                     ],
+        "desc":  "Pastor De Los Santos - En Tu Barca De Amor\nDisco: NM\nTapa: NM",
+        "ficha":  "2552680338-pastor-de-los-santos-en-tu-barca-de-amor.html",
+        "artistaUrl":  "/artista/pastor-de-los-santos.html",
+        "artistaSlug":  "pastor-de-los-santos",
+        "tipos":  [
+
+                  ],
+        "id":  "2552680338",
+        "vendidoDesde":  "2026-08-26"
+    },
+    {
         "titulo":  "João Nogueira - Clube Do Samba - Vinilo Brasil Impecable!",
         "artista":  "João Nogueira",
         "album":  "Clube Do Samba",
@@ -145,6 +207,37 @@
         "artistaUrl":  "",
         "artistaSlug":  "joao-nogueira",
         "id":  "2772600130",
+        "vendidoDesde":  "2026-08-26"
+    },
+    {
+        "titulo":  "Billy Joel - Frente De Tormenta - Storm Front - Vinilo Lp",
+        "artista":  "Billy Joel",
+        "album":  "Frente De Tormenta = Storm Front",
+        "compania":  "Columbia",
+        "anio":  "1989",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  75000,
+        "visitas":  3,
+        "fecha":  "2026-08-10T19:49:57",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3763913458",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_699800-MLA115905932983_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_690187-MLA115906107677_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_654365-MLA115906050063_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_613259-MLA115906107777_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_853279-MLA115906107781_082026-F.jpg"
+                     ],
+        "desc":  "Billy Joel - Frente De Tormenta = Storm Front\nDisco: VG+\nTapa: VG\n\nBilly Joel – Frente De Tormenta = Storm Front\nLabel: Columbia – 70.080\nFormat: Vinyl, LP, Album, Stereo\nCountry: Argentina\nReleased: 1989\nGenre: Rock\nStyle: Pop Rock",
+        "ficha":  "3763913458-billy-joel-frente-de-tormenta-storm-front.html",
+        "artistaUrl":  "/artista/billy-joel.html",
+        "artistaSlug":  "billy-joel",
+        "tipos":  [
+
+                  ],
+        "id":  "3763913458",
         "vendidoDesde":  "2026-08-26"
     },
     {
