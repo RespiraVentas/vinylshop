@@ -241,6 +241,38 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Steely Dan - La Lógica Del Bizcocho Pretzel Logic Lp Vinilo",
+        "artista":  "Steely Dan",
+        "album":  "La Lógica Del Bizcocho Pretzel Logic",
+        "compania":  "ABC Records",
+        "anio":  "1974",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  65000,
+        "visitas":  65,
+        "fecha":  "2026-02-14T21:32:58",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2863110770",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_967762-MLA109645925884_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_830119-MLA109646044912_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_751747-MLA107300293951_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_849178-MLA107300380681_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_644884-MLA109645925936_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_928201-MLA109646483492_042026-F.jpg"
+                     ],
+        "desc":  "Steely Dan - La Lógica Del Bizcocho Pretzel Logic\nDisco: Ex+\nTapa: VG+\n\nSteely Dan – La Lógica Del Bizcocho = Pretzel Logic\nLabel: ABC Records – ABCL 5042\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1974\nGenre: Jazz, Rock\nStyle: Jazz-Rock, Soft Rock",
+        "ficha":  "2863110770-steely-dan-la-logica-del-bizcocho-pretzel-logic.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "steely-dan",
+        "tipos":  [
+
+                  ],
+        "id":  "2863110770",
+        "vendidoDesde":  "2026-08-31"
+    },
+    {
         "titulo":  "Billy Joel - Frente De Tormenta - Storm Front - Vinilo Lp",
         "artista":  "Billy Joel",
         "album":  "Frente De Tormenta = Storm Front",
