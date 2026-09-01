@@ -121,6 +121,41 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Fricción - Consumación O Consumo - Vinilo Lp Impecable!",
+        "artista":  "Fricción",
+        "album":  "Consumación O Consumo",
+        "compania":  "Interdisc",
+        "anio":  "1986",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "ROCK ARGENTINO",
+        "discos":  "",
+        "precio":  295000,
+        "visitas":  55,
+        "fecha":  "2025-12-05T13:28:41",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1601966353",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_782164-MLA110528461683_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_993351-MLA100000481792_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_650359-MLA111421004484_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_697475-MLA100000816356_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_686944-MLA110528845593_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_942229-MLA109646006152_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_998853-MLA100000786676_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_678620-MLA111421938134_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_715978-MLA112470205415_052026-F.jpg"
+                     ],
+        "desc":  "Fricción - Consumación O Consumo\nDisco: Ex\nTapa: VG+/Ex\nInsert: Ex\n\nFricción – Consumación O Consumo\nLabel: Interdisc (5) – SLIN 3300\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1986\nGenre: Rock\nStyle: Post-Punk, New Wave",
+        "ficha":  "1601966353-friccion-consumacion-o-consumo.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "friccion",
+        "tipos":  [
+
+                  ],
+        "id":  "1601966353",
+        "vendidoDesde":  "2026-09-01"
+    },
+    {
         "titulo":  "Grover Washington Jr. - Paradise - Vinilo Lp Usa",
         "artista":  "Grover Washington, Jr.",
         "album":  "PARADISE",
