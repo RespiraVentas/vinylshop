@@ -4,8 +4,8 @@ const PAGE_SIZE  = 60;
 const WA_NUMBER  = '5493416068888';
 const MAIL_TO    = 'revistarespiraok@gmail.com';
 // El catálogo del Excel trae el precio de la publicación de ML. El sitio
-// muestra su propio precio: ese valor por este factor, redondeado a un número
-// terminado en 990. Un solo número acá cambia el precio en todo el sitio.
+// muestra su propio precio: ese valor por este factor, redondeado (ver
+// precioSitio). Un solo número acá cambia el precio en todo el sitio.
 // OJO: tiene que coincidir con FACTOR_PRECIO de generar-fichas.ps1.
 const FACTOR_PRECIO = 0.88;
 
@@ -252,11 +252,19 @@ function safe(fn) {
 
 // Precio que muestra el sitio. Es el único precio: no se compara con ningún
 // otro canal ni se presenta como descuento sobre nada.
-// Se redondea al número terminado en 990 más cercano (35.191 → 34.990).
+//
+// Redondea al mil más cercano, y solo si cae justo en una decena redonda lo
+// baja diez pesos para que quede en X9.990. Es el mismo criterio de los
+// precios de ML: 45.000 y no 44.990, pero 39.990 y no 40.000, porque ahí el
+// .990 sí esquiva una barrera. La fórmula anterior dejaba el .990 siempre y
+// producía números sin lógica (30.990, 43.990, 47.990).
+// OJO: tiene que dar igual que Get-PrecioSitio de generar-fichas.ps1, o el
+// catálogo mostraría un precio y la ficha otro.
 function precioSitio(r) {
   if (!r.precio) return 0;
-  const k = Math.round((r.precio * FACTOR_PRECIO - 990) / 1000);
-  return Math.max(0, k) * 1000 + 990;
+  let m = Math.round(r.precio * FACTOR_PRECIO / 1000) * 1000;
+  if (m < 1000) m = 1000;
+  return m % 10000 === 0 ? m - 10 : m;
 }
 
 // ── Card ──────────────────────────────────────────────────────────────────────

@@ -32,7 +32,7 @@ $MAIL_TO   = "revistarespiraok@gmail.com"
 # y un precio desactualizado le miente al comprador. Se cotiza por WhatsApp.
 #
 # El Excel trae el precio de la publicacion de ML. El sitio muestra su propio
-# precio: ese valor por este factor, redondeado a un numero terminado en 990.
+# precio: ese valor por este factor, redondeado (ver Get-PrecioSitio).
 # Tiene que coincidir con FACTOR_PRECIO de app.js, o el catalogo y las fichas
 # mostrarian precios distintos.
 $FACTOR_PRECIO   = 0.88
@@ -65,15 +65,20 @@ function Escape-Html([string]$s) {
     return $s -replace '&','&amp;' -replace '<','&lt;' -replace '>','&gt;' -replace '"','&quot;'
 }
 
-# Precio del sitio: precio de ML por el factor, redondeado al numero terminado
-# en 990 mas cercano (35.191 -> 34.990). Usa Floor(x + 0.5) y no Round() a
-# proposito: Round() en .NET redondea "al par" y no coincidiria con el
-# Math.round() de app.js, y el catalogo mostraria otro precio que la ficha.
+# Precio del sitio: precio de ML por el factor, redondeado al mil mas cercano.
+# Solo si cae justo en una decena redonda baja diez pesos y queda en X9.990.
+# Es el mismo criterio de los precios de ML: 45.000 y no 44.990, pero 39.990 y
+# no 40.000, porque ahi el .990 si esquiva una barrera.
+#
+# Usa Floor(x + 0.5) y no Round() a proposito: Round() en .NET redondea "al
+# par" y no coincidiria con el Math.round() de app.js, y el catalogo mostraria
+# otro precio que la ficha.
 function Get-PrecioSitio([double]$precioML) {
     if ($precioML -le 0) { return 0 }
-    $k = [math]::Floor((($precioML * $FACTOR_PRECIO) - 990.0) / 1000.0 + 0.5)
-    if ($k -lt 0) { $k = 0 }
-    return [int](($k * 1000.0) + 990.0)
+    $m = [math]::Floor(($precioML * $FACTOR_PRECIO) / 1000.0 + 0.5) * 1000.0
+    if ($m -lt 1000.0) { $m = 1000.0 }
+    if (($m % 10000.0) -eq 0.0) { $m = $m - 10.0 }
+    return [int]$m
 }
 
 # Escribe un archivo reintentando si esta momentaneamente tomado. Al generar
