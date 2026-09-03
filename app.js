@@ -97,6 +97,16 @@ async function init() {
   }
 }
 
+// Saca acentos y pasa a minúsculas, para que el buscador no dependa de cómo
+// se escriba: "leon" tiene que encontrar "León Gieco", "nino" a "Niño".
+// Descompone cada letra acentuada en letra + tilde y borra las tildes.
+function sinAcentos(s) {
+  return (s || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+}
+
 function normalize(r) {
   const lines = (r.desc || '').split('\n');
   let disco = '', tapa = '';
@@ -117,7 +127,12 @@ function normalize(r) {
   const m = (r.url || '').match(/MLA-?(\d+)/);
   const mlid = m ? m[1] : '';
 
-  return { ...r, artista, disco, tapa, mlid };
+  // Texto contra el que busca el catálogo, ya sin acentos. Se calcula una vez
+  // por disco al cargar y no en cada tecla, que serían 3.900 conversiones por
+  // letra tipeada.
+  const busq = sinAcentos(`${r.titulo || ''} ${artista || ''} ${r.album || ''}`);
+
+  return { ...r, artista, disco, tapa, mlid, busq };
 }
 
 function populateSelects() {
@@ -132,7 +147,7 @@ function populateSelects() {
 
 // ── Filtros ───────────────────────────────────────────────────────────────────
 function applyFilters() {
-  const q      = searchInput.value.trim().toLowerCase();
+  const q      = sinAcentos(searchInput.value.trim());
   const genre  = filterGenre.value;
   const origin = filterOrigin.value;
   const decade = filterDecade.value ? parseInt(filterDecade.value, 10) : null;
@@ -141,7 +156,7 @@ function applyFilters() {
   const sort = filterSort.value;
 
   filtered = allRecords.filter(r => {
-    if (q && !`${r.titulo} ${r.artista} ${r.album}`.toLowerCase().includes(q)) return false;
+    if (q && !(r.busq || '').includes(q)) return false;
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
     if (tipo && !(r.tipos || []).includes(tipo)) return false;
