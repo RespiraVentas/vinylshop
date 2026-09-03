@@ -147,7 +147,10 @@ function populateSelects() {
 
 // ── Filtros ───────────────────────────────────────────────────────────────────
 function applyFilters() {
-  const q      = sinAcentos(searchInput.value.trim());
+  // Se busca palabra por palabra y no la frase entera, para que el orden no
+  // importe: "gieco leon" encuentra lo mismo que "leon gieco". Pasa sobre todo
+  // cuando alguien pega un texto copiado de otro lado.
+  const qPalabras = sinAcentos(searchInput.value.trim()).split(/\s+/).filter(Boolean);
   const genre  = filterGenre.value;
   const origin = filterOrigin.value;
   const decade = filterDecade.value ? parseInt(filterDecade.value, 10) : null;
@@ -156,7 +159,7 @@ function applyFilters() {
   const sort = filterSort.value;
 
   filtered = allRecords.filter(r => {
-    if (q && !(r.busq || '').includes(q)) return false;
+    if (qPalabras.length && !qPalabras.every(p => (r.busq || '').includes(p))) return false;
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
     if (tipo && !(r.tipos || []).includes(tipo)) return false;
