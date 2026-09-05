@@ -108,6 +108,31 @@ function Build-HubCards($discos, $rutas) {
     return ($cards -join "`n")
 }
 
+# Orden de las listas: del ultimo cargado al primero, igual que el catalogo,
+# donde "Mas recientes" es el orden por defecto.
+#
+# Antes se ordenaba por visitas. Como estas paginas muestran solo los primeros
+# 60, esos 60 eran casi siempre los mismos: entraban discos nuevos, el numero
+# de arriba subia, pero las fotos no cambiaban nunca y la pagina parecia
+# muerta. Ademas contradecia al catalogo, que con el mismo filtro mostraba
+# otra cosa.
+#
+# El id desempata para que el orden sea siempre identico entre corridas: si no,
+# se reescribirian archivos que no cambiaron y cada actualizacion ensuciaria
+# el historial.
+# Numeros con punto de miles, como los escribe el catalogo con toLocaleString
+# ('es-AR'): 2.316 y no 2316. Sin esto una pagina de decada dice "2316 discos"
+# y el catalogo, al lado, "2.316 discos".
+function Format-Numero([int]$n) {
+    return $n.ToString('N0', [Globalization.CultureInfo]::GetCultureInfo('es-AR'))
+}
+
+function Sort-PorFecha($discos) {
+    return @($discos | Sort-Object `
+        @{Expression = { "$($_.fecha)" };            Descending = $true}, `
+        @{Expression = { [long](Get-DiscoId $_) };   Descending = $true})
+}
+
 # Arma un parrafo de presentacion con datos REALES del artista o la decada.
 # No es texto plantilla: cambia segun los sellos, los anios y los generos que
 # haya de verdad. Con 285 paginas, un texto identico en todas seria contenido
@@ -119,9 +144,10 @@ function Build-IntroDatos($discos, [string]$sujeto, [string]$encabezado = $null)
     $generos = @($discos | ForEach-Object { "$($_.genero)".Trim() } | Where-Object { $_ } | Group-Object | Sort-Object Count -Descending | Select-Object -First 2 | ForEach-Object { $_.Name })
     $origenes = @($discos | ForEach-Object { "$($_.origen)".Trim() } | Where-Object { $_ } | Group-Object | Sort-Object Count -Descending | Select-Object -First 1 | ForEach-Object { $_.Name })
 
-    $t = if ($encabezado) { $encabezado -replace '\{n\}', "$n" }
+    $nFmt = Format-Numero $n
+    $t = if ($encabezado) { $encabezado -replace '\{n\}', $nFmt }
          elseif ($n -eq 1) { "Tenemos <strong>1 disco</strong> de $sujeto en vinilo" }
-         else { "Tenemos <strong>$n discos</strong> de $sujeto en vinilo" }
+         else { "Tenemos <strong>$nFmt discos</strong> de $sujeto en vinilo" }
 
     if ($anios.Count -gt 0) {
         $min = ($anios | Measure-Object -Minimum).Minimum
@@ -194,7 +220,7 @@ $ldTag
         <span class="f-logo-sub">Discos de Vinilo - Rosario</span>
       </span>
     </a>
-    <a class="f-header-cta" href="/">Ver catálogo completo</a>
+    <a class="f-header-cta" href="/">Ver todo el catálogo</a>
   </div>
 </header>
 
@@ -286,7 +312,7 @@ function Sync-Hubs {
     $nuevas = 0
 
     foreach ($ka in $porArt.Keys) {
-        $discos = @($porArt[$ka] | Sort-Object { [long](Get-DiscoId $_) })
+        $discos = Sort-PorFecha $porArt[$ka]
         $slug   = $ka
         # Si el nombre viene escrito de varias formas, gana la mas usada; a
         # igual cantidad, la mas corta. Asi una colaboracion agrupada muestra
@@ -325,19 +351,20 @@ function Sync-Hubs {
     # --- Paginas de decada ---
     $urlsDec = New-Object System.Collections.Generic.List[string]
     foreach ($d in ($porDec.Keys | Sort-Object)) {
-        $todos = @($porDec[$d] | Sort-Object { -[int]("0" + "$($_.visitas)") })
+        $todos = Sort-PorFecha $porDec[$d]
         $muestra = @($todos | Select-Object -First 60)
         $decNom = "los $(('' + $d).Substring(2))"     # 1970 -> los 70
+        $nTot      = Format-Numero $todos.Count
         $titulo    = "Vinilos de $decNom"
-        $tituloPag = "Vinilos de $decNom — $($todos.Count) discos | Respira Ventas"
+        $tituloPag = "Vinilos de $decNom — $nTot discos | Respira Ventas"
         $canonical = "$SITE_URL/decada/$d.html"
-        $metaDesc  = "$($todos.Count) discos de vinilo editados en $decNom, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
+        $metaDesc  = "$nTot discos de vinilo editados en $decNom, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
 
         $extra = ''
         if ($todos.Count -gt $muestra.Count) {
             $extra = @"
-  <p class="h-mas">Mostramos $($muestra.Count) de $($todos.Count) discos de esta década.
-  <a href="/?decada=$d">Ver todos en el catálogo &rarr;</a></p>
+  <p class="h-mas">Mostramos los $($muestra.Count) más recientes de $nTot discos de esta década.
+  <a href="/?decada=$d">Ver los $nTot discos de $decNom &rarr;</a></p>
 "@
         }
 
@@ -362,19 +389,20 @@ function Sync-Hubs {
     $urlsCol = New-Object System.Collections.Generic.List[string]
     $resumenCol = New-Object System.Collections.Generic.List[string]
     foreach ($col in $COLECCIONES_TITULO) {
-        $todos = @($Records | Where-Object { $_.titulo -match $col.patron } | Sort-Object { -[int]("0" + "$($_.visitas)") })
+        $todos = Sort-PorFecha @($Records | Where-Object { $_.titulo -match $col.patron })
         if ($todos.Count -eq 0) { continue }
         $muestra = @($todos | Select-Object -First 60)
 
+        $nTot      = Format-Numero $todos.Count
         $canonical = "$SITE_URL/$($col.slug).html"
-        $tituloPag = "$($col.titulo) — $($todos.Count) discos | Respira Ventas"
-        $metaDesc  = "$($todos.Count) $($col.chip.ToLower()) en vinilo, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
+        $tituloPag = "$($col.titulo) — $nTot discos | Respira Ventas"
+        $metaDesc  = "$nTot $($col.chip.ToLower()) en vinilo, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
 
         $extra = ''
         if ($todos.Count -gt $muestra.Count) {
             $extra = @"
-  <p class="h-mas">Mostramos $($muestra.Count) de $($todos.Count).
-  <a href="/?tipo=$([Uri]::EscapeDataString($col.chip))">Ver todos en el catálogo &rarr;</a></p>
+  <p class="h-mas">Mostramos los $($muestra.Count) más recientes de $nTot.
+  <a href="/?tipo=$([Uri]::EscapeDataString($col.chip))">Ver los $nTot $($col.chip.ToLower()) &rarr;</a></p>
 "@
         }
 
