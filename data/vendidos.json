@@ -343,6 +343,38 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "U2 - War - Vinilo Lp",
+        "artista":  "U2",
+        "album":  "War",
+        "compania":  "Island Records",
+        "anio":  "1986",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  66,
+        "fecha":  "2026-02-02T20:49:28",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2827812752",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_851102-MLA110239664084_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_881243-MLA106430970759_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_823082-MLA110528822399_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_960055-MLA109646512156_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_869082-MLA110240036950_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_757981-MLA110240036976_052026-F.jpg"
+                     ],
+        "desc":  "U2 - War\nDisco: Ex\nTapa: VG/VG+\n\nU2 – War\nLabel: Island Records – TLP-70046\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1986\nGenre: Rock\nStyle: Pop Rock",
+        "ficha":  "2827812752-u2-war.html",
+        "artistaUrl":  "/artista/u2.html",
+        "artistaSlug":  "u2",
+        "tipos":  [
+
+                  ],
+        "id":  "2827812752",
+        "vendidoDesde":  "2026-09-05"
+    },
+    {
         "titulo":  "Steely Dan - La Lógica Del Bizcocho Pretzel Logic Lp Vinilo",
         "artista":  "Steely Dan",
         "album":  "La Lógica Del Bizcocho Pretzel Logic",
