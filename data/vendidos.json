@@ -343,6 +343,40 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Silvio Rodriguez - Causas Y Azares - Vinilo Lp Doble",
+        "artista":  "Silvio Rodríguez",
+        "album":  "Causas Y Azares",
+        "compania":  "Polydor",
+        "anio":  "1986",
+        "canciones":  "15",
+        "origen":  "Argentina",
+        "genero":  "World Music",
+        "discos":  "",
+        "precio":  59990,
+        "visitas":  29,
+        "fecha":  "2026-01-11T02:01:48",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2772381966",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_835242-MLA110191209197_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_602215-MLA104398464363_012026-F.jpg",
+                         "https://http2.mlstatic.com/D_638342-MLA104399170989_012026-F.jpg",
+                         "https://http2.mlstatic.com/D_802311-MLA103865451364_012026-F.jpg",
+                         "https://http2.mlstatic.com/D_793313-MLA103865569852_012026-F.jpg",
+                         "https://http2.mlstatic.com/D_884133-MLA104398492587_012026-F.jpg",
+                         "https://http2.mlstatic.com/D_980298-MLA109646421998_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_626549-MLA103865568188_012026-F.jpg"
+                     ],
+        "desc":  "Silvio Rodríguez - Causas Y Azares (Doble)\nDiscos: Ex y Ex \nTapa Gatefold: Ex\n\nSilvio Rodríguez – Causas Y Azares\nLabel: Polydor – 27447\nFormat: 2 x Vinyl, LP, Album, Gatefold\nCountry: Argentina\nReleased: 1986\nGenre: Latin\nStyle: Trova",
+        "ficha":  "2772381966-silvio-rodriguez-causas-y-azares.html",
+        "artistaUrl":  "/artista/silvio-rodriguez.html",
+        "artistaSlug":  "silvio-rodriguez",
+        "tipos":  [
+
+                  ],
+        "id":  "2772381966",
+        "vendidoDesde":  "2026-09-08"
+    },
+    {
         "titulo":  "João Nogueira - Clube Do Samba - Vinilo Brasil Impecable!",
         "artista":  "João Nogueira",
         "album":  "Clube Do Samba",
