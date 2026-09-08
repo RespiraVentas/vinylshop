@@ -187,6 +187,37 @@
         "vendidoDesde":  "2026-09-01"
     },
     {
+        "titulo":  "Cream - Wheels Of Fire - Vinilo Lp Época Explota!",
+        "artista":  "CREAM",
+        "album":  "Wheels Of Fire",
+        "compania":  "ATCO Records",
+        "anio":  "1968",
+        "canciones":  "14",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  59990,
+        "visitas":  76,
+        "fecha":  "2025-12-20T15:41:55",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1614835699",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_681297-MLA101506496692_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_640566-MLA101506575578_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_807248-MLA110528698917_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_975233-MLA110528174967_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_748182-MLA101506311964_122025-F.jpg"
+                     ],
+        "desc":  "Cream - Wheels Of Fire\nDisco: VG+\nTapa: VG+\n\nCream – Wheels Of Fire\nLabel: ATCO Records – SD 2-700 (u otras ediciones)\nFormat: 2 × Vinyl, LP, Album\nCountry: US (importado; múltiples países)\nReleased: 1968\nGenre: Rock\nStyle: Blues Rock, Psychedelic Rock, Classic Rock",
+        "ficha":  "1614835699-cream-wheels-of-fire.html",
+        "artistaUrl":  "/?artista=cream",
+        "artistaSlug":  "cream",
+        "tipos":  [
+
+                  ],
+        "id":  "1614835699",
+        "vendidoDesde":  "2026-09-08"
+    },
+    {
         "titulo":  "Grover Washington Jr. - Paradise - Vinilo Lp Usa",
         "artista":  "Grover Washington, Jr.",
         "album":  "PARADISE",
