@@ -1,5 +1,34 @@
 ﻿[
     {
+        "titulo":  "Level 42 - Staring At The Sun Vinilo Lp",
+        "artista":  "LEVEL 42",
+        "album":  "Staring At The Sun",
+        "compania":  "Columbia",
+        "anio":  "1988",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  49990,
+        "visitas":  10,
+        "fecha":  "2022-05-04T23:52:41",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1135562422",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_637565-MLA109643927672_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_602045-MLA109643837562_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Level 42 - Staring At The Sun\nDisco: Ex+\nTapa e Insert: Ex",
+        "ficha":  "1135562422-level-42-staring-at-the-sun.html",
+        "artistaUrl":  "/?artista=level-42",
+        "artistaSlug":  "level-42",
+        "tipos":  [
+
+                  ],
+        "id":  "1135562422",
+        "vendidoDesde":  "2026-09-11"
+    },
+    {
         "titulo":  "Kenny G - The Collection Vinilo Lp Sin Girar",
         "artista":  "KENNY G",
         "album":  "The Collection",
@@ -287,6 +316,38 @@
         "vendidoDesde":  "2026-09-04"
     },
     {
+        "titulo":  "Electric Light Orchestra - Secret Messages Mensajes Secretos",
+        "artista":  "Electric Light Orchestra",
+        "album":  "Secret Messages = Mensajes Secretos",
+        "compania":  "CBS",
+        "anio":  "1983",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  2,
+        "fecha":  "2026-08-18T14:05:17",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2005347855",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_682114-MLA114991475858_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_873020-MLA114991475926_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_687671-MLA116376387773_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_634156-MLA116376387855_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_827176-MLA116376152525_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_753580-MLA114991705356_082026-F.jpg"
+                     ],
+        "desc":  "Electric Light Orchestra - Secret Messages = Mensajes Secretos\nDisco: VG+\nTapa: VG+/Ex\n\nElectric Light Orchestra – Secret Messages = Mensajes Secretos\nLabel: CBS – 20.408\nFormat: Vinyl, LP, Album, Promo\nCountry: Argentina\nReleased: 1983\nGenre: Rock\nStyle: Classic Rock",
+        "ficha":  "2005347855-electric-light-orchestra-secret-messages-mensajes-secretos.html",
+        "artistaUrl":  "/artista/electric-light-orchestra.html",
+        "artistaSlug":  "electric-light-orchestra",
+        "tipos":  [
+
+                  ],
+        "id":  "2005347855",
+        "vendidoDesde":  "2026-09-11"
+    },
+    {
         "titulo":  "Pat Metheny Group The Falcon And The Snowman Bowie Aznar Lp",
         "artista":  "Pat Metheny Group",
         "album":  "The Falcon And The Snowman",
@@ -341,6 +402,71 @@
                   ],
         "id":  "2028003734",
         "vendidoDesde":  "2026-09-04"
+    },
+    {
+        "titulo":  "Marillion - Fugazi - Vinilo Lp Excelente Época",
+        "artista":  "Marillion",
+        "album":  "Fugazi",
+        "compania":  "EMI",
+        "anio":  "1984",
+        "canciones":  "7",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  55000,
+        "visitas":  7,
+        "fecha":  "2025-05-28T01:56:45",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2094426554",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_906373-MLA85019638384_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_752671-MLA85320689485_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_867766-MLA85320611293_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_984368-MLA110527000557_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_600833-MLA85019561952_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_861419-MLA85019638558_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_835784-MLA85320641173_052025-F.jpg",
+                         "https://http2.mlstatic.com/D_692767-MLA85320582297_052025-F.jpg"
+                     ],
+        "desc":  "Marillion - Fugazi\nDisco: Ex\nTapa Gatefold: Ex\n\nMarillion – Fugazi\nSello:\nEMI – 81 2400851 8213\nFormato:\nVinilo, LP, Album, Gatefold\nPaís:\nArgentina\nPublicado:\n1984\nGénero:\nRock\nEstilo:\nProg Rock, Symphonic Rock",
+        "ficha":  "2094426554-marillion-fugazi.html",
+        "artistaUrl":  "/artista/marillion.html",
+        "artistaSlug":  "marillion",
+        "tipos":  [
+
+                  ],
+        "id":  "2094426554",
+        "vendidoDesde":  "2026-09-11"
+    },
+    {
+        "titulo":  "Electric Light Orchestra - Balance Of Power - Vinilo Lp",
+        "artista":  "Electric Light Orchestra",
+        "album":  "Balance Of Power",
+        "compania":  "CBS",
+        "anio":  "1986",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  75000,
+        "visitas":  19,
+        "fecha":  "2025-09-14T01:16:12",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2351323670",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_719827-MLA92003233260_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_669367-MLA92407290685_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_626383-MLA109644839468_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_872085-MLA92407260963_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_862883-MLA114991242248_082026-F.jpg"
+                     ],
+        "desc":  "Electric Light Orchestra - Balance Of Power\nDisco: VG+\nTapa: VG+/Ex\n\nElectric Light Orchestra – Balance Of Power\nSello:\nCBS – 20.732, Discos CBS – 20.732\nFormato:\nVinilo, LP, Album\nPaís:\nArgentina\nPublicado:\n1986\nGénero:\nRock, Pop\nEstilo:\nSymphonic Rock, Pop Rock",
+        "ficha":  "2351323670-electric-light-orchestra-balance-of-power.html",
+        "artistaUrl":  "/artista/electric-light-orchestra.html",
+        "artistaSlug":  "electric-light-orchestra",
+        "tipos":  [
+
+                  ],
+        "id":  "2351323670",
+        "vendidoDesde":  "2026-09-11"
     },
     {
         "titulo":  "Pastor De Los Santos - En Tu Barca De Amor - Lp Impecable!",
