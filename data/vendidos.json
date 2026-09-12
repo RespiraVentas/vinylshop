@@ -280,6 +280,40 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "The Beatles - Golden Greatest Hits Vinilo Lp Alemania",
+        "artista":  "The Beatles",
+        "album":  "Golden Greatest Hits",
+        "compania":  "Odeon",
+        "anio":  "1979",
+        "canciones":  "16",
+        "origen":  "Alemania",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  59990,
+        "visitas":  27,
+        "fecha":  "2024-02-29T22:13:22",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1687514824",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_691767-MLA74704260478_022024-F.jpg",
+                         "https://http2.mlstatic.com/D_626926-MLA113266137092_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_931698-MLA114507895569_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_634176-MLA74836041251_022024-F.jpg",
+                         "https://http2.mlstatic.com/D_684169-MLA114507776901_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_996034-MLA110526078099_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_927388-MLA110526510577_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "The Beatles - Golden Greatest Hits (Alemania)\nDisco: Ex\nTapa: Ex\n\nThe Beatles – Golden Greatest Hits\nSello: Odeon – 38 308 3\nFormato: \nVinilo, LP, Compilation, Club Edition\nPaís: Germany\nPublicado: 1979\nGénero: Rock\nEstilo: Beat, Psychedelic Rock, Pop Rock",
+        "ficha":  "1687514824-the-beatles-golden-greatest-hits.html",
+        "artistaUrl":  "/artista/the-beatles.html",
+        "artistaSlug":  "the-beatles",
+        "tipos":  [
+
+                  ],
+        "id":  "1687514824",
+        "vendidoDesde":  "2026-09-12"
+    },
+    {
         "titulo":  "U2 - The Joshua Tree - Vinilo Lp",
         "artista":  "U2",
         "album":  "The Joshua Tree",
@@ -402,6 +436,37 @@
                   ],
         "id":  "2028003734",
         "vendidoDesde":  "2026-09-04"
+    },
+    {
+        "titulo":  "Pablo Ruiz - Pablo Ruiz - Vinilo Lp",
+        "artista":  "Pablo Ruiz",
+        "album":  "Pablo Ruiz",
+        "compania":  "EMI",
+        "anio":  "1987",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Melódico",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  6,
+        "fecha":  "2025-04-02T18:34:35",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2042729506",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_618631-MLA109717104388_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_689896-MLA83209703970_042025-F.jpg",
+                         "https://http2.mlstatic.com/D_947574-MLA109644682976_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_910481-MLA110527232595_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_978857-MLA114506822961_072026-F.jpg"
+                     ],
+        "desc":  "Pablo Ruiz - Pablo Ruiz\nDisco: VG+\nTapa: VG/VG+\n\nPablo Ruiz – Pablo Ruiz\nSello:\nEMI – 71 4240091, EMI – 7511\nFormato:\nVinilo, LP, Album\nPaís:\nArgentina\nPublicado:\n1987\nGénero:\nLatin, Pop",
+        "ficha":  "2042729506-pablo-ruiz-pablo-ruiz.html",
+        "artistaUrl":  "/artista/pablo-ruiz.html",
+        "artistaSlug":  "pablo-ruiz",
+        "tipos":  [
+
+                  ],
+        "id":  "2042729506",
+        "vendidoDesde":  "2026-09-12"
     },
     {
         "titulo":  "Marillion - Fugazi - Vinilo Lp Excelente Época",
