@@ -119,6 +119,36 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Compilado High Class Duets Varios Artistas Vinilo Lp",
+        "artista":  "Varios Artistas",
+        "album":  "High Class Duets",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  2,
+        "fecha":  "2024-01-20T22:12:58",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1403490849",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_963936-MLA74130695799_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_900768-MLA74024539662_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_821184-MLA74130695595_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Estado: NM",
+        "ficha":  "1403490849-varios-artistas-high-class-duets.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Compilados"
+                  ],
+        "id":  "1403490849",
+        "vendidoDesde":  "2026-09-15"
+    },
+    {
         "titulo":  "Joni Mitchell - Mingus - Vinilo Lp",
         "artista":  "Joni Mitchell",
         "album":  "Mingus",
@@ -312,6 +342,38 @@
                   ],
         "id":  "1687514824",
         "vendidoDesde":  "2026-09-12"
+    },
+    {
+        "titulo":  "Neil Diamond - 20 Super Hits By Neil Diamond - Lp Alemania",
+        "artista":  "Neil Diamond",
+        "album":  "20 Super Hits By Neil Diamond",
+        "compania":  "CBS",
+        "anio":  "1977",
+        "canciones":  "20",
+        "origen":  "Alemania",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  1,
+        "fecha":  "2026-04-11T00:19:42",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1743026331",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_765603-MLA109646490004_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_732853-MLA109645901752_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_762304-MLA109646490036_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_744251-MLA109645990550_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_898038-MLA110295493455_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_983216-MLA110295552969_042026-F.jpg"
+                     ],
+        "desc":  "Neil Diamond - 20 Super Hits By Neil Diamond (Alemania)\nDisco: Ex \nTapa: Ex\n\nLabel: MCA Records – 62.035\nSeries: 20 Super Hits (2)\nFormat: Vinyl, LP, Compilation, Reissue\nCountry: Germany\nReleased: 1977\nGenre: Pop Style: Ballad, Schlager",
+        "ficha":  "1743026331-neil-diamond-20-super-hits-by-neil-diamond.html",
+        "artistaUrl":  "/artista/neil-diamond.html",
+        "artistaSlug":  "neil-diamond",
+        "tipos":  [
+
+                  ],
+        "id":  "1743026331",
+        "vendidoDesde":  "2026-09-15"
     },
     {
         "titulo":  "U2 - The Joshua Tree - Vinilo Lp",
@@ -660,6 +722,38 @@
                   ],
         "id":  "2827812752",
         "vendidoDesde":  "2026-09-05"
+    },
+    {
+        "titulo":  "Billy Joel - Greatest Hits Vol I - Vinilo Lp",
+        "artista":  "Billy Joel",
+        "album":  "Greatest Hits Vol I",
+        "compania":  "Columbia",
+        "anio":  "1985",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  38,
+        "fecha":  "2026-02-02T20:49:28",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2827915960",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_904827-MLA105821217164_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_801061-MLA106430501775_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_637524-MLA110528178915_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_688302-MLA110528702781_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_868067-MLA105821217364_022026-F.jpg",
+                         "https://http2.mlstatic.com/D_893899-MLA109646363208_042026-F.jpg"
+                     ],
+        "desc":  "Billy Joel - Greatest Hits Vol I\nDisco: Ex\nTapa: VG/VG+\n\nBilly Joel – Greatest Hits Vol. I\nLabel: Columbia – 20693\nFormat: Vinyl, LP, Compilation\nCountry: Argentina\nReleased: 1985\nGenre: Pop\nStyle:",
+        "ficha":  "2827915960-billy-joel-greatest-hits-vol-i.html",
+        "artistaUrl":  "/artista/billy-joel.html",
+        "artistaSlug":  "billy-joel",
+        "tipos":  [
+
+                  ],
+        "id":  "2827915960",
+        "vendidoDesde":  "2026-09-15"
     },
     {
         "titulo":  "Steely Dan - La Lógica Del Bizcocho Pretzel Logic Lp Vinilo",
