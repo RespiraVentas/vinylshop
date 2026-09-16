@@ -89,6 +89,36 @@
         "vendidoDesde":  "2026-08-28"
     },
     {
+        "titulo":  "New Cowboys - La Fiesta Del Rodeo Toro Salvaje Vinilo Lp",
+        "artista":  "New Cowboys",
+        "album":  "La fiesta del Rodeo Toro Salvaje",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  3,
+        "fecha":  "2024-01-20T22:13:29",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1403413365",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_711742-MLA74130695887_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_837808-MLA74130618193_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_821184-MLA74130695595_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Estado: Ex",
+        "ficha":  "1403413365-new-cowboys-la-fiesta-del-rodeo-toro-salvaje.html",
+        "artistaUrl":  "/artista/new-cowboys.html",
+        "artistaSlug":  "new-cowboys",
+        "tipos":  [
+
+                  ],
+        "id":  "1403413365",
+        "vendidoDesde":  "2026-09-16"
+    },
+    {
         "titulo":  "Martinho Da Vila - Martinho Da Vila De Brasil Vinilo Lp",
         "artista":  "Martinho da Vila",
         "album":  "Martinho Da Vila",
