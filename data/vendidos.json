@@ -210,6 +210,37 @@
         "vendidoDesde":  "2026-09-06"
     },
     {
+        "titulo":  "Pastor De Los Santos - Naufragó De Amor - Vinilo Impecable!",
+        "artista":  "Pastor De Los Santos",
+        "album":  "Naufragó De Amor",
+        "compania":  "WEA",
+        "anio":  "1992",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "1",
+        "precio":  65000,
+        "visitas":  10,
+        "fecha":  "2025-11-04T23:26:32",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1574680405",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_855229-MLA109644844570_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_790924-MLA96802673866_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_618922-MLA96803197790_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_677187-MLA109717376504_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_775433-MLA109646024952_042026-F.jpg"
+                     ],
+        "desc":  "Pastor De Los Santos - Naufragó De Amor\nDisco: NM\nTapa: NM",
+        "ficha":  "1574680405-pastor-de-los-santos-naufrago-de-amor.html",
+        "artistaUrl":  "/artista/pastor-de-los-santos.html",
+        "artistaSlug":  "pastor-de-los-santos",
+        "tipos":  [
+
+                  ],
+        "id":  "1574680405",
+        "vendidoDesde":  "2026-09-18"
+    },
+    {
         "titulo":  "Pastor De Los Santos - Trampa Y Fuego - Vinilo Lp Impecable!",
         "artista":  "Pastor De Los Santos",
         "album":  "Trampa Y Fuego",
@@ -624,6 +655,37 @@
                   ],
         "id":  "2351323670",
         "vendidoDesde":  "2026-09-11"
+    },
+    {
+        "titulo":  "Pastor De Los Santos Y Los Dobles - Que Pasará Mañana - Lp",
+        "artista":  "Pastor De Los Santos Y Los Dobles",
+        "album":  "Que Pasará Mañana",
+        "compania":  "CHM",
+        "anio":  "1988",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "1",
+        "precio":  59990,
+        "visitas":  31,
+        "fecha":  "2025-11-04T00:05:25",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2532919974",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_786569-MLA109717318990_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_726974-MLA96683897294_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_970071-MLA109717376472_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_933570-MLA96683062684_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_854100-MLA97138455981_112025-F.jpg"
+                     ],
+        "desc":  "Pastor De Los Santos Y Los Dobles - Que Pasará Mañana\nDisco: NM\nTapa: Ex",
+        "ficha":  "2532919974-pastor-de-los-santos-y-los-dobles-que-pasara-manana.html",
+        "artistaUrl":  "/artista/pastor-de-los-santos-y-los-dobles.html",
+        "artistaSlug":  "pastor-de-los-santos-y-los-dobles",
+        "tipos":  [
+
+                  ],
+        "id":  "2532919974",
+        "vendidoDesde":  "2026-09-18"
     },
     {
         "titulo":  "Pastor De Los Santos - En Tu Barca De Amor - Lp Impecable!",
