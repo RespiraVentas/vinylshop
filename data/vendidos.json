@@ -943,6 +943,37 @@
         "vendidoDesde":  "2026-09-04"
     },
     {
+        "titulo":  "Los Palmeras - Cumbia Y Luna - Vinilo Lp",
+        "artista":  "Los Palmeras",
+        "album":  "Cumbia Y Luna",
+        "compania":  "Micsa",
+        "anio":  "1983",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  77,
+        "fecha":  "2026-04-16T20:17:02",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3202116760",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_779200-MLA109642145364_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_647305-MLA109642346052_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_606684-MLA109642027740_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_676854-MLA110524359395_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_939826-MLA110524563493_042026-F.jpg"
+                     ],
+        "desc":  "Los Palmeras - Cumbia Y Luna\nDisco: VG \nTapa: VG\n\nLos Palmeras – Cumbia Y Luna\nLabel: Leader Music – LM 158.024\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1991\nGenre: Latin\nStyle: Cumbia",
+        "ficha":  "3202116760-los-palmeras-cumbia-y-luna.html",
+        "artistaUrl":  "/artista/los-palmeras.html",
+        "artistaSlug":  "los-palmeras",
+        "tipos":  [
+
+                  ],
+        "id":  "3202116760",
+        "vendidoDesde":  "2026-09-19"
+    },
+    {
         "titulo":  "Billy Joel - Frente De Tormenta - Storm Front - Vinilo Lp",
         "artista":  "Billy Joel",
         "album":  "Frente De Tormenta = Storm Front",
