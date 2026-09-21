@@ -307,6 +307,41 @@
         "vendidoDesde":  "2026-09-01"
     },
     {
+        "titulo":  "Los Abuelos De La Nada - En El Opera - Vinilo Lp Impecable!",
+        "artista":  "Los Abuelos de la Nada",
+        "album":  "EN EL OPERA",
+        "compania":  "Interdisc",
+        "anio":  "1985",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "ROCK ARGENTINO",
+        "discos":  "",
+        "precio":  159990,
+        "visitas":  60,
+        "fecha":  "2025-12-05T13:29:44",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1602118967",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_973672-MLA110528172665_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_845783-MLA100000482492_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_635970-MLA100000393882_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_907914-MLA100000846454_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_896287-MLA100000817092_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_799107-MLA111421266910_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_714617-MLA112469530195_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_915407-MLA112469736779_052026-F.jpg",
+                         "https://http2.mlstatic.com/D_715978-MLA112470205415_052026-F.jpg"
+                     ],
+        "desc":  "Los Abuelos De La Nada - En El Opera\nDisco: Ex\nTapa: NM\nInsert: Ex\n\nLos Abuelos De La Nada – En El Opera\nLabel: Interdisc (5) – T-1001\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1985\nGenre: Rock\nStyle: Pop Rock",
+        "ficha":  "1602118967-los-abuelos-de-la-nada-en-el-opera.html",
+        "artistaUrl":  "/?artista=los-abuelos-de-la-nada",
+        "artistaSlug":  "los-abuelos-de-la-nada",
+        "tipos":  [
+
+                  ],
+        "id":  "1602118967",
+        "vendidoDesde":  "2026-09-21"
+    },
+    {
         "titulo":  "Cream - Wheels Of Fire - Vinilo Lp Época Explota!",
         "artista":  "CREAM",
         "album":  "Wheels Of Fire",
