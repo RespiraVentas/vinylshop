@@ -108,6 +108,13 @@ function Build-HubCards($discos, $rutas) {
     return ($cards -join "`n")
 }
 
+# Numeros con punto de miles, como los escribe el catalogo con toLocaleString
+# ('es-AR'): 2.316 y no 2316. Sin esto una pagina de decada dice "2316 discos"
+# y el catalogo, al lado, "2.316 discos".
+function Format-Numero([int]$n) {
+    return $n.ToString('N0', [Globalization.CultureInfo]::GetCultureInfo('es-AR'))
+}
+
 # Orden de las listas: del ultimo cargado al primero, igual que el catalogo,
 # donde "Mas recientes" es el orden por defecto.
 #
@@ -120,13 +127,13 @@ function Build-HubCards($discos, $rutas) {
 # El id desempata para que el orden sea siempre identico entre corridas: si no,
 # se reescribirian archivos que no cambiaron y cada actualizacion ensuciaria
 # el historial.
-# Numeros con punto de miles, como los escribe el catalogo con toLocaleString
-# ('es-AR'): 2.316 y no 2316. Sin esto una pagina de decada dice "2316 discos"
-# y el catalogo, al lado, "2.316 discos".
-function Format-Numero([int]$n) {
-    return $n.ToString('N0', [Globalization.CultureInfo]::GetCultureInfo('es-AR'))
-}
-
+#
+# OJO al llamarla: SIEMPRE  $x = @(Sort-PorFecha ...)  con el @() afuera.
+# PowerShell desarma la lista al devolverla, y con un solo disco llega el
+# disco suelto, no una lista de uno. Los discos que arma actualizar.ps1 son
+# [ordered]@{}, y el .Count de un disco suelto es la cantidad de CAMPOS (~19),
+# no 1: sin el @(), un artista de 1 disco parecia tener 19 y recibia pagina
+# propia. Asi aparecieron ~1.186 paginas de un solo disco (05/09 al 23/09/2026).
 function Sort-PorFecha($discos) {
     return @($discos | Sort-Object `
         @{Expression = { "$($_.fecha)" };            Descending = $true}, `
@@ -183,10 +190,14 @@ function Build-HubHtml {
         [string]$cardsHtml,
         [string]$migaNombre,
         [string]$extraHtml = '',
-        [string]$ldJson = ''
+        [string]$ldJson = '',
+        # Pagina que sigue viva para no romper links, pero que Google no debe
+        # indexar: una pagina de artista que quedo con menos de 3 discos.
+        [switch]$noIndex
     )
 
     $ldTag = if ($ldJson) { "<script type=`"application/ld+json`">$ldJson</script>" } else { '' }
+    $robots = if ($noIndex) { 'noindex, follow' } else { 'index, follow' }
 
     return @"
 <!DOCTYPE html>
@@ -196,7 +207,7 @@ function Build-HubHtml {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$(Escape-Html $tituloPag)</title>
 <meta name="description" content="$(Escape-Html $metaDesc)">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="$robots">
 <link rel="canonical" href="$canonical">
 <link rel="icon" href="/assets/logo-icon.jpg">
 <meta property="og:type" content="website">
@@ -312,7 +323,7 @@ function Sync-Hubs {
     $nuevas = 0
 
     foreach ($ka in $porArt.Keys) {
-        $discos = Sort-PorFecha $porArt[$ka]
+        $discos = @(Sort-PorFecha $porArt[$ka])
         $slug   = $ka
         # Si el nombre viene escrito de varias formas, gana la mas usada; a
         # igual cantidad, la mas corta. Asi una colaboracion agrupada muestra
@@ -325,10 +336,16 @@ function Sync-Hubs {
         if ($discos.Count -lt $MIN_DISCOS_ARTISTA -and -not $yaExisten.ContainsKey($slug)) { continue }
         if (-not $yaExisten.ContainsKey($slug)) { $nuevas++ }
 
+        # Con menos del minimo la pagina sigue viva (un link viejo nunca da
+        # error), pero fuera de Google: noindex, fuera del sitemap y sin links
+        # desde las fichas (ver Get-ArtistasConPagina).
+        $chica = $discos.Count -lt $MIN_DISCOS_ARTISTA
+        $nDiscos = if ($discos.Count -eq 1) { '1 disco' } else { "$($discos.Count) discos" }
+
         $titulo    = "Vinilos de $nombre"
-        $tituloPag = "Vinilos de $nombre — $($discos.Count) discos | Respira Ventas"
+        $tituloPag = "Vinilos de $nombre — $nDiscos | Respira Ventas"
         $canonical = "$SITE_URL/artista/$slug.html"
-        $metaDesc  = "$($discos.Count) discos de $nombre en vinilo, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
+        $metaDesc  = "$nDiscos de $nombre en vinilo, con el estado descripto disco por disco. Envíos a todo el país y al exterior. Respira Ventas, Rosario."
         if ($metaDesc.Length -gt 300) { $metaDesc = $metaDesc.Substring(0, 297) + '...' }
 
         $ld = [ordered]@{
@@ -342,16 +359,17 @@ function Sync-Hubs {
 
         $html = Build-HubHtml -titulo $titulo -tituloPag $tituloPag -metaDesc $metaDesc `
             -canonical $canonical -intro (Build-IntroDatos $discos $nombre) `
-            -cardsHtml (Build-HubCards $discos $rutas) -migaNombre $nombre -ldJson $ldJson
+            -cardsHtml (Build-HubCards $discos $rutas) -migaNombre $nombre -ldJson $ldJson `
+            -noIndex:$chica
 
         [void](Write-ArchivoSeguro (Join-Path $dirArt "$slug.html") $html)
-        if ($discos.Count -ge $MIN_DISCOS_ARTISTA) { $urlsArt.Add($canonical) }
+        if (-not $chica) { $urlsArt.Add($canonical) }
     }
 
     # --- Paginas de decada ---
     $urlsDec = New-Object System.Collections.Generic.List[string]
     foreach ($d in ($porDec.Keys | Sort-Object)) {
-        $todos = Sort-PorFecha $porDec[$d]
+        $todos = @(Sort-PorFecha $porDec[$d])
         $muestra = @($todos | Select-Object -First 60)
         $decNom = "los $(('' + $d).Substring(2))"     # 1970 -> los 70
         $nTot      = Format-Numero $todos.Count
@@ -389,7 +407,7 @@ function Sync-Hubs {
     $urlsCol = New-Object System.Collections.Generic.List[string]
     $resumenCol = New-Object System.Collections.Generic.List[string]
     foreach ($col in $COLECCIONES_TITULO) {
-        $todos = Sort-PorFecha @($Records | Where-Object { $_.titulo -match $col.patron })
+        $todos = @(Sort-PorFecha @($Records | Where-Object { $_.titulo -match $col.patron }))
         if ($todos.Count -eq 0) { continue }
         $muestra = @($todos | Select-Object -First 60)
 
@@ -448,10 +466,15 @@ function Build-SitemapHubs {
     # El indice lo arma una sola funcion, que mira que sitemaps existen
     Build-SitemapIndice -SiteFolder $SiteFolder
 }
-# Devuelve un mapa  slug -> nombre  de los artistas que TIENEN pagina propia.
-# Lo usan tanto Sync-Hubs (para generarlas) como Sync-Fichas y actualizar.ps1
-# (para enlazarlas). Tiene que haber una sola definicion de "quien tiene
-# pagina", o las fichas enlazarian a paginas que no existen.
+# Devuelve un mapa  slug -> nombre  de los artistas cuya pagina se ENLAZA desde
+# fichas y catalogo: los que tienen hoy 3 discos o mas, que son justo los que
+# Sync-Hubs manda al sitemap con index. Una sola definicion para los dos, o se
+# enlazaria a paginas que Google tiene prohibido indexar.
+#
+# Las paginas que quedaron con menos (por ventas, o las ~1.186 de un disco que
+# genero el error de Sort-PorFecha) siguen existiendo pero no se enlazan: el
+# artista vuelve a la regla comun (2 discos -> catalogo filtrado, 1 -> sin link).
+# $SiteFolder ya no se usa; queda para no cambiar a quien la llama.
 function Get-ArtistasConPagina {
     param([Parameter(Mandatory)] $Records, [string] $SiteFolder = $null)
 
@@ -465,16 +488,9 @@ function Get-ArtistasConPagina {
         $porArt[$slug].Add($r)
     }
 
-    # Paginas que ya existen: cuentan aunque el artista haya bajado de 3 discos
-    $yaExisten = @{}
-    if ($SiteFolder) {
-        $d = Join-Path $SiteFolder "artista"
-        Get-ChildItem $d -Filter "*.html" -ErrorAction SilentlyContinue | ForEach-Object { $yaExisten[$_.BaseName] = $true }
-    }
-
     $mapa = @{}
     foreach ($slug in $porArt.Keys) {
-        if ($porArt[$slug].Count -lt $MIN_DISCOS_ARTISTA -and -not $yaExisten.ContainsKey($slug)) { continue }
+        if ($porArt[$slug].Count -lt $MIN_DISCOS_ARTISTA) { continue }
         $mapa[$slug] = ($porArt[$slug] | ForEach-Object { $_.artista.Trim() } | Group-Object |
                         Sort-Object Count -Descending | Select-Object -First 1).Name
     }
