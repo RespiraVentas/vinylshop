@@ -114902,5 +114902,34 @@
         "tipos":  [
 
                   ]
+    },
+    {
+        "titulo":  "Carlos \"La Mona\" Jiménez - En Vivo - Vinilo Lp",
+        "artista":  "Carlos \"La Mona\" Jiménez",
+        "album":  "En Vivo",
+        "compania":  "Philips",
+        "anio":  "1986",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "",
+        "precio":  59990,
+        "visitas":  0,
+        "fecha":  "2026-09-22T21:30:02",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3984122230",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_910046-MLA118081565979_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_668692-MLA118081566029_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_639908-MLA118081566079_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_967286-MLA118081012355_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_989545-MLA118081217589_092026-F.jpg"
+                     ],
+        "desc":  "Carlos \"La Mona\" Jiménez - En Vivo\nDisco: VG/VG+ (Se escucha espectacular!)\nTapa: VG\n\nCarlos \"La Mona\" Jiménez – En Vivo\nLabel: Philips – 22281\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1986\nGenre: Latin\nStyle: Cumbia",
+        "ficha":  "3984122230-carlos-la-mona-jimenez-en-vivo.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "carlos-la-mona-jimenez",
+        "tipos":  [
+
+                  ]
     }
 ]
