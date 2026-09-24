@@ -389,7 +389,15 @@ try {
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
     $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
 
-    git add data/records.json data/vendidos.json d disco artista decada index.html compilados.html maxis.html sitemap.xml sitemap-paginas.xml sitemap-discos.xml sitemap-hubs.xml | Out-Null
+    # Las paginas de coleccion salen de $COLECCIONES_TITULO (generar-hubs.ps1),
+    # no de una lista fija: antes, una coleccion nueva ("Promo") se generaba
+    # pero no se subia, y su chip en la portada llevaba a una pagina inexistente.
+    $colecciones = @($COLECCIONES_TITULO | ForEach-Object { "$($_.slug).html" } |
+                     Where-Object { Test-Path (Join-Path $SITE_FOLDER $_) })
+    $aSubir = @('data/records.json', 'data/vendidos.json', 'd', 'disco', 'artista', 'decada',
+                'index.html', 'sitemap.xml', 'sitemap-paginas.xml', 'sitemap-discos.xml',
+                'sitemap-hubs.xml') + $colecciones
+    git add -- $aSubir | Out-Null
     git commit -m $mensaje | Out-Null
 
     if ($LASTEXITCODE -eq 0) {
