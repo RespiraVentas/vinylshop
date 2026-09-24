@@ -115145,7 +115145,7 @@
     },
     {
         "titulo":  "Compilado - Doce En Uno Volumen Iii - Vinilo Lp",
-        "artista":  "Comar",
+        "artista":  "Varios Artistas",
         "album":  "Doce En Uno Volumen III",
         "compania":  "Odeon",
         "anio":  "1969",
@@ -115159,15 +115159,15 @@
         "url":  "https://articulo.mercadolibre.com.ar/MLA-2124001919",
         "imagenes":  [
                          "https://http2.mlstatic.com/D_689701-MLA116666692864_092026-F.jpg",
-                         "https://http2.mlstatic.com/D_954296-MLA116666605916_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_852746-MLA118187715959_092026-F.jpg",
                          "https://http2.mlstatic.com/D_949840-MLA118184088477_092026-F.jpg",
                          "https://http2.mlstatic.com/D_919845-MLA116666812208_092026-F.jpg",
                          "https://http2.mlstatic.com/D_988620-MLA116666603132_092026-F.jpg"
                      ],
         "desc":  "Doce En Uno Volumen III\nDisco: VG+\nTapa: VG+/Ex\n\nComar – Doce En Uno Volumen III\nLabel: Odeon – SMFP 1290\nFormat: Vinyl, LP\nCountry: Argentina\nReleased: 1969\nGenre: Pop",
-        "ficha":  "2124001919-comar-doce-en-uno-volumen-iii.html",
-        "artistaUrl":  "",
-        "artistaSlug":  "comar",
+        "ficha":  "2124001919-varios-artistas-doce-en-uno-volumen-iii.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
         "tipos":  [
                       "Compilados"
                   ]
