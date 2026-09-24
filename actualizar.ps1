@@ -3,10 +3,13 @@
 #  Uso: doble clic en "actualizar.bat", o ejecutar este script directamente.
 #
 #  Que hace:
-#   1. Cierra Excel si esta abierto
-#   2. Busca el Excel mas reciente en la carpeta configurada
-#   3. Convierte los datos a JSON
-#   4. Hace commit y push a GitHub -> el sitio se actualiza solo (~1 min)
+#   1. Busca el Excel mas reciente en la carpeta configurada
+#   2. Lo lee en solo lectura, con un Excel propio e invisible (no toca
+#      ninguna ventana de Excel que este abierta)
+#   3. Muestra cuantos discos entran y salen; si salen demasiados, frena y
+#      pide confirmacion antes de publicar
+#   4. Convierte los datos a JSON, genera fichas y paginas
+#   5. Hace commit y push a GitHub -> el sitio se actualiza solo (~1 min)
 # =============================================================================
 
 param(
@@ -45,6 +48,29 @@ function Build-ColMap($ws) {
         if ($raw -and -not $map.ContainsKey($raw))  { $map[$raw] = $c }
     }
     return $map
+}
+
+# Cuantos discos salen del catalogo de golpe antes de frenar y pedir
+# confirmacion. En una corrida normal salen pocos (lo vendido desde la
+# anterior). Muchos juntos suele ser un Excel incompleto o filtrado: sin este
+# freno, todos esos discos se marcarian "Vendido" y se publicarian asi.
+$UMBRAL_BAJAS = 30
+
+# Compara el catalogo nuevo con el de la corrida anterior, por Id de ML.
+# Devuelve los que entran y los que salen (salen = vendidos o pausados en ML).
+function Get-CambiosCatalogo($actuales, $previos) {
+    $idDe = { param($x) if ("$($x.url)" -match 'MLA-?(\d+)') { $Matches[1] } else { '' } }
+    $nuevos = @{}
+    foreach ($x in $actuales) { $i = & $idDe $x; if ($i) { $nuevos[$i] = $x } }
+    $viejos = @{}
+    foreach ($x in $previos)  { $i = & $idDe $x; if ($i) { $viejos[$i] = $x } }
+    $entran = New-Object System.Collections.Generic.List[object]
+    $salen  = New-Object System.Collections.Generic.List[object]
+    foreach ($i in $nuevos.Keys) { if (-not $viejos.ContainsKey($i)) { $entran.Add($nuevos[$i]) } }
+    foreach ($i in $viejos.Keys) { if (-not $nuevos.ContainsKey($i)) { $salen.Add($viejos[$i]) } }
+    # Se devuelve un objeto (no las listas sueltas) para que PowerShell no
+    # desarme una lista de un solo elemento: .Count tiene que dar siempre bien.
+    return [pscustomobject]@{ Entran = $entran; Salen = $salen }
 }
 
 function Get-Col($map, $name) {
@@ -90,19 +116,30 @@ if ($confirmar -notmatch '^[sS]$') {
     exit 0
 }
 
-# -- Paso 2: cerrar Excel y exportar JSON -------------------------------------
-Write-Step "Cerrando Excel si esta abierto..."
-Stop-Process -Name "EXCEL" -Force -ErrorAction SilentlyContinue
-Start-Sleep -Seconds 2
-
+# -- Paso 2: leer el Excel ----------------------------------------------------
+# Antes aca se cerraban a la fuerza TODOS los Excel abiertos (Stop-Process
+# -Force): si habia otra planilla sin guardar, se perdia. Ahora el script usa
+# un Excel propio e invisible y abre el archivo en solo lectura, asi que no
+# toca ninguna ventana abierta y puede leer el archivo aunque este abierto.
 Write-Step "Leyendo datos del Excel (puede tardar 1-2 minutos)..."
 
 $excel = New-Object -ComObject Excel.Application
+# Windows crea un Excel nuevo, sin libros. Si por alguna razon se engancho a un
+# Excel que ya estaba abierto (tendria libros), no se lo usa: esconderlo o
+# cerrarlo podria hacer perder trabajo. Se avisa y se sale sin tocar nada.
+if ($excel.Workbooks.Count -gt 0) {
+    [System.Runtime.Interopservices.Marshal]::ReleaseComObject($excel) | Out-Null
+    Write-Err "No se pudo abrir un Excel aparte para leer el archivo."
+    Write-Host "  Guarda y cerra Excel, y volve a correr la actualizacion. No se hizo ningun cambio." -ForegroundColor Yellow
+    Read-Host "`n  Presiona Enter para salir"
+    exit 1
+}
 $excel.Visible       = $false
 $excel.DisplayAlerts = $false
 
 try {
-    $wb = $excel.Workbooks.Open($xlFile)
+    # Open(archivo, UpdateLinks = 0, ReadOnly = $true)
+    $wb = $excel.Workbooks.Open($xlFile, 0, $true)
     $ws = $wb.Sheets.Item(1)
     $rows = $ws.UsedRange.Rows.Count
 
@@ -210,6 +247,8 @@ try {
 
     $wb.Close($false)
 } finally {
+    # Cierra solo el Excel propio del script (ver arriba): el del usuario,
+    # si hay uno abierto, no se toca.
     $excel.Quit()
     [System.Runtime.Interopservices.Marshal]::ReleaseComObject($excel) | Out-Null
 }
@@ -226,6 +265,38 @@ if (Test-Path $JSON_OUT) {
         $recordsPrevios = Get-Content $JSON_OUT -Raw -Encoding UTF8 | ConvertFrom-Json
     } catch {
         Write-Host "    (No se pudo leer el catalogo anterior; no se marcaran bajas esta vez)" -ForegroundColor Yellow
+    }
+}
+
+# --- Freno de seguridad: cuantos discos entran y cuantos salen ---
+# Va ANTES de escribir cualquier archivo: si se cancela aca, no cambia nada.
+if ($recordsPrevios) {
+    $cambios = Get-CambiosCatalogo $records $recordsPrevios
+    Write-OK "Entran $($cambios.Entran.Count) discos nuevos  |  Salen $($cambios.Salen.Count) (vendidos o pausados)"
+
+    if ($cambios.Salen.Count -gt $UMBRAL_BAJAS) {
+        Write-Host ""
+        Write-Host "  ================================================" -ForegroundColor Red
+        Write-Host "     ATENCION: SALEN $($cambios.Salen.Count) DISCOS DE GOLPE" -ForegroundColor Red
+        Write-Host "  ================================================" -ForegroundColor Red
+        Write-Host "  Lo normal es que salgan pocos. Tantos juntos suele ser un Excel" -ForegroundColor Yellow
+        Write-Host "  incompleto o filtrado. Si seguis, TODOS estos se van a mostrar" -ForegroundColor Yellow
+        Write-Host "  como VENDIDOS en el sitio." -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host "  Algunos de los que salen:" -ForegroundColor White
+        $cambios.Salen | Select-Object -First 15 | ForEach-Object {
+            Write-Host "     - $($_.artista) - $($_.album)" -ForegroundColor Gray
+        }
+        if ($cambios.Salen.Count -gt 15) {
+            Write-Host "     ... y $($cambios.Salen.Count - 15) mas" -ForegroundColor Gray
+        }
+        Write-Host ""
+        $ok = Read-Host "  Escribi SI para publicar igual (cualquier otra cosa cancela sin cambiar nada)"
+        if ($ok -notmatch '^\s*s[ií]\s*$') {
+            Write-Host "`n  Cancelado. No se hizo ningun cambio en el sitio." -ForegroundColor Yellow
+            Read-Host "`n  Presiona Enter para cerrar"
+            exit 0
+        }
     }
 }
 
