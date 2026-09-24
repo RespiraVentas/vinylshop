@@ -73,6 +73,20 @@ function Get-CambiosCatalogo($actuales, $previos) {
     return [pscustomobject]@{ Entran = $entran; Salen = $salen }
 }
 
+# Landings de genero hechas a mano que muestran el total del catalogo ("3.800+
+# Discos en total", "Mas de 3.800 titulos"). Se mantienen al dia igual que el
+# subtitulo de index.html: redondeado para abajo a la centena, asi nunca
+# exagera y el archivo solo cambia al cruzar una centena. Se toca UNICAMENTE
+# el numero pegado a esas etiquetas; ningun otro numero de la pagina.
+$LANDINGS_CON_TOTAL = @('rock-nacional.html', 'brasil.html', 'melodico.html',
+                        'cumbia-cuarteto.html', 'tango.html', 'folklore.html')
+
+function Update-TotalEnLanding([string]$html, [string]$totalTxt) {
+    $html = [regex]::Replace($html, 'Más de [\d\.]+ títulos', "Más de $totalTxt títulos")
+    $patron = '(<div class="stat-value"[^>]*>)[\d\.]+(<span[^>]*>\+</span></div>\s*<div class="stat-label">Discos (?:disponibles|en total)</div>)'
+    return [regex]::Replace($html, $patron, { param($m) $m.Groups[1].Value + $totalTxt + $m.Groups[2].Value })
+}
+
 function Get-Col($map, $name) {
     $trimmed = $name.Trim()
     if ($map.ContainsKey($trimmed)) { return $map[$trimmed] }
@@ -321,6 +335,23 @@ if (Test-Path $indexPath) {
     }
 }
 
+# --- El mismo total en las landings de genero ---
+# Se respeta la codificacion de cada archivo (con o sin BOM) para no generar
+# cambios fantasma ni romper acentos.
+$totalLanding = '{0:N0}' -f ([math]::Floor($records.Count / 100) * 100) -replace ',', '.'
+foreach ($lp in $LANDINGS_CON_TOTAL) {
+    $rutaLp = Join-Path $SITE_FOLDER $lp
+    if (-not (Test-Path $rutaLp)) { continue }
+    $bytes  = [System.IO.File]::ReadAllBytes($rutaLp)
+    $conBom = ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF)
+    $htmlLp = [System.IO.File]::ReadAllText($rutaLp, [System.Text.Encoding]::UTF8)
+    $nuevoLp = Update-TotalEnLanding $htmlLp $totalLanding
+    if ($nuevoLp -ne $htmlLp) {
+        [System.IO.File]::WriteAllText($rutaLp, $nuevoLp, (New-Object System.Text.UTF8Encoding($conBom)))
+        Write-OK "Total actualizado en $lp`: $totalLanding"
+    }
+}
+
 # Guarda en cada disco el nombre de archivo de su ficha, para que el catalogo
 # pueda enlazarla directamente (asi el clic derecho / abrir en pestana nueva
 # funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
@@ -396,7 +427,7 @@ try {
                      Where-Object { Test-Path (Join-Path $SITE_FOLDER $_) })
     $aSubir = @('data/records.json', 'data/vendidos.json', 'd', 'disco', 'artista', 'decada',
                 'index.html', 'sitemap.xml', 'sitemap-paginas.xml', 'sitemap-discos.xml',
-                'sitemap-hubs.xml') + $colecciones
+                'sitemap-hubs.xml') + $colecciones + $LANDINGS_CON_TOTAL
     git add -- $aSubir | Out-Null
     git commit -m $mensaje | Out-Null
 
