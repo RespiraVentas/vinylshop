@@ -321,6 +321,7 @@ function Sync-Hubs {
 
     $urlsArt = New-Object System.Collections.Generic.List[string]
     $nuevas = 0
+    $nombrePorSlug = @{}   # nombre que muestra cada pagina, para enlazarla desde otras
 
     foreach ($ka in $porArt.Keys) {
         $discos = @(Sort-PorFecha $porArt[$ka])
@@ -328,9 +329,16 @@ function Sync-Hubs {
         # Si el nombre viene escrito de varias formas, gana la mas usada; a
         # igual cantidad, la mas corta. Asi una colaboracion agrupada muestra
         # "Wynton Marsalis" y no "Wynton Marsalis & Eastman Wind Ensemble...".
-        $nombre = ($discos | ForEach-Object { $_.artista.Trim() } | Group-Object |
+        # Antes se cuenta solo entre los discos del artista SOLO (los que ya se
+        # llamaban asi antes de agrupar): si no, cuando la colaboracion tiene
+        # mas discos que el artista solo, gana ella y la pagina de John Lennon
+        # se titulaba "John Lennon & Yoko Ono".
+        $solos  = @($discos | Where-Object { (Get-ArtistaSlugBase $_) -eq $slug })
+        $fuente = if ($solos.Count) { $solos } else { $discos }
+        $nombre = ($fuente | ForEach-Object { $_.artista.Trim() } | Group-Object |
                    Sort-Object @{Expression='Count';Descending=$true}, @{Expression={$_.Name.Length};Descending=$false} |
                    Select-Object -First 1).Name
+        $nombrePorSlug[$slug] = $nombre
 
         # Se crea si llega al minimo, o si la pagina ya existia (no se borra nunca)
         if ($discos.Count -lt $MIN_DISCOS_ARTISTA -and -not $yaExisten.ContainsKey($slug)) { continue }
@@ -364,6 +372,114 @@ function Sync-Hubs {
 
         [void](Write-ArchivoSeguro (Join-Path $dirArt "$slug.html") $html)
         if (-not $chica) { $urlsArt.Add($canonical) }
+    }
+
+    # --- Paginas de artista que ya no tienen discos propios ---
+    # El loop de arriba solo recorre artistas con discos a la venta, asi que una
+    # pagina cuyo artista llego a cero no se volvia a generar y quedaba
+    # congelada mostrando un disco ya vendido con su precio (Joni Mitchell,
+    # "Mingus", desde el 05/09). Hay dos casos, y el texto tiene que ser cierto
+    # en cada uno:
+    #
+    #  1) Los discos SE MUDARON: una colaboracion ("Luciano Pavarotti y otros")
+    #     que ahora se agrupa con el artista principal. Los discos siguen a la
+    #     venta, asi que la pagina los muestra y enlaza adonde viven ahora.
+    #  2) Se VENDIO todo: dice que ahora no hay, enlaza las fichas de lo que se
+    #     vendio (tienen "Avisame si entra otra copia") y ofrece WhatsApp.
+    #
+    # En los dos casos la pagina queda viva (un link viejo nunca da error) y
+    # con noindex.
+    $activosPorSlug = @{}
+    $porBase = @{}
+    foreach ($r in $Records) {
+        $s = Get-ArtistaSlug $r
+        if ($s) { $activosPorSlug[$s] = 1 + [int]$activosPorSlug[$s] }
+        $b = Get-ArtistaSlugBase $r
+        if ($b -and $b -ne $s) {
+            if (-not $porBase.ContainsKey($b)) { $porBase[$b] = New-Object System.Collections.Generic.List[object] }
+            $porBase[$b].Add($r)
+        }
+    }
+    $vendidosPorSlug = @{}
+    $rutaVend = Join-Path $SiteFolder "data\vendidos.json"
+    if (Test-Path $rutaVend) {
+        $listaVend = [IO.File]::ReadAllText($rutaVend, [Text.Encoding]::UTF8) | ConvertFrom-Json
+        foreach ($v in @($listaVend | Sort-Object { [long]$_.id })) {
+            $s = "$($v.artistaSlug)"
+            if (-not $s) { continue }
+            if (-not $vendidosPorSlug.ContainsKey($s)) { $vendidosPorSlug[$s] = New-Object System.Collections.Generic.List[object] }
+            $vendidosPorSlug[$s].Add($v)
+        }
+    }
+    $sinDiscos = 0
+    foreach ($slug in @($yaExisten.Keys | Sort-Object)) {
+        if ($activosPorSlug.ContainsKey($slug)) { continue }
+        $ruta      = Join-Path $dirArt "$slug.html"
+        $canonical = "$SITE_URL/artista/$slug.html"
+
+        # --- Caso 1: los discos se mudaron a otro artista ---
+        if ($porBase.ContainsKey($slug)) {
+            $mud    = @(Sort-PorFecha $porBase[$slug])
+            $nombre = ($mud | ForEach-Object { "$($_.artista)".Trim() } | Group-Object |
+                       Sort-Object Count -Descending | Select-Object -First 1).Name
+            $canon  = Get-ArtistaSlug $mud[0]
+            $canonNom = if ($nombrePorSlug.ContainsKey($canon)) { $nombrePorSlug[$canon] } else { $nombre }
+            $canonUrl = "$SITE_URL/artista/$canon.html"
+            $hrefCanon = if ($urlsArt.Contains($canonUrl)) { "/artista/$canon.html" } else { "/?artista=$canon" }
+            $nDisc  = if ($mud.Count -eq 1) { '1 disco' } else { "$($mud.Count) discos" }
+            $extra  = "  <p class=`"h-mas`">Estos discos ahora los agrupamos junto a los de <a href=`"$hrefCanon`">$(Escape-Html $canonNom) &rarr;</a></p>`n"
+
+            $html = Build-HubHtml -titulo "Vinilos de $nombre" `
+                -tituloPag "Vinilos de $nombre — $nDisc | Respira Ventas" `
+                -metaDesc "$nDisc de $nombre en vinilo, con el estado descripto disco por disco. Respira Ventas, Rosario." `
+                -canonical $canonical -intro (Build-IntroDatos $mud $nombre) `
+                -cardsHtml (Build-HubCards $mud $rutas) -migaNombre $nombre -extraHtml $extra -noIndex
+            [void](Write-ArchivoSeguro $ruta $html)
+            $sinDiscos++
+            continue
+        }
+
+        # --- Caso 2: se vendio todo ---
+        # Asignacion directa de .ToArray(): no pasa por el pipeline, asi que
+        # con un solo vendido sigue siendo una lista de uno (ver Sort-PorFecha).
+        $vend = @()
+        if ($vendidosPorSlug.ContainsKey($slug)) { $vend = $vendidosPorSlug[$slug].ToArray() }
+
+        # Nombre: el de sus discos vendidos; si no hay, el que ya tenia la pagina
+        $nombre = ''
+        if ($vend.Count) {
+            $nombre = ($vend | ForEach-Object { "$($_.artista)".Trim() } | Group-Object |
+                       Sort-Object Count -Descending | Select-Object -First 1).Name
+        }
+        if (-not $nombre) {
+            $viejo = [IO.File]::ReadAllText($ruta, [Text.Encoding]::UTF8)
+            $m = [regex]::Match($viejo, '<title>Vinilos de (.+?) (?:—|\|)')
+            if ($m.Success) { $nombre = [Net.WebUtility]::HtmlDecode($m.Groups[1].Value).Trim() }
+        }
+        if (-not $nombre) { continue }   # sin nombre no se puede armar: se deja como esta
+
+        $nomHtml = Escape-Html $nombre
+        $waTexto = [Uri]::EscapeDataString("Hola! Busco discos de $nombre. ¿Me avisan si entra alguno?")
+        $extra = ''
+        if ($vend.Count) {
+            $links = ($vend | ForEach-Object {
+                $alb = Escape-Html ("$($_.album)".Trim())
+                if (-not $alb) { $alb = Escape-Html ("$($_.titulo)".Trim()) }
+                "<a href=`"/disco/$($_.ficha)`">$alb</a> (vendido)"
+            }) -join ' &middot; '
+            $extra += "  <p class=`"h-mas`">Pasaron por acá: $links</p>`n"
+        }
+        $extra += "  <p class=`"h-mas`"><a href=`"https://wa.me/${WA_NUMBER}?text=$waTexto`" target=`"_blank`" rel=`"noopener`">Avisame por WhatsApp si entra algo de $nomHtml</a></p>`n"
+
+        $html = Build-HubHtml -titulo "Vinilos de $nombre" `
+            -tituloPag "Vinilos de $nombre | Respira Ventas" `
+            -metaDesc "Ahora no tenemos discos de $nombre a la venta. Respira Ventas, discos de vinilo en Rosario." `
+            -canonical $canonical `
+            -intro "Ahora no tenemos discos de <strong>$nomHtml</strong> a la venta. Entran discos nuevos todas las semanas." `
+            -cardsHtml '' -migaNombre $nombre -extraHtml $extra -noIndex
+
+        [void](Write-ArchivoSeguro $ruta $html)
+        $sinDiscos++
     }
 
     # --- Paginas de decada ---
