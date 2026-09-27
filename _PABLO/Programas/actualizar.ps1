@@ -13,14 +13,22 @@
 # =============================================================================
 
 param(
-  [string]$ExcelPath = ""
+  [string]$ExcelPath = "",
+  # Modo agregar (lo usa agregar.bat): el Excel trae solo una o unas pocas
+  # publicaciones que Drapi no bajo en la ultima descarga. Se SUMAN al
+  # catalogo publicado; no se saca ningun disco. El archivo tiene que
+  # llamarse AGREGAR*.xlsx, asi nunca se confunde con el Excel completo.
+  [switch]$Agregar
 )
 
 $ErrorActionPreference = "Stop"
 
 # -- Configuracion ------------------------------------------------------------
 $EXCEL_FOLDER   = "C:\Users\Pablo\Documents\Claude_Trabajo"
-$SITE_FOLDER    = $PSScriptRoot
+# Este programa vive en vinylshop\_PABLO\Programas; el sitio es vinylshop,
+# dos carpetas mas arriba. Los otros programas (generar-*.ps1) estan al lado.
+$SITE_FOLDER    = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+$PROG_FOLDER    = $PSScriptRoot
 $JSON_OUT       = Join-Path $SITE_FOLDER "data\records.json"
 
 # Las columnas se detectan automáticamente por nombre al abrir el Excel.
@@ -98,21 +106,26 @@ function Get-Col($map, $name) {
 # -- Encabezado ---------------------------------------------------------------
 Write-Host ""
 Write-Host "  ================================================" -ForegroundColor Yellow
-Write-Host "     ACTUALIZAR CATALOGO DE VINILO               " -ForegroundColor Yellow
+if ($Agregar) {
+    Write-Host "     AGREGAR DISCOS AL CATALOGO                  " -ForegroundColor Yellow
+} else {
+    Write-Host "     ACTUALIZAR CATALOGO DE VINILO               " -ForegroundColor Yellow
+}
 Write-Host "  ================================================" -ForegroundColor Yellow
 
 # -- Paso 1: localizar el Excel -----------------------------------------------
-Write-Step "Buscando el Excel mas reciente..."
+$FILTRO_EXCEL = if ($Agregar) { "AGREGAR*.xlsx" } else { "RV*.xlsx" }
+Write-Step "Buscando el Excel mas reciente ($FILTRO_EXCEL)..."
 
 if ($ExcelPath -and (Test-Path $ExcelPath)) {
     $xlFile = $ExcelPath
 } else {
-    $xlFile = Get-ChildItem $EXCEL_FOLDER -Filter "RV*.xlsx" -Recurse -ErrorAction SilentlyContinue |
+    $xlFile = Get-ChildItem $EXCEL_FOLDER -Filter $FILTRO_EXCEL -Recurse -ErrorAction SilentlyContinue |
               Sort-Object LastWriteTime -Descending |
               Select-Object -ExpandProperty FullName -First 1
 
     if (-not $xlFile) {
-        Write-Err "No se encontro ningun archivo RV*.xlsx en: $EXCEL_FOLDER"
+        Write-Err "No se encontro ningun archivo $FILTRO_EXCEL en: $EXCEL_FOLDER"
         Read-Host "`n  Presiona Enter para salir"
         exit 1
     }
@@ -282,6 +295,49 @@ if (Test-Path $JSON_OUT) {
     }
 }
 
+# --- Modo agregar: los discos del Excel chico se SUMAN al catalogo publicado ---
+# Si el disco ya estaba (por ejemplo, con otro precio) se reemplaza con el dato
+# nuevo; si estaba marcado vendido, Sync-Fichas lo saca de vendidos solo al
+# verlo de nuevo en el catalogo. No se saca ningun disco.
+if ($Agregar) {
+    if (-not $recordsPrevios) {
+        Write-Err "No se pudo leer el catalogo publicado (data\records.json): no hay a que agregarle."
+        Read-Host "`n  Presiona Enter para salir"
+        exit 1
+    }
+    if ($records.Count -eq 0) {
+        Write-Err "El Excel no trae ninguna publicacion ACTIVA. No se agrego nada."
+        Write-Host "  Si la publicacion esta pausada en ML, primero activala y volve a bajarla." -ForegroundColor Yellow
+        Read-Host "`n  Presiona Enter para salir"
+        exit 0
+    }
+    $idDe = { param($x) if ("$($x.url)" -match 'MLA-?(\d+)') { $Matches[1] } else { '' } }
+    $porId = @{}
+    foreach ($x in $records) { $i = & $idDe $x; if ($i) { $porId[$i] = $x } }
+
+    # El catalogo publicado se pasa al mismo formato que arma este script
+    # ([ordered]@{}), para que todos los discos se comporten igual despues.
+    $unidos = [System.Collections.Generic.List[object]]::new()
+    $reemplazados = 0
+    foreach ($p in $recordsPrevios) {
+        $i = & $idDe $p
+        if ($i -and $porId.ContainsKey($i)) {
+            $unidos.Add($porId[$i]); $porId.Remove($i); $reemplazados++
+        } else {
+            $o = [ordered]@{}
+            foreach ($prop in $p.PSObject.Properties) { $o[$prop.Name] = $prop.Value }
+            $unidos.Add($o)
+        }
+    }
+    foreach ($x in $records) { $i = & $idDe $x; if ($i -and $porId.ContainsKey($i)) { $unidos.Add($x) } }
+
+    Write-Host ""
+    Write-Host "  Discos del Excel de agregado:" -ForegroundColor White
+    foreach ($x in $records) { Write-Host "     + $($x.artista) - $($x.album)" -ForegroundColor Green }
+    Write-OK "Nuevos en el catalogo: $($records.Count - $reemplazados)  |  Ya estaban (se actualizan): $reemplazados"
+    $records = $unidos
+}
+
 # --- Freno de seguridad: cuantos discos entran y cuantos salen ---
 # Va ANTES de escribir cualquier archivo: si se cancela aca, no cambia nada.
 if ($recordsPrevios) {
@@ -355,8 +411,8 @@ foreach ($lp in $LANDINGS_CON_TOTAL) {
 # Guarda en cada disco el nombre de archivo de su ficha, para que el catalogo
 # pueda enlazarla directamente (asi el clic derecho / abrir en pestana nueva
 # funciona, y Google encuentra las fichas siguiendo enlaces del sitio).
-. (Join-Path $SITE_FOLDER "generar-fichas.ps1")
-. (Join-Path $SITE_FOLDER "generar-hubs.ps1")
+. (Join-Path $PROG_FOLDER "generar-fichas.ps1")
+. (Join-Path $PROG_FOLDER "generar-hubs.ps1")
 [void](Set-MapaCanonico $records)
 $mapaArt   = Get-ArtistasConPagina -Records $records -SiteFolder $SITE_FOLDER
 $conteoArt = Get-ConteoPorArtista $records
@@ -388,12 +444,12 @@ Write-OK "JSON guardado: data/records.json ($jsonSizeKB KB)"
 # igual. Nunca debe impedir que se actualice el sitio.
 Write-Step "Generando fichas de disco y sitemaps (puede tardar ~1 minuto)..."
 try {
-    . (Join-Path $SITE_FOLDER "generar-fichas.ps1")
+    . (Join-Path $PROG_FOLDER "generar-fichas.ps1")
     $fichas = Sync-Fichas -Records $records -SiteFolder $SITE_FOLDER -PreviousRecords $recordsPrevios
     Write-OK "Fichas: $($fichas.Activas) a la venta, $($fichas.Vendidas) vendidas ($($fichas.NuevasBajas) nuevas)"
 
     # Paginas de artista y de decada
-    . (Join-Path $SITE_FOLDER "generar-hubs.ps1")
+    . (Join-Path $PROG_FOLDER "generar-hubs.ps1")
     $hubs = Sync-Hubs -Records $records -SiteFolder $SITE_FOLDER
     Write-OK "Paginas de artista: $($hubs.Artistas) ($($hubs.ArtistasNuevas) nuevas)  |  de decada: $($hubs.Decadas)"
     if ($hubs.Colecciones) { Write-OK "Colecciones: $($hubs.Colecciones)" }
@@ -418,7 +474,8 @@ try {
     }
 
     $fecha   = Get-Date -Format "dd/MM/yyyy HH:mm"
-    $mensaje = "Actualizacion catalogo $fecha ($($records.Count) discos)"
+    $mensaje = if ($Agregar) { "Agregado de discos $fecha ($($records.Count) discos)" }
+               else          { "Actualizacion catalogo $fecha ($($records.Count) discos)" }
 
     # Las paginas de coleccion salen de $COLECCIONES_TITULO (generar-hubs.ps1),
     # no de una lista fija: antes, una coleccion nueva ("Promo") se generaba
@@ -445,7 +502,7 @@ try {
     if ($LASTEXITCODE -eq 0) {
         Write-OK "Push exitoso a GitHub"
     } else {
-        Write-Err "No se pudo hacer push. Revisa HOWTO.txt"
+        Write-Err "No se pudo subir a GitHub. Revisa la conexion a internet y volve a correrlo."
         Pop-Location; Read-Host "`n  Presiona Enter para salir"; exit 1
     }
 } finally {
@@ -461,5 +518,22 @@ Write-Host ""
 Write-Host "  El sitio estara disponible en ~1 minuto." -ForegroundColor White
 Write-Host "  Verificar en: https://respiraventas.com.ar" -ForegroundColor Gray
 Write-Host ""
+
+# Aviso final: los discos que salieron en esta corrida. No frena nada, es para
+# mirar. Drapi a veces baja una publicacion de menos sin avisar, y para el
+# programa eso es igual que una venta: el unico que sabe que se vendio es Poli.
+if ($cambios -and $cambios.Salen.Count -gt 0) {
+    Write-Host "  ------------------------------------------------" -ForegroundColor Yellow
+    Write-Host "  Se marcaron como VENDIDOS (ya no estan en el Excel):" -ForegroundColor Yellow
+    $cambios.Salen | Select-Object -First 40 | ForEach-Object {
+        Write-Host "     - $($_.artista) - $($_.album)" -ForegroundColor White
+    }
+    if ($cambios.Salen.Count -gt 40) { Write-Host "     ... y $($cambios.Salen.Count - 40) mas" -ForegroundColor White }
+    Write-Host ""
+    Write-Host "  Si alguno NO lo vendiste ni lo pausaste: bajalo con Drapi," -ForegroundColor Yellow
+    Write-Host "  guardalo como AGREGAR... .xlsx y hace doble clic en agregar.bat" -ForegroundColor Yellow
+    Write-Host "  ------------------------------------------------" -ForegroundColor Yellow
+    Write-Host ""
+}
 
 Read-Host "  Presiona Enter para cerrar"
