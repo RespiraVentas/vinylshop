@@ -1293,6 +1293,38 @@
         "vendidoDesde":  "2026-09-19"
     },
     {
+        "titulo":  "Gino Soccio - Cercano - Vinilo Lp",
+        "artista":  "Gino Soccio",
+        "album":  "Cercano",
+        "compania":  "Interdisc",
+        "anio":  "1981",
+        "canciones":  "6",
+        "origen":  "Argentina",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  22,
+        "fecha":  "2026-04-21T15:32:58",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3219364404",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_984564-MLA113266425128_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_703812-MLA114507955289_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_879603-MLA109815019568_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_811232-MLA109814989756_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_990521-MLA110718401185_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_844237-MLA110718667389_042026-F.jpg"
+                     ],
+        "desc":  "Gino Soccio - Cercano\nDisco: VG+\nTapa: VG+\n\nGino Soccio – Cercano\nLabel: Interdisc – SLIN 3400\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1981\nGenre: Electronic, Funk / Soul\nStyle: Disco",
+        "ficha":  "3219364404-gino-soccio-cercano.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "gino-soccio",
+        "tipos":  [
+
+                  ],
+        "id":  "3219364404",
+        "vendidoDesde":  "2026-10-01"
+    },
+    {
         "titulo":  "Billy Joel - Frente De Tormenta - Storm Front - Vinilo Lp",
         "artista":  "Billy Joel",
         "album":  "Frente De Tormenta = Storm Front",
