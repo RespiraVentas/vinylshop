@@ -238,6 +238,36 @@
         "vendidoDesde":  "2026-09-15"
     },
     {
+        "titulo":  "Maxi Gancho Time - Gancho Time Varios Hits Vinilo",
+        "artista":  "Varios Artistas",
+        "album":  "Gancho Time",
+        "compania":  "Scorpio Record",
+        "anio":  "1988",
+        "canciones":  "7",
+        "origen":  "Argentina",
+        "genero":  "Electrónica",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  21,
+        "fecha":  "2024-01-24T11:05:55",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1404162255",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_801921-MLA74086153086_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_735450-MLA109643772568_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_702301-MLA74194460265_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Estado: Ex\n\nGancho Time – Gancho Time\nSello: Scorpio Record – 5015\nFormato: \nVinilo, LP, Album, Stereo\nPaís: Argentina\nPublicado: \nGénero: Electronic, Funk / Soul\nEstilo: Disco, House",
+        "ficha":  "1404162255-varios-artistas-gancho-time.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Maxi singles"
+                  ],
+        "id":  "1404162255",
+        "vendidoDesde":  "2026-10-02"
+    },
+    {
         "titulo":  "Los Galos - El Sonido De Los Galos - Lp Vinilo",
         "artista":  "LOS GALOS",
         "album":  "EL SONIDO DE LOS GALOS",
