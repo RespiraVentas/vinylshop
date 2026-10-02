@@ -1004,6 +1004,41 @@
         "vendidoDesde":  "2026-09-28"
     },
     {
+        "titulo":  "The Beatles - 1967-1970 - Álbum Azul - Vinilo Lp Doble",
+        "artista":  "The Beatles",
+        "album":  "1967-1970",
+        "compania":  "Apple Records",
+        "anio":  "1973",
+        "canciones":  "28",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  65000,
+        "visitas":  71,
+        "fecha":  "2025-12-30T18:37:18",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2728942482",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_678861-MLA103148265391_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_916322-MLA109645950898_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_709298-MLA109646361356_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_793099-MLA103148198279_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_911773-MLA109646361390_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_631124-MLA109646420280_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_613927-MLA113265698606_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_832300-MLA103148082657_122025-F.jpg",
+                         "https://http2.mlstatic.com/D_746735-MLA109646420094_042026-F.jpg"
+                     ],
+        "desc":  "The Beatles - 1967-1970 (Álbum Azul)\nDiscos: VG+ y VG+\nTapa Gatefold: VG+ \nInserts: VG+ y falta uno \n\nThe Beatles – 1967-1970\nLabel: EMI – 6534\nFormat: 2 × Vinyl, LP, Compilation\nCountry: Argentina\nReleased: \nGenre: Rock\nStyle: Rock \u0026 Roll",
+        "ficha":  "2728942482-the-beatles-1967-1970.html",
+        "artistaUrl":  "/artista/the-beatles.html",
+        "artistaSlug":  "the-beatles",
+        "tipos":  [
+
+                  ],
+        "id":  "2728942482",
+        "vendidoDesde":  "2026-10-02"
+    },
+    {
         "titulo":  "Silvio Rodriguez - Causas Y Azares - Vinilo Lp Doble",
         "artista":  "Silvio Rodríguez",
         "album":  "Causas Y Azares",
