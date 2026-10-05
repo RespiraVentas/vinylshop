@@ -1476,5 +1476,37 @@
                   ],
         "id":  "3984122230",
         "vendidoDesde":  "2026-09-28"
+    },
+    {
+        "titulo":  "Celeste Carballo \u0026 Sandra Mihanovich - Mujer Contra Mujer Lp",
+        "artista":  "Celeste Carballo \u0026 Sandra Mihanovich",
+        "album":  "Mujer Contra Mujer",
+        "compania":  "RCA",
+        "anio":  "1990",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  149990,
+        "visitas":  1,
+        "fecha":  "2026-09-30T21:05:06",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-4015407572",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_642689-MLA118530630117_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_949148-MLA116965616886_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_904105-MLA118530372623_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_920987-MLA116965386028_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_747453-MLA118530343191_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_997662-MLA118530458097_092026-F.jpg"
+                     ],
+        "desc":  "Celeste Carballo \u0026 Sandra Mihanovich - Mujer Contra Mujer\nDisco: NM\nTapa: VG+/Ex\n\nCeleste Carballo \u0026 Sandra Mihanovich – Mujer Contra Mujer\nLabel: RCA – TLP-80062\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1990\nGenre: Pop",
+        "ficha":  "4015407572-celeste-carballo-sandra-mihanovich-mujer-contra-mujer.html",
+        "artistaUrl":  "/artista/celeste-carballo.html",
+        "artistaSlug":  "celeste-carballo",
+        "tipos":  [
+
+                  ],
+        "id":  "4015407572",
+        "vendidoDesde":  "2026-10-04"
     }
 ]
