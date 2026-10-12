@@ -589,6 +589,36 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Compilado Dance Time Artistas Varios Vinilo Lp",
+        "artista":  "Varios Artistas",
+        "album":  "Dance Time",
+        "compania":  "CBS",
+        "anio":  "1980",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  35,
+        "fecha":  "2024-01-22T18:09:15",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1640314810",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_708323-MLA74160472893_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_662338-MLA74160464169_012024-F.jpg",
+                         "https://http2.mlstatic.com/D_650057-MLA110526539151_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Estado: VG+",
+        "ficha":  "1640314810-varios-artistas-dance-time.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Compilados"
+                  ],
+        "id":  "1640314810",
+        "vendidoDesde":  "2026-10-12"
+    },
+    {
         "titulo":  "The Beatles - Golden Greatest Hits Vinilo Lp Alemania",
         "artista":  "The Beatles",
         "album":  "Golden Greatest Hits",
@@ -911,6 +941,42 @@
                   ],
         "id":  "2094426554",
         "vendidoDesde":  "2026-09-11"
+    },
+    {
+        "titulo":  "Eagles - The Long Run - Vinilo Lp Usa",
+        "artista":  "Eagles",
+        "album":  "The Long Run",
+        "compania":  "ASYLUM RECORDS",
+        "anio":  "1979",
+        "canciones":  "10",
+        "origen":  "Estados Unidos",
+        "genero":  "Rock",
+        "discos":  "",
+        "precio":  65000,
+        "visitas":  6,
+        "fecha":  "2026-09-19T00:13:05",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2104887073",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_615529-MLA117893168217_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_823269-MLA116393651912_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_925664-MLA117893254703_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_709805-MLA117893168361_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_985096-MLA117893254793_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_622639-MLA117893429547_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_691723-MLA116393739522_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_871050-MLA116393739566_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_719172-MLA116394084716_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_768617-MLA116393622926_092026-F.jpg"
+                     ],
+        "desc":  "Eagles - The Long Run\nDisco: VG+\nTapa Gatefold: Ex\nInsert: VG+\n\nEagles – The Long Run\nLabel: Asylum Records – 5E 508\nFormat: Vinyl, LP, Album\nCountry: US\nReleased: 1979\nGenre: Rock\nStyle: Classic Rock",
+        "ficha":  "2104887073-eagles-the-long-run.html",
+        "artistaUrl":  "/artista/eagles.html",
+        "artistaSlug":  "eagles",
+        "tipos":  [
+
+                  ],
+        "id":  "2104887073",
+        "vendidoDesde":  "2026-10-12"
     },
     {
         "titulo":  "Electric Light Orchestra - Balance Of Power - Vinilo Lp",
