@@ -787,6 +787,40 @@
         "vendidoDesde":  "2026-09-11"
     },
     {
+        "titulo":  "León Gieco - De Ushuaia A La Quiaca 1 - Vinilo Lp",
+        "artista":  "León Gieco",
+        "album":  "De Ushuaia A La Quiaca 1",
+        "compania":  "Music Hall",
+        "anio":  "1985",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "ROCK ARGENTINO",
+        "discos":  "",
+        "precio":  69990,
+        "visitas":  19,
+        "fecha":  "2026-08-18T14:05:42",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2005347919",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_884058-MLA116376388091_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_889978-MLA114991620098_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_945259-MLA116376359543_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_765558-MLA116376475865_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_819314-MLA116376301123_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_858305-MLA114991330964_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_996767-MLA114991301642_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_753580-MLA114991705356_082026-F.jpg"
+                     ],
+        "desc":  "León Gieco - De Ushuaia A La Quiaca 1\nDisco: Ex\nTapa: NM\nInsert: Ex\n\nLeón Gieco – De Ushuaia A La Quiaca 1\nLabel: Music Hall – 50-14.758-7\nFormat: Vinyl, LP, Album\nCountry: Argentina\nReleased: 1985\nGenre: Folk, World, \u0026 Country\nStyle: Folk",
+        "ficha":  "2005347919-leon-gieco-de-ushuaia-a-la-quiaca-1.html",
+        "artistaUrl":  "/artista/leon-gieco.html",
+        "artistaSlug":  "leon-gieco",
+        "tipos":  [
+
+                  ],
+        "id":  "2005347919",
+        "vendidoDesde":  "2026-10-13"
+    },
+    {
         "titulo":  "Pat Metheny Group The Falcon And The Snowman Bowie Aznar Lp",
         "artista":  "Pat Metheny Group",
         "album":  "The Falcon And The Snowman",
