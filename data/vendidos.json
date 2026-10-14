@@ -329,6 +329,36 @@
         "vendidoDesde":  "2026-09-06"
     },
     {
+        "titulo":  "The Mccoys - The Mccoys - Lp Vinilo Hang On Sloopy",
+        "artista":  "The McCoys",
+        "album":  "The McCoys",
+        "compania":  "MICROFON",
+        "anio":  "1965",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  55000,
+        "visitas":  16,
+        "fecha":  "2023-08-31T21:34:50",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1490881198",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_696528-MLA71395890892_082023-F.jpg",
+                         "https://http2.mlstatic.com/D_618757-MLA71440374499_082023-F.jpg",
+                         "https://http2.mlstatic.com/D_865865-MLA110604784469_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "The McCoys - The McCoys \nDsco: VG+\nTapa: VG+\n\nThe McCoys - The McCoys \nSello: Microfon I 279\nFormato: Vinilo, LP, Album, Mono\nPaís: Argentina\nPublicado: 1965\nGénero: Rock Estilo: Blues Rock, Pop Rock",
+        "ficha":  "1490881198-the-mccoys-the-mccoys.html",
+        "artistaUrl":  "/?artista=the-mccoys",
+        "artistaSlug":  "the-mccoys",
+        "tipos":  [
+
+                  ],
+        "id":  "1490881198",
+        "vendidoDesde":  "2026-10-14"
+    },
+    {
         "titulo":  "Jose Larralde - Permiso - Lp Vinilo 1968",
         "artista":  "Jose Larralde",
         "album":  "Permiso",
