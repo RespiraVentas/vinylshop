@@ -118,6 +118,37 @@
         "vendidoDesde":  "2026-08-28"
     },
     {
+        "titulo":  "Alejandro Del Prado - Fotos De Una Ciudad Vinilo Sin Girar",
+        "artista":  "Alejandro Del Prado",
+        "album":  "Fotos De Una Ciudad",
+        "compania":  "Interdisc",
+        "anio":  "1987",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "ROCK ARGENTINO",
+        "discos":  "1",
+        "precio":  79990,
+        "visitas":  11,
+        "fecha":  "2023-02-18T20:09:03",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1350324008",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_633428-MLA110525945169_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_707174-MLA53901542664_022023-F.jpg",
+                         "https://http2.mlstatic.com/D_620605-MLA53901542667_022023-F.jpg",
+                         "https://http2.mlstatic.com/D_600937-MLA110525888271_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Alejandro Del Prado - Fotos De Una Ciudad\nDisco: Mint (Sin uso)\nTapa: VG+/Ex\n\nAlejandro Del Prado - Fotos De Una Ciudad\nSello: Interdisc (5) - DSL 66045\nFormato: Vinyl, LP, Album, Compilation\nPaís: Argentina\nPublicado: 1987\nGénero: Rock, Folk, World, \u0026 Country Estilo: Folk Rock",
+        "ficha":  "1350324008-alejandro-del-prado-fotos-de-una-ciudad.html",
+        "artistaUrl":  "/?artista=alejandro-del-prado",
+        "artistaSlug":  "alejandro-del-prado",
+        "tipos":  [
+
+                  ],
+        "id":  "1350324008",
+        "vendidoDesde":  "2026-10-25"
+    },
+    {
         "titulo":  "New Cowboys - La Fiesta Del Rodeo Toro Salvaje Vinilo Lp",
         "artista":  "New Cowboys",
         "album":  "La fiesta del Rodeo Toro Salvaje",
