@@ -59,6 +59,12 @@ async function init() {
       const match = [...filterGenre.options].find(o => o.value.toLowerCase() === generoParam.toLowerCase());
       if (match) filterGenre.value = match.value;
     }
+    // ?origen=Brasil — lo escribe syncUrl cuando se filtra por origen
+    const origenParam = urlParams.get('origen');
+    if (origenParam) {
+      const matchOri = [...filterOrigin.options].find(o => o.value.toLowerCase() === origenParam.toLowerCase());
+      if (matchOri) filterOrigin.value = matchOri.value;
+    }
     if (ordenParam) {
       const matchSort = [...filterSort.options].find(o => o.value === ordenParam);
       if (matchSort) filterSort.value = matchSort.value;
@@ -187,7 +193,29 @@ function applyFilters() {
   emptyEl.style.display = 'none';
   countEl.textContent = `${filtered.length.toLocaleString('es-AR')} discos`;
   pintarAvisoArtista();
+  safe(syncUrl);
   renderBatch();
+}
+
+// Refleja la búsqueda y los filtros en la dirección (?q=...&genero=...), así
+// lo que se comparte desde el navegador es lo que se está viendo. Usa
+// replaceState: no agrega pasos al historial, "Atrás" sigue saliendo del sitio
+// como antes. Solo toca sus propios parámetros (deja ?id= y cualquier otro).
+function syncUrl() {
+  const u = new URL(window.location);
+  const poner = (clave, valor) => {
+    if (valor) u.searchParams.set(clave, valor);
+    else       u.searchParams.delete(clave);
+  };
+  poner('q',       searchInput.value.trim());
+  poner('genero',  filterGenre.value);
+  poner('origen',  filterOrigin.value);
+  poner('decada',  filterDecade.value);
+  poner('tipo',    filterTipo.value);
+  poner('artista', artistaFiltro);
+  // "Más recientes" es el orden por defecto: no hace falta escribirlo
+  poner('orden',   filterSort.value === 'new' ? '' : filterSort.value);
+  if (u.href !== window.location.href) history.replaceState(null, '', u);
 }
 
 // Cuando se entra por ?artista=..., avisa qué se está viendo y da la salida.
