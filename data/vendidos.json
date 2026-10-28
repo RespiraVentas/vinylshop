@@ -179,6 +179,42 @@
         "vendidoDesde":  "2026-10-26"
     },
     {
+        "titulo":  "Donna Summer - Chicas Malas Bad Girls Vinilo Doble Lp",
+        "artista":  "DONNA SUMMER",
+        "album":  "Bad Girls",
+        "compania":  "Casablanca",
+        "anio":  "1979",
+        "canciones":  "15",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "2",
+        "precio":  49990,
+        "visitas":  25,
+        "fecha":  "2023-05-31T19:48:40",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1371645095",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_983602-MLA69742323763_052023-F.jpg",
+                         "https://http2.mlstatic.com/D_941758-MLA110526153061_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_794716-MLA69742323779_052023-F.jpg",
+                         "https://http2.mlstatic.com/D_610850-MLA113266132330_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_915816-MLA109643587172_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_723998-MLA113265667198_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_705000-MLA109643616962_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_703176-MLA110604313155_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_825188-MLA69726882652_052023-F.jpg",
+                         "https://http2.mlstatic.com/D_785284-MLA110604636685_042026-F.jpg"
+                     ],
+        "desc":  "Donna Summer - Chicas Malas = Bad Girls\nDiscos: VG+ y VG+\nTapa Gatefold: Ex\n\nDonna Summer - Chicas Malas = Bad Girls\nSello: Casablanca - 9128020/21, Casablanca - 6069/70\nFormato: 2 x Vinilo, LP, Album, Gatefold\nPaís: Argentina\nPublicado: 1979\nGénero: Funk / Soul Estilo: Soul, Disco",
+        "ficha":  "1371645095-donna-summer-bad-girls.html",
+        "artistaUrl":  "/artista/donna-summer.html",
+        "artistaSlug":  "donna-summer",
+        "tipos":  [
+
+                  ],
+        "id":  "1371645095",
+        "vendidoDesde":  "2026-10-27"
+    },
+    {
         "titulo":  "New Cowboys - La Fiesta Del Rodeo Toro Salvaje Vinilo Lp",
         "artista":  "New Cowboys",
         "album":  "La fiesta del Rodeo Toro Salvaje",
