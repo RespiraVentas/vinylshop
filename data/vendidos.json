@@ -365,6 +365,36 @@
         "vendidoDesde":  "2026-10-02"
     },
     {
+        "titulo":  "Van Halen - Mujeres Y Niños Primero Women And Children First",
+        "artista":  "Van Halen",
+        "album":  "Mujeres y Niños Primero",
+        "compania":  "Warner Bros",
+        "anio":  "1980",
+        "canciones":  "9",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  55000,
+        "visitas":  14,
+        "fecha":  "2024-06-17T21:32:39",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1433367591",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_717013-MLA77075705683_062024-F.jpg",
+                         "https://http2.mlstatic.com/D_904260-MLA110526197195_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_681301-MLA110526197179_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Van Halen - Mujeres Y Niños Primero\nDisco: VG+\nTapa: Ex\n\nVan Halen – Mujeres Y Niños Primero\nLabel: Warner Bros. Records – 208801\nFormat: \nVinyl, LP, Album, First edition\nCountry: Argentina\nReleased: 1980\nGenre: Rock\nStyle: Hard Rock",
+        "ficha":  "1433367591-van-halen-mujeres-y-ninos-primero.html",
+        "artistaUrl":  "/?artista=van-halen",
+        "artistaSlug":  "van-halen",
+        "tipos":  [
+
+                  ],
+        "id":  "1433367591",
+        "vendidoDesde":  "2026-10-29"
+    },
+    {
         "titulo":  "Los Galos - El Sonido De Los Galos - Lp Vinilo",
         "artista":  "LOS GALOS",
         "album":  "EL SONIDO DE LOS GALOS",
@@ -424,6 +454,37 @@
                   ],
         "id":  "1474975117",
         "vendidoDesde":  "2026-09-06"
+    },
+    {
+        "titulo":  "Almendra - Almendra - Vinilo Lp Época - Spinetta Del Guercio",
+        "artista":  "Almendra",
+        "album":  "ALMENDRA",
+        "compania":  "RCA Vik",
+        "anio":  "1973",
+        "canciones":  "9",
+        "origen":  "Argentina",
+        "genero":  "ROCK ARGENTINO",
+        "discos":  "1",
+        "precio":  150000,
+        "visitas":  125,
+        "fecha":  "2025-04-07T21:54:17",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1487718589",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_990615-MLA110526702585_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_838971-MLA83600075495_042025-F.jpg",
+                         "https://http2.mlstatic.com/D_615127-MLA110526524191_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_844913-MLA83599997299_042025-F.jpg",
+                         "https://http2.mlstatic.com/D_880070-MLA112470205793_052026-F.jpg"
+                     ],
+        "desc":  "Almendra - Almendra\nDisco: VG/VG+ (Muy poca fritura)\nTapa: VG+\nInsert: No\n\nAlmendra – Almendra\nSello:\nRCA Vik – LZ-1160\nFormato:\nVinilo, LP, Album, Reissue, Mono, Pseudo Stereo\nPaís:\nArgentina\nPublicado:\n1973\nGénero:\nRock\nEstilo:\nProg Rock, Folk Rock, Classic Rock, Psychedelic Rock, Baroque Pop",
+        "ficha":  "1487718589-almendra-almendra.html",
+        "artistaUrl":  "/?artista=almendra",
+        "artistaSlug":  "almendra",
+        "tipos":  [
+
+                  ],
+        "id":  "1487718589",
+        "vendidoDesde":  "2026-10-29"
     },
     {
         "titulo":  "The Mccoys - The Mccoys - Lp Vinilo Hang On Sloopy",
