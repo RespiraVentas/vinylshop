@@ -1417,6 +1417,37 @@
         "vendidoDesde":  "2026-10-12"
     },
     {
+        "titulo":  "Compilado - Top Mix 3 Missing You Can\u0027t Get Enough Lp Brasil",
+        "artista":  "Varios Artistas",
+        "album":  "Top Mix 3",
+        "compania":  "Luxo",
+        "anio":  "1991",
+        "canciones":  "8",
+        "origen":  "Brasil",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  2,
+        "fecha":  "2026-10-21T21:33:14",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2222481453",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_801385-MLA118312789340_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_973549-MLA118312673462_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_740670-MLA119959927065_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_634098-MLA118312730336_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_935131-MLA119960192395_102026-F.jpg"
+                     ],
+        "desc":  "Compilado - Top Mix 3\nDisco: VG+\nTapa Genérica: VG\n\nCompilado – Top Mix 3\nLabel: Luxo – 8991SV-3\nFormat: Vinyl, 12\", 33 1/3 RPM, Compilation, Unofficial Release\nCountry: Brazil\nReleased: 1991\nGenre: Electronic, Hip Hop, Funk / Soul, Pop\nStyle: Euro House, House",
+        "ficha":  "2222481453-varios-artistas-top-mix-3.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Compilados"
+                  ],
+        "id":  "2222481453",
+        "vendidoDesde":  "2026-10-30"
+    },
+    {
         "titulo":  "Electric Light Orchestra - Balance Of Power - Vinilo Lp",
         "artista":  "Electric Light Orchestra",
         "album":  "Balance Of Power",
@@ -2181,6 +2212,36 @@
         "vendidoDesde":  "2026-10-28"
     },
     {
+        "titulo":  "Maxi Soundfactory - Good Time - Vinilo Usa",
+        "artista":  "SoundFactory",
+        "album":  "Good Time",
+        "compania":  "RCA",
+        "anio":  "1994",
+        "canciones":  "5",
+        "origen":  "Estados Unidos",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  59990,
+        "visitas":  9,
+        "fecha":  "2026-09-05T17:33:41",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3917727840",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_814443-MLA117251541089_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_998465-MLA115794481956_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_896851-MLA115794507436_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_935096-MLA115794362268_092026-F.jpg"
+                     ],
+        "desc":  "SoundFactory - Good Time\nDisco: VG+\nTapa: VG+\n\nSoundFactory – Good Time\nLabel: RCA – RDAB-62839-1\nFormat: Vinyl, 12\", Promo\nCountry: US\nReleased: 1994\nGenre: Electronic\nStyle: House, Euro House",
+        "ficha":  "3917727840-soundfactory-good-time.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "soundfactory",
+        "tipos":  [
+                      "Maxi singles"
+                  ],
+        "id":  "3917727840",
+        "vendidoDesde":  "2026-10-30"
+    },
+    {
         "titulo":  "Carlos  La Mona  Jiménez - En Vivo - Vinilo Lp",
         "artista":  "Carlos \"La Mona\" Jiménez",
         "album":  "En Vivo!",
@@ -2276,5 +2337,35 @@
                   ],
         "id":  "4110733704",
         "vendidoDesde":  "2026-10-27"
+    },
+    {
+        "titulo":  "Maxi - Metromix - Dr. Alban Terra Wan Suite Feat Vinilo",
+        "artista":  "Varios Artistas",
+        "album":  "Metromix",
+        "compania":  "Metromix",
+        "anio":  "1992",
+        "canciones":  "8",
+        "origen":  "Argentina",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  55000,
+        "visitas":  1,
+        "fecha":  "2026-10-23T01:55:56",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-4116938240",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_611100-MLA118392392030_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_619947-MLA118391804396_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_809429-MLA118391894236_102026-F.jpg",
+                         "https://http2.mlstatic.com/D_913492-MLA118391834368_102026-F.jpg"
+                     ],
+        "desc":  "Maxi - Metromix\nDisco: VG+\nTapa Genérica: VG+\n\nCompilado – \nLabel: Metromix – 132.861\nFormat: Vinyl, LP\nReleased: 1992\nGenre: Dance",
+        "ficha":  "4116938240-varios-artistas-metromix.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Maxi singles"
+                  ],
+        "id":  "4116938240",
+        "vendidoDesde":  "2026-10-30"
     }
 ]
