@@ -548,6 +548,41 @@
         "vendidoDesde":  "2026-09-27"
     },
     {
+        "titulo":  "Bob Dylan - Desire - Vinilo Lp Promo Excelente",
+        "artista":  "Bob Dylan",
+        "album":  "DESIRE",
+        "compania":  "CBS",
+        "anio":  "1975",
+        "canciones":  "9",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  55000,
+        "visitas":  12,
+        "fecha":  "2025-10-22T21:48:14",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1564616861",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_634207-MLA110528129081_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_923515-MLA95533531672_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_619228-MLA109644872774_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_917495-MLA95533637198_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_700359-MLA95973875393_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_688103-MLA95973855861_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_774861-MLA95533667076_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_904504-MLA95973732779_102025-F.jpg",
+                         "https://http2.mlstatic.com/D_972480-MLA95533676564_102025-F.jpg"
+                     ],
+        "desc":  "Bob Dylan - Desire (Promo)\nDisco: Ex (algunas marcas sólo estéticas en Lado B)\nTapa Gatefold: VG+\n\nBob Dylan – Desire\nSello: CBS – 10.075\nFormato: Vinilo, LP, Album\nPaís: Argentina\nPublicado: 1975\nGénero: Rock, Folk, World, \u0026 Country\nEstilo: Folk Rock",
+        "ficha":  "1564616861-bob-dylan-desire.html",
+        "artistaUrl":  "/artista/bob-dylan.html",
+        "artistaSlug":  "bob-dylan",
+        "tipos":  [
+
+                  ],
+        "id":  "1564616861",
+        "vendidoDesde":  "2026-11-01"
+    },
+    {
         "titulo":  "Luis Miguel - Romance - Vinilo Lp Europa Alemania Época 1991",
         "artista":  "Luis Miguel",
         "album":  "Romance",
@@ -2120,6 +2155,38 @@
                   ],
         "id":  "3688212008",
         "vendidoDesde":  "2026-10-13"
+    },
+    {
+        "titulo":  "Roberto Goyeneche - Goyeneche Interpreta A Manzi - Vinilo Lp",
+        "artista":  "Roberto Goyeneche",
+        "album":  "Goyeneche interpreta A: Manzi",
+        "compania":  "RCA Victor",
+        "anio":  "1975",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Tango",
+        "discos":  "",
+        "precio":  85000,
+        "visitas":  8,
+        "fecha":  "2026-08-10T19:51:08",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3763839978",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_968080-MLA115905675751_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_621207-MLA115906108923_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_679904-MLA114548159358_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_843528-MLA114548302744_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_704745-MLA114548445706_082026-F.jpg",
+                         "https://http2.mlstatic.com/D_853279-MLA115906107781_082026-F.jpg"
+                     ],
+        "desc":  "Roberto Goyeneche \u0026 Aníbal Troilo \u0026 Armando Pontier \u0026 Trio Baffa - Berlingieri \u0026 Atilio Stampone - Goyeneche interpreta A: Manzi\nDisco: VG+/Ex\nTapa: VG+/Ex\n\nRoberto Goyeneche \u0026 Aníbal Troilo \u0026 Armando Pontier \u0026 Trio Baffa - Berlingieri \u0026 Atilio Stampone – Goyeneche interpreta A: Manzi\nLabel: RCA Victor – AVS-4272\nFormat: Vinyl, LP, Compilation, Stereo\nCountry: Argentina\nGenre: Latin\nStyle: Tango",
+        "ficha":  "3763839978-roberto-goyeneche-goyeneche-interpreta-a-manzi.html",
+        "artistaUrl":  "/artista/roberto-goyeneche.html",
+        "artistaSlug":  "roberto-goyeneche",
+        "tipos":  [
+
+                  ],
+        "id":  "3763839978",
+        "vendidoDesde":  "2026-11-01"
     },
     {
         "titulo":  "Billy Joel - Frente De Tormenta - Storm Front - Vinilo Lp",
