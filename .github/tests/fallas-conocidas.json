@@ -1,0 +1,16 @@
+{
+  "_ayuda": "Errores reales del sitio que ya se conocen y todavía no se arreglaron. Mientras figuren acá se muestran como aviso y no hacen fallar el flujo de GitHub. Cuando se arreglen, el informe avisa que se pueden borrar de esta lista. Ver .github/TESTS.md.",
+  "verificador": [
+    {
+      "regla": "datos-anio",
+      "patron": "1937331452",
+      "motivo": "Javier Solís y el Trío Los Panchos – Juntos! (MLA1937331452) tiene año \"11\" en el Excel: no entra en ningún filtro de década."
+    },
+    {
+      "regla": "datos-genero-repetido",
+      "patron": "Banda [dD]e Sonido",
+      "motivo": "El género \"Banda De Sonido\" (1 disco: Dimitri Papadopoulos – Grandes éxitos del cine, MLA4120859778) está escrito distinto de \"Banda de Sonido\": el filtro de géneros muestra las dos opciones."
+    }
+  ],
+  "navegador": []
+}
