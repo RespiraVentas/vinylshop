@@ -120,11 +120,10 @@ function sinAcentos(s) {
 // se encuentra con "uh huh". Así también da igual si el celular escribe el
 // apóstrofo recto (') o el curvo (’).
 function paraBuscar(s) {
-  return sinAcentos(s)
-    .replace(/['’‘`´.]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, ' ')
-    .trim();
+  return separarSignos(sinApostrofos(sinAcentos(s)));
 }
+function sinApostrofos(s)  { return s.replace(/['’‘`´.]/g, ''); }
+function separarSignos(s)  { return s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
 
 // Palabras de la búsqueda, listas para comparar. Un texto que es solo signos
 // ("%", "###") no deja palabras y equivale a no buscar nada.
@@ -152,18 +151,27 @@ function normalize(r) {
   const m = (r.url || '').match(/MLA-?(\d+)/);
   const mlid = m ? m[1] : '';
 
-  // Texto contra el que busca el catálogo, ya sin acentos. Se calcula una vez
-  // por disco al cargar y no en cada tecla, que serían 3.900 conversiones por
-  // letra tipeada.
-  // Además de las palabras sueltas, se agrega cada palabra original con los
-  // signos pegados ("AC/DC" → "acdc", "Uh-Huh" → "uhhuh"), para que también
-  // aparezca si alguien la escribe todo junto.
-  const texto = `${r.titulo || ''} ${artista || ''} ${r.album || ''}`;
-  const pegadas = texto.split(/\s+/).map(paraBuscar)
-    .filter(p => p.includes(' ')).map(p => p.replace(/ /g, ''));
-  const busq = ` ${paraBuscar(texto)} ${pegadas.join(' ')} `;
+  return { ...r, artista, disco, tapa, mlid };
+}
 
-  return { ...r, artista, disco, tapa, mlid, busq };
+// Texto contra el que busca el catálogo, ya sin acentos ni signos. Se arma
+// una sola vez por disco y queda guardado, para no repetir 4.000 conversiones
+// por letra tipeada. Y se arma recién la primera vez que alguien busca: la
+// mayoría de las visitas no usa el buscador y en un celular lento prepararlo
+// al abrir la página demoraba la grilla.
+// Además de las palabras sueltas, se agrega cada palabra original con los
+// signos pegados ("AC/DC" → "acdc", "Uh-Huh" → "uhhuh"), para que también
+// aparezca si alguien la escribe todo junto.
+function textoBusqueda(r) {
+  if (r.busq === undefined) {
+    const base = sinApostrofos(sinAcentos(`${r.titulo || ''} ${r.artista || ''} ${r.album || ''}`));
+    const pegadas = base.split(' ')
+      .filter(w => /[^\p{L}\p{N}]/u.test(w))
+      .map(w => w.replace(/[^\p{L}\p{N}]+/gu, ''))
+      .filter(Boolean);
+    r.busq = ` ${separarSignos(base)} ${pegadas.join(' ')} `;
+  }
+  return r.busq;
 }
 
 function populateSelects() {
@@ -190,7 +198,7 @@ function applyFilters() {
   const sort = filterSort.value;
 
   filtered = allRecords.filter(r => {
-    if (qPalabras.length && !qPalabras.every(p => (r.busq || '').includes(p))) return false;
+    if (qPalabras.length && !qPalabras.every(p => textoBusqueda(r).includes(p))) return false;
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
     if (tipo && !(r.tipos || []).includes(tipo)) return false;
