@@ -1,0 +1,4 @@
+# Lo que generan los tests al correr: no se sube al repo.
+node_modules/
+test-results/
+playwright-report/

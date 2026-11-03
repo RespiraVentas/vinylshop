@@ -1,0 +1,69 @@
+name: Tests del sitio
+
+# Corre los tests en cada pull request contra main (y a mano desde la pestaña
+# Actions). NO corre en los push a main: la actualización automática del
+# catálogo (actualizar.ps1) sube directo a main y este flujo no la frena ni la
+# demora. Tampoco publica nada ni escribe en el repositorio: solo lee.
+# Explicación completa en .github/TESTS.md.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Si se sube otro cambio al mismo pull request, cancela la corrida anterior.
+# Grupo propio: no comparte cola con el deploy ("pages").
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: .github/tests
+
+jobs:
+  verificador:
+    name: Verificador del sitio (links, imágenes, datos, JSON-LD, sitemaps)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # No necesita instalar nada: usa solo lo que trae Node.
+      - run: node verificar-sitio.js
+
+  navegador:
+    name: Navegador (escritorio y celular)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: .github/tests/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      # Si algo falla, deja el informe con capturas para mirarlo (se baja desde
+      # la corrida en la pestaña Actions; no se publica en el sitio).
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: informe-navegador
+          path: |
+            .github/tests/playwright-report/
+            .github/tests/test-results/
+          retention-days: 14
+          # La carpeta está dentro de .github (oculta): sin esto no se sube nada.
+          include-hidden-files: true

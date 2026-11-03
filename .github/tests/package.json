@@ -1,0 +1,14 @@
+{
+  "name": "vinylshop-tests",
+  "private": true,
+  "description": "Tests automáticos del sitio. No se publican: GitHub Pages no sube la carpeta .github.",
+  "scripts": {
+    "test": "npm run verificar && npm run navegador",
+    "verificar": "node verificar-sitio.js",
+    "navegador": "playwright test",
+    "servidor": "node servidor.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}
