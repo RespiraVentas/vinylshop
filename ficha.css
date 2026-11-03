@@ -12,7 +12,9 @@
   --ml:        #ffe600;
   --ml-dark:   #f0d800;
   --text:      #111111;
-  --muted:     #888;
+  /* Era #888: sobre blanco no llegaba al contraste mínimo de lectura (3,5:1;
+     hace falta 4,5:1). #707070 se ve casi igual. Mismo valor que style.css. */
+  --muted:     #707070;
   --border:    #e5e5e5;
   --bg:        #ffffff;
   --surface:   #f7f7f7;
@@ -68,6 +70,10 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 .f-breadcrumb a:hover { color: var(--red); }
+/* Los links de las migas miden 16 px de alto: difíciles de tocar con el
+   dedo. El relleno vertical agranda la zona táctil sin mover nada (en un
+   elemento en línea no cambia la altura del renglón). */
+.f-breadcrumb a { padding: 6px 0; }
 .f-breadcrumb span { margin: 0 6px; opacity: .5; }
 
 /* ── Layout ─────────────────────────────────────────────────────────────── */
@@ -171,7 +177,7 @@ h1.f-title {
 
 .f-sep {
   text-align: center; position: relative;
-  margin: 16px 0; color: #bbb;
+  margin: 16px 0; color: var(--muted);
   font-size: 11px; letter-spacing: .5px; text-transform: uppercase;
 }
 .f-sep::before, .f-sep::after {
@@ -361,6 +367,8 @@ h1.h-titulo {
 }
 .f-footer-inner a:hover { color: var(--text); }
 .f-footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+/* Zona táctil de al menos 32 px de alto sin cambiar el aspecto del pie. */
+.f-footer-links a { padding: 6px 0; margin: -6px 0; }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 760px) {
