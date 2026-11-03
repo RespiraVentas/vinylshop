@@ -93,7 +93,7 @@ async function init() {
     const idParam = urlParams.get('id');
     if (idParam) {
       const idNum = idParam.replace(/\D/g, '');
-      const rec = allRecords.find(r => r.mlid === idNum);
+      const rec = idNum && allRecords.find(r => r.mlid === idNum);
       if (rec) openModal(rec);
     }
   } catch (e) {
@@ -111,6 +111,25 @@ function sinAcentos(s) {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase();
+}
+
+// Deja el texto listo para comparar en el buscador: sin acentos y sin signos.
+// Apóstrofos y puntos se borran pegando las letras ("D'Arienzo" → "darienzo",
+// "B.B. Muñoz" → "bb munoz"), porque la gente los omite al tipear. El resto
+// de los signos (guiones, barras, &, comillas…) separan palabras: "Uh-Huh"
+// se encuentra con "uh huh". Así también da igual si el celular escribe el
+// apóstrofo recto (') o el curvo (’).
+function paraBuscar(s) {
+  return sinAcentos(s)
+    .replace(/['’‘`´.]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+// Palabras de la búsqueda, listas para comparar. Un texto que es solo signos
+// ("%", "###") no deja palabras y equivale a no buscar nada.
+function palabrasBusqueda(q) {
+  return paraBuscar(q).split(' ').filter(Boolean);
 }
 
 function normalize(r) {
@@ -136,7 +155,13 @@ function normalize(r) {
   // Texto contra el que busca el catálogo, ya sin acentos. Se calcula una vez
   // por disco al cargar y no en cada tecla, que serían 3.900 conversiones por
   // letra tipeada.
-  const busq = sinAcentos(`${r.titulo || ''} ${artista || ''} ${r.album || ''}`);
+  // Además de las palabras sueltas, se agrega cada palabra original con los
+  // signos pegados ("AC/DC" → "acdc", "Uh-Huh" → "uhhuh"), para que también
+  // aparezca si alguien la escribe todo junto.
+  const texto = `${r.titulo || ''} ${artista || ''} ${r.album || ''}`;
+  const pegadas = texto.split(/\s+/).map(paraBuscar)
+    .filter(p => p.includes(' ')).map(p => p.replace(/ /g, ''));
+  const busq = ` ${paraBuscar(texto)} ${pegadas.join(' ')} `;
 
   return { ...r, artista, disco, tapa, mlid, busq };
 }
@@ -156,7 +181,7 @@ function applyFilters() {
   // Se busca palabra por palabra y no la frase entera, para que el orden no
   // importe: "gieco leon" encuentra lo mismo que "leon gieco". Pasa sobre todo
   // cuando alguien pega un texto copiado de otro lado.
-  const qPalabras = sinAcentos(searchInput.value.trim()).split(/\s+/).filter(Boolean);
+  const qPalabras = palabrasBusqueda(searchInput.value);
   const genre  = filterGenre.value;
   const origin = filterOrigin.value;
   const decade = filterDecade.value ? parseInt(filterDecade.value, 10) : null;
@@ -191,7 +216,9 @@ function applyFilters() {
   displayed = 0;
   grid.innerHTML = '';
   emptyEl.style.display = 'none';
-  countEl.textContent = `${filtered.length.toLocaleString('es-AR')} discos`;
+  countEl.textContent = filtered.length === 1
+    ? '1 disco'
+    : `${filtered.length.toLocaleString('es-AR')} discos`;
   pintarAvisoArtista();
   safe(syncUrl);
   renderBatch();
@@ -242,9 +269,15 @@ function pintarAvisoArtista() {
   });
 }
 
+// Si los filtros cambian dos veces antes de que se dibuje la grilla (dos
+// cambios seguidos de orden, por ejemplo), se descarta el dibujo pendiente:
+// si no, se pintaban los dos lotes y aparecían 120 discos en vez de 60.
+let lotePendiente = 0;
+
 function renderBatch() {
   loadingEl.style.display = 'flex';
-  requestAnimationFrame(() => {
+  cancelAnimationFrame(lotePendiente);
+  lotePendiente = requestAnimationFrame(() => {
     const batch = filtered.slice(displayed, displayed + PAGE_SIZE);
 
     if (batch.length === 0 && displayed === 0) {
