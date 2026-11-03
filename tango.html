@@ -83,6 +83,9 @@
     padding: 88px 32px 72px;
     max-width: 960px; margin: 0 auto;
     text-align: center; position: relative;
+    /* El brillo decorativo de atrás mide 600-700 px: sin esto, en el celular
+       la página entera se corría de costado. */
+    overflow: hidden;
   }
   .hero::before {
     content: '';
@@ -388,7 +391,10 @@
     .escuela { padding: 40px 24px; }
     .momentos-section, .porq-section { padding: 52px 20px; }
     .estilos-section { padding: 52px 20px; }
-    .stat { padding: 18px 20px; min-width: 130px; }
+    /* Dos datos por renglón en pantallas chicas. Con min-width: 130px, entre
+       390 y 430 px entraban tres y palabras como "Original" no cabían,
+       empujando la página de costado. */
+    .stat { padding: 18px 20px; flex: 1 1 40%; min-width: 0; }
     .cta-inner { padding: 56px 20px; }
     .frase-section { padding: 52px 20px; }
     footer { padding: 20px; flex-direction: column; }
