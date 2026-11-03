@@ -69272,6 +69272,39 @@
                   ]
     },
     {
+        "titulo":  "Caetano Gal Gil Bethania - Doces Bárbaros - Lp Doble Brasil",
+        "artista":  "Caetano, Gal, Gil \u0026 Bethânia",
+        "album":  "Doce Bárbaros",
+        "compania":  "Philips",
+        "anio":  "1976",
+        "canciones":  "18",
+        "origen":  "Brasil",
+        "genero":  "MPB",
+        "discos":  "2",
+        "precio":  84000,
+        "visitas":  13,
+        "fecha":  "2025-09-14T01:16:09",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2351465942",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_603803-MLA92407425569_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_864158-MLA109717317746_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_653544-MLA119000055338_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_801088-MLA118999081490_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_801065-MLA110605243999_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_946369-MLA92407242369_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_774088-MLA92407242455_092025-F.jpg",
+                         "https://http2.mlstatic.com/D_715562-MLA109645016262_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_985038-MLA109717054128_042026-F.jpg"
+                     ],
+        "desc":  "Caetano Gal Gil Bethania - Doces Bárbaros - Doble Brasil\nDiscos: VG/VG+ y VG/VG+ (Algo de fritura, sin saltos ni repeticiones, totalmente disfrutable)\nTapa Gatefold: VG\n\nCaetano*, Gal*, Gil*, Bethânia* – Doces Bárbaros (Doble, Brasil)\nSello:\nPhilips – 6349 307, Philips – 6349 308\nFormato:\n2 x Vinilo, LP, Album, Gatefold\nPaís:\nBrazil\nPublicado:\n1976\nGénero:\nRock, Latin, Folk, World, \u0026 Country\nEstilo:\nMPB",
+        "ficha":  "2351465942-caetano-gal-gil-bethania-doce-barbaros.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "caetano-gal-gil-bethania",
+        "tipos":  [
+
+                  ]
+    },
+    {
         "titulo":  "Falco - Falco 3 - Contiene Rock Me Amadeus Vinilo Lp",
         "artista":  "FALCO",
         "album":  "Falco 3",
@@ -74945,6 +74978,35 @@
         "ficha":  "2532907230-pepito-perez-pisando-fuerte.html",
         "artistaUrl":  "/artista/pepito-perez.html",
         "artistaSlug":  "pepito-perez",
+        "tipos":  [
+
+                  ]
+    },
+    {
+        "titulo":  "Platino - El Cordobaile - Vinilo Lp Impecable!",
+        "artista":  "Platino",
+        "album":  "El Cordobaile",
+        "compania":  "RCA",
+        "anio":  "1989",
+        "canciones":  "33",
+        "origen":  "Argentina",
+        "genero":  "Cumbia y Cuarteto",
+        "discos":  "1",
+        "precio":  55000,
+        "visitas":  9,
+        "fecha":  "2025-11-04T00:05:31",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-2533075458",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_894899-MLA118999548224_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_680543-MLA96682784354_112025-F.jpg",
+                         "https://http2.mlstatic.com/D_809592-MLA109716996492_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_636183-MLA109645021282_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_854100-MLA97138455981_112025-F.jpg"
+                     ],
+        "desc":  "Platino - El Cordobaile \nDisco: NM \nTapa: VG+/Ex",
+        "ficha":  "2533075458-platino-el-cordobaile.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "platino",
         "tipos":  [
 
                   ]
@@ -121405,7 +121467,7 @@
         "anio":  "1984",
         "canciones":  "10",
         "origen":  "Argentina",
-        "genero":  "Rock",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  55000,
         "visitas":  0,
@@ -121465,7 +121527,7 @@
         "anio":  "1975",
         "canciones":  "8",
         "origen":  "Argentina",
-        "genero":  "Rock",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  33000,
         "visitas":  0,
@@ -121495,7 +121557,7 @@
         "anio":  "1975",
         "canciones":  "8",
         "origen":  "Argentina",
-        "genero":  "Rock",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  35000,
         "visitas":  0,
@@ -121525,7 +121587,7 @@
         "anio":  "1979",
         "canciones":  "8",
         "origen":  "Argentina",
-        "genero":  "Rock",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  150000,
         "visitas":  1,
@@ -121557,7 +121619,7 @@
         "anio":  "1971",
         "canciones":  "8",
         "origen":  "Argentina",
-        "genero":  "Rock",
+        "genero":  "ROCK ARGENTINO",
         "discos":  "",
         "precio":  145000,
         "visitas":  1,
