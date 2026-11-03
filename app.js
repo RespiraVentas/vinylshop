@@ -93,7 +93,7 @@ async function init() {
     const idParam = urlParams.get('id');
     if (idParam) {
       const idNum = idParam.replace(/\D/g, '');
-      const rec = allRecords.find(r => r.mlid === idNum);
+      const rec = idNum && allRecords.find(r => r.mlid === idNum);
       if (rec) openModal(rec);
     }
   } catch (e) {
@@ -111,6 +111,24 @@ function sinAcentos(s) {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase();
+}
+
+// Deja el texto listo para comparar en el buscador: sin acentos y sin signos.
+// Apóstrofos y puntos se borran pegando las letras ("D'Arienzo" → "darienzo",
+// "B.B. Muñoz" → "bb munoz"), porque la gente los omite al tipear. El resto
+// de los signos (guiones, barras, &, comillas…) separan palabras: "Uh-Huh"
+// se encuentra con "uh huh". Así también da igual si el celular escribe el
+// apóstrofo recto (') o el curvo (’).
+function paraBuscar(s) {
+  return separarSignos(sinApostrofos(sinAcentos(s)));
+}
+function sinApostrofos(s)  { return s.replace(/['’‘`´.]/g, ''); }
+function separarSignos(s)  { return s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
+
+// Palabras de la búsqueda, listas para comparar. Un texto que es solo signos
+// ("%", "###") no deja palabras y equivale a no buscar nada.
+function palabrasBusqueda(q) {
+  return paraBuscar(q).split(' ').filter(Boolean);
 }
 
 function normalize(r) {
@@ -133,12 +151,27 @@ function normalize(r) {
   const m = (r.url || '').match(/MLA-?(\d+)/);
   const mlid = m ? m[1] : '';
 
-  // Texto contra el que busca el catálogo, ya sin acentos. Se calcula una vez
-  // por disco al cargar y no en cada tecla, que serían 3.900 conversiones por
-  // letra tipeada.
-  const busq = sinAcentos(`${r.titulo || ''} ${artista || ''} ${r.album || ''}`);
+  return { ...r, artista, disco, tapa, mlid };
+}
 
-  return { ...r, artista, disco, tapa, mlid, busq };
+// Texto contra el que busca el catálogo, ya sin acentos ni signos. Se arma
+// una sola vez por disco y queda guardado, para no repetir 4.000 conversiones
+// por letra tipeada. Y se arma recién la primera vez que alguien busca: la
+// mayoría de las visitas no usa el buscador y en un celular lento prepararlo
+// al abrir la página demoraba la grilla.
+// Además de las palabras sueltas, se agrega cada palabra original con los
+// signos pegados ("AC/DC" → "acdc", "Uh-Huh" → "uhhuh"), para que también
+// aparezca si alguien la escribe todo junto.
+function textoBusqueda(r) {
+  if (r.busq === undefined) {
+    const base = sinApostrofos(sinAcentos(`${r.titulo || ''} ${r.artista || ''} ${r.album || ''}`));
+    const pegadas = base.split(' ')
+      .filter(w => /[^\p{L}\p{N}]/u.test(w))
+      .map(w => w.replace(/[^\p{L}\p{N}]+/gu, ''))
+      .filter(Boolean);
+    r.busq = ` ${separarSignos(base)} ${pegadas.join(' ')} `;
+  }
+  return r.busq;
 }
 
 function populateSelects() {
@@ -156,7 +189,7 @@ function applyFilters() {
   // Se busca palabra por palabra y no la frase entera, para que el orden no
   // importe: "gieco leon" encuentra lo mismo que "leon gieco". Pasa sobre todo
   // cuando alguien pega un texto copiado de otro lado.
-  const qPalabras = sinAcentos(searchInput.value.trim()).split(/\s+/).filter(Boolean);
+  const qPalabras = palabrasBusqueda(searchInput.value);
   const genre  = filterGenre.value;
   const origin = filterOrigin.value;
   const decade = filterDecade.value ? parseInt(filterDecade.value, 10) : null;
@@ -165,7 +198,7 @@ function applyFilters() {
   const sort = filterSort.value;
 
   filtered = allRecords.filter(r => {
-    if (qPalabras.length && !qPalabras.every(p => (r.busq || '').includes(p))) return false;
+    if (qPalabras.length && !qPalabras.every(p => textoBusqueda(r).includes(p))) return false;
     if (genre  && r.genero !== genre)  return false;
     if (origin && r.origen !== origin) return false;
     if (tipo && !(r.tipos || []).includes(tipo)) return false;
@@ -191,7 +224,9 @@ function applyFilters() {
   displayed = 0;
   grid.innerHTML = '';
   emptyEl.style.display = 'none';
-  countEl.textContent = `${filtered.length.toLocaleString('es-AR')} discos`;
+  countEl.textContent = filtered.length === 1
+    ? '1 disco'
+    : `${filtered.length.toLocaleString('es-AR')} discos`;
   pintarAvisoArtista();
   safe(syncUrl);
   renderBatch();
@@ -242,9 +277,15 @@ function pintarAvisoArtista() {
   });
 }
 
+// Si los filtros cambian dos veces antes de que se dibuje la grilla (dos
+// cambios seguidos de orden, por ejemplo), se descarta el dibujo pendiente:
+// si no, se pintaban los dos lotes y aparecían 120 discos en vez de 60.
+let lotePendiente = 0;
+
 function renderBatch() {
   loadingEl.style.display = 'flex';
-  requestAnimationFrame(() => {
+  cancelAnimationFrame(lotePendiente);
+  lotePendiente = requestAnimationFrame(() => {
     const batch = filtered.slice(displayed, displayed + PAGE_SIZE);
 
     if (batch.length === 0 && displayed === 0) {
@@ -255,12 +296,14 @@ function renderBatch() {
     }
 
     const frag = document.createDocumentFragment();
-    batch.forEach(r => frag.appendChild(createCard(r)));
+    batch.forEach((r, i) => frag.appendChild(createCard(r, displayed + i)));
     grid.appendChild(frag);
     displayed += batch.length;
 
     loadingEl.style.display = 'none';
-    btnLoadMore.style.display = displayed < filtered.length ? 'block' : 'none';
+    // '' y no 'block': un botón en bloque ignora el text-align del contenedor
+    // y quedaba pegado a la izquierda en vez de centrado.
+    btnLoadMore.style.display = displayed < filtered.length ? '' : 'none';
   });
 }
 
@@ -314,15 +357,23 @@ function precioSitio(r) {
 }
 
 // ── Card ──────────────────────────────────────────────────────────────────────
-function createCard(r) {
+// Cuántas tapas se piden de entrada: las que se ven sin bajar en una
+// pantalla grande. El resto se baja recién cuando el visitante se acerca.
+const TAPAS_INMEDIATAS = 10;
+
+function createCard(r, posicion = 0) {
   const card = document.createElement('article');
   card.className = 'card';
 
   const imgSrc = r.imagenes?.[0];
   const badgeHTML = isNew(r) ? `<span class="badge-new">Nuevo</span>` : '';
+  // Una <img> de verdad y no un fondo CSS: así el navegador puede esperar a
+  // que la tapa esté por aparecer (loading="lazy") en vez de pedir las 60 de
+  // golpe, y el texto alternativo dice qué disco es.
+  const carga = posicion < TAPAS_INMEDIATAS ? 'eager' : 'lazy';
   const imgHTML = imgSrc
-    ? `${badgeHTML}<div class="card-img-inner" style="background-image:url('${esc(imgSrc)}')"></div>`
-    : `${badgeHTML}<div class="card-img-inner card-placeholder">${PLACEHOLDER}</div>`;
+    ? `${badgeHTML}<img class="card-img-inner" src="${esc(imgSrc)}" alt="${esc(`${r.artista || ''} - ${r.album || r.titulo || ''}`)}" loading="${carga}" decoding="async">`
+    : `${badgeHTML}<div class="card-img-inner card-placeholder" role="img" aria-label="${esc(r.artista || '')} - sin foto">${PLACEHOLDER}</div>`;
 
   const price = precioSitio(r) ? `$ ${precioSitio(r).toLocaleString('es-AR')}` : '';
 
@@ -539,32 +590,66 @@ function openModal(r) {
           const imgStyle = src ? `style="background-image:url('${esc(src)}')"` : '';
           const imgClass = src ? 'related-card-img' : 'related-card-img card-placeholder';
           const price = precioSitio(x) ? `$ ${precioSitio(x).toLocaleString('es-AR')}` : '';
-          return `<div class="related-card" data-rel="${i}">
+          // Un link de verdad (como las tarjetas de la grilla): se puede
+          // alcanzar con Tab, abrir en otra pestaña y lo anuncia un lector
+          // de pantalla. El clic normal abre el disco en esta misma ventana.
+          const href = x.ficha ? ` href="/disco/${esc(x.ficha)}"` : ' href="#" role="button"';
+          return `<a class="related-card" data-rel="${i}"${href}>
             <div class="${imgClass}" ${imgStyle}>${src ? '' : PLACEHOLDER}</div>
             <div class="related-card-info">
               <div class="related-card-artist">${esc(x.artista || '—')}</div>
               <div class="related-card-album">${esc(x.album || x.titulo || '')}</div>
               ${price ? `<div class="related-card-price">${price}</div>` : ''}
             </div>
-          </div>`;
+          </a>`;
         }).join('')}
       </div>`;
 
     relatedEl.querySelectorAll('.related-card').forEach(el => {
-      el.addEventListener('click', () => openModal(related[+el.dataset.rel]));
+      el.addEventListener('click', e => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        openModal(related[+el.dataset.rel]);
+        safe(() => modalClose.focus({ preventScroll: true }));
+      });
     });
   } else {
     relatedEl.style.display = 'none';
   }
 
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if (!overlay.classList.contains('open')) {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    safe(bloquearFondo);
+  }
+}
+
+// Mientras la ventana del disco está abierta, el resto de la página queda
+// "inerte": Tab no se escapa hacia la grilla de atrás y el lector de pantalla
+// lee solo la ventana. Al cerrar, el foco vuelve a la tarjeta desde donde se
+// abrió, así quien navega con teclado no pierde el lugar.
+let focoPrevio = null;
+
+function bloquearFondo() {
+  focoPrevio = document.activeElement;
+  [...document.body.children].forEach(el => {
+    if (el !== overlay && el.tagName !== 'SCRIPT') el.inert = true;
+  });
+  modalClose.focus({ preventScroll: true });
+}
+
+function liberarFondo() {
+  [...document.body.children].forEach(el => { el.inert = false; });
+  if (focoPrevio && document.contains(focoPrevio)) focoPrevio.focus({ preventScroll: true });
+  focoPrevio = null;
 }
 
 function closeModal() {
+  if (!overlay.classList.contains('open')) return;
   overlay.classList.remove('open');
   document.body.style.overflow = '';
   currentRecord = null;
+  safe(liberarFondo);
   setIdParam(null);
 }
 
@@ -601,6 +686,14 @@ let searchTimer;
 searchInput.addEventListener('input', () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(applyFilters, 220);
+});
+// Enter busca sin esperar y, en el celular, baja el teclado para dejar ver
+// los resultados (antes no hacía nada y el teclado tapaba media pantalla).
+searchInput.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  clearTimeout(searchTimer);
+  applyFilters();
+  searchInput.blur();
 });
 filterGenre.addEventListener('change',  applyFilters);
 filterOrigin.addEventListener('change', applyFilters);
