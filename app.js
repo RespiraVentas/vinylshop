@@ -582,32 +582,66 @@ function openModal(r) {
           const imgStyle = src ? `style="background-image:url('${esc(src)}')"` : '';
           const imgClass = src ? 'related-card-img' : 'related-card-img card-placeholder';
           const price = precioSitio(x) ? `$ ${precioSitio(x).toLocaleString('es-AR')}` : '';
-          return `<div class="related-card" data-rel="${i}">
+          // Un link de verdad (como las tarjetas de la grilla): se puede
+          // alcanzar con Tab, abrir en otra pestaña y lo anuncia un lector
+          // de pantalla. El clic normal abre el disco en esta misma ventana.
+          const href = x.ficha ? ` href="/disco/${esc(x.ficha)}"` : ' href="#" role="button"';
+          return `<a class="related-card" data-rel="${i}"${href}>
             <div class="${imgClass}" ${imgStyle}>${src ? '' : PLACEHOLDER}</div>
             <div class="related-card-info">
               <div class="related-card-artist">${esc(x.artista || '—')}</div>
               <div class="related-card-album">${esc(x.album || x.titulo || '')}</div>
               ${price ? `<div class="related-card-price">${price}</div>` : ''}
             </div>
-          </div>`;
+          </a>`;
         }).join('')}
       </div>`;
 
     relatedEl.querySelectorAll('.related-card').forEach(el => {
-      el.addEventListener('click', () => openModal(related[+el.dataset.rel]));
+      el.addEventListener('click', e => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        openModal(related[+el.dataset.rel]);
+        safe(() => modalClose.focus({ preventScroll: true }));
+      });
     });
   } else {
     relatedEl.style.display = 'none';
   }
 
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if (!overlay.classList.contains('open')) {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    safe(bloquearFondo);
+  }
+}
+
+// Mientras la ventana del disco está abierta, el resto de la página queda
+// "inerte": Tab no se escapa hacia la grilla de atrás y el lector de pantalla
+// lee solo la ventana. Al cerrar, el foco vuelve a la tarjeta desde donde se
+// abrió, así quien navega con teclado no pierde el lugar.
+let focoPrevio = null;
+
+function bloquearFondo() {
+  focoPrevio = document.activeElement;
+  [...document.body.children].forEach(el => {
+    if (el !== overlay && el.tagName !== 'SCRIPT') el.inert = true;
+  });
+  modalClose.focus({ preventScroll: true });
+}
+
+function liberarFondo() {
+  [...document.body.children].forEach(el => { el.inert = false; });
+  if (focoPrevio && document.contains(focoPrevio)) focoPrevio.focus({ preventScroll: true });
+  focoPrevio = null;
 }
 
 function closeModal() {
+  if (!overlay.classList.contains('open')) return;
   overlay.classList.remove('open');
   document.body.style.overflow = '';
   currentRecord = null;
+  safe(liberarFondo);
   setIdParam(null);
 }
 
@@ -644,6 +678,14 @@ let searchTimer;
 searchInput.addEventListener('input', () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(applyFilters, 220);
+});
+// Enter busca sin esperar y, en el celular, baja el teclado para dejar ver
+// los resultados (antes no hacía nada y el teclado tapaba media pantalla).
+searchInput.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  clearTimeout(searchTimer);
+  applyFilters();
+  searchInput.blur();
 });
 filterGenre.addEventListener('change',  applyFilters);
 filterOrigin.addEventListener('change', applyFilters);

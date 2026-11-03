@@ -29,12 +29,14 @@
         </div>
       </a>
       <div class="search-wrap">
-        <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <circle cx="8.5" cy="8.5" r="5.5" stroke="#aaa" stroke-width="1.8"/>
           <path d="M13 13l4 4" stroke="#aaa" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
         <input type="search" id="search"
           placeholder="Buscar artista, álbum o título…"
+          aria-label="Buscar artista, álbum o título"
+          enterkeyhint="search"
           autocomplete="off" spellcheck="false" />
       </div>
     </div>
@@ -65,13 +67,13 @@
   <div class="filters-bar">
     <div class="filters-inner">
       <div class="filter-group">
-        <select id="filter-genre"><option value="">Todos los géneros</option></select>
+        <select id="filter-genre" aria-label="Género"><option value="">Todos los géneros</option></select>
       </div>
       <div class="filter-group">
-        <select id="filter-origin"><option value="">Todos los orígenes</option></select>
+        <select id="filter-origin" aria-label="Origen"><option value="">Todos los orígenes</option></select>
       </div>
       <div class="filter-group">
-        <select id="filter-decade">
+        <select id="filter-decade" aria-label="Década">
           <option value="">Todas las décadas</option>
           <option value="1950">1950s</option>
           <option value="1960">1960s</option>
@@ -84,18 +86,18 @@
         <!-- Tipos de edición (compilados, maxis…). Las opciones las arma
              app.js con lo que venga en el catálogo, así sumar uno nuevo no
              obliga a tocar este archivo. -->
-        <select id="filter-tipo"><option value="">Todos los tipos</option></select>
+        <select id="filter-tipo" aria-label="Tipo de edición"><option value="">Todos los tipos</option></select>
       </div>
       <div class="filter-group">
-        <select id="filter-sort">
+        <select id="filter-sort" aria-label="Ordenar por">
           <option value="new">Más recientes</option>
           <option value="visits">Más visitados</option>
           <option value="asc">Menor precio primero</option>
           <option value="desc">Mayor precio primero</option>
         </select>
       </div>
-      <button id="btn-reset" class="btn-reset">Limpiar</button>
-      <span id="count" class="result-count"></span>
+      <button id="btn-reset" class="btn-reset" type="button">Limpiar</button>
+      <span id="count" class="result-count" aria-live="polite"></span>
     </div>
   </div>
 
@@ -164,7 +166,7 @@
   </footer>
 
   <!-- MODAL DETALLE -->
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal">
       <button class="modal-close" id="modal-close" aria-label="Cerrar">&#x2715;</button>
 
