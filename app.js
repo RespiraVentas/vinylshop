@@ -288,7 +288,7 @@ function renderBatch() {
     }
 
     const frag = document.createDocumentFragment();
-    batch.forEach(r => frag.appendChild(createCard(r)));
+    batch.forEach((r, i) => frag.appendChild(createCard(r, displayed + i)));
     grid.appendChild(frag);
     displayed += batch.length;
 
@@ -347,15 +347,23 @@ function precioSitio(r) {
 }
 
 // ── Card ──────────────────────────────────────────────────────────────────────
-function createCard(r) {
+// Cuántas tapas se piden de entrada: las que se ven sin bajar en una
+// pantalla grande. El resto se baja recién cuando el visitante se acerca.
+const TAPAS_INMEDIATAS = 10;
+
+function createCard(r, posicion = 0) {
   const card = document.createElement('article');
   card.className = 'card';
 
   const imgSrc = r.imagenes?.[0];
   const badgeHTML = isNew(r) ? `<span class="badge-new">Nuevo</span>` : '';
+  // Una <img> de verdad y no un fondo CSS: así el navegador puede esperar a
+  // que la tapa esté por aparecer (loading="lazy") en vez de pedir las 60 de
+  // golpe, y el texto alternativo dice qué disco es.
+  const carga = posicion < TAPAS_INMEDIATAS ? 'eager' : 'lazy';
   const imgHTML = imgSrc
-    ? `${badgeHTML}<div class="card-img-inner" style="background-image:url('${esc(imgSrc)}')"></div>`
-    : `${badgeHTML}<div class="card-img-inner card-placeholder">${PLACEHOLDER}</div>`;
+    ? `${badgeHTML}<img class="card-img-inner" src="${esc(imgSrc)}" alt="${esc(`${r.artista || ''} - ${r.album || r.titulo || ''}`)}" loading="${carga}" decoding="async">`
+    : `${badgeHTML}<div class="card-img-inner card-placeholder" role="img" aria-label="${esc(r.artista || '')} - sin foto">${PLACEHOLDER}</div>`;
 
   const price = precioSitio(r) ? `$ ${precioSitio(r).toLocaleString('es-AR')}` : '';
 

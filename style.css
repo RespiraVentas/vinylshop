@@ -416,6 +416,13 @@ a { color: inherit; text-decoration: none; }
   background: center/cover no-repeat var(--surface);
   transition: transform .4s ease;
 }
+/* La tapa es una <img> (para poder cargarla de a poco): se recorta igual que
+   el fondo de antes, centrada y cubriendo el cuadrado. */
+img.card-img-inner {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
 .card-img-wrap:hover .card-img-inner { transform: scale(1.04); }
 
 .card-placeholder {
