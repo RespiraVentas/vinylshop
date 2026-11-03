@@ -293,7 +293,9 @@ function renderBatch() {
     displayed += batch.length;
 
     loadingEl.style.display = 'none';
-    btnLoadMore.style.display = displayed < filtered.length ? 'block' : 'none';
+    // '' y no 'block': un botón en bloque ignora el text-align del contenedor
+    // y quedaba pegado a la izquierda en vez de centrado.
+    btnLoadMore.style.display = displayed < filtered.length ? '' : 'none';
   });
 }
 
