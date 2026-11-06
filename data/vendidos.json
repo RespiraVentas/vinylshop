@@ -678,6 +678,37 @@
         "vendidoDesde":  "2026-09-27"
     },
     {
+        "titulo":  "Baccara - Baccara - Vinilo Lp - Duo Españolas",
+        "artista":  "Baccara",
+        "album":  "Baccara",
+        "compania":  "RCA Victor",
+        "anio":  "1977",
+        "canciones":  "11",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  17,
+        "fecha":  "2025-06-21T00:33:18",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1506214149",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_959244-MLA86170508162_062025-F.jpg",
+                         "https://http2.mlstatic.com/D_756561-MLA86530281696_062025-F.jpg",
+                         "https://http2.mlstatic.com/D_618164-MLA113265650272_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_924631-MLA86487634989_062025-F.jpg",
+                         "https://http2.mlstatic.com/D_826478-MLA86487401663_062025-F.jpg"
+                     ],
+        "desc":  "Baccara - Baccara\nDisco: Ex\nTapa: Ex\n\nBaccara – Baccara\nSello:\nRCA Victor – AVS - 4534\nFormato:\nVinilo, LP, Album\nPaís:\nArgentina\nPublicado:\n1977\nGénero:\nFunk / Soul, Pop\nEstilo:\nDisco, Europop",
+        "ficha":  "1506214149-baccara-baccara.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "baccara",
+        "tipos":  [
+
+                  ],
+        "id":  "1506214149",
+        "vendidoDesde":  "2026-11-06"
+    },
+    {
         "titulo":  "Bob Dylan - Desire - Vinilo Lp Promo Excelente",
         "artista":  "Bob Dylan",
         "album":  "DESIRE",
@@ -2316,6 +2347,37 @@
                   ],
         "id":  "3688212008",
         "vendidoDesde":  "2026-10-13"
+    },
+    {
+        "titulo":  "Frank Sinatra - Sinatra Swings - Vinilo Lp",
+        "artista":  "FRANK SINATRA",
+        "album":  "Sinatra Swings",
+        "compania":  "Reprise Records",
+        "anio":  "1965",
+        "canciones":  "12",
+        "origen":  "Argentina",
+        "genero":  "Jazz",
+        "discos":  "",
+        "precio":  45000,
+        "visitas":  10,
+        "fecha":  "2026-07-29T01:08:55",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3688224916",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_744931-MLA115268987461_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_616334-MLA115269101735_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_985024-MLA113956249464_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_612051-MLA113956309430_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_829215-MLA115269276803_072026-F.jpg"
+                     ],
+        "desc":  "Frank Sinatra - SINATRA SWINGS\nDisco: Ex\nTapa: VG+\n\nFrank Sinatra – SINATRA SWINGS\nLabel: Reprise Records – 12186(MH-12306)\nFormat: Vinyl, LP, Mono\nCountry: Argentina\nGenre: Jazz\nStyle: Big Band, Swing",
+        "ficha":  "3688224916-frank-sinatra-sinatra-swings.html",
+        "artistaUrl":  "/artista/frank-sinatra.html",
+        "artistaSlug":  "frank-sinatra",
+        "tipos":  [
+
+                  ],
+        "id":  "3688224916",
+        "vendidoDesde":  "2026-11-06"
     },
     {
         "titulo":  "Roberto Goyeneche - Goyeneche Interpreta A Manzi - Vinilo Lp",
