@@ -839,6 +839,36 @@
         "vendidoDesde":  "2026-08-26"
     },
     {
+        "titulo":  "Gianni Morandi - Lo Mejor De - Vinilo Lp",
+        "artista":  "Gianni Morandi",
+        "album":  "Lo mejor de",
+        "compania":  "Columbia",
+        "anio":  "1985",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Melódico",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  3,
+        "fecha":  "2023-12-01T21:29:03",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1586184808",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_736354-MLA114506606751_072026-F.jpg",
+                         "https://http2.mlstatic.com/D_643736-MLA73118971552_122023-F.jpg",
+                         "https://http2.mlstatic.com/D_939254-MLA73118950558_122023-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Disco perteneciente a Lote en excelente estado.\n\nEn Escala Goldmine de Vinilos Usados en estados desde VG+, Ex o NM\n\nATENCIÓN: Consultar específicamente por el disco para evitar inconvenientes o por si tiene dudas.",
+        "ficha":  "1586184808-gianni-morandi-lo-mejor-de.html",
+        "artistaUrl":  "/?artista=gianni-morandi",
+        "artistaSlug":  "gianni-morandi",
+        "tipos":  [
+
+                  ],
+        "id":  "1586184808",
+        "vendidoDesde":  "2026-11-06"
+    },
+    {
         "titulo":  "Fricción - Consumación O Consumo - Vinilo Lp Impecable!",
         "artista":  "Fricción",
         "album":  "Consumación O Consumo",
