@@ -587,6 +587,30 @@ img.card-img-inner {
   font-size: 15px;
   grid-column: 1 / -1;
 }
+.empty-titulo { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; overflow-wrap: anywhere; }
+.empty-texto  { max-width: 420px; margin: 0 auto 20px; line-height: 1.5; }
+.empty-wa {
+  display: inline-block;
+  background: var(--wa);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.empty-wa:hover { opacity: .88; }
+.empty-reset {
+  display: block;
+  margin: 16px auto 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 8px;
+}
 
 /* ── Footer ───────────────────────────────────────────────────────────────── */
 .site-footer {

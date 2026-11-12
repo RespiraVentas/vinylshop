@@ -127,8 +127,14 @@ function separarSignos(s)  { return s.replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
 
 // Palabras de la búsqueda, listas para comparar. Un texto que es solo signos
 // ("%", "###") no deja palabras y equivale a no buscar nada.
+// Los artículos y conectores no se exigen: "los beatles" tiene que encontrar
+// lo mismo que "beatles", aunque el disco esté cargado como "The Beatles".
+// Si la búsqueda es solo de esas palabras ("The The"), se buscan tal cual.
+const PALABRAS_VACIAS = new Set(['el', 'la', 'los', 'las', 'the', 'de', 'del', 'y', 'and']);
 function palabrasBusqueda(q) {
-  return paraBuscar(q).split(' ').filter(Boolean);
+  const todas = paraBuscar(q).split(' ').filter(Boolean);
+  const utiles = todas.filter(p => !PALABRAS_VACIAS.has(p));
+  return utiles.length ? utiles : todas;
 }
 
 function normalize(r) {
@@ -234,8 +240,7 @@ function applyFilters() {
 
 // Refleja la búsqueda y los filtros en la dirección (?q=...&genero=...), así
 // lo que se comparte desde el navegador es lo que se está viendo. Usa
-// replaceState: no agrega pasos al historial, "Atrás" sigue saliendo del sitio
-// como antes. Solo toca sus propios parámetros (deja ?id= y cualquier otro).
+// replaceState: los filtros no agregan pasos al historial. Solo toca sus propios parámetros (deja ?id= y cualquier otro).
 function syncUrl() {
   const u = new URL(window.location);
   const poner = (clave, valor) => {
@@ -250,7 +255,7 @@ function syncUrl() {
   poner('artista', artistaFiltro);
   // "Más recientes" es el orden por defecto: no hace falta escribirlo
   poner('orden',   filterSort.value === 'new' ? '' : filterSort.value);
-  if (u.href !== window.location.href) history.replaceState(null, '', u);
+  if (u.href !== window.location.href) history.replaceState(history.state, '', u);
 }
 
 // Cuando se entra por ?artista=..., avisa qué se está viendo y da la salida.
@@ -272,7 +277,7 @@ function pintarAvisoArtista() {
     artistaFiltro = '';
     const u = new URL(window.location);
     u.searchParams.delete('artista');
-    history.replaceState(null, '', u);
+    history.replaceState(history.state, '', u);
     applyFilters();
   });
 }
@@ -289,6 +294,7 @@ function renderBatch() {
     const batch = filtered.slice(displayed, displayed + PAGE_SIZE);
 
     if (batch.length === 0 && displayed === 0) {
+      safe(pintarSinResultados);
       emptyEl.style.display = 'block';
       loadingEl.style.display = 'none';
       btnLoadMore.style.display = 'none';
@@ -305,6 +311,22 @@ function renderBatch() {
     // y quedaba pegado a la izquierda en vez de centrado.
     btnLoadMore.style.display = displayed < filtered.length ? '' : 'none';
   });
+}
+
+// Sin resultados no es un callejón: quien busca algo que no está es un pedido
+// posible. Se ofrece preguntar por WhatsApp con lo buscado ya escrito.
+function pintarSinResultados() {
+  const q = searchInput.value.trim();
+  const texto = q
+    ? `Hola! Busco "${q}" en vinilo y no lo encontré en el sitio. ¿Lo tienen o puede entrar?`
+    : 'Hola! Estoy buscando un disco y no lo encontré en el sitio.';
+  const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(texto)}`;
+  emptyEl.innerHTML = `
+    <p class="empty-titulo">${q ? `No encontramos “${esc(q)}” en el catálogo.` : 'No se encontraron discos con esos filtros.'}</p>
+    <p class="empty-texto">Entran discos todas las semanas. Escribinos y te avisamos si lo tenemos o si entra.</p>
+    <a class="empty-wa" href="${esc(href)}" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+    <button type="button" class="empty-reset" id="empty-reset">Ver todo el catálogo</button>`;
+  document.getElementById('empty-reset').addEventListener('click', () => btnReset.click());
 }
 
 // ── Badge "Nuevo" ─────────────────────────────────────────────────────────────
@@ -356,6 +378,25 @@ function precioSitio(r) {
   return m % 10000 === 0 ? m - 10 : m;
 }
 
+// ── Tapas chicas ──────────────────────────────────────────────────────────────
+// Las fotos del catálogo son las grandes de Mercado Libre (hasta 1200 px y
+// 100-300 KB cada una). Para las miniaturas se pide la versión de 500 px en
+// WebP del mismo servidor (~20 KB), que conserva las proporciones. Solo cambia
+// direcciones con el formato conocido; cualquier otra queda como está. Si la
+// chica fallara, la tarjeta vuelve sola a la foto original (ver más abajo).
+function tapaChica(url) {
+  const m = /^(https:\/\/http2\.mlstatic\.com\/)D_(\d+-ML[A-Z]\d+_\d+)-F\.jpg$/.exec(url || '');
+  return m ? `${m[1]}D_NQ_NP_${m[2]}-O.webp` : url;
+}
+// Los errores de carga de imágenes no "suben" por la página, así que se
+// escuchan en la fase de captura.
+document.addEventListener('error', e => {
+  const img = e.target;
+  if (img && img.tagName === 'IMG' && img.dataset.grande && img.src !== img.dataset.grande) {
+    img.src = img.dataset.grande;
+  }
+}, true);
+
 // ── Card ──────────────────────────────────────────────────────────────────────
 // Cuántas tapas se piden de entrada: las que se ven sin bajar en una
 // pantalla grande. El resto se baja recién cuando el visitante se acerca.
@@ -372,7 +413,7 @@ function createCard(r, posicion = 0) {
   // golpe, y el texto alternativo dice qué disco es.
   const carga = posicion < TAPAS_INMEDIATAS ? 'eager' : 'lazy';
   const imgHTML = imgSrc
-    ? `${badgeHTML}<img class="card-img-inner" src="${esc(imgSrc)}" alt="${esc(`${r.artista || ''} - ${r.album || r.titulo || ''}`)}" loading="${carga}" decoding="async">`
+    ? `${badgeHTML}<img class="card-img-inner" src="${esc(tapaChica(imgSrc))}" data-grande="${esc(imgSrc)}" alt="${esc(`${r.artista || ''} - ${r.album || r.titulo || ''}`)}" loading="${carga}" decoding="async">`
     : `${badgeHTML}<div class="card-img-inner card-placeholder" role="img" aria-label="${esc(r.artista || '')} - sin foto">${PLACEHOLDER}</div>`;
 
   const price = precioSitio(r) ? `$ ${precioSitio(r).toLocaleString('es-AR')}` : '';
@@ -495,17 +536,36 @@ function getRelated(r, count = 4) {
 // ── Modal ─────────────────────────────────────────────────────────────────────
 let currentRecord = null;
 
-// Refleja el disco abierto en la URL (?id=...) sin agregar entradas al historial
-function setIdParam(mlid) {
+// Refleja el disco abierto en la URL (?id=...).
+// Al ABRIR la ventana se agrega un paso al historial, para que el botón
+// "Atrás" del celular cierre la ventana en vez de sacar a la persona del
+// sitio. Al pasar de un disco a otro relacionado se reemplaza ese mismo paso
+// (no se acumulan diez "Atrás"). El paso lleva la marca {disco:true} para
+// saber, al cerrar, si hay que volver uno atrás o solo limpiar la dirección.
+function urlConId(mlid) {
   const u = new URL(window.location);
   if (mlid) u.searchParams.set('id', mlid);
   else      u.searchParams.delete('id');
-  history.replaceState(null, '', u);
+  return u;
 }
+function pasoDeDisco() { return !!(history.state && history.state.disco); }
 
-function openModal(r) {
+// desdeHistorial: la ventana se abre porque el navegador volvió/avanzó a un
+// paso que ya tiene el ?id= puesto; no hay que tocar el historial.
+function openModal(r, desdeHistorial = false) {
   currentRecord = r;
-  safe(() => setIdParam(r.mlid));
+  safe(() => {
+    if (desdeHistorial) return;
+    if (pasoDeDisco()) {
+      history.replaceState({ disco: true }, '', urlConId(r.mlid));
+    } else {
+      // Deja abajo la dirección del catálogo sin ?id= (importa cuando se
+      // entra por un link directo a un disco: "Atrás" cierra la ventana y
+      // queda el catálogo) y arriba el paso del disco.
+      history.replaceState(history.state, '', urlConId(null));
+      history.pushState({ disco: true }, '', urlConId(r.mlid));
+    }
+  });
   safe(() => { shareBtn.style.display = r.mlid ? '' : 'none'; });
   safe(() => { document.querySelector('.modal').scrollTop = 0; });
   const gallery = document.getElementById('modal-gallery');
@@ -587,7 +647,7 @@ function openModal(r) {
       <div class="related-grid">
         ${related.map((x, i) => {
           const src = x.imagenes?.[0];
-          const imgStyle = src ? `style="background-image:url('${esc(src)}')"` : '';
+          const imgStyle = src ? `style="background-image:url('${esc(tapaChica(src))}')"` : '';
           const imgClass = src ? 'related-card-img' : 'related-card-img card-placeholder';
           const price = precioSitio(x) ? `$ ${precioSitio(x).toLocaleString('es-AR')}` : '';
           // Un link de verdad (como las tarjetas de la grilla): se puede
@@ -644,14 +704,32 @@ function liberarFondo() {
   focoPrevio = null;
 }
 
-function closeModal() {
+// Cierra la ventana en pantalla, sin tocar el historial.
+function ocultarModal() {
   if (!overlay.classList.contains('open')) return;
   overlay.classList.remove('open');
   document.body.style.overflow = '';
   currentRecord = null;
   safe(liberarFondo);
-  setIdParam(null);
 }
+
+// Cierre pedido por la persona (✕, Escape, clic afuera): si la ventana sumó
+// un paso al historial se vuelve ese paso, y el aviso del navegador
+// (popstate) es el que la oculta. Si no, se oculta y se limpia la dirección.
+function closeModal() {
+  if (!overlay.classList.contains('open')) return;
+  if (pasoDeDisco()) { history.back(); return; }
+  ocultarModal();
+  safe(() => history.replaceState(history.state, '', urlConId(null)));
+}
+
+// "Atrás" / "Adelante" del navegador: la ventana sigue a la dirección.
+window.addEventListener('popstate', () => {
+  const id = (new URL(window.location).searchParams.get('id') || '').replace(/\D/g, '');
+  const rec = id && allRecords.find(r => r.mlid === id);
+  if (rec) openModal(rec, true);
+  else     ocultarModal();
+});
 
 // ── Compartir disco ───────────────────────────────────────────────────────────
 const shareBtn = document.getElementById('modal-share');
@@ -705,7 +783,7 @@ btnReset.addEventListener('click', () => {
   artistaFiltro = '';
   const u = new URL(window.location);
   u.searchParams.delete('artista');
-  history.replaceState(null, '', u);
+  history.replaceState(history.state, '', u);
   filterSort.value = 'new';
   applyFilters();
 });
