@@ -114,6 +114,8 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 
+.f-thumbs a { display: block; border-radius: 5px; }
+
 /* ── Info ───────────────────────────────────────────────────────────────── */
 .f-artist {
   font-size: 12px; font-weight: 700;
@@ -379,4 +381,39 @@ h1.h-titulo {
   .f-header-inner { padding: 10px 16px; }
   .f-breadcrumb { padding: 12px 16px 0; }
   .f-footer-inner { padding: 22px 16px; }
+}
+
+/* ── "Ver más discos de …" bajo las etiquetas ───────────────────────────── */
+.f-mas-artista { font-size: 13.5px; margin: -6px 0 16px; }
+.f-mas-artista a {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+}
+.f-mas-artista a:hover { text-decoration-color: var(--red); }
+
+/* ── Barra fija de WhatsApp (solo celular) ──────────────────────────────── */
+/* En el celular el botón de consulta queda debajo de la foto, las miniaturas,
+   el título y el precio: fuera de la pantalla. Esta barra lo deja siempre a
+   mano. En pantallas anchas no hace falta: el botón se ve al entrar. */
+.f-barra { display: none; }
+@media (max-width: 760px) {
+  .f-barra {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 50;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: #fff;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, .08);
+  }
+  .f-barra-precio { font-size: 18px; font-weight: 800; white-space: nowrap; }
+  .f-barra .f-btn-wa { flex: 1; justify-content: center; margin: 0; min-width: 0; }
+  /* Lugar para que la barra no tape el final de la página */
+  .f-barra ~ .f-footer { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
 }

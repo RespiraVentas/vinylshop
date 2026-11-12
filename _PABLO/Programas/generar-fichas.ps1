@@ -199,13 +199,24 @@ function Get-Relacionados($rec, $porArtista, $porGenero, $rutas, $cantidad = 5) 
     return $elegidos
 }
 
+# Version liviana de una foto de Mercado Libre, para miniaturas: 500 px en
+# WebP (~20 KB en vez de 100-300 KB), con las mismas proporciones. Solo toca
+# direcciones con el formato conocido; cualquier otra vuelve como vino.
+# OJO: es la misma regla que tapaChica() de app.js.
+function Get-TapaChica([string]$url) {
+    if ($url -cmatch '^(https://http2\.mlstatic\.com/)D_(\d+-ML[A-Z]\d+_\d+)-F\.jpg$') {
+        return "$($Matches[1])D_NQ_NP_$($Matches[2])-O.webp"
+    }
+    return $url
+}
+
 function Build-RelacionadosHtml($relacionados, $rutas) {
     if (-not $relacionados -or $relacionados.Count -eq 0) { return '' }
     $cards = foreach ($x in $relacionados) {
         $xid = Get-DiscoId $x
         if (-not $rutas.ContainsKey($xid)) { continue }
         $href  = "/disco/$($rutas[$xid])"
-        $img   = if ($x.imagenes -and $x.imagenes.Count -gt 0) { Escape-Html $x.imagenes[0] } else { '' }
+        $img   = if ($x.imagenes -and $x.imagenes.Count -gt 0) { Escape-Html (Get-TapaChica $x.imagenes[0]) } else { '' }
         $alt   = Escape-Html "$($x.artista) - $($x.album)"
         $art   = Escape-Html $x.artista
         $alb   = Escape-Html $x.album
@@ -275,7 +286,9 @@ function Build-FichaHtml {
     $thumbs = ''
     if ($imgs.Count -gt 1) {
         $t = foreach ($im in $imgs[1..($imgs.Count - 1)]) {
-            "      <img src=`"$(Escape-Html $im)`" alt=`"$altTxt`" loading=`"lazy`">"
+            # La miniatura es la version liviana y lleva a la foto grande: en
+            # discos usados, ver bien el estado es lo que decide la compra.
+            "      <a href=`"$(Escape-Html $im)`" target=`"_blank`" rel=`"noopener`" aria-label=`"Ver foto en grande`"><img src=`"$(Escape-Html (Get-TapaChica $im))`" alt=`"$altTxt`" loading=`"lazy`"></a>"
         }
         $thumbs = "    <div class=`"f-thumbs`">`n$($t -join "`n")`n    </div>"
     }
@@ -348,6 +361,11 @@ $(Build-EnviosTexto)    </div>
         </div>
       </div>
 "@
+        $barraHtml = @"
+<div class="f-barra">
+  <a class="f-btn-wa" href="$waHref" target="_blank" rel="noopener">$WA_SVG Avisame si entra otra copia</a>
+</div>
+"@
         $disponibilidad = 'https://schema.org/SoldOut'
     } else {
         $waTexto = "Hola! Me interesa este disco:`n*$artista — $album*$(if ($anio) { " ($anio)" })"
@@ -378,6 +396,15 @@ $(Build-EnviosTexto)    </div>
         </div>
       </div>
 $mlHtml
+"@
+        # Barra fija abajo, solo en celular (ver ficha.css): el boton de
+        # WhatsApp de arriba queda fuera de la pantalla al entrar a la ficha.
+        $barraPrecio = if ($precio) { "<span class=`"f-barra-precio`">$(Format-Pesos $precio)</span>" } else { '' }
+        $barraHtml = @"
+<div class="f-barra">
+  $barraPrecio
+  <a class="f-btn-wa" href="$waHref" target="_blank" rel="noopener">$WA_SVG Consultar por WhatsApp</a>
+</div>
 "@
         $disponibilidad = 'https://schema.org/InStock'
     }
@@ -437,7 +464,7 @@ $mlHtml
     }
     if ($imgs.Count -gt 0) { $ld['image'] = @($imgs) }
     if ($sello) { $ld['brand'] = [ordered]@{ '@type' = 'Brand'; 'name' = $sello } }
-    if ($anio)  { $ld['releaseDate'] = $anio }
+    if ($anio -match '^\d{4}$') { $ld['releaseDate'] = $anio }
 
     $ldJson = ($ld | ConvertTo-Json -Depth 6 -Compress)
     # Evita que un "</script>" dentro del texto rompa la pagina
@@ -461,6 +488,15 @@ $mlHtml
     $artistaHtml = if ($artistaUrl) {
         "<a href=`"$artistaUrl`">$(Escape-Html $artista)</a>"
     } else { Escape-Html $artista }
+
+    # Aviso explicito de que el artista tiene mas discos: no todo el mundo
+    # sabe que el nombre de arriba se puede tocar. $artistaUrl viene vacio
+    # cuando el artista tiene un solo disco, asi que ahi no aparece.
+    $masArtistaHtml = ''
+    if ($artistaUrl) {
+        $deQuien = if ($artista.Length -le 40) { "de $(Escape-Html $artista)" } else { 'de este artista' }
+        $masArtistaHtml = "`n      <p class=`"f-mas-artista`"><a href=`"$artistaUrl`">Ver más discos $deQuien &rarr;</a></p>"
+    }
 
     $robots = if ($vendido) { '<meta name="robots" content="noindex, follow">' } else { '<meta name="robots" content="index, follow">' }
     $ogImg  = if ($imgs.Count -gt 0) { "<meta property=`"og:image`" content=`"$(Escape-Html $imgs[0])`">" } else { '' }
@@ -490,7 +526,7 @@ $ogImg
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ficha.css?v=4">
+<link rel="stylesheet" href="/ficha.css?v=5">
 <script type="application/ld+json">$ldJson</script>
 <script type="application/ld+json">$migasJson</script>
 </head>
@@ -522,7 +558,7 @@ $thumbs
     <div>
       <p class="f-artist">$artistaHtml</p>
       <h1 class="f-title">$(Escape-Html $album)$vendidoBadge</h1>
-      <div class="f-tags">$($tags -join '')</div>
+      <div class="f-tags">$($tags -join '')</div>$masArtistaHtml
       <div class="f-price-row">$precioHtml</div>
 $bloqueCompra
     </div>
@@ -534,6 +570,7 @@ $envioHtml
 $relacionadosHtml
 </main>
 
+$barraHtml
 <footer class="f-footer">
   <div class="f-footer-inner">
     <span>&copy; Respira Ventas - Discos de Vinilo - Rosario, Argentina</span>

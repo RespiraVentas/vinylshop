@@ -580,7 +580,11 @@ function openModal(r, desdeHistorial = false) {
   // El nombre del artista lleva a su página cuando existe
   const artEl = document.getElementById('modal-artist');
   if (r.artistaUrl) {
-    artEl.innerHTML = `<a href="${esc(r.artistaUrl)}">${esc(r.artista || '')}</a>`;
+    // Además del nombre, un aviso explícito de que hay más discos suyos: no
+    // todo el mundo sabe que el nombre se puede tocar. artistaUrl viene vacío
+    // cuando el artista tiene un solo disco.
+    artEl.innerHTML = `<a href="${esc(r.artistaUrl)}">${esc(r.artista || '')}</a>
+      <a class="modal-mas-artista" href="${esc(r.artistaUrl)}">Ver más discos →</a>`;
   } else {
     artEl.textContent = r.artista || '';
   }

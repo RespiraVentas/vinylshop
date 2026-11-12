@@ -93,7 +93,7 @@ function Build-HubCards($discos, $rutas) {
     $cards = foreach ($x in $discos) {
         $xid = Get-DiscoId $x
         if (-not $xid -or -not $rutas.ContainsKey($xid)) { continue }
-        $img = if ($x.imagenes -and $x.imagenes.Count -gt 0) { Escape-Html $x.imagenes[0] } else { '' }
+        $img = if ($x.imagenes -and $x.imagenes.Count -gt 0) { Escape-Html (Get-TapaChica $x.imagenes[0]) } else { '' }
         $alt = Escape-Html "$($x.artista) - $($x.album)"
         $anio = if ("$($x.anio)".Trim()) { "<span class=`"h-card-anio`">$(Escape-Html "$($x.anio)".Trim())</span>" } else { '' }
         @"
@@ -198,6 +198,12 @@ function Build-HubHtml {
 
     $ldTag = if ($ldJson) { "<script type=`"application/ld+json`">$ldJson</script>" } else { '' }
     $robots = if ($noIndex) { 'noindex, follow' } else { 'index, follow' }
+    # Foto para cuando se comparte la pagina por WhatsApp o redes: la tapa del
+    # primer disco de la lista (en su version grande) o, si no hay, el logo.
+    $ogImagen = "$SITE_URL/assets/logo-icon.jpg"
+    if ($cardsHtml -match '<img src="(https://http2\.mlstatic\.com/[^"]+)"') {
+        $ogImagen = $Matches[1] -replace '/D_NQ_NP_', '/D_' -replace '-O\.webp$', '-F.jpg'
+    }
 
     return @"
 <!DOCTYPE html>
@@ -214,10 +220,11 @@ function Build-HubHtml {
 <meta property="og:title" content="$(Escape-Html $titulo)">
 <meta property="og:description" content="$(Escape-Html $metaDesc)">
 <meta property="og:url" content="$canonical">
+<meta property="og:image" content="$ogImagen">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ficha.css?v=4">
+<link rel="stylesheet" href="/ficha.css?v=5">
 $ldTag
 </head>
 <body>
@@ -465,7 +472,7 @@ function Sync-Hubs {
             $links = ($vend | ForEach-Object {
                 $alb = Escape-Html ("$($_.album)".Trim())
                 if (-not $alb) { $alb = Escape-Html ("$($_.titulo)".Trim()) }
-                "<a href=`"/disco/$($_.ficha)`">$alb</a> (vendido)"
+                "<a href=`"/disco/$(if ($_.ficha) { $_.ficha } else { Get-FichaNombre $_ })`">$alb</a> (vendido)"
             }) -join ' &middot; '
             $extra += "  <p class=`"h-mas`">Pasaron por acá: $links</p>`n"
         }
@@ -657,7 +664,9 @@ function Set-MapaCanonico($Records) {
         $sc = Get-ArtistaSlugBase $r
         if (-not $sc -or $mapa.ContainsKey($sc)) { continue }
         if ($sc -ne 'varios-artistas' -and $n -match $SEP_COLAB) {
-            $primero = ([regex]::Split($n, $SEP_COLAB))[0].Trim()
+            # IgnoreCase: el -match de arriba no distingue mayusculas y este
+            # corte si lo hacia, asi que "X Y Su Orquesta" no se agrupaba con "X".
+            $primero = ([regex]::Split($n, $SEP_COLAB, [Text.RegularExpressions.RegexOptions]::IgnoreCase))[0].Trim()
             $sp = ConvertTo-Slug $primero
             if ($sp -and $solos.ContainsKey($sp)) { $mapa[$sc] = $sp; continue }
         }

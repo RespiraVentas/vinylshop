@@ -582,7 +582,7 @@ img.card-img-inner {
 /* ── Empty state ──────────────────────────────────────────────────────────── */
 .empty-state {
   text-align: center;
-  padding: 80px 20px;
+  padding: 40px 20px 60px;
   color: var(--muted);
   font-size: 15px;
   grid-column: 1 / -1;
@@ -1099,3 +1099,18 @@ img.card-img-inner {
 /* ── Scrollbar ────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+
+/* Aviso "Ver más discos →" junto al artista, en la ventana del disco */
+.modal-mas-artista {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.modal-mas-artista:hover { color: var(--red); }
