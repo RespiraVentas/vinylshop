@@ -1,5 +1,34 @@
 ﻿[
     {
+        "titulo":  "Chicago - Chicago X Vinilo Lp",
+        "artista":  "Chicago",
+        "album":  "Chicago X",
+        "compania":  "Columbia",
+        "anio":  "1976",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  39990,
+        "visitas":  2,
+        "fecha":  "2021-09-24T01:20:05",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1104983372",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_689885-MLA47626186769_092021-F.jpg",
+                         "https://http2.mlstatic.com/D_602045-MLA109643837562_042026-F.jpg",
+                         "https://http2.mlstatic.com/D_714906-MLA110477089893_042026-F.jpg"
+                     ],
+        "desc":  "Chicago\nChicago X - Arg - 1976\nDisco: VG+/Ex\nTapa Gatefold: VG+",
+        "ficha":  "1104983372-chicago-chicago-x.html",
+        "artistaUrl":  "/artista/chicago.html",
+        "artistaSlug":  "chicago",
+        "tipos":  [
+
+                  ],
+        "id":  "1104983372",
+        "vendidoDesde":  "2026-11-19"
+    },
+    {
         "titulo":  "Level 42 - Staring At The Sun Vinilo Lp",
         "artista":  "LEVEL 42",
         "album":  "Staring At The Sun",
@@ -2652,6 +2681,36 @@
         "desc":  "Compilado - Música Total\nDisco: NM\nTapa: NM\n\nCompilado – Música Total\nLabel: Polystar – 816206-1\nFormat: Vinyl, LP, Compilation\nCountry: Argentina\nReleased: 1985\nGenre: Electronic, Pop\nStyle: New Wave, Synth-pop",
         "id":  "3810145732",
         "vendidoDesde":  "2026-08-22"
+    },
+    {
+        "titulo":  "Maxi Basic Element - Move Me - Vinilo Suecia",
+        "artista":  "Basic Element",
+        "album":  "Move Me",
+        "compania":  "EMI INHOUSE",
+        "anio":  "1993",
+        "canciones":  "4",
+        "origen":  "Suecia",
+        "genero":  "Electrónica",
+        "discos":  "",
+        "precio":  59990,
+        "visitas":  13,
+        "fecha":  "2026-09-05T17:34:04",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-3917687012",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_902295-MLA115794710046_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_727519-MLA117251541541_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_960815-MLA115794710136_092026-F.jpg",
+                         "https://http2.mlstatic.com/D_935096-MLA115794362268_092026-F.jpg"
+                     ],
+        "desc":  "Basic Element - Move Me\nDisco: VG+\nTapa Genérica: VG+\n\nBasic Element – Move Me\nLabel: EMI INHOUSE – 8650516\nFormat: Vinyl, 12\", 45 RPM, Maxi-Single\nCountry: Europe\nReleased: 1993\nGenre: Electronic\nStyle: Euro House, Eurodance",
+        "ficha":  "3917687012-basic-element-move-me.html",
+        "artistaUrl":  "",
+        "artistaSlug":  "basic-element",
+        "tipos":  [
+                      "Maxi singles"
+                  ],
+        "id":  "3917687012",
+        "vendidoDesde":  "2026-11-19"
     },
     {
         "titulo":  "Maxi The Outfield - Your Love - Vinilo Holanda",
