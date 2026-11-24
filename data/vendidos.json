@@ -87,6 +87,36 @@
         "vendidoDesde":  "2026-11-05"
     },
     {
+        "titulo":  "Compilado Vibraciones Trasnoche / 85 Vinilo Lp Sin Girar",
+        "artista":  "Varios Artistas",
+        "album":  "Vibraciones Trasnoche/85",
+        "compania":  "Columbia",
+        "anio":  "1980",
+        "canciones":  "10",
+        "origen":  "Argentina",
+        "genero":  "Rock",
+        "discos":  "1",
+        "precio":  45000,
+        "visitas":  12,
+        "fecha":  "2022-11-11T23:34:09",
+        "url":  "https://articulo.mercadolibre.com.ar/MLA-1236117569",
+        "imagenes":  [
+                         "https://http2.mlstatic.com/D_989554-MLA120526901074_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_828477-MLA120526841882_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_637307-MLA122301443239_112026-F.jpg",
+                         "https://http2.mlstatic.com/D_832897-MLA122301413799_112026-F.jpg"
+                     ],
+        "desc":  "Compilado Internacional Sin Girar - Sin uso, de disquería cerrada.",
+        "ficha":  "1236117569-varios-artistas-vibraciones-trasnoche-85.html",
+        "artistaUrl":  "/?artista=varios-artistas",
+        "artistaSlug":  "varios-artistas",
+        "tipos":  [
+                      "Compilados"
+                  ],
+        "id":  "1236117569",
+        "vendidoDesde":  "2026-11-24"
+    },
+    {
         "titulo":  "Facundo Cabral - Pateando Tachos Vinilo Lp Sin Girar",
         "artista":  "Facundo Cabral",
         "album":  "Pateando Tachos",
